@@ -16,5 +16,23 @@ namespace Jeopardy
         {
             InitializeComponent();
         }
+
+        private void btnPlayGame_Click(object sender, EventArgs e)
+        {
+            // Instantiates the play game form
+            frmPlayGame playGameForm = new frmPlayGame();
+
+            // Show the play game form
+            playGameForm.ShowDialog();
+        }
+
+        private void btnCreateGame_Click(object sender, EventArgs e)
+        {
+            // Instantiates the create game form
+            frmCreateGame createGameForm = new frmCreateGame();
+
+            // Show the create game form
+            createGameForm.ShowDialog();
+        }
     }
 }

@@ -45,7 +45,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pnlGameboard);
             this.Name = "frmPlayGame";
-            this.Text = "frmPlayGame";
+            this.Text = "Jeopardy!";
             this.Load += new System.EventHandler(this.frmPlayGame_Load);
             this.ResumeLayout(false);
 

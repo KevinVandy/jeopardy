@@ -31,8 +31,11 @@ namespace Jeopardy
             int rows = 5;
             int columns = 6;
 
+            // For each row..
             for (int x = 0; x < rows; x++)
             {
+                // Create that many columns until you break out of for loop
+                // Which in turn starts the next row
                 for (int y = 0; y < columns; y++)
                 {
                     Button tmpButton = new Button();
@@ -41,13 +44,18 @@ namespace Jeopardy
                     tmpButton.Width = ButtonWidth;
                     tmpButton.Height = ButtonHeight;
                     tmpButton.Text = "X: " + x.ToString() + " Y: " + y.ToString();
+
                     // Possible add Buttonclick event etc..
                     //this.Controls.Add(tmpButton);
+
+                    // Add the buttons to the panel, not the form itself
                     pnlGameboard.Controls.Add(tmpButton);
                 }
 
             }
 
+            // Makes it so that you can at least see all the buttons
+            // Doesn't automatically make the buttons fill that space though
             pnlGameboard.AutoSize = true;
             this.AutoSize = true;
 
