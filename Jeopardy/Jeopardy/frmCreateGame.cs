@@ -23,6 +23,9 @@ namespace Jeopardy
         {
             List<List<Button>> allQuestions = new List<List<Button>>();
 
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+
 
         }
     }
