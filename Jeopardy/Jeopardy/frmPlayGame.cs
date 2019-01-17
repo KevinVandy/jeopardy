@@ -34,7 +34,7 @@ namespace Jeopardy
             for (int x = 0; x < columns; x++)
             {
                 for (int y = 0; y < rows; y++)
-                {
+                { 
                     Button tmpButton = new Button();
                     tmpButton.Top = start_x + (x * ButtonHeight + Distance);
                     tmpButton.Left = start_y + (y * ButtonWidth + Distance);
