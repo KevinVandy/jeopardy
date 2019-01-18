@@ -18,6 +18,9 @@ namespace Jeopardy
         //private List Categories { get; set; }
         private TimeSpan QuestionTimeLimit { get; set; }
 
+
+
+
         public void createGame()
         {
 
