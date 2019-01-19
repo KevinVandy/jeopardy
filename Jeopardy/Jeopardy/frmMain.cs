@@ -34,5 +34,11 @@ namespace Jeopardy
             // Show the create game form
             createGameForm.ShowDialog();
         }
+
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form about = new frmAbout();
+            about.ShowDialog();
+        }
     }
 }

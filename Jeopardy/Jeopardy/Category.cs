@@ -8,12 +8,6 @@ namespace Jeopardy
 {
     class Category
     {
-        private int categoryID;
-        private int gameID;
-        private string title;
-        private string subtitle;
-        private List<Question> questions;
-
         private int CategoryID { get; set; }
         private int GameID { get; set; }
         private string Title { get; set; }
