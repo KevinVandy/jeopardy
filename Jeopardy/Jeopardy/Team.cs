@@ -8,13 +8,50 @@ namespace Jeopardy
 {
     class Team
     {
-        private int teamID;
-        private string teamName;
-        private int score;
+        private int TeamID;
+        private string TeamName;
+        private int Score;
 
-        private int TeamID { get; set; }
-        private string TeamName { get; set; }
-        private int Score { get; set; }
+        public int GetTeamID()
+        {
+            return TeamID;
+        }
 
+        public void SetTeamID(int Value)
+        {
+            TeamID = Value;
+        }
+
+        public string GetTeamNam()
+        {
+            return TeamName;
+        }
+
+        public void SetTeamName(string Value)
+        {
+            TeamName = Value;
+        }
+
+        public int GetScore()
+        {
+            return Score;
+        }
+
+        public void SetScore(int Value)
+        {
+            Score = Value;
+        }
+
+        public Team()
+        {
+
+        }
+
+        public Team(int aTeamID, string aTeamName, int aTeamScore= 0)
+        {
+            TeamID = aTeamID;
+            TeamName = aTeamName;
+            Score = aTeamScore;
+        }
     }
 }
