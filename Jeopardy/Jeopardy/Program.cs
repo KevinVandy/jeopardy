@@ -16,7 +16,7 @@ namespace Jeopardy
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            Application.Run(new frmTest());
             // Application.Run(new frmCreateGame());
             // Application.Run(new frmPlayGame());
         }
