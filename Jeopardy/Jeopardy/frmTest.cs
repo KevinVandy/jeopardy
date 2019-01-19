@@ -49,8 +49,8 @@ namespace Jeopardy
             pnlGameBoard.Height = formHeight - 70;
 
             // Some default options, can change later
-            int ButtonWidth = (this.Width - 220) / (rows + 1);
-            int ButtonHeight = (this.Height - 50) / columns;
+            int ButtonWidth = (pnlGameBoard.Width - 60) / (rows +1);
+            int ButtonHeight = (pnlGameBoard.Height - 30) / (columns -1);
             int Distance = 20;
             int start_x = 10;
             int start_y = 10;
