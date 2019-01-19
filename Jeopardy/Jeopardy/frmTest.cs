@@ -22,6 +22,7 @@ namespace Jeopardy
 
         private void frmTest_Load(object sender, EventArgs e)
         {
+            Validator.IsInteger("12");
             DrawForm();
         }
 

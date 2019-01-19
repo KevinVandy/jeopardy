@@ -19,7 +19,10 @@ namespace Jeopardy
 
         public void SetTeamID(int Value)
         {
-            TeamID = Value;
+
+                TeamID = Value;
+            
+
         }
 
         public string GetTeamNam()
