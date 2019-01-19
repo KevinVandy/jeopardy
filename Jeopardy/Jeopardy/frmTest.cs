@@ -12,6 +12,8 @@ namespace Jeopardy
 {
     public partial class frmTest : Form
     {
+        Question aQuestion = new Question();//1, 1, "TrueFalse", null, "The Answer", "True", 1, false);
+        
         public frmTest()
         {
             InitializeComponent();
@@ -23,6 +25,10 @@ namespace Jeopardy
 
         private void frmTest_Load(object sender, EventArgs e)
         {
+            aQuestion.SetID(1);
+            Question anotherQuestion = new Question(1, 2, "a", "b", "state", 3, true);
+            string id = anotherQuestion.GetState().ToString();
+            MessageBox.Show(id);
             int formWidth = this.Width;
             int formHeight = this.Height;
             pnlGameBoard.Height = formHeight -70;
