@@ -85,26 +85,32 @@
             this.lblQuestionTimeLimit = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.gbxGameInfo = new System.Windows.Forms.GroupBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbtnNewGame = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnOpen = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblNumberCategories = new System.Windows.Forms.Label();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.bwLoadGame = new System.ComponentModel.BackgroundWorker();
+            this.tsbtnNewGame = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnOpenGame = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnSaveGame = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnSaveGameAs = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnImportGame = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnExportGame = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.gbxQuestions.SuspendLayout();
             this.gbxCategories.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.gbxGameInfo.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn00
@@ -439,7 +445,7 @@
             this.gbxQuestions.Controls.Add(this.btn31);
             this.gbxQuestions.Controls.Add(this.btn24);
             this.gbxQuestions.Controls.Add(this.btn30);
-            this.gbxQuestions.Location = new System.Drawing.Point(21, 321);
+            this.gbxQuestions.Location = new System.Drawing.Point(21, 367);
             this.gbxQuestions.Name = "gbxQuestions";
             this.gbxQuestions.Size = new System.Drawing.Size(1183, 544);
             this.gbxQuestions.TabIndex = 30;
@@ -454,7 +460,7 @@
             this.gbxCategories.Controls.Add(this.button3);
             this.gbxCategories.Controls.Add(this.button2);
             this.gbxCategories.Controls.Add(this.button1);
-            this.gbxCategories.Location = new System.Drawing.Point(21, 201);
+            this.gbxCategories.Location = new System.Drawing.Point(21, 247);
             this.gbxCategories.Name = "gbxCategories";
             this.gbxCategories.Size = new System.Drawing.Size(1183, 101);
             this.gbxCategories.TabIndex = 30;
@@ -536,7 +542,7 @@
             this.txtGameName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGameName.Location = new System.Drawing.Point(124, 41);
             this.txtGameName.Name = "txtGameName";
-            this.txtGameName.Size = new System.Drawing.Size(228, 26);
+            this.txtGameName.Size = new System.Drawing.Size(188, 26);
             this.txtGameName.TabIndex = 32;
             // 
             // menuStrip
@@ -568,43 +574,43 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
             // 
             // openGameToolStripMenuItem
             // 
             this.openGameToolStripMenuItem.Name = "openGameToolStripMenuItem";
-            this.openGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openGameToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.openGameToolStripMenuItem.Text = "Open Game";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             // 
             // importGameToolStripMenuItem
             // 
             this.importGameToolStripMenuItem.Name = "importGameToolStripMenuItem";
-            this.importGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importGameToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.importGameToolStripMenuItem.Text = "Import From File";
             // 
             // exportGameToolStripMenuItem
             // 
             this.exportGameToolStripMenuItem.Name = "exportGameToolStripMenuItem";
-            this.exportGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportGameToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.exportGameToolStripMenuItem.Text = "Export To File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // editToolStripMenuItem
@@ -625,24 +631,24 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // tutorialToolStripMenuItem
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
-            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
             // 
             // lblQuestionTimeLimit
             // 
             this.lblQuestionTimeLimit.AutoSize = true;
             this.lblQuestionTimeLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestionTimeLimit.Location = new System.Drawing.Point(406, 44);
+            this.lblQuestionTimeLimit.Location = new System.Drawing.Point(15, 96);
             this.lblQuestionTimeLimit.Name = "lblQuestionTimeLimit";
-            this.lblQuestionTimeLimit.Size = new System.Drawing.Size(208, 20);
+            this.lblQuestionTimeLimit.Size = new System.Drawing.Size(152, 20);
             this.lblQuestionTimeLimit.TabIndex = 34;
-            this.lblQuestionTimeLimit.Text = "Default Question Time Limit:";
+            this.lblQuestionTimeLimit.Text = "Question Time Limit:";
             // 
             // comboBox1
             // 
@@ -653,136 +659,115 @@
             "1 minute",
             "2 minutes",
             "3 minutes"});
-            this.comboBox1.Location = new System.Drawing.Point(620, 41);
+            this.comboBox1.Location = new System.Drawing.Point(184, 93);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 28);
+            this.comboBox1.Size = new System.Drawing.Size(128, 28);
             this.comboBox1.TabIndex = 35;
             // 
             // gbxGameInfo
             // 
+            this.gbxGameInfo.Controls.Add(this.label2);
+            this.gbxGameInfo.Controls.Add(this.lblNumberCategories);
+            this.gbxGameInfo.Controls.Add(this.numericUpDown2);
+            this.gbxGameInfo.Controls.Add(this.numericUpDown1);
             this.gbxGameInfo.Controls.Add(this.comboBox1);
             this.gbxGameInfo.Controls.Add(this.lblGameName);
             this.gbxGameInfo.Controls.Add(this.lblQuestionTimeLimit);
             this.gbxGameInfo.Controls.Add(this.txtGameName);
             this.gbxGameInfo.Location = new System.Drawing.Point(21, 78);
             this.gbxGameInfo.Name = "gbxGameInfo";
-            this.gbxGameInfo.Size = new System.Drawing.Size(1183, 101);
+            this.gbxGameInfo.Size = new System.Drawing.Size(1183, 163);
             this.gbxGameInfo.TabIndex = 36;
             this.gbxGameInfo.TabStop = false;
             this.gbxGameInfo.Text = "Game Information";
             // 
-            // toolStrip1
+            // label2
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton6,
-            this.tsbtnOpen,
-            this.toolStripButton4,
-            this.toolStripButton3,
-            this.toolStripButton2,
-            this.toolStripSeparator1,
-            this.toolStripButton1,
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(601, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(221, 20);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Number Questions / Category:";
+            // 
+            // lblNumberCategories
+            // 
+            this.lblNumberCategories.AutoSize = true;
+            this.lblNumberCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumberCategories.Location = new System.Drawing.Point(347, 44);
+            this.lblNumberCategories.Name = "lblNumberCategories";
+            this.lblNumberCategories.Size = new System.Drawing.Size(150, 20);
+            this.lblNumberCategories.TabIndex = 38;
+            this.lblNumberCategories.Text = "Number Categories:";
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown2.Location = new System.Drawing.Point(828, 42);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(57, 26);
+            this.numericUpDown2.TabIndex = 37;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Location = new System.Drawing.Point(503, 42);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(57, 26);
+            this.numericUpDown1.TabIndex = 36;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // toolStrip
+            // 
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbtnNewGame,
+            this.tsbtnOpenGame,
+            this.tsbtnSaveGame,
+            this.tsbtnSaveGameAs,
+            this.tsbtnImportGame,
+            this.tsbtnExportGame,
+            this.toolStripSeparator1,
             this.toolStripButton9,
             this.toolStripSeparator2,
             this.toolStripButton8,
             this.toolStripButton7,
             this.toolStripSeparator3,
             this.toolStripProgressBar1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1439, 25);
-            this.toolStrip1.TabIndex = 37;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tsbtnNewGame
-            // 
-            this.tsbtnNewGame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnNewGame.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnNewGame.Image")));
-            this.tsbtnNewGame.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnNewGame.Name = "tsbtnNewGame";
-            this.tsbtnNewGame.Size = new System.Drawing.Size(23, 22);
-            this.tsbtnNewGame.Text = "toolStripButton1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton1";
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton1";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton1";
-            // 
-            // tsbtnOpen
-            // 
-            this.tsbtnOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnOpen.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnOpen.Image")));
-            this.tsbtnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnOpen.Name = "tsbtnOpen";
-            this.tsbtnOpen.Size = new System.Drawing.Size(23, 22);
-            this.tsbtnOpen.Text = "toolStripButton1";
-            // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton6.Text = "New Game";
-            // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton7.Text = "toolStripButton1";
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton8.Text = "toolStripButton1";
-            // 
-            // toolStripButton9
-            // 
-            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton9.Text = "toolStripButton1";
+            this.toolStrip.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(1439, 25);
+            this.toolStrip.TabIndex = 37;
+            this.toolStrip.Text = "toolStrip1";
             // 
             // toolStripSeparator1
             // 
@@ -804,6 +789,93 @@
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 22);
             // 
+            // tsbtnNewGame
+            // 
+            this.tsbtnNewGame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnNewGame.Image = global::Jeopardy.Properties.Resources.NewTable_16x;
+            this.tsbtnNewGame.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnNewGame.Name = "tsbtnNewGame";
+            this.tsbtnNewGame.Size = new System.Drawing.Size(23, 22);
+            this.tsbtnNewGame.Text = "toolStripButton1";
+            this.tsbtnNewGame.ToolTipText = "Create New Game";
+            // 
+            // tsbtnOpenGame
+            // 
+            this.tsbtnOpenGame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnOpenGame.Image = global::Jeopardy.Properties.Resources.OpenfileDialog_16x;
+            this.tsbtnOpenGame.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnOpenGame.Name = "tsbtnOpenGame";
+            this.tsbtnOpenGame.Size = new System.Drawing.Size(23, 22);
+            this.tsbtnOpenGame.Text = "toolStripButton1";
+            this.tsbtnOpenGame.ToolTipText = "Open Game";
+            // 
+            // tsbtnSaveGame
+            // 
+            this.tsbtnSaveGame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSaveGame.Image = global::Jeopardy.Properties.Resources.Save_16x;
+            this.tsbtnSaveGame.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnSaveGame.Name = "tsbtnSaveGame";
+            this.tsbtnSaveGame.Size = new System.Drawing.Size(23, 22);
+            this.tsbtnSaveGame.Text = "toolStripButton1";
+            this.tsbtnSaveGame.ToolTipText = "Save";
+            // 
+            // tsbtnSaveGameAs
+            // 
+            this.tsbtnSaveGameAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSaveGameAs.Image = global::Jeopardy.Properties.Resources.SaveAs_16x;
+            this.tsbtnSaveGameAs.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnSaveGameAs.Name = "tsbtnSaveGameAs";
+            this.tsbtnSaveGameAs.Size = new System.Drawing.Size(23, 22);
+            this.tsbtnSaveGameAs.Text = "toolStripButton1";
+            this.tsbtnSaveGameAs.ToolTipText = "Save As";
+            // 
+            // tsbtnImportGame
+            // 
+            this.tsbtnImportGame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnImportGame.Image = global::Jeopardy.Properties.Resources.Import_16x;
+            this.tsbtnImportGame.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnImportGame.Name = "tsbtnImportGame";
+            this.tsbtnImportGame.Size = new System.Drawing.Size(23, 22);
+            this.tsbtnImportGame.Text = "toolStripButton1";
+            this.tsbtnImportGame.ToolTipText = "Import Game From File";
+            // 
+            // tsbtnExportGame
+            // 
+            this.tsbtnExportGame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnExportGame.Image = global::Jeopardy.Properties.Resources.Export_16x;
+            this.tsbtnExportGame.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnExportGame.Name = "tsbtnExportGame";
+            this.tsbtnExportGame.Size = new System.Drawing.Size(23, 22);
+            this.tsbtnExportGame.Text = "toolStripButton1";
+            this.tsbtnExportGame.ToolTipText = "Export Game To File";
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton9.Text = "toolStripButton1";
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton8.Text = "toolStripButton1";
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton7.Text = "toolStripButton1";
+            // 
             // frmCreateGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -811,7 +883,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1439, 979);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.gbxGameInfo);
             this.Controls.Add(this.gbxCategories);
             this.Controls.Add(this.gbxQuestions);
@@ -827,8 +899,10 @@
             this.menuStrip.PerformLayout();
             this.gbxGameInfo.ResumeLayout(false);
             this.gbxGameInfo.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -892,13 +966,12 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox gbxGameInfo;
         private System.Windows.Forms.ToolStripMenuItem openGameToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton tsbtnOpen;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton tsbtnOpenGame;
+        private System.Windows.Forms.ToolStripButton tsbtnSaveGame;
+        private System.Windows.Forms.ToolStripButton tsbtnSaveGameAs;
+        private System.Windows.Forms.ToolStripButton tsbtnImportGame;
+        private System.Windows.Forms.ToolStripButton tsbtnExportGame;
         private System.Windows.Forms.ToolStripButton tsbtnNewGame;
         private System.Windows.Forms.ToolStripButton toolStripButton9;
         private System.Windows.Forms.ToolStripButton toolStripButton8;
@@ -907,5 +980,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblNumberCategories;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.ComponentModel.BackgroundWorker bwLoadGame;
     }
 }

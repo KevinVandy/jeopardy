@@ -101,7 +101,7 @@ namespace Jeopardy
         {
 
         }
-        public Question (int aID, int aCategoryID, string aType, string aAnswer, string aState, int aWeight, bool aDailyDouble, List<Choice> aChoices = null)
+        public Question(int aID, int aCategoryID, string aType, string aAnswer, string aState, int aWeight, bool aDailyDouble, List<Choice> aChoices = null)
         {
             Id = aID;
             CategoryID = aCategoryID;
@@ -113,7 +113,7 @@ namespace Jeopardy
             DailyDouble = aDailyDouble;
         }
 
-        
+
 
         //public static string retunType(Question aQuestion)
         //{

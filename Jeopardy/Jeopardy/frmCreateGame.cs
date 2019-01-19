@@ -16,17 +16,11 @@ namespace Jeopardy
         {
             InitializeComponent();
         }
-
-       
-
+        
         private void frmCreateGame_Load(object sender, EventArgs e)
         {
             List<List<Button>> allQuestions = new List<List<Button>>();
-
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-
-
+            
         }
         
     }

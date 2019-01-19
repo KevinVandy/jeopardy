@@ -46,7 +46,7 @@ namespace Jeopardy
 
         }
 
-        public void playGame ()
+        public void playGame()
         {
 
         }
