@@ -12,11 +12,11 @@ namespace Jeopardy
 {
     public partial class frmCreateGame : Form
     {
-        private Game game;
-        private List<Button> categoryButtons;
-        private List<Button> questionButtons;
-        int numCategories;
-        int numQuestionsPerCat;
+        private Game game = new Game();
+        private List<Button> categoryButtons = new List<Button>();
+        private List<Button> questionButtons = new List<Button>();
+        int numCategories = 6;
+        int numQuestionsPerCat = 5;
 
         public frmCreateGame()
         {
@@ -26,34 +26,31 @@ namespace Jeopardy
             numCategories = (int)nudNumCategories.Value;
             numQuestionsPerCat = (int)nudNumQuestionCategory.Value;
 
-            categoryButtons = new List<Button>();
-            questionButtons = new List<Button>();
         }
 
         private void frmCreateGame_Load(object sender, EventArgs e)
         {
             DisplayNumberQuesions();
 
-            DrawCategoryGrid();
-            DrawQuestionGrid();
-
+            CreateCategoryGrid();
+            CreateQuestionGrid();
         }
-
-
 
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
         {
-            DisplayNumberQuesions();
             numCategories = (int)nudNumCategories.Value;
-            DrawCategoryGrid();
-            DrawQuestionGrid();
+            DisplayNumberQuesions();
+
+            CreateCategoryGrid();
+            CreateQuestionGrid();
         }
 
         private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
         {
-            DisplayNumberQuesions();
             numQuestionsPerCat = (int)nudNumQuestionCategory.Value;
-            DrawQuestionGrid();
+            DisplayNumberQuesions();
+
+            CreateQuestionGrid();
         }
 
         private void DisplayNumberQuesions()
@@ -66,27 +63,27 @@ namespace Jeopardy
             return (int)nudNumCategories.Value * (int)nudNumQuestionCategory.Value;
         }
 
-        private void DrawCategoryGrid()
+        private void CreateCategoryGrid()
         {
             gbxCategories.Controls.Clear();
 
-            if(categoryButtons != null)
+            if (categoryButtons != null)
             {
                 categoryButtons.Clear();
             }
-            
+
             int gbxWidth = gbxCategories.Width;
             int gbxHeight = gbxCategories.Height;
 
             int buttonWidth = (gbxWidth - 80) / (numCategories);
             int buttonHeight = 80;
-            
+
             int start_x = 30;
             int start_y = 30;
 
             for (int x = 0; x < 1; x++)
             {
-                for(int y = 0; y < numCategories; y++)
+                for (int y = 0; y < numCategories; y++)
                 {
                     Button tmpButton = new Button();
                     tmpButton.Top = start_x + (x * buttonHeight);
@@ -99,7 +96,7 @@ namespace Jeopardy
                 }
             }
 
-            foreach(Button b in categoryButtons)
+            foreach (Button b in categoryButtons)
             {
                 gbxCategories.Controls.Add(b);
             }
@@ -111,20 +108,16 @@ namespace Jeopardy
             editCategoryForm.ShowDialog();
         }
 
-        private void DrawQuestionGrid()
+        private void CreateQuestionGrid()
         {
             gbxQuestions.Controls.Clear();
-
-            if (questionButtons != null)
-            {
-                questionButtons.Clear();
-            }
+            questionButtons.Clear();
 
             int gbxWidth = gbxQuestions.Width;
             int gbxHeight = gbxQuestions.Height;
 
-            int buttonWidth = (gbxWidth - 80) / (numCategories);
-            int buttonHeight = 100;
+            int buttonWidth = (gbxWidth - 80) / numCategories;
+            int buttonHeight = (gbxHeight - 80) / numQuestionsPerCat;
 
             int start_x = 30;
             int start_y = 30;
@@ -154,6 +147,40 @@ namespace Jeopardy
         {
             frmEditQuestion editQuestionForm = new frmEditQuestion();
             editQuestionForm.ShowDialog();
+        }
+
+        private void ModifyGroupBoxWidths()
+        {
+            gbxGameInfo.Width = Width - 70;
+            gbxCategories.Width = Width - 70;
+            gbxQuestions.Width = Width - 70;
+        }
+
+        private void frmCreateGame_ResizeEnd(object sender, EventArgs e)
+        {
+            ModifyGroupBoxWidths();
+            CreateCategoryGrid();
+            CreateQuestionGrid();
+        }
+
+        //code to make maximizing and restoring the window act the same as resizing
+        FormWindowState LastWindowState = FormWindowState.Minimized;
+        private void frmCreateGame_Resize(object sender, EventArgs e)
+        {
+            if (WindowState != LastWindowState)
+            {
+                LastWindowState = WindowState;
+
+
+                if (WindowState == FormWindowState.Maximized)
+                {
+                    frmCreateGame_ResizeEnd(null, null);
+                }
+                if (WindowState == FormWindowState.Normal)
+                {
+                    frmCreateGame_ResizeEnd(null, null);
+                }
+            }
         }
     }
 }

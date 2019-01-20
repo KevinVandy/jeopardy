@@ -26,7 +26,7 @@ namespace Jeopardy
             DrawForm();
         }
 
-        private void frmPlayGame_Resize(object sender, EventArgs e)
+        private void frmPlayGame_ResizeEnd(object sender, EventArgs e)
         {
             DrawForm();
         }
@@ -82,5 +82,7 @@ namespace Jeopardy
 
             }
         }
+
+        
     }
 }

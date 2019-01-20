@@ -33,7 +33,7 @@
             // 
             // pnlGameboard
             // 
-            this.pnlGameboard.Location = new System.Drawing.Point(13, 13);
+            this.pnlGameboard.Location = new System.Drawing.Point(22, 23);
             this.pnlGameboard.Name = "pnlGameboard";
             this.pnlGameboard.Size = new System.Drawing.Size(775, 425);
             this.pnlGameboard.TabIndex = 0;
@@ -42,12 +42,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoScroll = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(826, 478);
             this.Controls.Add(this.pnlGameboard);
             this.Name = "frmPlayGame";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Jeopardy!";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPlayGame_Load);
-            this.Resize += new System.EventHandler(this.frmPlayGame_Resize);
+            this.ResizeEnd += new System.EventHandler(this.frmPlayGame_ResizeEnd);
             this.ResumeLayout(false);
 
         }

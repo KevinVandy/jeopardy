@@ -125,7 +125,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1422, 27);
+            this.menuStrip.Size = new System.Drawing.Size(1234, 27);
             this.menuStrip.TabIndex = 33;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -273,6 +273,7 @@
             this.gbxGameInfo.Controls.Add(this.txtGameName);
             this.gbxGameInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxGameInfo.Location = new System.Drawing.Point(21, 78);
+            this.gbxGameInfo.MinimumSize = new System.Drawing.Size(1000, 0);
             this.gbxGameInfo.Name = "gbxGameInfo";
             this.gbxGameInfo.Size = new System.Drawing.Size(1183, 163);
             this.gbxGameInfo.TabIndex = 36;
@@ -422,7 +423,7 @@
             this.tsbtnTutorial});
             this.toolStrip.Location = new System.Drawing.Point(0, 27);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1422, 35);
+            this.toolStrip.Size = new System.Drawing.Size(1234, 35);
             this.toolStrip.TabIndex = 37;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -505,8 +506,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1439, 979);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1251, 979);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.gbxGameInfo);
             this.Controls.Add(this.gbxCategories);
@@ -514,10 +515,14 @@
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(360, 240);
             this.Name = "frmCreateGame";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCreateGame";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCreateGame_Load);
+            this.ResizeEnd += new System.EventHandler(this.frmCreateGame_ResizeEnd);
+            this.Resize += new System.EventHandler(this.frmCreateGame_Resize);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.gbxGameInfo.ResumeLayout(false);
