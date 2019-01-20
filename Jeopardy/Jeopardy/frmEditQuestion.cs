@@ -16,5 +16,10 @@ namespace Jeopardy
         {
             InitializeComponent();
         }
+
+        private void rdoType_Change(object sender, EventArgs e)
+        {
+
+        }
     }
 }
