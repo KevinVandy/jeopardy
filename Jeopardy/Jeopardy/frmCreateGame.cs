@@ -34,7 +34,8 @@ namespace Jeopardy
         {
             DisplayNumberQuesions();
 
-            List<List<Button>> allQuestions = new List<List<Button>>();
+            DrawCategoryGrid();
+            DrawQuestionGrid();
 
         }
 
@@ -45,12 +46,14 @@ namespace Jeopardy
             DisplayNumberQuesions();
             numCategories = (int)nudNumCategories.Value;
             DrawCategoryGrid();
+            DrawQuestionGrid();
         }
 
         private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
         {
             DisplayNumberQuesions();
             numQuestionsPerCat = (int)nudNumQuestionCategory.Value;
+            DrawQuestionGrid();
         }
 
         private void DisplayNumberQuesions()
@@ -72,12 +75,11 @@ namespace Jeopardy
                 categoryButtons.Clear();
             }
             
-
             int gbxWidth = gbxCategories.Width;
             int gbxHeight = gbxCategories.Height;
 
-            int buttonWidth = (gbxWidth - 60) / (numCategories);
-            int buttonHeight = 50;
+            int buttonWidth = (gbxWidth - 80) / (numCategories);
+            int buttonHeight = 80;
             
             int start_x = 30;
             int start_y = 30;
@@ -88,7 +90,7 @@ namespace Jeopardy
                 {
                     Button tmpButton = new Button();
                     tmpButton.Top = start_x + (x * buttonHeight);
-                    tmpButton.Left = start_y + (y * buttonWidth);
+                    tmpButton.Left = start_y + ((y * buttonWidth) + (y * 5));
                     tmpButton.Width = buttonWidth;
                     tmpButton.Height = buttonHeight;
                     tmpButton.Text = "Category " + (y + 1).ToString();
@@ -105,12 +107,53 @@ namespace Jeopardy
 
         private void CategoryButton_Click(object sender, EventArgs e)
         {
-            
+            frmEditCategory editCategoryForm = new frmEditCategory();
+            editCategoryForm.ShowDialog();
         }
 
         private void DrawQuestionGrid()
         {
+            gbxQuestions.Controls.Clear();
 
+            if (questionButtons != null)
+            {
+                questionButtons.Clear();
+            }
+
+            int gbxWidth = gbxQuestions.Width;
+            int gbxHeight = gbxQuestions.Height;
+
+            int buttonWidth = (gbxWidth - 80) / (numCategories);
+            int buttonHeight = 100;
+
+            int start_x = 30;
+            int start_y = 30;
+
+            for (int x = 0; x < numQuestionsPerCat; x++)
+            {
+                for (int y = 0; y < numCategories; y++)
+                {
+                    Button tmpButton = new Button();
+                    tmpButton.Top = start_x + ((x * buttonHeight) + (x * 5));
+                    tmpButton.Left = start_y + ((y * buttonWidth) + (y * 5));
+                    tmpButton.Width = buttonWidth;
+                    tmpButton.Height = buttonHeight;
+                    tmpButton.Text = "Category " + (y + 1).ToString() + "\n" + "Question " + (x + 1).ToString();
+                    tmpButton.Click += QuestionButton_Click;
+                    questionButtons.Add(tmpButton);
+                }
+            }
+
+            foreach (Button b in questionButtons)
+            {
+                gbxQuestions.Controls.Add(b);
+            }
+        }
+
+        private void QuestionButton_Click(object sender, EventArgs e)
+        {
+            frmEditQuestion editQuestionForm = new frmEditQuestion();
+            editQuestionForm.ShowDialog();
         }
     }
 }
