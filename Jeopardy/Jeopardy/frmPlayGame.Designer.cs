@@ -47,6 +47,7 @@
             this.Name = "frmPlayGame";
             this.Text = "Jeopardy!";
             this.Load += new System.EventHandler(this.frmPlayGame_Load);
+            this.Resize += new System.EventHandler(this.frmPlayGame_Resize);
             this.ResumeLayout(false);
 
         }
