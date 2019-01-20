@@ -16,12 +16,35 @@ namespace Jeopardy
         {
             InitializeComponent();
         }
-        
+
         private void frmCreateGame_Load(object sender, EventArgs e)
         {
+            DisplayNumberQuesions();
+
             List<List<Button>> allQuestions = new List<List<Button>>();
-            
+
         }
-        
+
+
+
+        private void nudNumCategories_ValueChanged(object sender, EventArgs e)
+        {
+            DisplayNumberQuesions();
+        }
+
+        private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
+        {
+            DisplayNumberQuesions();
+        }
+
+        private void DisplayNumberQuesions()
+        {
+            lblNumberQuestions.Text = CalcNumberOfQuestions().ToString();
+        }
+
+        private int CalcNumberOfQuestions()
+        {
+            return (int)nudNumCategories.Value * (int)nudNumQuestionCategory.Value;
+        }
     }
 }
