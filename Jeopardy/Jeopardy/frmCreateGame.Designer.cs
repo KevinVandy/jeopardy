@@ -98,15 +98,15 @@
             this.nudNumQuestionCategory = new System.Windows.Forms.NumericUpDown();
             this.nudNumCategories = new System.Windows.Forms.NumericUpDown();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bwLoadGame = new System.ComponentModel.BackgroundWorker();
             this.tsbtnNewGame = new System.Windows.Forms.ToolStripButton();
             this.tsbtnOpenGame = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSaveGame = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSaveGameAs = new System.Windows.Forms.ToolStripButton();
             this.tsbtnImportGame = new System.Windows.Forms.ToolStripButton();
             this.tsbtnExportGame = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnTutorial = new System.Windows.Forms.ToolStripButton();
+            this.bwLoadGame = new System.ComponentModel.BackgroundWorker();
             this.gbxQuestions.SuspendLayout();
             this.gbxCategories.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -448,6 +448,7 @@
             this.gbxQuestions.Controls.Add(this.btn31);
             this.gbxQuestions.Controls.Add(this.btn24);
             this.gbxQuestions.Controls.Add(this.btn30);
+            this.gbxQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxQuestions.Location = new System.Drawing.Point(21, 367);
             this.gbxQuestions.Name = "gbxQuestions";
             this.gbxQuestions.Size = new System.Drawing.Size(1183, 544);
@@ -463,9 +464,10 @@
             this.gbxCategories.Controls.Add(this.button3);
             this.gbxCategories.Controls.Add(this.button2);
             this.gbxCategories.Controls.Add(this.button1);
+            this.gbxCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxCategories.Location = new System.Drawing.Point(21, 247);
             this.gbxCategories.Name = "gbxCategories";
-            this.gbxCategories.Size = new System.Drawing.Size(1183, 101);
+            this.gbxCategories.Size = new System.Drawing.Size(1183, 114);
             this.gbxCategories.TabIndex = 30;
             this.gbxCategories.TabStop = false;
             this.gbxCategories.Text = "Categories";
@@ -550,13 +552,14 @@
             // 
             // menuStrip
             // 
+            this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1439, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1439, 27);
             this.menuStrip.TabIndex = 33;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -574,70 +577,70 @@
             this.toolStripSeparator6,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(41, 23);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.newGameToolStripMenuItem.Text = "New Game";
             // 
             // openGameToolStripMenuItem
             // 
             this.openGameToolStripMenuItem.Name = "openGameToolStripMenuItem";
-            this.openGameToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.openGameToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.openGameToolStripMenuItem.Text = "Open Game";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // importGameToolStripMenuItem
             // 
             this.importGameToolStripMenuItem.Name = "importGameToolStripMenuItem";
-            this.importGameToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.importGameToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.importGameToolStripMenuItem.Text = "Import From File";
             // 
             // exportGameToolStripMenuItem
             // 
             this.exportGameToolStripMenuItem.Name = "exportGameToolStripMenuItem";
-            this.exportGameToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.exportGameToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.exportGameToolStripMenuItem.Text = "Export To File";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // helpToolStripMenuItem
@@ -646,19 +649,19 @@
             this.aboutToolStripMenuItem,
             this.tutorialToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(49, 23);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // tutorialToolStripMenuItem
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
-            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
             // 
             // lblQuestionTimeLimit
@@ -702,6 +705,7 @@
             this.gbxGameInfo.Controls.Add(this.lblGameName);
             this.gbxGameInfo.Controls.Add(this.lblQuestionTimeLimit);
             this.gbxGameInfo.Controls.Add(this.txtGameName);
+            this.gbxGameInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxGameInfo.Location = new System.Drawing.Point(21, 78);
             this.gbxGameInfo.Name = "gbxGameInfo";
             this.gbxGameInfo.Size = new System.Drawing.Size(1183, 163);
@@ -850,16 +854,11 @@
             this.tsbtnExportGame,
             this.toolStripSeparator1,
             this.tsbtnTutorial});
-            this.toolStrip.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip.Location = new System.Drawing.Point(0, 27);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(1439, 35);
             this.toolStrip.TabIndex = 37;
             this.toolStrip.Text = "toolStrip1";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 35);
             // 
             // tsbtnNewGame
             // 
@@ -921,6 +920,11 @@
             this.tsbtnExportGame.Text = "toolStripButton1";
             this.tsbtnExportGame.ToolTipText = "Export Game To File";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 35);
+            // 
             // tsbtnTutorial
             // 
             this.tsbtnTutorial.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -946,6 +950,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCreateGame";
             this.Text = "frmCreateGame";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCreateGame_Load);
             this.gbxQuestions.ResumeLayout(false);
             this.gbxCategories.ResumeLayout(false);

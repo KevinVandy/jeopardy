@@ -65,13 +65,13 @@ namespace Jeopardy
                 for (int y = 0; y < columns; y++)
                 {
                     Button tmpButton = new Button();
-                    ButtonList.Add(tmpButton);
                     tmpButton.Top = start_x + (x * ButtonHeight + Distance);
                     tmpButton.Left = start_y + (y * ButtonWidth + Distance);
                     tmpButton.Width = ButtonWidth;
                     tmpButton.Height = ButtonHeight;
                     tmpButton.Click += new EventHandler(button_Click);
                     tmpButton.Text = "X: " + x.ToString() + " Y: " + y.ToString();
+                    ButtonList.Add(tmpButton);
 
                     // Possible add Buttonclick event etc..
                     //this.Controls.Add(tmpButton);
