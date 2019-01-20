@@ -8,11 +8,6 @@ namespace Jeopardy
 {
     class Game
     {
-        private int gameID;
-        private string name;
-        //private List categories;
-        private TimeSpan questionTimeLimit;
-
         private int GameID { get; set; }
         private string Name { get; set; }
         //private List Categories { get; set; }

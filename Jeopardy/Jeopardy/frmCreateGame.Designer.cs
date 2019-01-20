@@ -85,7 +85,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblQuestionTimeLimit = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboQuestionTimeLimit = new System.Windows.Forms.ComboBox();
             this.gbxGameInfo = new System.Windows.Forms.GroupBox();
             this.lblNumberEmptyQuestions = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -98,15 +98,15 @@
             this.nudNumQuestionCategory = new System.Windows.Forms.NumericUpDown();
             this.nudNumCategories = new System.Windows.Forms.NumericUpDown();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bwLoadGame = new System.ComponentModel.BackgroundWorker();
             this.tsbtnNewGame = new System.Windows.Forms.ToolStripButton();
             this.tsbtnOpenGame = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSaveGame = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSaveGameAs = new System.Windows.Forms.ToolStripButton();
             this.tsbtnImportGame = new System.Windows.Forms.ToolStripButton();
             this.tsbtnExportGame = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnTutorial = new System.Windows.Forms.ToolStripButton();
-            this.bwLoadGame = new System.ComponentModel.BackgroundWorker();
             this.gbxQuestions.SuspendLayout();
             this.gbxCategories.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -671,19 +671,20 @@
             this.lblQuestionTimeLimit.TabIndex = 34;
             this.lblQuestionTimeLimit.Text = "Question Time Limit:";
             // 
-            // comboBox1
+            // cboQuestionTimeLimit
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cboQuestionTimeLimit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboQuestionTimeLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboQuestionTimeLimit.FormattingEnabled = true;
+            this.cboQuestionTimeLimit.Items.AddRange(new object[] {
             "30 seconds",
             "1 minute",
             "2 minutes",
             "3 minutes"});
-            this.comboBox1.Location = new System.Drawing.Point(184, 93);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(128, 28);
-            this.comboBox1.TabIndex = 35;
+            this.cboQuestionTimeLimit.Location = new System.Drawing.Point(184, 93);
+            this.cboQuestionTimeLimit.Name = "cboQuestionTimeLimit";
+            this.cboQuestionTimeLimit.Size = new System.Drawing.Size(128, 28);
+            this.cboQuestionTimeLimit.TabIndex = 35;
             // 
             // gbxGameInfo
             // 
@@ -697,7 +698,7 @@
             this.gbxGameInfo.Controls.Add(this.lblNumberCategories);
             this.gbxGameInfo.Controls.Add(this.nudNumQuestionCategory);
             this.gbxGameInfo.Controls.Add(this.nudNumCategories);
-            this.gbxGameInfo.Controls.Add(this.comboBox1);
+            this.gbxGameInfo.Controls.Add(this.cboQuestionTimeLimit);
             this.gbxGameInfo.Controls.Add(this.lblGameName);
             this.gbxGameInfo.Controls.Add(this.lblQuestionTimeLimit);
             this.gbxGameInfo.Controls.Add(this.txtGameName);
@@ -855,6 +856,11 @@
             this.toolStrip.TabIndex = 37;
             this.toolStrip.Text = "toolStrip1";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 35);
+            // 
             // tsbtnNewGame
             // 
             this.tsbtnNewGame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -914,11 +920,6 @@
             this.tsbtnExportGame.Size = new System.Drawing.Size(23, 32);
             this.tsbtnExportGame.Text = "toolStripButton1";
             this.tsbtnExportGame.ToolTipText = "Export Game To File";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 35);
             // 
             // tsbtnTutorial
             // 
@@ -1016,7 +1017,7 @@
         private System.Windows.Forms.ToolStripMenuItem importGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.Label lblQuestionTimeLimit;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboQuestionTimeLimit;
         private System.Windows.Forms.GroupBox gbxGameInfo;
         private System.Windows.Forms.ToolStripMenuItem openGameToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip;
