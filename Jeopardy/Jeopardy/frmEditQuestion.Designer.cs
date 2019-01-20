@@ -50,7 +50,7 @@
             this.rdoChoiceB = new System.Windows.Forms.RadioButton();
             this.rdoChoiceC = new System.Windows.Forms.RadioButton();
             this.rdoChoiceA = new System.Windows.Forms.RadioButton();
-            this.lblAnswer = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.pnlTypes.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -293,23 +293,20 @@
             this.rdoChoiceA.Text = "a";
             this.rdoChoiceA.UseVisualStyleBackColor = true;
             // 
-            // lblAnswer
+            // textBox2
             // 
-            this.lblAnswer.AutoSize = true;
-            this.lblAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAnswer.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblAnswer.Location = new System.Drawing.Point(147, 561);
-            this.lblAnswer.Name = "lblAnswer";
-            this.lblAnswer.Size = new System.Drawing.Size(96, 20);
-            this.lblAnswer.TabIndex = 20;
-            this.lblAnswer.Text = "Answer Text";
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(147, 551);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(763, 35);
+            this.textBox2.TabIndex = 22;
             // 
             // frmEditQuestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(940, 670);
-            this.Controls.Add(this.lblAnswer);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnCancel);
@@ -357,6 +354,6 @@
         private System.Windows.Forms.RadioButton rdoChoiceB;
         private System.Windows.Forms.RadioButton rdoChoiceC;
         private System.Windows.Forms.RadioButton rdoChoiceA;
-        private System.Windows.Forms.Label lblAnswer;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
