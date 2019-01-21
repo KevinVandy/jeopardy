@@ -37,6 +37,7 @@
             this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.autosaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -71,7 +72,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnTutorial = new System.Windows.Forms.ToolStripButton();
             this.bwLoadGame = new System.ComponentModel.BackgroundWorker();
-            this.autosaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.gbxGameInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumQuestionCategory)).BeginInit();
@@ -164,6 +164,14 @@
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            // 
+            // autosaveToolStripMenuItem
+            // 
+            this.autosaveToolStripMenuItem.Checked = true;
+            this.autosaveToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autosaveToolStripMenuItem.Name = "autosaveToolStripMenuItem";
+            this.autosaveToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.autosaveToolStripMenuItem.Text = "Autosave";
             // 
             // saveToolStripMenuItem
             // 
@@ -503,20 +511,11 @@
             this.tsbtnTutorial.Size = new System.Drawing.Size(23, 32);
             this.tsbtnTutorial.Text = "toolStripButton1";
             // 
-            // autosaveToolStripMenuItem
-            // 
-            this.autosaveToolStripMenuItem.Checked = true;
-            this.autosaveToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.autosaveToolStripMenuItem.Name = "autosaveToolStripMenuItem";
-            this.autosaveToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.autosaveToolStripMenuItem.Text = "Autosave";
-            // 
             // frmCreateGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1073, 902);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.gbxGameInfo);
@@ -527,6 +526,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(360, 240);
             this.Name = "frmCreateGame";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCreateGame";
             this.Load += new System.EventHandler(this.frmCreateGame_Load);
