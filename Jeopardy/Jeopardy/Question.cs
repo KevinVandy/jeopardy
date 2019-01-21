@@ -8,119 +8,67 @@ namespace Jeopardy
 {
     class Question
     {
-        private int Id;
-        private int CategoryID;
-        private string Type;
-        private List<Choice> Choices;
-        private string Answer;
-        private string State;
-        private int Weight;
-        private bool DailyDouble;
+        private int id;
+        private int categoryId;
+        private string type;
+        private string answer;
+        private int weight;
+        private List<Choice> choices;
+        private bool dailyDouble;
 
+        public Question() { }
 
-        public int GetID()
+        public Question(int id, int categoryId, string type, string answer, int weight, List<Choice> choices = null, bool dailyDouble = false)
         {
-            return Id;
+            this.id = id;
+            this.categoryId = categoryId;
+            this.type = type;
+            this.answer = answer;
+            this.weight = weight;
+            this.choices = choices;
+            this.dailyDouble = dailyDouble;
         }
 
-        public void SetID(int value)
+        public int Id
         {
-            Id = value;
+            get => id;
+            set => id = value;
         }
 
-        public int GetCategoryID()
+        public int CategoryId
         {
-            return CategoryID;
+            get => categoryId;
+            set => categoryId = value;
         }
 
-        public void SetCategoryID(int value)
+        public string Type
         {
-            CategoryID = value;
+            get => type;
+            set => type = value;
+        }
+        
+        public string Answer
+        {
+            get => answer;
+            set => answer = value;
         }
 
-        public string GetType()
+        public int Weight
         {
-            return Type;
+            get => weight;
+            set => weight = value;
+        }
+        
+        public List<Choice> Choices
+        {
+            get => choices;
+            set => choices = value;
         }
 
-        public void SetType(string value)
+        public bool DailyDouble
         {
-            Type = value;
+            get => dailyDouble;
+            set => dailyDouble = value;
         }
-
-        public List<Choice> GetChoices()
-        {
-            return Choices;
-        }
-
-        public void SetChoices(List<Choice> Value)
-        {
-            Choices = Value;
-        }
-
-        public string GetAnswer()
-        {
-            return Answer;
-        }
-
-        public void SetAnswer(String Value)
-        {
-            Answer = Value;
-        }
-
-        public string GetState()
-        {
-            return State;
-        }
-
-        public void SetState(string Value)
-        {
-            State = Value;
-        }
-
-        public int GetWeight()
-        {
-            return Weight;
-        }
-
-        public void SetWeight(int Value)
-        {
-            Weight = Value;
-        }
-
-        public bool GetDailyDouble()
-        {
-            return DailyDouble;
-        }
-
-        public void SetDailyDouble(bool Value)
-        {
-            DailyDouble = Value;
-        }
-        public Question()
-        {
-
-        }
-        public Question(int aID, int aCategoryID, string aType, string aAnswer, string aState, int aWeight, bool aDailyDouble, List<Choice> aChoices = null)
-        {
-            Id = aID;
-            CategoryID = aCategoryID;
-            Type = aType;
-            Choices = aChoices;
-            Answer = aAnswer;
-            State = aState;
-            Weight = aWeight;
-            DailyDouble = aDailyDouble;
-        }
-
-
-
-        //public static string retunType(Question aQuestion)
-        //{
-        //    private string aString;
-        //    aString = "this";
-        //    return aString;
-        //}
-
     }
 }

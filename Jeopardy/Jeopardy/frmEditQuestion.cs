@@ -12,9 +12,13 @@ namespace Jeopardy
 {
     public partial class frmEditQuestion : Form
     {
+        Question question;
+
         public frmEditQuestion()
         {
             InitializeComponent();
+
+            question = new Question();
         }
 
         private void frmEditQuestion_Load(object sender, EventArgs e)
@@ -161,6 +165,16 @@ namespace Jeopardy
 
                 txtAnswer.Text = "";
             }
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -8,17 +8,35 @@ namespace Jeopardy
 {
     class Choice
     {
-        private int Id { get; set; }
-        private int QuestionID { get; set; }
-        private string Text { get; set; }
+        private int id;
+        private int questionId;
+        private string text;
 
-        public Choice createChoice(int aID, int aQuestionID, string aText)
+        public Choice() { }
+
+        public Choice(int id, int questionId, string text)
         {
-            Choice aChoice = new Choice();
-            aChoice.Id = aID;
-            aChoice.QuestionID = aQuestionID;
-            aChoice.Text = aText;
-            return aChoice;
+            this.id = id;
+            this.questionId = questionId;
+            this.text = text;
+        }
+
+        public int Id
+        {
+            get => id;
+            set => id = value;
+        }
+
+        public int QuestionId
+        {
+            get => questionId;
+            set => questionId = value;
+        }
+
+        public string Text
+        {
+            get => text;
+            set => text = value;
         }
     }
 }

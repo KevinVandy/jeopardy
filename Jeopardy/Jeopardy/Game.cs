@@ -8,40 +8,72 @@ namespace Jeopardy
 {
     class Game
     {
-        private int GameID { get; set; }
-        private string Name { get; set; }
-        //private List Categories { get; set; }
-        private TimeSpan QuestionTimeLimit { get; set; }
+        private int id;
+        private string gameName;
+        private TimeSpan questionTimeLimit;
+        private List<Category> categories;
 
+        public Game() { }
 
+        public Game(int id, string gameName, TimeSpan questionTimeLimit, List<Category> categories)
+        {
+            this.id = id;
+            this.gameName = gameName;
+            this.questionTimeLimit = questionTimeLimit;
+            this.categories = categories;
+        }
 
+        public int Id
+        {
+            get => id;
+            set => id = value;
+        }
 
-        public void createGame()
+        public string GameName
+        {
+            get => gameName;
+            set => gameName = value;
+        }
+
+        public TimeSpan QuestionTimeLimit
+        {
+            get => questionTimeLimit;
+            set => questionTimeLimit = value;
+        }
+
+        public List<Category> Categories
+        {
+            get => categories;
+            set => categories = value;
+        }
+
+        //MARK: Public Methods
+        public void CreateGame()
         {
 
         }
 
-        public void editGame()
+        public void EditGame()
         {
 
         }
 
-        public void deleteGame()
+        public void DeleteGame()
         {
 
         }
 
-        public void importGame()
+        public void ImportGame()
         {
 
         }
 
-        public void exportGame()
+        public void ExportGame()
         {
 
         }
 
-        public void playGame()
+        public void PlayGame()
         {
 
         }
