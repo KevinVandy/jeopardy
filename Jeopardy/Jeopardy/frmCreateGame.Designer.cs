@@ -529,6 +529,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCreateGame";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCreateGame_Load);
             this.ResizeEnd += new System.EventHandler(this.frmCreateGame_ResizeEnd);
             this.Resize += new System.EventHandler(this.frmCreateGame_Resize);

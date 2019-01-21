@@ -92,7 +92,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(763, 127);
-            this.textBox1.TabIndex = 3;
+            this.textBox1.TabIndex = 0;
             // 
             // rdoFillInTheBlank
             // 
@@ -101,11 +101,11 @@
             this.rdoFillInTheBlank.Location = new System.Drawing.Point(13, 17);
             this.rdoFillInTheBlank.Name = "rdoFillInTheBlank";
             this.rdoFillInTheBlank.Size = new System.Drawing.Size(194, 33);
-            this.rdoFillInTheBlank.TabIndex = 4;
+            this.rdoFillInTheBlank.TabIndex = 0;
             this.rdoFillInTheBlank.TabStop = true;
             this.rdoFillInTheBlank.Text = "Fill In the Blank";
             this.rdoFillInTheBlank.UseVisualStyleBackColor = true;
-            this.rdoFillInTheBlank.CheckedChanged += new System.EventHandler(this.rdoType_Change);
+            this.rdoFillInTheBlank.CheckedChanged += new System.EventHandler(this.rdoType_CheckChanged);
             // 
             // label2
             // 
@@ -144,11 +144,11 @@
             this.rdoTrueFalse.Location = new System.Drawing.Point(595, 17);
             this.rdoTrueFalse.Name = "rdoTrueFalse";
             this.rdoTrueFalse.Size = new System.Drawing.Size(161, 33);
-            this.rdoTrueFalse.TabIndex = 6;
+            this.rdoTrueFalse.TabIndex = 2;
             this.rdoTrueFalse.TabStop = true;
             this.rdoTrueFalse.Text = "True / False";
             this.rdoTrueFalse.UseVisualStyleBackColor = true;
-            this.rdoTrueFalse.CheckedChanged += new System.EventHandler(this.rdoType_Change);
+            this.rdoTrueFalse.CheckedChanged += new System.EventHandler(this.rdoType_CheckChanged);
             // 
             // rdoMultipleChoice
             // 
@@ -157,11 +157,11 @@
             this.rdoMultipleChoice.Location = new System.Drawing.Point(289, 17);
             this.rdoMultipleChoice.Name = "rdoMultipleChoice";
             this.rdoMultipleChoice.Size = new System.Drawing.Size(198, 33);
-            this.rdoMultipleChoice.TabIndex = 5;
+            this.rdoMultipleChoice.TabIndex = 1;
             this.rdoMultipleChoice.TabStop = true;
             this.rdoMultipleChoice.Text = "Multiple Choice";
             this.rdoMultipleChoice.UseVisualStyleBackColor = true;
-            this.rdoMultipleChoice.CheckedChanged += new System.EventHandler(this.rdoType_Change);
+            this.rdoMultipleChoice.CheckedChanged += new System.EventHandler(this.rdoType_CheckChanged);
             // 
             // btnCancel
             // 
@@ -170,7 +170,7 @@
             this.btnCancel.Location = new System.Drawing.Point(147, 612);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(170, 44);
-            this.btnCancel.TabIndex = 9;
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -180,7 +180,7 @@
             this.btnOK.Location = new System.Drawing.Point(740, 612);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(170, 44);
-            this.btnOK.TabIndex = 8;
+            this.btnOK.TabIndex = 2;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
@@ -191,7 +191,7 @@
             this.txtChoiceA.Multiline = true;
             this.txtChoiceA.Name = "txtChoiceA";
             this.txtChoiceA.Size = new System.Drawing.Size(296, 101);
-            this.txtChoiceA.TabIndex = 11;
+            this.txtChoiceA.TabIndex = 1;
             // 
             // txtChoiceC
             // 
@@ -200,7 +200,7 @@
             this.txtChoiceC.Multiline = true;
             this.txtChoiceC.Name = "txtChoiceC";
             this.txtChoiceC.Size = new System.Drawing.Size(296, 101);
-            this.txtChoiceC.TabIndex = 13;
+            this.txtChoiceC.TabIndex = 5;
             // 
             // txtChoiceD
             // 
@@ -209,7 +209,7 @@
             this.txtChoiceD.Multiline = true;
             this.txtChoiceD.Name = "txtChoiceD";
             this.txtChoiceD.Size = new System.Drawing.Size(296, 101);
-            this.txtChoiceD.TabIndex = 15;
+            this.txtChoiceD.TabIndex = 7;
             // 
             // txtChoiceB
             // 
@@ -218,7 +218,7 @@
             this.txtChoiceB.Multiline = true;
             this.txtChoiceB.Name = "txtChoiceB";
             this.txtChoiceB.Size = new System.Drawing.Size(296, 101);
-            this.txtChoiceB.TabIndex = 17;
+            this.txtChoiceB.TabIndex = 3;
             // 
             // label4
             // 
@@ -252,10 +252,11 @@
             this.rdoChoiceD.Location = new System.Drawing.Point(417, 158);
             this.rdoChoiceD.Name = "rdoChoiceD";
             this.rdoChoiceD.Size = new System.Drawing.Size(45, 33);
-            this.rdoChoiceD.TabIndex = 21;
+            this.rdoChoiceD.TabIndex = 6;
             this.rdoChoiceD.TabStop = true;
             this.rdoChoiceD.Text = "d";
             this.rdoChoiceD.UseVisualStyleBackColor = true;
+            this.rdoChoiceD.CheckedChanged += new System.EventHandler(this.rdoChoices_CheckedChanged);
             // 
             // rdoChoiceB
             // 
@@ -264,10 +265,11 @@
             this.rdoChoiceB.Location = new System.Drawing.Point(417, 53);
             this.rdoChoiceB.Name = "rdoChoiceB";
             this.rdoChoiceB.Size = new System.Drawing.Size(45, 33);
-            this.rdoChoiceB.TabIndex = 20;
+            this.rdoChoiceB.TabIndex = 2;
             this.rdoChoiceB.TabStop = true;
             this.rdoChoiceB.Text = "b";
             this.rdoChoiceB.UseVisualStyleBackColor = true;
+            this.rdoChoiceB.CheckedChanged += new System.EventHandler(this.rdoChoices_CheckedChanged);
             // 
             // rdoChoiceC
             // 
@@ -276,10 +278,11 @@
             this.rdoChoiceC.Location = new System.Drawing.Point(35, 158);
             this.rdoChoiceC.Name = "rdoChoiceC";
             this.rdoChoiceC.Size = new System.Drawing.Size(43, 33);
-            this.rdoChoiceC.TabIndex = 19;
+            this.rdoChoiceC.TabIndex = 4;
             this.rdoChoiceC.TabStop = true;
             this.rdoChoiceC.Text = "c";
             this.rdoChoiceC.UseVisualStyleBackColor = true;
+            this.rdoChoiceC.CheckedChanged += new System.EventHandler(this.rdoChoices_CheckedChanged);
             // 
             // rdoChoiceA
             // 
@@ -288,10 +291,11 @@
             this.rdoChoiceA.Location = new System.Drawing.Point(34, 53);
             this.rdoChoiceA.Name = "rdoChoiceA";
             this.rdoChoiceA.Size = new System.Drawing.Size(44, 33);
-            this.rdoChoiceA.TabIndex = 18;
+            this.rdoChoiceA.TabIndex = 0;
             this.rdoChoiceA.TabStop = true;
             this.rdoChoiceA.Text = "a";
             this.rdoChoiceA.UseVisualStyleBackColor = true;
+            this.rdoChoiceA.CheckedChanged += new System.EventHandler(this.rdoChoices_CheckedChanged);
             // 
             // txtAnswer
             // 
@@ -299,7 +303,7 @@
             this.txtAnswer.Location = new System.Drawing.Point(147, 554);
             this.txtAnswer.Name = "txtAnswer";
             this.txtAnswer.Size = new System.Drawing.Size(763, 35);
-            this.txtAnswer.TabIndex = 22;
+            this.txtAnswer.TabIndex = 1;
             // 
             // frmEditQuestion
             // 

@@ -22,7 +22,7 @@ namespace Jeopardy
             rdoFillInTheBlank.Checked = true;
         }
 
-        private void rdoType_Change(object sender, EventArgs e)
+        private void rdoType_CheckChanged(object sender, EventArgs e)
         {
             if (rdoFillInTheBlank.Checked)
             {
@@ -114,6 +114,53 @@ namespace Jeopardy
 
         }
 
-        
+        private void rdoChoices_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoChoiceA.Checked)
+            {
+                txtChoiceA.ForeColor = Color.DarkGreen;
+                txtChoiceB.ForeColor = Color.Black;
+                txtChoiceC.ForeColor = Color.Black;
+                txtChoiceD.ForeColor = Color.Black;
+
+                txtAnswer.Text = txtChoiceA.Text;
+            }
+            else if (rdoChoiceB.Checked)
+            {
+                txtChoiceA.ForeColor = Color.Black;
+                txtChoiceB.ForeColor = Color.DarkGreen;
+                txtChoiceC.ForeColor = Color.Black;
+                txtChoiceD.ForeColor = Color.Black;
+
+                txtAnswer.Text = txtChoiceB.Text;
+            }
+            else if (rdoChoiceC.Checked)
+            {
+                txtChoiceA.ForeColor = Color.Black;
+                txtChoiceB.ForeColor = Color.Black;
+                txtChoiceC.ForeColor = Color.DarkGreen;
+                txtChoiceD.ForeColor = Color.Black;
+
+                txtAnswer.Text = txtChoiceC.Text;
+            }
+            else if (rdoChoiceD.Checked)
+            {
+                txtChoiceA.ForeColor = Color.Black;
+                txtChoiceB.ForeColor = Color.Black;
+                txtChoiceC.ForeColor = Color.Black;
+                txtChoiceD.ForeColor = Color.DarkGreen;
+
+                txtAnswer.Text =txtChoiceD.Text;
+            }
+            else
+            {
+                txtChoiceA.ForeColor = Color.Black;
+                txtChoiceB.ForeColor = Color.Black;
+                txtChoiceC.ForeColor = Color.Black;
+                txtChoiceD.ForeColor = Color.Black;
+
+                txtAnswer.Text = "";
+            }
+        }
     }
 }
