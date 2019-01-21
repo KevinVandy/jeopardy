@@ -45,5 +45,22 @@ namespace Jeopardy
             frmCreateGame createGameForm = new frmCreateGame();
             createGameForm.ShowDialog();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void helpToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Form help = new frmHelp();
+            help.ShowDialog();
+        }
+
+        private void importGameFromFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

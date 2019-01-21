@@ -182,5 +182,42 @@ namespace Jeopardy
                 }
             }
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form about = new frmAbout();
+            about.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void importGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exportGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
