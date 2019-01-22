@@ -33,7 +33,6 @@ namespace Jeopardy
             aList.Add(anotherChoice);
             aList.Add(third);
             aList.Add(fourth);
-            ValidateTypes.AreFourChoices(aList);
             DrawForm();
         }
 
