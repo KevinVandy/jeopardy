@@ -27,6 +27,14 @@ namespace Jeopardy
 
         }
 
+        public static bool ValidateCategoryTitle(string title)
+        {
+            if (title.Length > 0 && title.Length < 128)
+            {
+                return true;
+            }
+            return false;
+        }
         
     }
 }

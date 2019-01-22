@@ -39,7 +39,13 @@ namespace Jeopardy
         public string Title
         {
             get => title;
-            set => title = value;
+            set
+            {
+                if (ValidateData.ValidateCategoryTitle(value))
+                {
+                    title = value;
+                }
+            }
         }
 
         public string Subtitle
