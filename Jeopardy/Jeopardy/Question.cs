@@ -8,136 +8,67 @@ namespace Jeopardy
 {
     class Question
     {
-        private int Id;
-        private int CategoryID;
-        private string Type;
-        private List<Choice> Choices;
-        private string Answer;
-        private string State;
-        private int Weight;
-        private bool DailyDouble;
+        private int id;
+        private int categoryId;
+        private string type;
+        private string answer;
+        private int weight;
+        private List<Choice> choices;
+        private bool dailyDouble;
 
+        public Question() { }
 
-        public int GetID()
+        public Question(int id, int categoryId, string type, string answer, int weight, List<Choice> choices = null, bool dailyDouble = false)
         {
-            return Id;
+            this.id = id;
+            this.categoryId = categoryId;
+            this.type = type;
+            this.answer = answer;
+            this.weight = weight;
+            this.choices = choices;
+            this.dailyDouble = dailyDouble;
         }
 
-        public void SetID(int Value)
+        public int Id
         {
-            if(Validator.IsInteger(Value.ToString()))
-            {
-                Id = Value;
-            }
-            
+            get => id;
+            set => id = value;
         }
 
-        public int GetCategoryID()
+        public int CategoryId
         {
-            return CategoryID;
+            get => categoryId;
+            set { categoryId = value; }
         }
 
-        public void SetCategoryID(int Value)
+        public string Type
         {
-            if(Validator.IsInteger(Value.ToString()))
-            {
-                CategoryID = Value;
-            }
+            get => type;
+            set => type = value;
         }
 
-        public string GetType()
+        public string Answer
         {
-            return Type;
+            get => answer;
+            set => answer = value;
         }
 
-        public void SetType(string Value)
+        public int Weight
         {
-            if(Validator.IsPresent(Value))
-            {
-                Type = Value;
-            }
-            
+            get => weight;
+            set => weight = value;
         }
 
-        public List<Choice> GetChoices()
+        public List<Choice> Choices
         {
-            return Choices;
+            get => choices;
+            set => choices = value;
         }
 
-        public void SetChoices(List<Choice> Value)
+        public bool DailyDouble
         {
-            if(Value == null || Validator.AreFourChoices(Value))
-            {
-                Choices = Value;
-            }
-            
+            get => dailyDouble;
+            set => dailyDouble = value;
         }
-
-        public string GetAnswer()
-        {
-            return Answer;
-        }
-
-        public void SetAnswer(String Value)
-        {
-            if(Validator.IsPresent(Value))
-            {
-                Answer = Value;
-            }
-            
-        }
-
-        public string GetState()
-        {
-            return State;
-        }
-
-        public void SetState(string Value)
-        {
-            if (Validator.IsPresent(Value))
-            {
-                State = Value;
-            }
-        }
-
-        public int GetWeight()
-        {
-            return Weight;
-        }
-
-        public void SetWeight(int Value)
-        {
-            if(Validator.IsInteger(Value.ToString()))
-            {
-                Weight = Value;
-            }
-            
-        }
-
-        public bool GetDailyDouble()
-        {
-            return DailyDouble;
-        }
-
-        public void SetDailyDouble(bool Value)
-        {
-            DailyDouble = Value;
-        }
-        public Question()
-        {
-
-        }
-        public Question (int aID, int aCategoryID, string aType, string aAnswer, string aState, int aWeight, bool aDailyDouble, List<Choice> aChoices = null)
-        {
-            Id = aID;
-            CategoryID = aCategoryID;
-            Type = aType;
-            Choices = aChoices;
-            Answer = aAnswer;
-            State = aState;
-            Weight = aWeight;
-            DailyDouble = aDailyDouble;
-        }
-
     }
 }

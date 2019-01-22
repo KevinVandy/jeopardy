@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="Choice.cs" />
+    <Compile Include="CustomExceptions.cs" />
     <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,7 +116,8 @@
     </Compile>
     <Compile Include="Question.cs" />
     <Compile Include="Team.cs" />
-    <Compile Include="Validator.cs" />
+    <Compile Include="ValidateData.cs" />
+    <Compile Include="ValidateTypes.cs" />
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>

@@ -8,61 +8,37 @@ namespace Jeopardy
 {
     class Team
     {
-        private int TeamID;
-        private string TeamName;
-        private int Score;
+        private int id;
+        private string teamName;
+        private int score;
 
-        public int GetTeamID()
+        public Team() { }
+
+        public Team(int id, string teamName, int score = 0)
         {
-            return TeamID;
+            this.id = id;
+            this.teamName = teamName;
+            this.score = score;
         }
 
-        public void SetTeamID(int Value)
+        public int Id
         {
-            if(Validator.IsInteger(Value.ToString()))
-            {
-                TeamID = Value;
-            }
+            get => id;
+            set => id = value;
         }
 
-        public string GetTeamNam()
+        public string TeamName
         {
-            return TeamName;
+            get => teamName;
+            set => teamName = value;
         }
 
-        public void SetTeamName(string Value)
+        public int Score
         {
-            if(Validator.IsPresent(Value))
-            {
-
-            }
-            TeamName = Value;
+            get => score;
+            set => score = value;
         }
 
-        public int GetScore()
-        {
-            return Score;
-        }
 
-        public void SetScore(int Value)
-        {
-            if(Validator.IsInteger(Value.ToString()))
-            {
-                Score = Value;
-            }
-            
-        }
-
-        public Team()
-        {
-
-        }
-
-        public Team(int aTeamID, string aTeamName, int aTeamScore= 0)
-        {
-            TeamID = aTeamID;
-            TeamName = aTeamName;
-            Score = aTeamScore;
-        }
     }
 }

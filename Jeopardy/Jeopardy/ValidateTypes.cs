@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Jeopardy
 {
-    class Validator
+    public class ValidateTypes
     {
         public static bool IsBoolean(bool Value)
         {
@@ -42,7 +42,7 @@ namespace Jeopardy
             {
                 if(Value == null)
                 {
-                    throw ArgumentNullException("you cannot pass a null value!");
+                    throw CustomExceptions.ArgumentNullException("you cannot pass a null value!");
                 }
                 return true;
             }
@@ -54,32 +54,8 @@ namespace Jeopardy
 
         }
 
-        private static Exception ArgumentNullException(string v)
-        {
-            throw new ArgumentNullException();
-        }
+        
 
-        public static bool AreFourChoices(List<Choice>  Value)
-        {
-            try
-            {
-                if (Value.Count != 4)
-                {
-                    throw WrongCountException("wrong");
-                }
-                return true;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error");
-                return false;
-            }
-            
-        }
-
-        private static Exception WrongCountException(string v)
-        {
-            throw new Exception("Wrong number of choices");
-        }
+        
     }
 }
