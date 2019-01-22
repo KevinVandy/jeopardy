@@ -19,10 +19,10 @@ namespace Jeopardy
 
         public void SetTeamID(int Value)
         {
-
+            if(Validator.IsInteger(Value.ToString()))
+            {
                 TeamID = Value;
-            
-
+            }
         }
 
         public string GetTeamNam()
@@ -32,6 +32,10 @@ namespace Jeopardy
 
         public void SetTeamName(string Value)
         {
+            if(Validator.IsPresent(Value))
+            {
+
+            }
             TeamName = Value;
         }
 
@@ -42,7 +46,11 @@ namespace Jeopardy
 
         public void SetScore(int Value)
         {
-            Score = Value;
+            if(Validator.IsInteger(Value.ToString()))
+            {
+                Score = Value;
+            }
+            
         }
 
         public Team()

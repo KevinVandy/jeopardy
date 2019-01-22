@@ -9,6 +9,20 @@ namespace Jeopardy
 {
     class Validator
     {
+        public static bool IsBoolean(bool Value)
+        {
+            try
+            {
+                bool flag;
+                Boolean.TryParse(Value.ToString(), out flag);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+                return false;
+            }
+        }
         public static bool IsInteger(string Value)
         {
             try
@@ -18,17 +32,54 @@ namespace Jeopardy
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message.ToString(), "Convert to Integer Failure");
                 return false;
             }
         }
-        public static bool IsPresen(string Value)
+        public static bool IsPresent(string Value)
         {
-            if (Value == null)
+            try
             {
+                if(Value == null)
+                {
+                    throw ArgumentNullException("you cannot pass a null value!");
+                }
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "No data present");
                 return false;
             }
-            return true;
+
+        }
+
+        private static Exception ArgumentNullException(string v)
+        {
+            throw new ArgumentNullException();
+        }
+
+        public static bool AreFourChoices(List<Choice>  Value)
+        {
+            try
+            {
+                if (Value.Count != 4)
+                {
+                    throw WrongCountException("wrong");
+                }
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+                return false;
+            }
+            
+        }
+
+        private static Exception WrongCountException(string v)
+        {
+            throw new Exception("Wrong number of choices");
         }
     }
 }

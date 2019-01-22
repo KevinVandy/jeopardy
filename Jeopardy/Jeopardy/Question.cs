@@ -23,9 +23,13 @@ namespace Jeopardy
             return Id;
         }
 
-        public void SetID(int value)
+        public void SetID(int Value)
         {
-            Id = value;
+            if(Validator.IsInteger(Value.ToString()))
+            {
+                Id = Value;
+            }
+            
         }
 
         public int GetCategoryID()
@@ -33,9 +37,12 @@ namespace Jeopardy
             return CategoryID;
         }
 
-        public void SetCategoryID(int value)
+        public void SetCategoryID(int Value)
         {
-            CategoryID = value;
+            if(Validator.IsInteger(Value.ToString()))
+            {
+                CategoryID = Value;
+            }
         }
 
         public string GetType()
@@ -43,9 +50,13 @@ namespace Jeopardy
             return Type;
         }
 
-        public void SetType(string value)
+        public void SetType(string Value)
         {
-            Type = value;
+            if(Validator.IsPresent(Value))
+            {
+                Type = Value;
+            }
+            
         }
 
         public List<Choice> GetChoices()
@@ -55,7 +66,11 @@ namespace Jeopardy
 
         public void SetChoices(List<Choice> Value)
         {
-            Choices = Value;
+            if(Value == null || Validator.AreFourChoices(Value))
+            {
+                Choices = Value;
+            }
+            
         }
 
         public string GetAnswer()
@@ -65,7 +80,11 @@ namespace Jeopardy
 
         public void SetAnswer(String Value)
         {
-            Answer = Value;
+            if(Validator.IsPresent(Value))
+            {
+                Answer = Value;
+            }
+            
         }
 
         public string GetState()
@@ -75,7 +94,10 @@ namespace Jeopardy
 
         public void SetState(string Value)
         {
-            State = Value;
+            if (Validator.IsPresent(Value))
+            {
+                State = Value;
+            }
         }
 
         public int GetWeight()
@@ -85,7 +107,11 @@ namespace Jeopardy
 
         public void SetWeight(int Value)
         {
-            Weight = Value;
+            if(Validator.IsInteger(Value.ToString()))
+            {
+                Weight = Value;
+            }
+            
         }
 
         public bool GetDailyDouble()
@@ -112,15 +138,6 @@ namespace Jeopardy
             Weight = aWeight;
             DailyDouble = aDailyDouble;
         }
-
-        
-
-        //public static string retunType(Question aQuestion)
-        //{
-        //    private string aString;
-        //    aString = "this";
-        //    return aString;
-        //}
 
     }
 }

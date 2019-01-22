@@ -12,7 +12,7 @@ namespace Jeopardy
 {
     public partial class frmTest : Form
     {
-        int rows = 5;
+        int rows = 6;
         int columns = 6;
         private List<Button> ButtonList = new List<Button>();
         public frmTest()
@@ -22,7 +22,18 @@ namespace Jeopardy
 
         private void frmTest_Load(object sender, EventArgs e)
         {
-            Validator.IsInteger("12");
+            //bool? theTruth = null;
+            //Validator.IsBoolean(theTruth);
+            List<Choice> aList = new List<Choice>();
+            Choice aChoice = new Choice();
+            Choice anotherChoice = new Choice();
+            Choice third = new Choice();
+            Choice fourth = new Choice();
+            aList.Add(aChoice);
+            aList.Add(anotherChoice);
+            aList.Add(third);
+            aList.Add(fourth);
+            Validator.AreFourChoices(aList);
             DrawForm();
         }
 
@@ -50,8 +61,8 @@ namespace Jeopardy
             pnlGameBoard.Height = formHeight - 70;
 
             // Some default options, can change later
-            int ButtonWidth = (pnlGameBoard.Width - 60) / (rows +1);
-            int ButtonHeight = (pnlGameBoard.Height - 30) / (columns -1);
+            int ButtonWidth = (pnlGameBoard.Width + 60) / (rows +1);
+            int ButtonHeight = (pnlGameBoard.Height) / (columns +1);
             int Distance = 20;
             int start_x = 10;
             int start_y = 10;
