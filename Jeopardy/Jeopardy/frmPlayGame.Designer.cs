@@ -33,7 +33,7 @@
             // 
             // pnlGameboard
             // 
-            this.pnlGameboard.Location = new System.Drawing.Point(22, 23);
+            this.pnlGameboard.Location = new System.Drawing.Point(26, 12);
             this.pnlGameboard.Name = "pnlGameboard";
             this.pnlGameboard.Size = new System.Drawing.Size(775, 425);
             this.pnlGameboard.TabIndex = 0;
@@ -43,7 +43,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(826, 478);
+            this.ClientSize = new System.Drawing.Size(826, 455);
             this.Controls.Add(this.pnlGameboard);
             this.Name = "frmPlayGame";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
@@ -52,6 +52,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPlayGame_Load);
             this.ResizeEnd += new System.EventHandler(this.frmPlayGame_ResizeEnd);
+            this.Resize += new System.EventHandler(this.frmPlayGame_Resize);
             this.ResumeLayout(false);
 
         }

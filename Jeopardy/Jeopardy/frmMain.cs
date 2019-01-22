@@ -37,12 +37,14 @@ namespace Jeopardy
         private void btnCreateGame_Click(object sender, EventArgs e)
         {
             frmCreateGame createGameForm = new frmCreateGame();
+            createGameForm.Text = "Create a Game!";
             createGameForm.ShowDialog();
         }
 
         private void btnEditGame_Click(object sender, EventArgs e)
         {
             frmCreateGame createGameForm = new frmCreateGame();
+            createGameForm.Text = "Edit a Game!";
             createGameForm.ShowDialog();
         }
 
