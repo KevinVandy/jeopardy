@@ -40,12 +40,13 @@
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEditGame = new System.Windows.Forms.Button();
+            this.btnDeleteGame = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCreateGame
             // 
-            this.btnCreateGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateGame.Location = new System.Drawing.Point(419, 230);
             this.btnCreateGame.Name = "btnCreateGame";
             this.btnCreateGame.Size = new System.Drawing.Size(287, 62);
@@ -56,7 +57,7 @@
             // 
             // btnPlayGame
             // 
-            this.btnPlayGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlayGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlayGame.Location = new System.Drawing.Point(419, 114);
             this.btnPlayGame.Name = "btnPlayGame";
             this.btnPlayGame.Size = new System.Drawing.Size(287, 62);
@@ -72,7 +73,7 @@
             this.lstGamesFromDB.ItemHeight = 24;
             this.lstGamesFromDB.Location = new System.Drawing.Point(47, 114);
             this.lstGamesFromDB.Name = "lstGamesFromDB";
-            this.lstGamesFromDB.Size = new System.Drawing.Size(321, 292);
+            this.lstGamesFromDB.Size = new System.Drawing.Size(321, 412);
             this.lstGamesFromDB.TabIndex = 2;
             // 
             // lblGames
@@ -93,7 +94,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(747, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(788, 27);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -132,21 +133,21 @@
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(116, 24);
             this.helpToolStripMenuItem1.Text = "About";
             this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
             // 
             // helpToolStripMenuItem2
             // 
             this.helpToolStripMenuItem2.Name = "helpToolStripMenuItem2";
-            this.helpToolStripMenuItem2.Size = new System.Drawing.Size(180, 24);
+            this.helpToolStripMenuItem2.Size = new System.Drawing.Size(116, 24);
             this.helpToolStripMenuItem2.Text = "Help";
             this.helpToolStripMenuItem2.Click += new System.EventHandler(this.helpToolStripMenuItem2_Click);
             // 
             // btnEditGame
             // 
-            this.btnEditGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditGame.Location = new System.Drawing.Point(419, 344);
+            this.btnEditGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditGame.Location = new System.Drawing.Point(419, 346);
             this.btnEditGame.Name = "btnEditGame";
             this.btnEditGame.Size = new System.Drawing.Size(287, 62);
             this.btnEditGame.TabIndex = 5;
@@ -154,11 +155,22 @@
             this.btnEditGame.UseVisualStyleBackColor = true;
             this.btnEditGame.Click += new System.EventHandler(this.btnEditGame_Click);
             // 
+            // btnDeleteGame
+            // 
+            this.btnDeleteGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteGame.Location = new System.Drawing.Point(419, 462);
+            this.btnDeleteGame.Name = "btnDeleteGame";
+            this.btnDeleteGame.Size = new System.Drawing.Size(287, 62);
+            this.btnDeleteGame.TabIndex = 6;
+            this.btnDeleteGame.Text = "Delete Game";
+            this.btnDeleteGame.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 447);
+            this.ClientSize = new System.Drawing.Size(788, 600);
+            this.Controls.Add(this.btnDeleteGame);
             this.Controls.Add(this.btnEditGame);
             this.Controls.Add(this.lblGames);
             this.Controls.Add(this.lstGamesFromDB);
@@ -191,6 +203,7 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem2;
         private System.Windows.Forms.Button btnEditGame;
+        private System.Windows.Forms.Button btnDeleteGame;
     }
 }
 
