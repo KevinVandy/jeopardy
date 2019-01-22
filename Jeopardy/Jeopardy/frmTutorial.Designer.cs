@@ -1,6 +1,6 @@
 ﻿namespace Jeopardy
 {
-    partial class frmPlayGame
+    partial class frmTutorial
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlGameboard = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // pnlGameboard
-            // 
-            this.pnlGameboard.Location = new System.Drawing.Point(22, 23);
-            this.pnlGameboard.Name = "pnlGameboard";
-            this.pnlGameboard.Size = new System.Drawing.Size(775, 425);
-            this.pnlGameboard.TabIndex = 0;
-            // 
-            // frmPlayGame
+            // frmTutorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(826, 478);
-            this.Controls.Add(this.pnlGameboard);
-            this.Name = "frmPlayGame";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Jeopardy!";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmPlayGame_Load);
-            this.ResizeEnd += new System.EventHandler(this.frmPlayGame_ResizeEnd);
+            this.ClientSize = new System.Drawing.Size(462, 290);
+            this.Name = "frmTutorial";
+            this.Text = "frmTutorial";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlGameboard;
     }
 }

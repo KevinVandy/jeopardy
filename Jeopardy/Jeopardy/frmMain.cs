@@ -16,29 +16,51 @@ namespace Jeopardy
         {
             InitializeComponent();
         }
-
-        private void btnPlayGame_Click(object sender, EventArgs e)
+        
+        private void frmMain_Load(object sender, EventArgs e)
         {
-            // Instantiates the play game form
-            frmPlayGame playGameForm = new frmPlayGame();
 
-            // Show the play game form
-            playGameForm.ShowDialog();
         }
-
-        private void btnCreateGame_Click(object sender, EventArgs e)
-        {
-            // Instantiates the create game form
-            frmCreateGame createGameForm = new frmCreateGame();
-
-            // Show the create game form
-            createGameForm.ShowDialog();
-        }
-
+        
         private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form about = new frmAbout();
             about.ShowDialog();
         }
+
+        private void btnPlayGame_Click(object sender, EventArgs e)
+        {
+            frmPlayGame playGameForm = new frmPlayGame();
+            playGameForm.ShowDialog();
+        }
+
+        private void btnCreateGame_Click(object sender, EventArgs e)
+        {
+            frmCreateGame createGameForm = new frmCreateGame();
+            createGameForm.ShowDialog();
+        }
+
+        private void btnEditGame_Click(object sender, EventArgs e)
+        {
+            frmCreateGame createGameForm = new frmCreateGame();
+            createGameForm.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void helpToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Form help = new frmHelp();
+            help.ShowDialog();
+        }
+
+        private void importGameFromFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

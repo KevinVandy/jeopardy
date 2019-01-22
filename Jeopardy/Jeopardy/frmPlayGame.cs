@@ -12,6 +12,10 @@ namespace Jeopardy
 {
     public partial class frmPlayGame : Form
     {
+        int rows = 5;
+        int columns = 6;
+        private List<Button> ButtonList = new List<Button>();
+
         public frmPlayGame()
         {
             InitializeComponent();
@@ -19,17 +23,39 @@ namespace Jeopardy
 
         private void frmPlayGame_Load(object sender, EventArgs e)
         {
+            DrawForm();
+        }
+
+        private void frmPlayGame_ResizeEnd(object sender, EventArgs e)
+        {
+            DrawForm();
+        }
+
+        private void button_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            MessageBox.Show(button.Text.ToString() + " got clicked");
+        }
+
+        private void DrawForm()
+        {
+            foreach (Button b in ButtonList)
+            {
+                pnlGameboard.Controls.Remove(b);
+            }
+            ButtonList.Clear();
+            int formWidth = this.Width;
+            int formHeight = this.Height;
+            pnlGameboard.Width = formWidth - 50;
+            pnlGameboard.Height = formHeight - 70;
+
             // Some default options, can change later
-            int ButtonWidth = 170;
-            int ButtonHeight = 140;
+            int ButtonWidth = (pnlGameboard.Width - 60) / (rows + 1);
+            int ButtonHeight = (pnlGameboard.Height - 30) / (columns - 1);
             int Distance = 20;
             int start_x = 10;
             int start_y = 10;
 
-            // rows and columns, will be passed in later
-            // Just some defaults for now
-            int rows = 5;
-            int columns = 6;
 
             // For each row..
             for (int x = 0; x < rows; x++)
@@ -43,7 +69,9 @@ namespace Jeopardy
                     tmpButton.Left = start_y + (y * ButtonWidth + Distance);
                     tmpButton.Width = ButtonWidth;
                     tmpButton.Height = ButtonHeight;
+                    tmpButton.Click += new EventHandler(button_Click);
                     tmpButton.Text = "X: " + x.ToString() + " Y: " + y.ToString();
+                    ButtonList.Add(tmpButton);
 
                     // Possible add Buttonclick event etc..
                     //this.Controls.Add(tmpButton);
@@ -53,13 +81,8 @@ namespace Jeopardy
                 }
 
             }
-
-            // Makes it so that you can at least see all the buttons
-            // Doesn't automatically make the buttons fill that space though
-            pnlGameboard.AutoSize = true;
-            this.AutoSize = true;
-
-            this.WindowState = FormWindowState.Maximized;
         }
+
+        
     }
 }
