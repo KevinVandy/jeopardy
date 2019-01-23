@@ -12,9 +12,78 @@ namespace Jeopardy
 {
     public partial class frmCreateGameStart : Form
     {
+        Game newGame;
+
         public frmCreateGameStart()
         {
             InitializeComponent();
+        }
+
+        private void frmCreateGameStart_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCreateGame_Click(object sender, EventArgs e)
+        {
+            string gameName = txtGameName.Text;
+
+            int numCategories = (int)nudNumCategories.Value;
+            int numQuestionsPerCat = (int)nudNumQuestionCategory.Value;
+
+            TimeSpan questionTimeLimit = new TimeSpan();
+            if(cboQuestionTimeLimit.SelectedIndex == 0)
+            {
+                questionTimeLimit = new TimeSpan(0, 0, 30);
+            }
+            else if (cboQuestionTimeLimit.SelectedIndex == 1)
+            {
+                questionTimeLimit = new TimeSpan(0, 1, 0);
+            }
+            else if (cboQuestionTimeLimit.SelectedIndex == 2)
+            {
+                questionTimeLimit = new TimeSpan(0, 2, 0);
+            }
+            else if (cboQuestionTimeLimit.SelectedIndex == 3)
+            {
+                questionTimeLimit = new TimeSpan(0, 3, 0);
+            }
+            
+            if (ValidateData.ValidateGameName(gameName))
+            {
+                newGame = new Game(null, gameName, questionTimeLimit, numCategories, numQuestionsPerCat, null);
+                DB_Insert.InsertGame(newGame);
+                frmCreateGame createGameForm = new frmCreateGame(newGame);
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void nudNumCategories_ValueChanged(object sender, EventArgs e)
+        {
+            if(nudNumCategories.Value == 6)
+            {
+                lblDefault1.Visible = true;
+            }
+            else
+            {
+                lblDefault1.Visible = false;
+            }
+        }
+
+        private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudNumQuestionCategory.Value == 5)
+            {
+                lblDefault2.Visible = true;
+            }
+            else
+            {
+                lblDefault2.Visible = false;
+            }
         }
     }
 }

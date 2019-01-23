@@ -13,7 +13,7 @@ namespace Jeopardy
     {
         readonly static OleDbConnection conn = DB_Conn.GetGamesConnection();
 
-        public static int InsertGame(Game newGame)
+        public static int? InsertGame(Game newGame)
         {
             string insertStatement =
                 "INSERT INTO games(GameName, QuestionTimeLimit) "
@@ -44,7 +44,7 @@ namespace Jeopardy
                 {
                     foreach (Category c in newGame.Categories)
                     {
-                        c.GameId = newGame.Id;
+                        c.GameId = (int)newGame.Id;
                         c.Id = InsertCategory(c);
                     }
                 }
@@ -67,7 +67,7 @@ namespace Jeopardy
             return newGame.Id;
         }
 
-        public static int InsertCategory(Category newCategory)
+        public static int? InsertCategory(Category newCategory)
         {
             string insertStatement =
                 "INSERT INTO categories(GameId, Title, Subtitle) "
@@ -99,7 +99,7 @@ namespace Jeopardy
                 {
                     foreach (Question q in newCategory.Questions)
                     {
-                        q.CategoryId = newCategory.Id;
+                        q.CategoryId = (int)newCategory.Id;
                         q.Id = InsertQuestion(q);
                     }
                 }
@@ -122,7 +122,7 @@ namespace Jeopardy
             return newCategory.Id;
         }
 
-        public static int InsertQuestion(Question newQuestion)
+        public static int? InsertQuestion(Question newQuestion)
         {
             string insertStatement =
                 "INSERT INTO questions(CategoryId, Type, QuestionText, Answer, Weight) "
@@ -178,7 +178,7 @@ namespace Jeopardy
             return newQuestion.Id;
         }
 
-        public static int InsertChoice(Choice newChoice)
+        public static int? InsertChoice(Choice newChoice)
         {
             string insertStatement =
                 "INSERT INTO choices(QuestionId, Index, ChoiceText) "

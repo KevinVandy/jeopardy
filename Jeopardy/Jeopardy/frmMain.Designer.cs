@@ -76,6 +76,7 @@
             this.lstGamesFromDB.Name = "lstGamesFromDB";
             this.lstGamesFromDB.Size = new System.Drawing.Size(321, 412);
             this.lstGamesFromDB.TabIndex = 2;
+            this.lstGamesFromDB.SelectedIndexChanged += new System.EventHandler(this.lstGamesFromDB_SelectedIndexChanged);
             // 
             // lblGames
             // 

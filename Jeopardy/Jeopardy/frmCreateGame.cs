@@ -18,11 +18,12 @@ namespace Jeopardy
         int numCategories = 6;
         int numQuestionsPerCat = 5;
 
-        public frmCreateGame()
+        public frmCreateGame(Game theGame)
         {
             InitializeComponent();
 
             game = new Game();
+
             numCategories = (int)nudNumCategories.Value;
             numQuestionsPerCat = (int)nudNumQuestionCategory.Value;
 

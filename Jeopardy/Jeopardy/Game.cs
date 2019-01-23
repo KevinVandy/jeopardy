@@ -8,22 +8,26 @@ namespace Jeopardy
 {
     public class Game
     {
-        private int id;
+        private int? id;
         private string gameName;
         private TimeSpan questionTimeLimit;
+        private int numCategories;
+        private int numQuestionsPerCategory;
         private List<Category> categories;
 
         public Game() { }
 
-        public Game(int id, string gameName, TimeSpan questionTimeLimit, List<Category> categories)
+        public Game(int? id, string gameName, TimeSpan questionTimeLimit, int numCategories, int numQuestionsPerCategory, List<Category> categories)
         {
             this.id = id;
             this.gameName = gameName;
             this.questionTimeLimit = questionTimeLimit;
+            this.numCategories = numCategories;
+            this.numQuestionsPerCategory = numQuestionsPerCategory;
             this.categories = categories;
         }
 
-        public int Id
+        public int? Id
         {
             get => id;
             set => id = value;
@@ -51,6 +55,18 @@ namespace Jeopardy
                     questionTimeLimit = value;
                 }
             }
+        }
+
+        public int NumCategories
+        {
+            get => numCategories;
+            set => numCategories = value;
+        }
+
+        public int NumQuestionsPerCategory
+        {
+            get => numQuestionsPerCategory;
+            set => numQuestionsPerCategory = value;
         }
 
         public List<Category> Categories

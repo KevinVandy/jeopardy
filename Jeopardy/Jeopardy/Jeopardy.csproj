@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -129,6 +130,9 @@
     <Compile Include="ValidateTypes.cs" />
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCreateGameStart.resx">
+      <DependentUpon>frmCreateGameStart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditCategory.resx">
       <DependentUpon>frmEditCategory.cs</DependentUpon>

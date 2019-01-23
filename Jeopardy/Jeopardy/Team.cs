@@ -8,20 +8,20 @@ namespace Jeopardy
 {
     public class Team
     {
-        private int id;
+        private int? id;
         private string teamName;
         private int score;
 
         public Team() { }
 
-        public Team(int id, string teamName, int score = 0)
+        public Team(int? id, string teamName, int score = 0)
         {
             this.id = id;
             this.teamName = teamName;
             this.score = score;
         }
 
-        public int Id
+        public int? Id
         {
             get => id;
             set => id = value;

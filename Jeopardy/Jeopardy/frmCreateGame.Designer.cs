@@ -77,8 +77,8 @@
             this.tslblSaveState = new System.Windows.Forms.ToolStripStatusLabel();
             this.cmsQuestions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiEditQuestion = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsCategories = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiDeleteQuestion = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsCategories = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiEditCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDeleteCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
@@ -394,7 +394,7 @@
             this.nudNumQuestionCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudNumQuestionCategory.Location = new System.Drawing.Point(866, 42);
             this.nudNumQuestionCategory.Maximum = new decimal(new int[] {
-            6,
+            8,
             0,
             0,
             0});
@@ -418,7 +418,7 @@
             this.nudNumCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudNumCategories.Location = new System.Drawing.Point(521, 42);
             this.nudNumCategories.Maximum = new decimal(new int[] {
-            7,
+            8,
             0,
             0,
             0});
@@ -564,6 +564,12 @@
             this.tsmiEditQuestion.Size = new System.Drawing.Size(124, 26);
             this.tsmiEditQuestion.Text = "Edit";
             // 
+            // tsmiDeleteQuestion
+            // 
+            this.tsmiDeleteQuestion.Name = "tsmiDeleteQuestion";
+            this.tsmiDeleteQuestion.Size = new System.Drawing.Size(124, 26);
+            this.tsmiDeleteQuestion.Text = "Delete";
+            // 
             // cmsCategories
             // 
             this.cmsCategories.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -571,24 +577,18 @@
             this.tsmiEditCategory,
             this.tsmiDeleteCategory});
             this.cmsCategories.Name = "cmsCategories";
-            this.cmsCategories.Size = new System.Drawing.Size(181, 78);
-            // 
-            // tsmiDeleteQuestion
-            // 
-            this.tsmiDeleteQuestion.Name = "tsmiDeleteQuestion";
-            this.tsmiDeleteQuestion.Size = new System.Drawing.Size(124, 26);
-            this.tsmiDeleteQuestion.Text = "Delete";
+            this.cmsCategories.Size = new System.Drawing.Size(125, 56);
             // 
             // tsmiEditCategory
             // 
             this.tsmiEditCategory.Name = "tsmiEditCategory";
-            this.tsmiEditCategory.Size = new System.Drawing.Size(180, 26);
+            this.tsmiEditCategory.Size = new System.Drawing.Size(124, 26);
             this.tsmiEditCategory.Text = "Edit";
             // 
             // tsmiDeleteCategory
             // 
             this.tsmiDeleteCategory.Name = "tsmiDeleteCategory";
-            this.tsmiDeleteCategory.Size = new System.Drawing.Size(180, 26);
+            this.tsmiDeleteCategory.Size = new System.Drawing.Size(124, 26);
             this.tsmiDeleteCategory.Text = "Delete";
             // 
             // frmCreateGame

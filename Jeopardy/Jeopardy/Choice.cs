@@ -8,14 +8,14 @@ namespace Jeopardy
 {
     public class Choice
     {
-        private int id;
+        private int? id;
         private int questionId;
         private string index;
         private string text;
 
         public Choice() { }
 
-        public Choice(int id, int questionId, string index, string text)
+        public Choice(int? id, int questionId, string index, string text)
         {
             this.id = id;
             this.questionId = questionId;
@@ -23,7 +23,7 @@ namespace Jeopardy
             this.text = text;
         }
 
-        public int Id
+        public int? Id
         {
             get => id;
             set => id = value;

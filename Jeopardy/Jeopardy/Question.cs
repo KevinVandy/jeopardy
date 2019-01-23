@@ -8,7 +8,7 @@ namespace Jeopardy
 {
     public class Question
     {
-        private int id;
+        private int? id;
         private int categoryId;
         private string questionText;
         private string type;
@@ -19,7 +19,7 @@ namespace Jeopardy
 
         public Question() { }
 
-        public Question(int id, int categoryId, string questionText, string type, string answer, int weight, List<Choice> choices = null, bool dailyDouble = false)
+        public Question(int? id, int categoryId, string questionText, string type, string answer, int weight, List<Choice> choices = null, bool dailyDouble = false)
         {
             this.id = id;
             this.categoryId = categoryId;
@@ -31,7 +31,7 @@ namespace Jeopardy
             this.dailyDouble = dailyDouble;
         }
 
-        public int Id
+        public int? Id
         {
             get => id;
             set => id = value;

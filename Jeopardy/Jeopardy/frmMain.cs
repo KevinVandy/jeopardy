@@ -13,6 +13,7 @@ namespace Jeopardy
     public partial class frmMain : Form
     {
         List<Game> allGames;
+        Game selectedGame;
 
         public frmMain()
         {
@@ -22,6 +23,11 @@ namespace Jeopardy
         private void frmMain_Load(object sender, EventArgs e)
         {
             bwLoadGames.RunWorkerAsync();
+
+            btnPlayGame.Enabled = false;
+            btnCreateGame.Enabled = true;
+            btnEditGame.Enabled = false;
+            btnDeleteGame.Enabled = false;
         }
 
         private void bwLoadGames_DoWork(object sender, DoWorkEventArgs e)
@@ -56,14 +62,16 @@ namespace Jeopardy
 
         private void btnCreateGame_Click(object sender, EventArgs e)
         {
-            frmCreateGame createGameForm = new frmCreateGame();
+            frmCreateGameStart createGameForm = new frmCreateGameStart();
             createGameForm.Text = "Create a Game!";
+            this.Hide();
             createGameForm.ShowDialog();
+            this.Show();
         }
 
         private void btnEditGame_Click(object sender, EventArgs e)
         {
-            frmCreateGame createGameForm = new frmCreateGame();
+            frmCreateGame createGameForm = new frmCreateGame(selectedGame);
             createGameForm.Text = "Edit a Game!";
             createGameForm.ShowDialog();
         }
@@ -84,6 +92,17 @@ namespace Jeopardy
 
         }
 
+        private void lstGamesFromDB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lstGamesFromDB.SelectedIndex != -1)
+            {
+                selectedGame = allGames[lstGamesFromDB.SelectedIndex];
 
+                btnPlayGame.Enabled = true;
+                btnCreateGame.Enabled = true;
+                btnEditGame.Enabled = true;
+                btnDeleteGame.Enabled = true;
+            }
+        }
     }
 }
