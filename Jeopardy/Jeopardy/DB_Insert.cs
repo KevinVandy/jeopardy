@@ -16,8 +16,8 @@ namespace Jeopardy
         public static int? InsertGame(Game newGame)
         {
             string insertStatement =
-                "INSERT INTO games(GameName, QuestionTimeLimit) "
-              + "VALUES (@gameName, @questionTimeLimit)";
+                "INSERT INTO games(GameName, QuestionTimeLimit, NumCategories, NumQuestionsPerCategory) "
+              + "VALUES (@gameName, @questionTimeLimit, @numCategories, @numQuestionsPerCategory)";
 
             string identityStatement = "SELECT @@Identity";
 
@@ -25,6 +25,8 @@ namespace Jeopardy
 
             insertCommand.Parameters.AddWithValue("@gameName", newGame.GameName);
             insertCommand.Parameters.AddWithValue("@questionTimeLimit", newGame.QuestionTimeLimit);
+            insertCommand.Parameters.AddWithValue("@numCategories", newGame.NumCategories);
+            insertCommand.Parameters.AddWithValue("@numQuestionsPerCategory", newGame.NumQuestionsPerCategory);
 
             try
             {
