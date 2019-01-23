@@ -38,25 +38,43 @@ namespace Jeopardy
         public int CategoryId
         {
             get => categoryId;
-            set { categoryId = value; }
+            set => categoryId = value;
         }
 
         public string Type
         {
             get => type;
-            set => type = value;
+            set
+            {
+                if (ValidateData.ValidateQuestionType(value))
+                {
+                    type = value;
+                }
+            }
         }
 
         public string Answer
         {
             get => answer;
-            set => answer = value;
+            set
+            {
+                if (ValidateData.ValidateQuestionAnswer(value))
+                {
+                    answer = value;
+                }
+            }
         }
 
         public int Weight
         {
             get => weight;
-            set => weight = value;
+            set
+            {
+                if (ValidateData.ValidateQuestionWeight(value))
+                {
+                    weight = value;
+                }
+            }
         }
 
         public List<Choice> Choices

@@ -30,15 +30,26 @@ namespace Jeopardy
         public string TeamName
         {
             get => teamName;
-            set => teamName = value;
+            set
+            {
+                if (ValidateData.ValidateTeamName(value))
+                {
+                    teamName = value;
+                }
+            }
         }
 
         public int Score
         {
             get => score;
-            set => score = value;
+            set
+            {
+                if (ValidateData.ValidateTeamScore(value))
+                {
+                    score = value;
+                }
+            }
         }
-
-
+        
     }
 }

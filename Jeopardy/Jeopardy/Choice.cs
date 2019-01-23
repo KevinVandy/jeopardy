@@ -10,14 +10,16 @@ namespace Jeopardy
     {
         private int id;
         private int questionId;
+        private string index;
         private string text;
 
         public Choice() { }
 
-        public Choice(int id, int questionId, string text)
+        public Choice(int id, int questionId, string index, string text)
         {
             this.id = id;
             this.questionId = questionId;
+            this.index = index;
             this.text = text;
         }
 
@@ -33,10 +35,28 @@ namespace Jeopardy
             set => questionId = value;
         }
 
+        public string Index
+        {
+            get => index;
+            set
+            {
+                if (ValidateData.ValidateChoiceIndex(value))
+                {
+                    index = value;
+                }
+            }
+        }
+
         public string Text
         {
             get => text;
-            set => text = value;
+            set
+            {
+                if (ValidateData.ValidateChoiceText(value))
+                {
+                    text = value;
+                }
+            }
         }
     }
 }

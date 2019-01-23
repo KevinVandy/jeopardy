@@ -32,13 +32,25 @@ namespace Jeopardy
         public string GameName
         {
             get => gameName;
-            set => gameName = value;
+            set
+            {
+                if (ValidateData.ValidateGameName(value))
+                {
+                    gameName = value;
+                }
+            }
         }
 
         public TimeSpan QuestionTimeLimit
         {
             get => questionTimeLimit;
-            set => questionTimeLimit = value;
+            set
+            {
+                if (ValidateData.ValidateGameTimeLimit(value))
+                {
+                    questionTimeLimit = value;
+                }
+            }
         }
 
         public List<Category> Categories
