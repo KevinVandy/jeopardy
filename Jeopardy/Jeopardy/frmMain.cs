@@ -12,16 +12,36 @@ namespace Jeopardy
 {
     public partial class frmMain : Form
     {
+        List<Game> allGames;
+
         public frmMain()
         {
             InitializeComponent();
         }
-        
+
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+            bwLoadGames.RunWorkerAsync();
         }
-        
+
+        private void bwLoadGames_DoWork(object sender, DoWorkEventArgs e)
+        {
+            allGames = GamesDA.SelectAllGames();
+        }
+
+        private void bwLoadGames_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            RefreshListBox();
+        }
+
+        private void RefreshListBox()
+        {
+            foreach (Game g in allGames)
+            {
+                lstGamesFromDB.Items.Add(g.GameName);
+            }
+        }
+
         private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form about = new frmAbout();
@@ -50,7 +70,7 @@ namespace Jeopardy
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void helpToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -63,6 +83,7 @@ namespace Jeopardy
         {
 
         }
+
 
     }
 }

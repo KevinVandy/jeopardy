@@ -41,6 +41,7 @@
             this.helpToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEditGame = new System.Windows.Forms.Button();
             this.btnDeleteGame = new System.Windows.Forms.Button();
+            this.bwLoadGames = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -165,6 +166,11 @@
             this.btnDeleteGame.Text = "Delete Game";
             this.btnDeleteGame.UseVisualStyleBackColor = true;
             // 
+            // bwLoadGames
+            // 
+            this.bwLoadGames.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLoadGames_DoWork);
+            this.bwLoadGames.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwLoadGames_RunWorkerCompleted);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,6 +210,7 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem2;
         private System.Windows.Forms.Button btnEditGame;
         private System.Windows.Forms.Button btnDeleteGame;
+        private System.ComponentModel.BackgroundWorker bwLoadGames;
     }
 }
 

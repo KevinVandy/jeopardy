@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Jeopardy
 {
-    class Category
+    public class Category
     {
         private int id;
         private int gameId;
