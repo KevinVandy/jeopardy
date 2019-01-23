@@ -8,7 +8,7 @@ using System.Data.OleDb;
 
 namespace Jeopardy
 {
-    class GamesConn
+    class DB_Conn
     {
         public static OleDbConnection GetGamesConnection()
         {

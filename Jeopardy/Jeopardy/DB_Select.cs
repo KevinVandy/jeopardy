@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Jeopardy
 {
-    public class GamesDA
+    public class DB_Select
     {
-        readonly static OleDbConnection conn = GamesConn.GetGamesConnection();
+        readonly static OleDbConnection conn = DB_Conn.GetGamesConnection();
 
         public static List<Game> SelectAllGames()
         {

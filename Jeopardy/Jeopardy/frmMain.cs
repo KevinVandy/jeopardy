@@ -26,7 +26,7 @@ namespace Jeopardy
 
         private void bwLoadGames_DoWork(object sender, DoWorkEventArgs e)
         {
-            allGames = GamesDA.SelectAllGames();
+            allGames = DB_Select.SelectAllGames();
         }
 
         private void bwLoadGames_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

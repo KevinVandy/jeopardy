@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Jeopardy
 {
-    class GamesDB
+    public class DB_Update
     {
+        readonly static OleDbConnection conn = DB_Conn.GetGamesConnection();
     }
 }
