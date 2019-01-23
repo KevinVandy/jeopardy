@@ -150,11 +150,11 @@ namespace Jeopardy
 
                 if (WindowState == FormWindowState.Maximized)
                 {
-                    frmPlayGame_ResizeEnd(null, null);
+                    frmPlayGame_ResizeEnd(sender, e);
                 }
                 if (WindowState == FormWindowState.Normal)
                 {
-                    frmPlayGame_ResizeEnd(null, null);
+                    frmPlayGame_ResizeEnd(sender, e);
                 }
             }
         }

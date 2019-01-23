@@ -91,6 +91,7 @@ namespace Jeopardy
                     tmpButton.Width = buttonWidth;
                     tmpButton.Height = buttonHeight;
                     tmpButton.Text = "Category " + (y + 1).ToString();
+                    tmpButton.ContextMenuStrip = cmsCategories;
                     tmpButton.Click += CategoryButton_Click;
                     categoryButtons.Add(tmpButton);
                 }
@@ -132,6 +133,7 @@ namespace Jeopardy
                     tmpButton.Width = buttonWidth;
                     tmpButton.Height = buttonHeight;
                     tmpButton.Text = "Category " + (y + 1).ToString() + "\n" + "Question " + (x + 1).ToString();
+                    tmpButton.ContextMenuStrip = cmsQuestions;
                     tmpButton.Click += QuestionButton_Click;
                     questionButtons.Add(tmpButton);
                 }
@@ -170,15 +172,13 @@ namespace Jeopardy
             if (WindowState != LastWindowState)
             {
                 LastWindowState = WindowState;
-
-
                 if (WindowState == FormWindowState.Maximized)
                 {
-                    frmCreateGame_ResizeEnd(null, null);
+                    frmCreateGame_ResizeEnd(sender, e);
                 }
                 if (WindowState == FormWindowState.Normal)
                 {
-                    frmCreateGame_ResizeEnd(null, null);
+                    frmCreateGame_ResizeEnd(sender, e);
                 }
             }
         }
@@ -219,5 +219,9 @@ namespace Jeopardy
 
         }
 
+        private void cmsQuestions_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }
