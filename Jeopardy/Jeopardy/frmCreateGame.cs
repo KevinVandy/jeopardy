@@ -15,18 +15,19 @@ namespace Jeopardy
         private Game game = new Game();
         private List<Button> categoryButtons = new List<Button>();
         private List<Button> questionButtons = new List<Button>();
-        int numCategories = 6;
-        int numQuestionsPerCat = 5;
 
         public frmCreateGame(Game theGame)
         {
             InitializeComponent();
 
-            game = new Game();
-
-            numCategories = (int)nudNumCategories.Value;
-            numQuestionsPerCat = (int)nudNumQuestionCategory.Value;
-
+            if (theGame != null)
+            {
+                game = theGame;
+            }
+            else
+            {
+                game = new Game();
+            }
         }
 
         private void frmCreateGame_Load(object sender, EventArgs e)
@@ -35,11 +36,14 @@ namespace Jeopardy
 
             CreateCategoryGrid();
             CreateQuestionGrid();
+
+            nudNumCategories.Value = game.NumCategories;
+            nudNumQuestionCategory.Value = game.NumQuestionsPerCategory;
         }
 
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
         {
-            numCategories = (int)nudNumCategories.Value;
+            game.NumCategories = (int)nudNumCategories.Value;
             DisplayNumberQuesions();
 
             CreateCategoryGrid();
@@ -48,7 +52,7 @@ namespace Jeopardy
 
         private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
         {
-            numQuestionsPerCat = (int)nudNumQuestionCategory.Value;
+            game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
             DisplayNumberQuesions();
 
             CreateQuestionGrid();
@@ -76,7 +80,7 @@ namespace Jeopardy
             int gbxWidth = gbxCategories.Width;
             int gbxHeight = gbxCategories.Height;
 
-            int buttonWidth = (gbxWidth - 80) / (numCategories);
+            int buttonWidth = (gbxWidth - 80) / (game.NumCategories);
             int buttonHeight = 80;
 
             int start_x = 30;
@@ -84,7 +88,7 @@ namespace Jeopardy
 
             for (int x = 0; x < 1; x++)
             {
-                for (int y = 0; y < numCategories; y++)
+                for (int y = 0; y < game.NumCategories; y++)
                 {
                     Button tmpButton = new Button();
                     tmpButton.Top = start_x + (x * buttonHeight);
@@ -118,15 +122,15 @@ namespace Jeopardy
             int gbxWidth = gbxQuestions.Width;
             int gbxHeight = gbxQuestions.Height;
 
-            int buttonWidth = (gbxWidth - 80) / numCategories;
-            int buttonHeight = (gbxHeight - 80) / numQuestionsPerCat;
+            int buttonWidth = (gbxWidth - 80) / game.NumCategories;
+            int buttonHeight = (gbxHeight - 80) / game.NumQuestionsPerCategory;
 
             int start_x = 30;
             int start_y = 30;
 
-            for (int x = 0; x < numQuestionsPerCat; x++)
+            for (int x = 0; x < game.NumQuestionsPerCategory; x++)
             {
-                for (int y = 0; y < numCategories; y++)
+                for (int y = 0; y < game.NumCategories; y++)
                 {
                     Button tmpButton = new Button();
                     tmpButton.Top = start_x + ((x * buttonHeight) + (x * 5));
@@ -192,7 +196,7 @@ namespace Jeopardy
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)

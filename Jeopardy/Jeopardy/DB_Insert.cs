@@ -24,7 +24,7 @@ namespace Jeopardy
             OleDbCommand insertCommand = new OleDbCommand(insertStatement, conn);
 
             insertCommand.Parameters.AddWithValue("@gameName", newGame.GameName);
-            insertCommand.Parameters.AddWithValue("@questionTimeLimit", newGame.QuestionTimeLimit);
+            insertCommand.Parameters.AddWithValue("@questionTimeLimit", Convert.ToInt32(newGame.QuestionTimeLimit.TotalSeconds));
             insertCommand.Parameters.AddWithValue("@numCategories", newGame.NumCategories);
             insertCommand.Parameters.AddWithValue("@numQuestionsPerCategory", newGame.NumQuestionsPerCategory);
 
@@ -42,7 +42,7 @@ namespace Jeopardy
                     conn.Close();
                 }
 
-                if (newGame.Categories.Count > 0)
+                if (newGame.Categories != null && newGame.Categories.Count > 0)
                 {
                     foreach (Category c in newGame.Categories)
                     {
@@ -97,7 +97,7 @@ namespace Jeopardy
                     conn.Close();
                 }
 
-                if (newCategory.Questions.Count > 0)
+                if (newCategory.Questions != null && newCategory.Questions.Count > 0)
                 {
                     foreach (Question q in newCategory.Questions)
                     {
@@ -154,7 +154,7 @@ namespace Jeopardy
                     conn.Close();
                 }
 
-                if (newQuestion.Choices.Count > 0)
+                if (newQuestion.Choices != null && newQuestion.Choices.Count > 0)
                 {
                     foreach (Choice c in newQuestion.Choices)
                     {

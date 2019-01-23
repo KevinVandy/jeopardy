@@ -21,7 +21,7 @@ namespace Jeopardy
 
         private void frmCreateGameStart_Load(object sender, EventArgs e)
         {
-
+            cboQuestionTimeLimit.SelectedIndex = 1;
         }
 
         private void btnCreateGame_Click(object sender, EventArgs e)
@@ -54,6 +54,9 @@ namespace Jeopardy
                 newGame = new Game(null, gameName, questionTimeLimit, numCategories, numQuestionsPerCat, null);
                 DB_Insert.InsertGame(newGame);
                 frmCreateGame createGameForm = new frmCreateGame(newGame);
+                this.Hide();
+                createGameForm.ShowDialog();
+                this.Close();
             }
         }
 
