@@ -15,7 +15,7 @@ namespace Jeopardy
             {
                 if (Value.Count != 4)
                 {
-                    throw CustomExceptions.WrongCountException("wrong");
+                    throw new CustomExceptions.WrongCountException();
                 }
                 return true;
             }
@@ -34,7 +34,10 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; //TODO throw custom exception
+            else
+            {
+                throw new CustomExceptions.StringTooLongException(gameName);
+            }
         }
 
         public static bool ValidateGameTimeLimit(TimeSpan defaultTimeLimit)
@@ -54,7 +57,10 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; //TODO throw custom exception
+            else
+            {
+                throw new CustomExceptions.StringTooLongException(title);
+            }
         }
 
         public static bool ValidateCategorySubtitle(string subtitle)
@@ -63,7 +69,10 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; //TODO throw custom exception
+            else
+            {
+                throw new CustomExceptions.StringTooLongException(subtitle);
+            }
         }
 
         //MARK: Validate Question properties

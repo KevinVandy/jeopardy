@@ -42,7 +42,7 @@ namespace Jeopardy
             {
                 if(Value == null)
                 {
-                    throw CustomExceptions.ArgumentNullException("you cannot pass a null value!");
+                    throw new CustomExceptions.ArgumentNullException();
                 }
                 return true;
             }

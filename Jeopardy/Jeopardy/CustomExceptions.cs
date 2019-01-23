@@ -8,14 +8,57 @@ namespace Jeopardy
 {
     public class CustomExceptions
     {
-        public static Exception ArgumentNullException(string v)
+        //public static Exception ArgumentNullException(string v)
+        //{
+        //    throw new ArgumentNullException();
+        //}
+
+        //public static Exception WrongCountException(string v)
+        //{
+        //    throw new Exception("Wrong number of choices");
+        //}
+
+        //MARK: Data Exceptions
+
+        public class ArgumentNullException : Exception
         {
-            throw new ArgumentNullException();
+            public ArgumentNullException()
+            {
+
+            }
+
+            public ArgumentNullException(string s)
+            {
+
+            }
         }
 
-        public static Exception WrongCountException(string v)
+        public class WrongCountException : Exception
         {
-            throw new Exception("Wrong number of choices");
+            public WrongCountException()
+            {
+
+            }
+
+            public WrongCountException(string s)
+            {
+
+            }
+        }
+
+        public class StringTooLongException : Exception
+        {
+            public StringTooLongException()
+            {
+
+            }
+
+            public StringTooLongException(string s)
+            {
+
+            }
         }
     }
+
+
 }
