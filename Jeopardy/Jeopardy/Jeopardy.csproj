@@ -58,6 +58,12 @@
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCreateGameStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCreateGameStart.Designer.cs">
+      <DependentUpon>frmCreateGameStart.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditCategory.cs">
       <SubType>Form</SubType>
     </Compile>
