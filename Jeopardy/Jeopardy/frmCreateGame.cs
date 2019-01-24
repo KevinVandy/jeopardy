@@ -54,6 +54,7 @@ namespace Jeopardy
                 newGame = new Game(null, gameName, questionTimeLimit, numCategories, numQuestionsPerCat, null);
                 newGame.Id = DB_Insert.InsertGame(newGame);
                 frmEditGame createGameForm = new frmEditGame(newGame);
+                createGameForm.Tag = newGame;
                 this.Hide();
                 createGameForm.ShowDialog();
                 this.Close();

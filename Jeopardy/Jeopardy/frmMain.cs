@@ -78,6 +78,7 @@ namespace Jeopardy
         private void btnEditGame_Click(object sender, EventArgs e)
         {
             frmEditGame createGameForm = new frmEditGame(selectedGame);
+            createGameForm.Tag = selectedGame;
             createGameForm.Text = "Edit a Game!";
             this.Hide();
             createGameForm.ShowDialog();

@@ -20,7 +20,7 @@ namespace Jeopardy
         {
             InitializeComponent();
 
-            game = theGame;
+            game = this.Tag;
 
             if(game.NumCategories == 0)
             {
