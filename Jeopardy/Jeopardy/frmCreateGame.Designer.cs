@@ -49,7 +49,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(60, 201);
+            this.label2.Location = new System.Drawing.Point(60, 266);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(275, 29);
             this.label2.TabIndex = 47;
@@ -59,7 +59,7 @@
             // 
             this.lblNumberCategories.AutoSize = true;
             this.lblNumberCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberCategories.Location = new System.Drawing.Point(79, 130);
+            this.lblNumberCategories.Location = new System.Drawing.Point(79, 197);
             this.lblNumberCategories.Name = "lblNumberCategories";
             this.lblNumberCategories.Size = new System.Drawing.Size(256, 29);
             this.lblNumberCategories.TabIndex = 46;
@@ -68,7 +68,7 @@
             // nudNumQuestionCategory
             // 
             this.nudNumQuestionCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudNumQuestionCategory.Location = new System.Drawing.Point(341, 201);
+            this.nudNumQuestionCategory.Location = new System.Drawing.Point(341, 264);
             this.nudNumQuestionCategory.Maximum = new decimal(new int[] {
             8,
             0,
@@ -80,8 +80,8 @@
             0,
             0});
             this.nudNumQuestionCategory.Name = "nudNumQuestionCategory";
-            this.nudNumQuestionCategory.Size = new System.Drawing.Size(57, 35);
-            this.nudNumQuestionCategory.TabIndex = 45;
+            this.nudNumQuestionCategory.Size = new System.Drawing.Size(66, 35);
+            this.nudNumQuestionCategory.TabIndex = 3;
             this.nudNumQuestionCategory.Value = new decimal(new int[] {
             5,
             0,
@@ -92,7 +92,7 @@
             // nudNumCategories
             // 
             this.nudNumCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudNumCategories.Location = new System.Drawing.Point(341, 128);
+            this.nudNumCategories.Location = new System.Drawing.Point(341, 195);
             this.nudNumCategories.Maximum = new decimal(new int[] {
             8,
             0,
@@ -104,8 +104,8 @@
             0,
             0});
             this.nudNumCategories.Name = "nudNumCategories";
-            this.nudNumCategories.Size = new System.Drawing.Size(57, 35);
-            this.nudNumCategories.TabIndex = 44;
+            this.nudNumCategories.Size = new System.Drawing.Size(66, 35);
+            this.nudNumCategories.TabIndex = 2;
             this.nudNumCategories.Value = new decimal(new int[] {
             6,
             0,
@@ -123,10 +123,10 @@
             "1 minute",
             "2 minutes",
             "3 minutes"});
-            this.cboQuestionTimeLimit.Location = new System.Drawing.Point(341, 269);
+            this.cboQuestionTimeLimit.Location = new System.Drawing.Point(341, 125);
             this.cboQuestionTimeLimit.Name = "cboQuestionTimeLimit";
-            this.cboQuestionTimeLimit.Size = new System.Drawing.Size(251, 37);
-            this.cboQuestionTimeLimit.TabIndex = 43;
+            this.cboQuestionTimeLimit.Size = new System.Drawing.Size(294, 37);
+            this.cboQuestionTimeLimit.TabIndex = 1;
             // 
             // lblGameName
             // 
@@ -142,7 +142,7 @@
             // 
             this.lblQuestionTimeLimit.AutoSize = true;
             this.lblQuestionTimeLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestionTimeLimit.Location = new System.Drawing.Point(100, 272);
+            this.lblQuestionTimeLimit.Location = new System.Drawing.Point(100, 128);
             this.lblQuestionTimeLimit.Name = "lblQuestionTimeLimit";
             this.lblQuestionTimeLimit.Size = new System.Drawing.Size(235, 29);
             this.lblQuestionTimeLimit.TabIndex = 42;
@@ -154,16 +154,16 @@
             this.txtGameName.Location = new System.Drawing.Point(341, 56);
             this.txtGameName.MaxLength = 50;
             this.txtGameName.Name = "txtGameName";
-            this.txtGameName.Size = new System.Drawing.Size(251, 35);
-            this.txtGameName.TabIndex = 41;
+            this.txtGameName.Size = new System.Drawing.Size(294, 35);
+            this.txtGameName.TabIndex = 0;
             // 
             // btnCreateGame
             // 
             this.btnCreateGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateGame.Location = new System.Drawing.Point(357, 402);
+            this.btnCreateGame.Location = new System.Drawing.Point(400, 402);
             this.btnCreateGame.Name = "btnCreateGame";
             this.btnCreateGame.Size = new System.Drawing.Size(235, 49);
-            this.btnCreateGame.TabIndex = 48;
+            this.btnCreateGame.TabIndex = 4;
             this.btnCreateGame.Text = "Create New Game";
             this.btnCreateGame.UseVisualStyleBackColor = true;
             this.btnCreateGame.Click += new System.EventHandler(this.btnCreateGame_Click);
@@ -172,10 +172,10 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(27, 402);
+            this.btnCancel.Location = new System.Drawing.Point(65, 402);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(235, 49);
-            this.btnCancel.TabIndex = 49;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -196,7 +196,7 @@
             this.lblDefault1.AutoSize = true;
             this.lblDefault1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDefault1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblDefault1.Location = new System.Drawing.Point(407, 134);
+            this.lblDefault1.Location = new System.Drawing.Point(417, 201);
             this.lblDefault1.Name = "lblDefault1";
             this.lblDefault1.Size = new System.Drawing.Size(79, 24);
             this.lblDefault1.TabIndex = 51;
@@ -207,19 +207,19 @@
             this.lblDefault2.AutoSize = true;
             this.lblDefault2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDefault2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblDefault2.Location = new System.Drawing.Point(407, 207);
+            this.lblDefault2.Location = new System.Drawing.Point(420, 270);
             this.lblDefault2.Name = "lblDefault2";
             this.lblDefault2.Size = new System.Drawing.Size(79, 24);
-            this.lblDefault2.TabIndex = 52;
+            this.lblDefault2.TabIndex = 6;
             this.lblDefault2.Text = "(Default)";
             // 
-            // frmCreateGameStart
+            // frmCreateGame
             // 
             this.AcceptButton = this.btnCreateGame;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(640, 494);
+            this.ClientSize = new System.Drawing.Size(700, 499);
             this.Controls.Add(this.lblDefault2);
             this.Controls.Add(this.lblDefault1);
             this.Controls.Add(this.lblHint);
@@ -234,7 +234,7 @@
             this.Controls.Add(this.lblQuestionTimeLimit);
             this.Controls.Add(this.txtGameName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "frmCreateGameStart";
+            this.Name = "frmCreateGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmCreateGameStart";
             this.Load += new System.EventHandler(this.frmCreateGameStart_Load);

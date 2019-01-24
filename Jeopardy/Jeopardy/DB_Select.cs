@@ -13,6 +13,17 @@ namespace Jeopardy
     {
         readonly static OleDbConnection conn = DB_Conn.GetGamesConnection();
 
+        public static Game SelectGame(int? gameId)
+        {
+            Game game = new Game();
+
+            string query = "SELECT * FROM games WHERE Id = @gameId";
+
+
+
+            return game;
+        }
+
         public static List<Game> SelectAllGames()
         {
             List<Game> games = new List<Game>();
