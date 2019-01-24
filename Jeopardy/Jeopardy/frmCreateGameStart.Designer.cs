@@ -233,7 +233,9 @@
             this.Controls.Add(this.lblGameName);
             this.Controls.Add(this.lblQuestionTimeLimit);
             this.Controls.Add(this.txtGameName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmCreateGameStart";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmCreateGameStart";
             this.Load += new System.EventHandler(this.frmCreateGameStart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudNumQuestionCategory)).EndInit();

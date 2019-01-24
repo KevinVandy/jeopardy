@@ -18,11 +18,8 @@ namespace Jeopardy
             int numRows = 0;
 
             string deleteStatement = 
-                "DELETE g.* FROM games AS g " +
-                "LEFT JOIN categories AS ca ON g.Id = ca.GameId " +
-                //"LEFT JOIN questions AS q ON ca.Id = q.CategoryId " +
-                //"LEFT JOIN choices AS ch ON q.Id = ch.QuestionId " +
-                "WHERE g.Id = @gameId";
+                "DELETE FROM games " +
+                "WHERE Id = @gameId";
             
             OleDbCommand deleteCommand = new OleDbCommand(deleteStatement, conn);
 

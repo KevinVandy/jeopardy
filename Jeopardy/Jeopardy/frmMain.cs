@@ -47,6 +47,7 @@ namespace Jeopardy
             {
                 lstGamesFromDB.Items.Add(g.GameName);
             }
+            lstGamesFromDB_SelectedIndexChanged(null, null);
         }
 
         private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -58,7 +59,9 @@ namespace Jeopardy
         private void btnPlayGame_Click(object sender, EventArgs e)
         {
             frmPlayGame playGameForm = new frmPlayGame();
+            this.Hide();
             playGameForm.ShowDialog();
+            this.Show();
         }
 
         private void btnCreateGame_Click(object sender, EventArgs e)
@@ -68,13 +71,25 @@ namespace Jeopardy
             this.Hide();
             createGameForm.ShowDialog();
             this.Show();
+            bwLoadGames.RunWorkerAsync();
+            RefreshListBox();
         }
 
         private void btnEditGame_Click(object sender, EventArgs e)
         {
             frmCreateGame createGameForm = new frmCreateGame(selectedGame);
             createGameForm.Text = "Edit a Game!";
+            this.Hide();
             createGameForm.ShowDialog();
+            this.Show();
+            bwLoadGames.RunWorkerAsync();
+            RefreshListBox();
+        }
+
+        private void btnDeleteGame_Click(object sender, EventArgs e)
+        {
+            int numRows = DB_Delete.DeleteGame(selectedGame.Id);
+            bwLoadGames.RunWorkerAsync();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -113,10 +128,6 @@ namespace Jeopardy
             }
         }
 
-        private void btnDeleteGame_Click(object sender, EventArgs e)
-        {
-            int numRows = DB_Delete.DeleteGame(selectedGame.Id);
-            bwLoadGames.RunWorkerAsync();
-        }
+        
     }
 }
