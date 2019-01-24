@@ -591,7 +591,7 @@
             this.tsmiDeleteCategory.Size = new System.Drawing.Size(124, 26);
             this.tsmiDeleteCategory.Text = "Delete";
             // 
-            // frmCreateGame
+            // frmEditGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -606,7 +606,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(360, 240);
-            this.Name = "frmCreateGame";
+            this.Name = "frmEditGame";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCreateGame";
