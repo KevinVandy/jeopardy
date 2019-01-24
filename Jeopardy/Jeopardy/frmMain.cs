@@ -42,6 +42,7 @@ namespace Jeopardy
 
         private void RefreshListBox()
         {
+            lstGamesFromDB.Items.Clear();
             foreach (Game g in allGames)
             {
                 lstGamesFromDB.Items.Add(g.GameName);
@@ -103,6 +104,19 @@ namespace Jeopardy
                 btnEditGame.Enabled = true;
                 btnDeleteGame.Enabled = true;
             }
+            else
+            {
+                btnPlayGame.Enabled = false;
+                btnCreateGame.Enabled = true;
+                btnEditGame.Enabled = false;
+                btnDeleteGame.Enabled = false;
+            }
+        }
+
+        private void btnDeleteGame_Click(object sender, EventArgs e)
+        {
+            int numRows = DB_Delete.DeleteGame(selectedGame.Id);
+            bwLoadGames.RunWorkerAsync();
         }
     }
 }

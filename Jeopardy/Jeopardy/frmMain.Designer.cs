@@ -166,6 +166,7 @@
             this.btnDeleteGame.TabIndex = 6;
             this.btnDeleteGame.Text = "Delete Game";
             this.btnDeleteGame.UseVisualStyleBackColor = true;
+            this.btnDeleteGame.Click += new System.EventHandler(this.btnDeleteGame_Click);
             // 
             // bwLoadGames
             // 
