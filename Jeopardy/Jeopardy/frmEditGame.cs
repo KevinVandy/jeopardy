@@ -12,7 +12,7 @@ namespace Jeopardy
 {
     public partial class frmEditGame : Form
     {
-        private Game game;
+        private Game game = new Game();
         private List<Button> categoryButtons = new List<Button>();
         private List<Button> questionButtons = new List<Button>();
 
@@ -20,7 +20,7 @@ namespace Jeopardy
         {
             InitializeComponent();
 
-            game = this.Tag;
+            game = (Game)this.Tag;
 
             if(game.NumCategories == 0)
             {
