@@ -58,7 +58,7 @@ namespace Jeopardy
 
         private void btnPlayGame_Click(object sender, EventArgs e)
         {
-            frmPlayGame playGameForm = new frmPlayGame();
+            frmPlayGame playGameForm = new frmPlayGame(selectedGame);
             this.Hide();
             playGameForm.ShowDialog();
             this.Show();
