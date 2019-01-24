@@ -18,16 +18,19 @@ namespace Jeopardy
 
         public frmEditGame(Game theGame)
         {
-            InitializeComponent();
+            game = theGame;
 
-            if (theGame != null)
+            if (game.NumCategories == 0)
             {
-                game = theGame;
+                game.NumCategories = 6;
             }
-            else
+
+            if (game.NumQuestionsPerCategory == 0)
             {
-                game = new Game();
+                game.NumQuestionsPerCategory = 5;
             }
+
+            InitializeComponent();
         }
 
         private void frmCreateGame_Load(object sender, EventArgs e)
@@ -245,5 +248,6 @@ namespace Jeopardy
         {
 
         }
+        
     }
 }
