@@ -66,7 +66,7 @@ namespace Jeopardy
 
         private void btnCreateGame_Click(object sender, EventArgs e)
         {
-            frmCreateGameStart createGameForm = new frmCreateGameStart();
+            frmCreateGame createGameForm = new frmCreateGame();
             createGameForm.Text = "Create a Game!";
             this.Hide();
             createGameForm.ShowDialog();
@@ -77,7 +77,7 @@ namespace Jeopardy
 
         private void btnEditGame_Click(object sender, EventArgs e)
         {
-            frmCreateGame createGameForm = new frmCreateGame(selectedGame);
+            frmEditGame createGameForm = new frmEditGame(selectedGame);
             createGameForm.Text = "Edit a Game!";
             this.Hide();
             createGameForm.ShowDialog();

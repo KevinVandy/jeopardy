@@ -31,7 +31,7 @@ namespace Jeopardy
                     Game game = new Game();
                     game.Id = Convert.ToInt32(reader["Id"]);
                     game.GameName = Convert.ToString(reader["GameName"]);
-                    game.QuestionTimeLimit = TimeSpan.FromTicks(Convert.ToInt32(reader["QuestionTimeLimit"]));
+                    game.QuestionTimeLimit = TimeSpan.FromSeconds(Convert.ToInt32(reader["QuestionTimeLimit"]));
                     game.NumCategories = Convert.ToInt32(reader["NumCategories"]);
                     game.NumQuestionsPerCategory = Convert.ToInt32(reader["NumQuestionsPerCategory"]);
 

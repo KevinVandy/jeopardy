@@ -30,7 +30,7 @@ namespace Jeopardy
         //MARK: Validate Game properties
         public static bool ValidateGameName(string gameName)
         {
-            if (gameName.Length > 0 && gameName.Length < 30)
+            if (gameName.Length > 0 && gameName.Length < 50)
             {
                 return true;
             }

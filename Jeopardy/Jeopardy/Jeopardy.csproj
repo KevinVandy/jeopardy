@@ -59,11 +59,11 @@
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCreateGameStart.cs">
+    <Compile Include="frmCreateGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCreateGameStart.Designer.cs">
-      <DependentUpon>frmCreateGameStart.cs</DependentUpon>
+    <Compile Include="frmCreateGame.Designer.cs">
+      <DependentUpon>frmCreateGame.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEditCategory.cs">
       <SubType>Form</SubType>
@@ -89,11 +89,11 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCreateGame.cs">
+    <Compile Include="frmEditGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCreateGame.Designer.cs">
-      <DependentUpon>frmCreateGame.cs</DependentUpon>
+    <Compile Include="frmEditGame.Designer.cs">
+      <DependentUpon>frmEditGame.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPlayGame.cs">
       <SubType>Form</SubType>
@@ -131,8 +131,8 @@
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCreateGameStart.resx">
-      <DependentUpon>frmCreateGameStart.cs</DependentUpon>
+    <EmbeddedResource Include="frmCreateGame.resx">
+      <DependentUpon>frmCreateGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditCategory.resx">
       <DependentUpon>frmEditCategory.cs</DependentUpon>
@@ -146,8 +146,8 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCreateGame.resx">
-      <DependentUpon>frmCreateGame.cs</DependentUpon>
+    <EmbeddedResource Include="frmEditGame.resx">
+      <DependentUpon>frmEditGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPlayGame.resx">
       <DependentUpon>frmPlayGame.cs</DependentUpon>
