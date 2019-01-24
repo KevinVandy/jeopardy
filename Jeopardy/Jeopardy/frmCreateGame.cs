@@ -52,7 +52,7 @@ namespace Jeopardy
             if (ValidateData.ValidateGameName(gameName))
             {
                 newGame = new Game(null, gameName, questionTimeLimit, numCategories, numQuestionsPerCat, null);
-                DB_Insert.InsertGame(newGame);
+                newGame.Id = DB_Insert.InsertGame(newGame);
                 frmEditGame createGameForm = new frmEditGame(newGame);
                 this.Hide();
                 createGameForm.ShowDialog();

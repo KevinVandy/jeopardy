@@ -21,6 +21,16 @@ namespace Jeopardy
             InitializeComponent();
 
             game = theGame;
+
+            if(game.NumCategories == 0)
+            {
+                game.NumCategories = 6;
+            }
+
+            if (game.NumQuestionsPerCategory == 0)
+            {
+                game.NumQuestionsPerCategory = 5;
+            }
         }
 
         private void frmCreateGame_Load(object sender, EventArgs e)
