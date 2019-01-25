@@ -12,28 +12,32 @@ namespace Jeopardy
 {
     public partial class frmPlayGame : Form
     {
-        int rows = 5;
-        int columns = 6;
+        int rows = 1;
+        int columns = 1;
         private List<Button> ButtonList = new List<Button>();
-
-        //Dummy Data for creating dynamic labels for categories
         private List<Label> LabelList = new List<Label>();
+        private List<Team> teams = new List<Team>();
         private Game currentGame = new Game();
 
-        public frmPlayGame(Game theGame)
+        public frmPlayGame(Game theGame, List<Team> theTeams)
         {
             currentGame = theGame;
+            teams = theTeams;
+            rows = currentGame.NumQuestionsPerCategory;
+            columns = currentGame.NumCategories;
             InitializeComponent();
         }
 
         private void frmPlayGame_Load(object sender, EventArgs e)
-        {         
+        {
+            ModifyPanelWidths();
             DrawCategories();
             DrawForm();
         }
 
         private void frmPlayGame_ResizeEnd(object sender, EventArgs e)
         {
+            ModifyPanelWidths();
             DrawCategories();
             DrawForm();
         }
@@ -56,8 +60,8 @@ namespace Jeopardy
             int pnlWidth = pnlCategories.Width;
             int pnlHeight = pnlCategories.Height;
 
-            int buttonWidth = (pnlWidth - 80) / (currentGame.NumCategories);
-            int buttonHeight = 80;
+            int labelWidth = (pnlWidth - 60) / (currentGame.NumCategories);
+            int labelHeight = 80;
 
             int start_x = 10;
             int start_y = 10;
@@ -67,12 +71,12 @@ namespace Jeopardy
                 for (int y = 0; y < currentGame.NumCategories; y++)
                 {
                     Label tmpLabel = new Label();
-                    tmpLabel.Top = start_x + (x * buttonHeight);
-                    tmpLabel.Left = start_y + ((y * buttonWidth) + (y * 5));
-                    tmpLabel.Width = buttonWidth;
-                    tmpLabel.Height = buttonHeight;
+                    tmpLabel.Top = start_x + (x * labelHeight);
+                    tmpLabel.Left = start_y + ((y * labelWidth) + (y * 5));
+                    tmpLabel.Width = labelWidth;
+                    tmpLabel.Height = labelHeight;
                     //tmpLabel.Text = currentGame.Categories[y].Title + '\n' + currentGame.Categories[y].Subtitle;
-                    tmpLabel.Text = "Category " + y;
+                    tmpLabel.Text = "Category " + (y + 1);
                     tmpLabel.TextAlign = ContentAlignment.MiddleCenter;
                     tmpLabel.Font = new Font("Arial", 18, FontStyle.Bold);
                     LabelList.Add(tmpLabel);
@@ -126,6 +130,13 @@ namespace Jeopardy
                 }
 
             }
+
+        }
+
+        private void ModifyPanelWidths()
+        {
+            pnlCategories.Width = Width - 70;
+            pnlGameboard.Width = Width - 70;
         }
     }
 }
