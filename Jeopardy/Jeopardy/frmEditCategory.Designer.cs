@@ -34,13 +34,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnCopy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCategoryTitle
             // 
             this.lblCategoryTitle.AutoSize = true;
             this.lblCategoryTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryTitle.Location = new System.Drawing.Point(54, 30);
+            this.lblCategoryTitle.Location = new System.Drawing.Point(56, 92);
             this.lblCategoryTitle.Name = "lblCategoryTitle";
             this.lblCategoryTitle.Size = new System.Drawing.Size(170, 29);
             this.lblCategoryTitle.TabIndex = 0;
@@ -49,7 +50,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(242, 27);
+            this.textBox1.Location = new System.Drawing.Point(244, 95);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(395, 35);
             this.textBox1.TabIndex = 1;
@@ -57,7 +58,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(242, 81);
+            this.textBox2.Location = new System.Drawing.Point(244, 159);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(395, 35);
             this.textBox2.TabIndex = 3;
@@ -66,7 +67,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 84);
+            this.label1.Location = new System.Drawing.Point(23, 146);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(203, 29);
             this.label1.TabIndex = 2;
@@ -75,7 +76,7 @@
             // btnOK
             // 
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(467, 148);
+            this.btnOK.Location = new System.Drawing.Point(469, 223);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(170, 40);
             this.btnOK.TabIndex = 4;
@@ -87,7 +88,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(242, 148);
+            this.btnCancel.Location = new System.Drawing.Point(244, 223);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(170, 40);
             this.btnCancel.TabIndex = 5;
@@ -95,13 +96,25 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnCopy
+            // 
+            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopy.Location = new System.Drawing.Point(244, 26);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(395, 40);
+            this.btnCopy.TabIndex = 6;
+            this.btnCopy.Text = "Import From Other Game";
+            this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            // 
             // frmEditCategory
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(672, 218);
+            this.ClientSize = new System.Drawing.Size(672, 296);
+            this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.textBox2);
@@ -129,5 +142,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnCopy;
     }
 }

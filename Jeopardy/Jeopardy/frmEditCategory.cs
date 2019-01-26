@@ -31,5 +31,10 @@ namespace Jeopardy
         {
             this.Close();
         }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

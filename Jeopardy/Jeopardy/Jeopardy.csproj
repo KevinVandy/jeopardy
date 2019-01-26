@@ -83,6 +83,18 @@
     <Compile Include="frmHelp.Designer.cs">
       <DependentUpon>frmHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmImportCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImportCategory.Designer.cs">
+      <DependentUpon>frmImportCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmImportQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImportQuestion.Designer.cs">
+      <DependentUpon>frmImportQuestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>

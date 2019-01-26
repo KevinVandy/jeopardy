@@ -30,7 +30,10 @@ namespace Jeopardy
 
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
 
                 insertCommand.ExecuteNonQuery();
 
@@ -85,7 +88,10 @@ namespace Jeopardy
 
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
 
                 insertCommand.ExecuteNonQuery();
 
@@ -142,7 +148,10 @@ namespace Jeopardy
 
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
 
                 insertCommand.ExecuteNonQuery();
 
@@ -196,7 +205,10 @@ namespace Jeopardy
 
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
 
                 insertCommand.ExecuteNonQuery();
 

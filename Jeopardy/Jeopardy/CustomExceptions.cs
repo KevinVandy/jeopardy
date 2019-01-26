@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Jeopardy
 {
@@ -44,6 +45,20 @@ namespace Jeopardy
             {
 
             }
+        }
+
+        public class IdNotFoundException: Exception
+        {
+            public IdNotFoundException()
+            {
+
+            }
+
+            public IdNotFoundException(string s)
+            {
+                MessageBox.Show(s);
+            }
+
         }
 
         public class StringTooLongException : Exception

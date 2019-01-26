@@ -51,15 +51,20 @@
             this.rdoChoiceC = new System.Windows.Forms.RadioButton();
             this.rdoChoiceA = new System.Windows.Forms.RadioButton();
             this.txtAnswer = new System.Windows.Forms.TextBox();
+            this.btnCopy = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlTypes.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCategoryTitle
             // 
             this.lblCategoryTitle.AutoSize = true;
             this.lblCategoryTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryTitle.Location = new System.Drawing.Point(25, 26);
+            this.lblCategoryTitle.Location = new System.Drawing.Point(24, 53);
             this.lblCategoryTitle.Name = "lblCategoryTitle";
             this.lblCategoryTitle.Size = new System.Drawing.Size(215, 37);
             this.lblCategoryTitle.TabIndex = 0;
@@ -69,7 +74,7 @@
             // 
             this.lblWeight.AutoSize = true;
             this.lblWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWeight.Location = new System.Drawing.Point(834, 26);
+            this.lblWeight.Location = new System.Drawing.Point(835, 50);
             this.lblWeight.Name = "lblWeight";
             this.lblWeight.Size = new System.Drawing.Size(69, 37);
             this.lblWeight.TabIndex = 1;
@@ -79,7 +84,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 130);
+            this.label1.Location = new System.Drawing.Point(26, 172);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 29);
             this.label1.TabIndex = 2;
@@ -88,7 +93,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(147, 90);
+            this.textBox1.Location = new System.Drawing.Point(148, 132);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(763, 127);
@@ -111,7 +116,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(67, 240);
+            this.label2.Location = new System.Drawing.Point(68, 282);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 29);
             this.label2.TabIndex = 5;
@@ -121,7 +126,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(42, 557);
+            this.label3.Location = new System.Drawing.Point(43, 599);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 29);
             this.label3.TabIndex = 6;
@@ -132,7 +137,7 @@
             this.pnlTypes.Controls.Add(this.rdoTrueFalse);
             this.pnlTypes.Controls.Add(this.rdoMultipleChoice);
             this.pnlTypes.Controls.Add(this.rdoFillInTheBlank);
-            this.pnlTypes.Location = new System.Drawing.Point(147, 223);
+            this.pnlTypes.Location = new System.Drawing.Point(148, 265);
             this.pnlTypes.Name = "pnlTypes";
             this.pnlTypes.Size = new System.Drawing.Size(775, 67);
             this.pnlTypes.TabIndex = 7;
@@ -167,7 +172,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(147, 612);
+            this.btnCancel.Location = new System.Drawing.Point(148, 654);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(170, 44);
             this.btnCancel.TabIndex = 3;
@@ -178,7 +183,7 @@
             // btnOK
             // 
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(740, 612);
+            this.btnOK.Location = new System.Drawing.Point(741, 654);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(170, 44);
             this.btnOK.TabIndex = 2;
@@ -226,7 +231,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(42, 408);
+            this.label4.Location = new System.Drawing.Point(43, 450);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 29);
             this.label4.TabIndex = 18;
@@ -242,7 +247,7 @@
             this.panel1.Controls.Add(this.txtChoiceD);
             this.panel1.Controls.Add(this.txtChoiceB);
             this.panel1.Controls.Add(this.txtChoiceC);
-            this.panel1.Location = new System.Drawing.Point(147, 296);
+            this.panel1.Location = new System.Drawing.Point(148, 338);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(775, 240);
             this.panel1.TabIndex = 19;
@@ -302,10 +307,43 @@
             // txtAnswer
             // 
             this.txtAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnswer.Location = new System.Drawing.Point(147, 554);
+            this.txtAnswer.Location = new System.Drawing.Point(148, 596);
             this.txtAnswer.Name = "txtAnswer";
             this.txtAnswer.Size = new System.Drawing.Size(763, 35);
             this.txtAnswer.TabIndex = 1;
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopy.Location = new System.Drawing.Point(340, 50);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(395, 40);
+            this.btnCopy.TabIndex = 20;
+            this.btnCopy.Text = "Import From Other Game";
+            this.btnCopy.UseVisualStyleBackColor = true;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(955, 24);
+            this.menuStrip1.TabIndex = 21;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
             // 
             // frmEditQuestion
             // 
@@ -314,7 +352,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(955, 692);
+            this.ClientSize = new System.Drawing.Size(955, 729);
+            this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
@@ -327,6 +366,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblWeight);
             this.Controls.Add(this.lblCategoryTitle);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(900, 700);
             this.Name = "frmEditQuestion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -336,6 +377,8 @@
             this.pnlTypes.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,5 +409,9 @@
         private System.Windows.Forms.RadioButton rdoChoiceC;
         private System.Windows.Forms.RadioButton rdoChoiceA;
         private System.Windows.Forms.TextBox txtAnswer;
+        private System.Windows.Forms.Button btnCopy;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }

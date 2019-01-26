@@ -27,7 +27,10 @@ namespace Jeopardy
 
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
                 numRows = deleteCommand.ExecuteNonQuery();
             }
             catch (OleDbException ex)
@@ -62,7 +65,10 @@ namespace Jeopardy
 
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
                 numRows = deleteCommand.ExecuteNonQuery();
             }
             catch (OleDbException ex)
@@ -97,7 +103,10 @@ namespace Jeopardy
 
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
                 numRows = deleteCommand.ExecuteNonQuery();
             }
             catch (OleDbException ex)
@@ -132,7 +141,10 @@ namespace Jeopardy
 
             try
             {
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
                 numRows = deleteCommand.ExecuteNonQuery();
             }
             catch (OleDbException ex)
