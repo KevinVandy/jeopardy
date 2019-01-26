@@ -12,6 +12,8 @@ namespace Jeopardy
 {
     public partial class frmEditCategory : Form
     {
+        Category newCategory;
+
         public frmEditCategory()
         {
             InitializeComponent();
@@ -19,7 +21,18 @@ namespace Jeopardy
 
         private void frmEditCategory_Load(object sender, EventArgs e)
         {
+            newCategory = new Category();
+        }
 
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            frmImportCategory importCategoryForm = new frmImportCategory();
+            DialogResult dialogResult = importCategoryForm.ShowDialog();
+
+            if(dialogResult == DialogResult.OK)
+            {
+
+            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -32,9 +45,6 @@ namespace Jeopardy
             this.Close();
         }
 
-        private void btnCopy_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

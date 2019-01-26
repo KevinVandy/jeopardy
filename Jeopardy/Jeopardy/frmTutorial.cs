@@ -16,5 +16,10 @@ namespace Jeopardy
         {
             InitializeComponent();
         }
+
+        private void frmTutorial_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

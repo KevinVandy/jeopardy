@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnCopy = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCategoryTitle
@@ -96,16 +96,16 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnCopy
+            // btnImport
             // 
-            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopy.Location = new System.Drawing.Point(244, 26);
-            this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(395, 40);
-            this.btnCopy.TabIndex = 6;
-            this.btnCopy.Text = "Import From Other Game";
-            this.btnCopy.UseVisualStyleBackColor = true;
-            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.Location = new System.Drawing.Point(244, 26);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(395, 40);
+            this.btnImport.TabIndex = 6;
+            this.btnImport.Text = "Import From Other Game";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // frmEditCategory
             // 
@@ -114,7 +114,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(672, 296);
-            this.Controls.Add(this.btnCopy);
+            this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.textBox2);
@@ -142,6 +142,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnCopy;
+        private System.Windows.Forms.Button btnImport;
     }
 }
