@@ -16,10 +16,10 @@ namespace Jeopardy
         int columns = 1;
         private List<Button> ButtonList = new List<Button>();
         private List<Label> LabelList = new List<Label>();
-        private List<Team> teams = new List<Team>();
+        private Team[] teams = new Team[4];
         private Game currentGame = new Game();
 
-        public frmPlayGame(Game theGame, List<Team> theTeams)
+        public frmPlayGame(Game theGame, Team[] theTeams)
         {
             currentGame = theGame;
             teams = theTeams;
