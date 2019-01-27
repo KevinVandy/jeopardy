@@ -38,12 +38,17 @@ namespace Jeopardy
                     game.QuestionTimeLimit = TimeSpan.FromSeconds(Convert.ToInt32(reader["QuestionTimeLimit"]));
                     game.NumCategories = Convert.ToInt32(reader["NumCategories"]);
                     game.NumQuestionsPerCategory = Convert.ToInt32(reader["NumQuestionsPerCategory"]);
-
-                    game.Categories = SelectCategories_ByGameId(game.Id);
-
+                    
                     games.Add(game);
                 }
                 reader.Close();
+
+                foreach(Game game in games)
+                {
+                    game.Categories = SelectCategories_ByGameId(game.Id);
+                }
+
+
             }
             catch (OleDbException ex)
             {
@@ -89,14 +94,16 @@ namespace Jeopardy
                     game.QuestionTimeLimit = TimeSpan.FromSeconds(Convert.ToInt32(reader["QuestionTimeLimit"]));
                     game.NumCategories = Convert.ToInt32(reader["NumCategories"]);
                     game.NumQuestionsPerCategory = Convert.ToInt32(reader["NumQuestionsPerCategory"]);
-
-                    game.Categories = SelectCategories_ByGameId(game.Id);
                 }
                 else
                 {
                     throw new CustomExceptions.IdNotFoundException("Game Id: " + gameId + " not found");
                 }
+
                 reader.Close();
+
+                game.Categories = SelectCategories_ByGameId(game.Id);
+
             }
             catch (OleDbException ex)
             {
@@ -141,14 +148,15 @@ namespace Jeopardy
                     category.GameId = Convert.ToInt32(reader["GameId"]);
                     category.Title = Convert.ToString(reader["Title"]);
                     category.Subtitle = Convert.ToString(reader["Subtitle"]);
-
-                    category.Questions = SelectQuestions_ByCategoryId(category.Id);
                 }
                 else
                 {
                     throw new CustomExceptions.IdNotFoundException("Category Id: " + categoryId + " not found");
                 }
                 reader.Close();
+
+                category.Questions = SelectQuestions_ByCategoryId(category.Id);
+
             }
             catch (OleDbException ex)
             {
@@ -195,11 +203,15 @@ namespace Jeopardy
                     category.Title = Convert.ToString(reader["Title"]);
                     category.Subtitle = Convert.ToString(reader["Subtitle"]);
 
-                    category.Questions = SelectQuestions_ByCategoryId(category.Id);
-
                     categories.Add(category);
                 }
                 reader.Close();
+
+                foreach(Category category in categories)
+                {
+                    category.Questions = SelectQuestions_ByCategoryId(category.Id);
+                }
+
             }
             catch (OleDbException ex)
             {
@@ -246,17 +258,18 @@ namespace Jeopardy
                     question.QuestionText = Convert.ToString(reader["QuestionText"]);
                     question.Answer = Convert.ToString(reader["Answer"]);
                     question.Weight = Convert.ToInt32(reader["Weight"]);
-
-                    if (question.Type == "mc")
-                    {
-                        question.Choices = SelectChoices_ByQuestionId(question.Id);
-                    }
                 }
                 else
                 {
                     throw new CustomExceptions.IdNotFoundException("Question Id: " + questionId + " not found");
                 }
                 reader.Close();
+
+                if (question.Type == "mc")
+                {
+                    question.Choices = SelectChoices_ByQuestionId(question.Id);
+                }
+
             }
             catch (OleDbException ex)
             {
@@ -304,15 +317,19 @@ namespace Jeopardy
                     question.QuestionText = Convert.ToString(reader["QuestionText"]);
                     question.Answer = Convert.ToString(reader["Answer"]);
                     question.Weight = Convert.ToInt32(reader["Weight"]);
-
-                    if(question.Type == "mc")
-                    {
-                        question.Choices = SelectChoices_ByQuestionId(question.Id);
-                    }
                     
                     questions.Add(question);
                 }
                 reader.Close();
+
+                foreach(Question question in questions)
+                {
+                    if (question.Type == "mc")
+                    {
+                        question.Choices = SelectChoices_ByQuestionId(question.Id);
+                    }
+                }
+
             }
             catch (OleDbException ex)
             {

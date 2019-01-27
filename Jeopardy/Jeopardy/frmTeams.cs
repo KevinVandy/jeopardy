@@ -23,6 +23,11 @@ namespace Jeopardy
             InitializeComponent();
         }
 
+        private void frmTeams_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void nudNumberOfTeams_ValueChanged(object sender, EventArgs e)
         {
             int numberTeams = (int)nudNumberOfTeams.Value;
@@ -134,5 +139,6 @@ namespace Jeopardy
 
         }
 
+        
     }
 }

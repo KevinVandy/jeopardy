@@ -30,7 +30,7 @@ namespace Jeopardy
 
             public ArgumentNullException(string s)
             {
-
+                MessageBox.Show(s);
             }
         }
 
@@ -43,7 +43,7 @@ namespace Jeopardy
 
             public WrongCountException(string s)
             {
-
+                MessageBox.Show(s);
             }
         }
 
@@ -70,7 +70,7 @@ namespace Jeopardy
 
             public StringTooLongException(string s)
             {
-
+                MessageBox.Show(s);
             }
         }
     }

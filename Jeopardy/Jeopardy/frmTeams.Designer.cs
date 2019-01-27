@@ -205,9 +205,10 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(242, 434);
+            this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.Location = new System.Drawing.Point(242, 430);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(158, 38);
+            this.btnOK.Size = new System.Drawing.Size(158, 42);
             this.btnOK.TabIndex = 6;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -215,9 +216,10 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(18, 434);
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(18, 430);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(158, 38);
+            this.btnExit.Size = new System.Drawing.Size(158, 42);
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -237,7 +239,9 @@
             this.Controls.Add(this.nudNumberOfTeams);
             this.Controls.Add(this.label1);
             this.Name = "frmTeams";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Team Information";
+            this.Load += new System.EventHandler(this.frmTeams_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfTeams)).EndInit();
             this.pnlFirstTeam.ResumeLayout(false);
             this.pnlFirstTeam.PerformLayout();
