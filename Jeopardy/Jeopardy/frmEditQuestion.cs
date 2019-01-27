@@ -12,13 +12,15 @@ namespace Jeopardy
 {
     public partial class frmEditQuestion : Form
     {
+        int gameId;
         Question question;
 
-        public frmEditQuestion()
+        public frmEditQuestion(int theGameId, Question selectedQuestion)
         {
-            InitializeComponent();
+            gameId = theGameId;
+            question = selectedQuestion;
 
-            question = new Question();
+            InitializeComponent();
         }
 
         private void frmEditQuestion_Load(object sender, EventArgs e)

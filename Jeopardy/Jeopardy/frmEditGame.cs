@@ -206,41 +206,37 @@ namespace Jeopardy
 
         private void QuestionButton_Click(object sender, EventArgs e)
         {
-            frmEditQuestion editQuestionForm = new frmEditQuestion();
+            Button clickedButton = (Button)sender;
+            
+            //detect position in button grid
+            int x = -1;
+            int y = -1;
+            for (int i = 0; i < game.NumCategories && x < 0; ++i)
+            {
+                for (int j = 0; j < game.NumQuestionsPerCategory; ++j)
+                {
+                    if (questionButtons[i, j] == (Button)sender)
+                    {
+                        x = i;
+                        y = j;
+                        break;
+                    }
+                }
+            }
+
+            //
+
+            Question selectedQuestion = game.Categories[x].Questions[y];
+            frmEditQuestion editQuestionForm = new frmEditQuestion((int)game.Id, selectedQuestion);
+
             editQuestionForm.ShowDialog();
         }
 
-        private void ModifyGroupBoxWidths()
-        {
-            gbxGameInfo.Width = Width - 70;
-            gbxCategories.Width = Width - 70;
-            gbxQuestions.Width = Width - 70;
-        }
+        
 
-        private void frmCreateGame_ResizeEnd(object sender, EventArgs e)
-        {
-            ModifyGroupBoxWidths();
-            CreateCategoryGrid();
-            CreateQuestionGrid();
-        }
+        
 
-        //code to make maximizing and restoring the window act the same as resizing
-        FormWindowState LastWindowState = FormWindowState.Minimized;
-        private void frmCreateGame_Resize(object sender, EventArgs e)
-        {
-            if (WindowState != LastWindowState)
-            {
-                LastWindowState = WindowState;
-                if (WindowState == FormWindowState.Maximized)
-                {
-                    frmCreateGame_ResizeEnd(sender, e);
-                }
-                if (WindowState == FormWindowState.Normal)
-                {
-                    frmCreateGame_ResizeEnd(sender, e);
-                }
-            }
-        }
+        
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -283,6 +279,36 @@ namespace Jeopardy
 
         }
 
-        
+        private void ModifyGroupBoxWidths()
+        {
+            gbxGameInfo.Width = Width - 70;
+            gbxCategories.Width = Width - 70;
+            gbxQuestions.Width = Width - 70;
+        }
+
+        private void frmCreateGame_ResizeEnd(object sender, EventArgs e)
+        {
+            ModifyGroupBoxWidths();
+            CreateCategoryGrid();
+            CreateQuestionGrid();
+        }
+
+        //code to make maximizing and restoring the window act the same as resizing
+        FormWindowState LastWindowState = FormWindowState.Minimized;
+        private void frmCreateGame_Resize(object sender, EventArgs e)
+        {
+            if (WindowState != LastWindowState)
+            {
+                LastWindowState = WindowState;
+                if (WindowState == FormWindowState.Maximized)
+                {
+                    frmCreateGame_ResizeEnd(sender, e);
+                }
+                if (WindowState == FormWindowState.Normal)
+                {
+                    frmCreateGame_ResizeEnd(sender, e);
+                }
+            }
+        }
     }
 }
