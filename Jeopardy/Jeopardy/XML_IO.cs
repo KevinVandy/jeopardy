@@ -10,14 +10,9 @@ using System.Xml.Serialization;
 
 namespace Jeopardy
 {
-    class XML_Export
+    class XML_IO
     {
 
-
-        public XML_Export()
-        {
-            
-        }
 
         public static void exportXML(Game selectedGame)
         {
@@ -29,7 +24,23 @@ namespace Jeopardy
             xs.Serialize(tw, selectedGame);
         }
 
-        
+        public static void importXML(String path, string fileName)
+        {
+            //TODO Validate if file is xml
+
+
+            XmlSerializer xs = new XmlSerializer(typeof(Game));
+            using (var sr = new StreamReader(path))
+            {
+                Game importedGame = (Game)xs.Deserialize(sr);
+
+                importedGame.Id = null;
+                importedGame.GameName = fileName;
+
+               int? id = DB_Insert.InsertGame(importedGame);
+
+            }
+        }
 
        
 

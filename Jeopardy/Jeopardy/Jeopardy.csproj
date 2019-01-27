@@ -149,8 +149,7 @@
     <Compile Include="Team.cs" />
     <Compile Include="ValidateData.cs" />
     <Compile Include="ValidateTypes.cs" />
-    <Compile Include="XML_Export.cs" />
-    <Compile Include="XML_Import.cs" />
+    <Compile Include="XML_IO.cs" />
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
