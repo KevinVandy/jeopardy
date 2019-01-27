@@ -18,7 +18,7 @@ namespace Jeopardy
 
         public Game() { }
 
-        public Game(int? id, string gameName, TimeSpan questionTimeLimit, int numCategories, int numQuestionsPerCategory, List<Category> categories)
+        public Game(int? id, string gameName, TimeSpan questionTimeLimit, int numCategories, int numQuestionsPerCategory, List<Category> categories = null)
         {
             this.id = id;
             this.gameName = gameName;
@@ -101,10 +101,10 @@ namespace Jeopardy
             this.numCategories = numCategories;
             this.numQuestionsPerCategory = numQuestionsPerCat;
             this.questionTimeLimit = questionTimeLimit;
-
+            
             if (ValidateData.ValidateGameName(gameName))
             {
-                this.Id = DB_Insert.InsertGame(this);
+                this.id = DB_Insert.InsertGame(this);
             }
             else
             {

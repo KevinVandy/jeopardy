@@ -33,6 +33,7 @@ namespace Jeopardy
             if (ValidateData.ValidateGameName(gameName))
             {
                 newGame = newGame.CreateGame(gameName,numCategories,numQuestionsPerCat,cboQuestionTimeLimit.SelectedIndex);
+
                 frmEditGame createGameForm = new frmEditGame(newGame);
                 createGameForm.Tag = newGame;
                 this.Hide();
