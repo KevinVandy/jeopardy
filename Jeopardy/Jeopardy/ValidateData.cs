@@ -36,7 +36,7 @@ namespace Jeopardy
             }
             else
             {
-                throw new CustomExceptions.StringTooLongException(gameName);
+                return false;
             }
         }
 
@@ -47,7 +47,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; //TODO throw custom exception
+            return false; 
         }
 
         //MARK: Validate Category properties
@@ -59,7 +59,7 @@ namespace Jeopardy
             }
             else
             {
-                throw new CustomExceptions.StringTooLongException(title);
+                return false;
             }
         }
 
@@ -71,7 +71,7 @@ namespace Jeopardy
             }
             else
             {
-                throw new CustomExceptions.StringTooLongException(subtitle);
+                return false;
             }
         }
 
@@ -83,7 +83,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; //TODO throw custom exception
+            return false; 
         }
 
         public static bool ValidateQuestionText(string questionText)
@@ -92,7 +92,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; //TODO throw custom exception
+            return false; 
         }
 
         public static bool ValidateQuestionAnswer(string answer)
@@ -101,7 +101,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; //TODO throw custom exception
+            return false; 
         }
 
         public static bool ValidateQuestionWeight(int weight)
@@ -111,7 +111,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; //TODO throw custom exception
+            return false; 
         }
 
         //MARK: Validate Choice properties
@@ -122,7 +122,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; //TODO throw custom exception
+            return false; 
         }
 
         public static bool ValidateChoiceText(string choiceText)
@@ -131,7 +131,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; //TODO throw custom exception
+            return false; 
         }
 
         //MARK: Validate Team properties
@@ -141,7 +141,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; //TODO throw custom exception
+            return false; 
         }
 
         public static bool ValidateTeamScore(int teamScore)
@@ -150,7 +150,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; //TODO throw custom exception
+            return false; 
         }
 
     }

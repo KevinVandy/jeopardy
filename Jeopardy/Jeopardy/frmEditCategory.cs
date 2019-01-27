@@ -34,18 +34,18 @@ namespace Jeopardy
 
             if(dialogResult == DialogResult.OK)
             {
-
+                //TODO
             }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            newCategory.GameId = gameId;
-            newCategory.Title = txtTitle.Text;
-            newCategory.Subtitle = txtSubtitle.Text;
-            
-            if(ValidateData.ValidateCategoryTitle(newCategory.Title) && ValidateData.ValidateCategorySubtitle(newCategory.Subtitle))
+            if(ValidateData.ValidateCategoryTitle(txtTitle.Text) && ValidateData.ValidateCategorySubtitle(txtSubtitle.Text))
             {
+                newCategory.GameId = gameId;
+                newCategory.Title = txtTitle.Text;
+                newCategory.Subtitle = txtSubtitle.Text;
+
                 DB_Insert.InsertCategory(newCategory);
             }
 
@@ -55,6 +55,7 @@ namespace Jeopardy
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
