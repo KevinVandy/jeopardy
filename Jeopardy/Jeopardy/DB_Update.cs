@@ -13,6 +13,20 @@ namespace Jeopardy
     {
         readonly static OleDbConnection conn = DB_Conn.GetGamesConnection();
 
+        //TODO BY FORREST, more at bottom of this file too
+
+        //public static bool UpdateGame(Game game)
+
+
+        //public static bool UpdateCategory(Category category)
+
+
+        //public static bool UpdateQuestion(Question question)
+
+
+        //public static bool UpdateChoice(Choice choice)
+
+
         public static bool UpdateGameName(string newGameName, int? gameId)
         {
             string updateStatement =
