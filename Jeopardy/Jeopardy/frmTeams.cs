@@ -15,7 +15,7 @@ namespace Jeopardy
         //The design on this form could probably use some tidying up
         //But for what we need it works
         Game currentGame = new Game();
-        List<Team> theTeams = new List<Team>();
+        Team[] theTeams = new Team[4];
 
         public frmTeams(Game theGame)
         {
@@ -75,8 +75,8 @@ namespace Jeopardy
                     Team firstTeam = new Team(1, txtFirstTeam.Text, 0);
                     Team secondTeam = new Team(2, txtSecondTeam.Text, 0);
 
-                    theTeams.Add(firstTeam);
-                    theTeams.Add(secondTeam);
+                    theTeams[0] = firstTeam;
+                    theTeams[1] = secondTeam;
 
                     this.Hide();
 
@@ -97,9 +97,9 @@ namespace Jeopardy
                     Team secondTeam = new Team(2, txtSecondTeam.Text, 0);
                     Team thirdTeam = new Team(3, txtThirdTeam.Text, 0);
 
-                    theTeams.Add(firstTeam);
-                    theTeams.Add(secondTeam);
-                    theTeams.Add(thirdTeam);
+                    theTeams[0] = firstTeam;
+                    theTeams[1] = secondTeam;
+                    theTeams[2] = thirdTeam;
 
                     this.Hide();
 
@@ -121,10 +121,10 @@ namespace Jeopardy
                     Team thirdTeam = new Team(3, txtThirdTeam.Text, 0);
                     Team fourthTeam = new Team(4, txtFourthTeam.Text, 0);
 
-                    theTeams.Add(firstTeam);
-                    theTeams.Add(secondTeam);
-                    theTeams.Add(thirdTeam);
-                    theTeams.Add(fourthTeam);
+                    theTeams[0] = firstTeam;
+                    theTeams[1] = secondTeam;
+                    theTeams[2] = thirdTeam;
+                    theTeams[3] = fourthTeam;
 
                     this.Hide();
 
