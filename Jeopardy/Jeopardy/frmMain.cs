@@ -93,6 +93,11 @@ namespace Jeopardy
             bwLoadGames.RunWorkerAsync();
         }
 
+        private void btnExportGame_Click(object sender, EventArgs e)
+        {
+            XML_Export.exportXML(selectedGame);
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
