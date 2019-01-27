@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,6 +94,11 @@ namespace Jeopardy
             bwLoadGames.RunWorkerAsync();
         }
 
+        private void btnExportGame_Click(object sender, EventArgs e)
+        {
+            XML_IO.exportXML(selectedGame);
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -129,6 +135,23 @@ namespace Jeopardy
             }
         }
 
-        
+        private void btnImportGame_Click(object sender, EventArgs e)
+        {
+            
+            
+            using (var fbd = new OpenFileDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.FileName))
+                {
+                    XML_IO.importXML(fbd.FileName, fbd.SafeFileName);
+                }
+
+                allGames = DB_Select.SelectAllGames();
+                RefreshListBox();
+
+            }
+        }
     }
 }
