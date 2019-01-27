@@ -12,10 +12,13 @@ namespace Jeopardy
 {
     public partial class frmEditCategory : Form
     {
+        int gameId;
         Category newCategory;
 
-        public frmEditCategory()
+        public frmEditCategory(int theGameId)
         {
+            gameId = theGameId;
+
             InitializeComponent();
         }
 
@@ -37,7 +40,17 @@ namespace Jeopardy
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            newCategory.GameId = gameId;
+            newCategory.Title = txtTitle.Text;
+            newCategory.Subtitle = txtSubtitle.Text;
+            
+            if(ValidateData.ValidateCategoryTitle(newCategory.Title) && ValidateData.ValidateCategorySubtitle(newCategory.Subtitle))
+            {
+                DB_Insert.InsertCategory(newCategory);
+            }
 
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

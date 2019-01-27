@@ -530,6 +530,11 @@
             this.tsbtnTutorial.Size = new System.Drawing.Size(23, 32);
             this.tsbtnTutorial.Text = "toolStripButton1";
             // 
+            // bwLoadGame
+            // 
+            this.bwLoadGame.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLoadGame_DoWork);
+            this.bwLoadGame.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwLoadGame_RunWorkerCompleted);
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {

@@ -12,7 +12,7 @@ namespace Jeopardy
 {
     public partial class frmEditGame : Form
     {
-        Game game = new Game();
+        Game game;
         Button[] categoryButtonss;
         Button[,] questionButtons;
 
@@ -29,8 +29,7 @@ namespace Jeopardy
             categoryButtonss = new Button[game.NumCategories];
             questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
 
-            CreateCategoryGrid();
-            CreateQuestionGrid();
+            DrawGrids();
 
             DisplayNumberQuesions();
             
@@ -53,8 +52,16 @@ namespace Jeopardy
             {
                 cboQuestionTimeLimit.SelectedIndex = 3;
             }
+        }
 
-            
+        private void bwLoadGame_DoWork(object sender, DoWorkEventArgs e)
+        {
+            game = DB_Select.SelectGame_ByGameId(game.Id);
+        }
+
+        private void bwLoadGame_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            DrawGrids();
         }
 
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
@@ -65,8 +72,7 @@ namespace Jeopardy
             categoryButtonss = new Button[game.NumCategories];//diminsion change
             questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];//diminsion change
 
-            CreateCategoryGrid();
-            CreateQuestionGrid();
+            DrawGrids();
         }
 
         private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
@@ -87,6 +93,12 @@ namespace Jeopardy
         private int CalcNumberOfQuestions()
         {
             return (int)nudNumCategories.Value * (int)nudNumQuestionCategory.Value;
+        }
+
+        private void DrawGrids()
+        {
+            CreateCategoryGrid();
+            CreateQuestionGrid();
         }
 
         private void CreateCategoryGrid()
@@ -132,8 +144,14 @@ namespace Jeopardy
 
         private void CategoryButton_Click(object sender, EventArgs e)
         {
-            frmEditCategory editCategoryForm = new frmEditCategory();
-            editCategoryForm.ShowDialog();
+            Button clickedButton = (Button)sender;
+            frmEditCategory editCategoryForm = new frmEditCategory((int)game.Id);
+            DialogResult dialogResult = editCategoryForm.ShowDialog();
+
+            if(dialogResult == DialogResult.OK)
+            {
+                bwLoadGame.RunWorkerAsync(); //refresh game data and grid
+            }
         }
 
         private void CreateQuestionGrid()
@@ -265,5 +283,6 @@ namespace Jeopardy
 
         }
 
+        
     }
 }
