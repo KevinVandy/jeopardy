@@ -83,8 +83,8 @@ namespace Jeopardy
             OleDbCommand insertCommand = new OleDbCommand(insertStatement, conn);
 
             insertCommand.Parameters.AddWithValue("@gameId", newCategory.GameId);
-            insertCommand.Parameters.AddWithValue("@subtitle", newCategory.Title);
-            insertCommand.Parameters.AddWithValue("@title", newCategory.Subtitle);
+            insertCommand.Parameters.AddWithValue("@title", newCategory.Title);
+            insertCommand.Parameters.AddWithValue("@subtitle", newCategory.Subtitle);
 
             try
             {
@@ -140,7 +140,7 @@ namespace Jeopardy
 
             OleDbCommand insertCommand = new OleDbCommand(insertStatement, conn);
 
-            insertCommand.Parameters.AddWithValue("@categoryId", newQuestion.Id);
+            insertCommand.Parameters.AddWithValue("@categoryId", newQuestion.CategoryId);
             insertCommand.Parameters.AddWithValue("@type", newQuestion.Type);
             insertCommand.Parameters.AddWithValue("@questionText", newQuestion.QuestionText);
             insertCommand.Parameters.AddWithValue("@answer", newQuestion.Answer);
@@ -199,7 +199,7 @@ namespace Jeopardy
 
             OleDbCommand insertCommand = new OleDbCommand(insertStatement, conn);
 
-            insertCommand.Parameters.AddWithValue("@categoryId", newChoice.Id);
+            insertCommand.Parameters.AddWithValue("@questionId", newChoice.QuestionId);
             insertCommand.Parameters.AddWithValue("@index", newChoice.Index);
             insertCommand.Parameters.AddWithValue("@choiceText", newChoice.Text);
 

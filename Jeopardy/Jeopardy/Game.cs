@@ -101,7 +101,8 @@ namespace Jeopardy
             this.numCategories = numCategories;
             this.numQuestionsPerCategory = numQuestionsPerCat;
             this.questionTimeLimit = questionTimeLimit;
-            
+
+            //insert the game
             if (ValidateData.ValidateGameName(gameName))
             {
                 this.id = DB_Insert.InsertGame(this);
@@ -110,6 +111,34 @@ namespace Jeopardy
             {
                 MessageBox.Show("Invalid Game Name");
             }
+
+            this.Categories = new List<Category>(new Category[this.numCategories]);
+
+            //insert blank categories
+            for (int i = 0; i < this.numCategories; i++)
+            {
+                this.Categories[i] = new Category();
+                this.Categories[i].GameId = (int)this.id;
+                this.Categories[i].Title = "Category " + (i + 1);
+                this.Categories[i].Subtitle = " ";
+                this.Categories[i].Id = DB_Insert.InsertCategory(this.Categories[i]);
+
+                this.Categories[i].Questions = new List<Question>(new Question[this.numQuestionsPerCategory]);
+
+                //insert blank questions
+                for(int j = 0; j < this.numQuestionsPerCategory; j++)
+                {
+                    this.Categories[i].Questions[j] = new Question();
+                    this.Categories[i].Questions[j].CategoryId = (int)this.Categories[i].Id;
+                    this.Categories[i].Questions[j].Type = "fb";
+                    this.Categories[i].Questions[j].QuestionText = " ";
+                    this.Categories[i].Questions[j].Answer = " ";
+                    this.Categories[i].Questions[j].Weight = (j + 1) * 100;
+                    this.Categories[i].Questions[j].Id = DB_Insert.InsertQuestion(this.Categories[i].Questions[j]);
+                }
+            }
+            
+            
             return this;
         }
 
