@@ -12,23 +12,13 @@ namespace Jeopardy
 {
     public partial class frmEditGame : Form
     {
-        private Game game = new Game();
-        private List<Button> categoryButtons = new List<Button>();
-        private List<Button> questionButtons = new List<Button>();
+        Game game = new Game();
+        List<Button> categoryButtons = new List<Button>();
+        Button[,] questionButtons;
 
         public frmEditGame(Game theGame)
         {
             game = theGame;
-
-            if (game.NumCategories == 0)
-            {
-                game.NumCategories = 6;
-            }
-
-            if (game.NumQuestionsPerCategory == 0)
-            {
-                game.NumQuestionsPerCategory = 5;
-            }
 
             InitializeComponent();
         }
@@ -43,7 +33,7 @@ namespace Jeopardy
             txtGameName.Text = game.GameName;
             nudNumCategories.Value = game.NumCategories;
             nudNumQuestionCategory.Value = game.NumQuestionsPerCategory;
-            if(game.QuestionTimeLimit == new TimeSpan(0, 0, 30))
+            if (game.QuestionTimeLimit == new TimeSpan(0, 0, 30))
             {
                 cboQuestionTimeLimit.SelectedIndex = 0;
             }
@@ -59,12 +49,16 @@ namespace Jeopardy
             {
                 cboQuestionTimeLimit.SelectedIndex = 3;
             }
+
+            questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
         }
 
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
         {
             game.NumCategories = (int)nudNumCategories.Value;
             DisplayNumberQuesions();
+
+            questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
 
             CreateCategoryGrid();
             CreateQuestionGrid();
@@ -74,6 +68,8 @@ namespace Jeopardy
         {
             game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
             DisplayNumberQuesions();
+
+            questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
 
             CreateQuestionGrid();
         }
@@ -106,21 +102,25 @@ namespace Jeopardy
             int start_x = 30;
             int start_y = 30;
 
-            for (int x = 0; x < 1; x++)
+            //create the button with the button attributes
+            for (int x = 0; x < game.NumCategories; x++)
             {
-                for (int y = 0; y < game.NumCategories; y++)
-                {
-                    Button tmpButton = new Button();
-                    tmpButton.Top = start_x + (x * buttonHeight);
-                    tmpButton.Left = start_y + ((y * buttonWidth) + (y * 5));
-                    tmpButton.Width = buttonWidth;
-                    tmpButton.Height = buttonHeight;
-                    tmpButton.Text = "Category " + (y + 1).ToString();
-                    tmpButton.ContextMenuStrip = cmsCategories;
-                    tmpButton.Click += CategoryButton_Click;
-                    categoryButtons.Add(tmpButton);
-                }
+                Button tmpButton = new Button();
+                tmpButton.Top = start_x;
+                tmpButton.Left = start_y + ((x * buttonWidth) + (x * 5));
+                tmpButton.Width = buttonWidth;
+                tmpButton.Height = buttonHeight;
+                tmpButton.Text = "Category " + (x + 1).ToString();
+                tmpButton.ContextMenuStrip = cmsCategories;
+                tmpButton.Click += CategoryButton_Click;
+                categoryButtons.Add(tmpButton);
             }
+            //fill in category info, but only for defined categories
+            for (int i = 0; i < game.Categories.Count; i++)
+            {
+                categoryButtons[i].Text = game.Categories[i].Title + "\n" + game.Categories[i].Subtitle;
+            }
+
 
             foreach (Button b in categoryButtons)
             {
@@ -137,7 +137,6 @@ namespace Jeopardy
         private void CreateQuestionGrid()
         {
             gbxQuestions.Controls.Clear();
-            questionButtons.Clear();
 
             int gbxWidth = gbxQuestions.Width;
             int gbxHeight = gbxQuestions.Height;
@@ -148,19 +147,34 @@ namespace Jeopardy
             int start_x = 30;
             int start_y = 30;
 
-            for (int x = 0; x < game.NumQuestionsPerCategory; x++)
+            questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
+
+            //draw blank buttons
+            for (int x = 0; x < game.NumCategories; x++)
             {
-                for (int y = 0; y < game.NumCategories; y++)
+                for (int y = 0; y < game.NumQuestionsPerCategory; y++)
                 {
                     Button tmpButton = new Button();
-                    tmpButton.Top = start_x + ((x * buttonHeight) + (x * 5));
-                    tmpButton.Left = start_y + ((y * buttonWidth) + (y * 5));
+                    tmpButton.Tag = (y + 1) * 100; //score aka weight
+                    tmpButton.Top = start_x + ((y * buttonHeight) + (y * 5));
+                    tmpButton.Left = start_y + ((x * buttonWidth) + (x * 5));
                     tmpButton.Width = buttonWidth;
                     tmpButton.Height = buttonHeight;
-                    tmpButton.Text = "Category " + (y + 1).ToString() + "\n" + "Question " + (x + 1).ToString();
+                    tmpButton.Text = tmpButton.Tag + "\nCategory " + (x + 1).ToString() + "\n" + "Question " + (y + 1).ToString();
                     tmpButton.ContextMenuStrip = cmsQuestions;
                     tmpButton.Click += QuestionButton_Click;
-                    questionButtons.Add(tmpButton);
+
+                    questionButtons[x, y] = tmpButton;
+                }
+            }
+
+            //add info to buttons (associate with actual question)
+            for (int i = 0; i < game.Categories.Count; i++)
+            {
+                for (int j = 0; j < game.Categories[i].Questions.Count; j++)
+                {
+                    questionButtons[i, j].Text = game.Categories[i].Questions[j].QuestionText;
+
                 }
             }
 
@@ -248,6 +262,6 @@ namespace Jeopardy
         {
 
         }
-        
+
     }
 }

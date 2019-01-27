@@ -556,7 +556,6 @@
             this.tsmiDeleteQuestion});
             this.cmsQuestions.Name = "cmsQuestions";
             this.cmsQuestions.Size = new System.Drawing.Size(125, 56);
-            this.cmsQuestions.Opening += new System.ComponentModel.CancelEventHandler(this.cmsQuestions_Opening);
             // 
             // tsmiEditQuestion
             // 
