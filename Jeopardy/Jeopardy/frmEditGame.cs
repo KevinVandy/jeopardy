@@ -13,7 +13,7 @@ namespace Jeopardy
     public partial class frmEditGame : Form
     {
         Game game = new Game();
-        List<Button> categoryButtons = new List<Button>();
+        Button[] categoryButtonss;
         Button[,] questionButtons;
 
         public frmEditGame(Game theGame)
@@ -25,11 +25,15 @@ namespace Jeopardy
 
         private void frmCreateGame_Load(object sender, EventArgs e)
         {
-            DisplayNumberQuesions();
+            //figure out diminsions of the grid
+            categoryButtonss = new Button[game.NumCategories];
+            questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
 
             CreateCategoryGrid();
             CreateQuestionGrid();
 
+            DisplayNumberQuesions();
+            
             txtGameName.Text = game.GameName;
             nudNumCategories.Value = game.NumCategories;
             nudNumQuestionCategory.Value = game.NumQuestionsPerCategory;
@@ -50,7 +54,7 @@ namespace Jeopardy
                 cboQuestionTimeLimit.SelectedIndex = 3;
             }
 
-            questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
+            
         }
 
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
@@ -58,7 +62,8 @@ namespace Jeopardy
             game.NumCategories = (int)nudNumCategories.Value;
             DisplayNumberQuesions();
 
-            questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
+            categoryButtonss = new Button[game.NumCategories];//diminsion change
+            questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];//diminsion change
 
             CreateCategoryGrid();
             CreateQuestionGrid();
@@ -68,8 +73,8 @@ namespace Jeopardy
         {
             game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
             DisplayNumberQuesions();
-
-            questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
+            
+            questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory]; //diminsion change
 
             CreateQuestionGrid();
         }
@@ -87,12 +92,7 @@ namespace Jeopardy
         private void CreateCategoryGrid()
         {
             gbxCategories.Controls.Clear();
-
-            if (categoryButtons != null)
-            {
-                categoryButtons.Clear();
-            }
-
+            
             int gbxWidth = gbxCategories.Width;
             int gbxHeight = gbxCategories.Height;
 
@@ -101,6 +101,8 @@ namespace Jeopardy
 
             int start_x = 30;
             int start_y = 30;
+
+            categoryButtonss = new Button[game.NumCategories];
 
             //create the button with the button attributes
             for (int x = 0; x < game.NumCategories; x++)
@@ -113,16 +115,16 @@ namespace Jeopardy
                 tmpButton.Text = "Category " + (x + 1).ToString();
                 tmpButton.ContextMenuStrip = cmsCategories;
                 tmpButton.Click += CategoryButton_Click;
-                categoryButtons.Add(tmpButton);
+                categoryButtonss[x] = tmpButton;
             }
             //fill in category info, but only for defined categories
             for (int i = 0; i < game.Categories.Count; i++)
             {
-                categoryButtons[i].Text = game.Categories[i].Title + "\n" + game.Categories[i].Subtitle;
+                categoryButtonss[i].Text = game.Categories[i].Title + "\n" + game.Categories[i].Subtitle;
             }
 
 
-            foreach (Button b in categoryButtons)
+            foreach (Button b in categoryButtonss)
             {
                 gbxCategories.Controls.Add(b);
             }
@@ -164,7 +166,7 @@ namespace Jeopardy
                     tmpButton.ContextMenuStrip = cmsQuestions;
                     tmpButton.Click += QuestionButton_Click;
 
-                    questionButtons[x, y] = tmpButton;
+                    questionButtons[x, y] = tmpButton; //add button to array
                 }
             }
 
