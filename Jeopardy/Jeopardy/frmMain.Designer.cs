@@ -42,13 +42,15 @@
             this.btnEditGame = new System.Windows.Forms.Button();
             this.btnDeleteGame = new System.Windows.Forms.Button();
             this.bwLoadGames = new System.ComponentModel.BackgroundWorker();
+            this.btnExportGame = new System.Windows.Forms.Button();
+            this.btnImportGame = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCreateGame
             // 
             this.btnCreateGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateGame.Location = new System.Drawing.Point(419, 230);
+            this.btnCreateGame.Location = new System.Drawing.Point(419, 182);
             this.btnCreateGame.Name = "btnCreateGame";
             this.btnCreateGame.Size = new System.Drawing.Size(287, 62);
             this.btnCreateGame.TabIndex = 0;
@@ -149,7 +151,7 @@
             // btnEditGame
             // 
             this.btnEditGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditGame.Location = new System.Drawing.Point(419, 346);
+            this.btnEditGame.Location = new System.Drawing.Point(419, 250);
             this.btnEditGame.Name = "btnEditGame";
             this.btnEditGame.Size = new System.Drawing.Size(287, 62);
             this.btnEditGame.TabIndex = 5;
@@ -160,7 +162,7 @@
             // btnDeleteGame
             // 
             this.btnDeleteGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteGame.Location = new System.Drawing.Point(419, 462);
+            this.btnDeleteGame.Location = new System.Drawing.Point(419, 318);
             this.btnDeleteGame.Name = "btnDeleteGame";
             this.btnDeleteGame.Size = new System.Drawing.Size(287, 62);
             this.btnDeleteGame.TabIndex = 6;
@@ -173,11 +175,35 @@
             this.bwLoadGames.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLoadGames_DoWork);
             this.bwLoadGames.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwLoadGames_RunWorkerCompleted);
             // 
+            // btnExportGame
+            // 
+            this.btnExportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportGame.Location = new System.Drawing.Point(419, 396);
+            this.btnExportGame.Name = "btnExportGame";
+            this.btnExportGame.Size = new System.Drawing.Size(287, 62);
+            this.btnExportGame.TabIndex = 7;
+            this.btnExportGame.Text = "Export Game";
+            this.btnExportGame.UseVisualStyleBackColor = true;
+            this.btnExportGame.Click += new System.EventHandler(this.btnExportGame_Click);
+            // 
+            // btnImportGame
+            // 
+            this.btnImportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportGame.Location = new System.Drawing.Point(419, 464);
+            this.btnImportGame.Name = "btnImportGame";
+            this.btnImportGame.Size = new System.Drawing.Size(287, 62);
+            this.btnImportGame.TabIndex = 8;
+            this.btnImportGame.Text = "Import Game";
+            this.btnImportGame.UseVisualStyleBackColor = true;
+            this.btnImportGame.Click += new System.EventHandler(this.btnImportGame_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(788, 600);
+            this.Controls.Add(this.btnImportGame);
+            this.Controls.Add(this.btnExportGame);
             this.Controls.Add(this.btnDeleteGame);
             this.Controls.Add(this.btnEditGame);
             this.Controls.Add(this.lblGames);
@@ -213,6 +239,8 @@
         private System.Windows.Forms.Button btnEditGame;
         private System.Windows.Forms.Button btnDeleteGame;
         private System.ComponentModel.BackgroundWorker bwLoadGames;
+        private System.Windows.Forms.Button btnExportGame;
+        private System.Windows.Forms.Button btnImportGame;
     }
 }
 

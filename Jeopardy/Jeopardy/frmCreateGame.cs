@@ -12,7 +12,7 @@ namespace Jeopardy
 {
     public partial class frmCreateGame : Form
     {
-        Game newGame;
+        Game newGame = new Game();
 
         public frmCreateGame()
         {
@@ -27,32 +27,12 @@ namespace Jeopardy
         private void btnCreateGame_Click(object sender, EventArgs e)
         {
             string gameName = txtGameName.Text;
-
             int numCategories = (int)nudNumCategories.Value;
             int numQuestionsPerCat = (int)nudNumQuestionCategory.Value;
-
-            TimeSpan questionTimeLimit = new TimeSpan();
-            if(cboQuestionTimeLimit.SelectedIndex == 0)
-            {
-                questionTimeLimit = new TimeSpan(0, 0, 30);
-            }
-            else if (cboQuestionTimeLimit.SelectedIndex == 1)
-            {
-                questionTimeLimit = new TimeSpan(0, 1, 0);
-            }
-            else if (cboQuestionTimeLimit.SelectedIndex == 2)
-            {
-                questionTimeLimit = new TimeSpan(0, 2, 0);
-            }
-            else if (cboQuestionTimeLimit.SelectedIndex == 3)
-            {
-                questionTimeLimit = new TimeSpan(0, 3, 0);
-            }
             
             if (ValidateData.ValidateGameName(gameName))
             {
-                newGame = new Game(null, gameName, questionTimeLimit, numCategories, numQuestionsPerCat, null);
-                newGame.Id = DB_Insert.InsertGame(newGame);
+                newGame = newGame.CreateGame(gameName,numCategories,numQuestionsPerCat,cboQuestionTimeLimit.SelectedIndex);
                 frmEditGame createGameForm = new frmEditGame(newGame);
                 createGameForm.Tag = newGame;
                 this.Hide();
