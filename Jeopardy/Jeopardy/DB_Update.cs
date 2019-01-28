@@ -13,18 +13,199 @@ namespace Jeopardy
     {
         readonly static OleDbConnection conn = DB_Conn.GetGamesConnection();
 
-        //TODO BY FORREST, more at bottom of this file too
+        public static bool UpdateGame(Game game)
+        {
+            string updateStatement =
+                "UPDATE games " + 
+                "SET GameName = @newGameName, QuestionTimeLimit = @newTimeLimit, " + 
+                "NumCategories = @newNumCategories, NumQuestionsPerCategory = @newNumQuestionsPerCategory " + 
+                "Where Id = @gameId";
 
-        //public static bool UpdateGame(Game game)
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@newGameName", game.GameName);
+            updateCommand.Parameters.AddWithValue("@newTimeLimit", game.QuestionTimeLimit);
+            updateCommand.Parameters.AddWithValue("@newNumCategories", game.NumCategories);
+            updateCommand.Parameters.AddWithValue("@newNumQuestionsPerCategory", game.NumQuestionsPerCategory);
+            updateCommand.Parameters.AddWithValue("@gameId", game.Id);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
+
+        public static bool UpdateCategory(Category category)
+        {
+            string updateStatement =
+                "UPDATE categories " +
+                "SET Title = @newTitle, Subtitle = @newSubtitle " +
+                "Where Id = @categoryId, GameId = @gameId";
+
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@gameId", category.GameId);
+            updateCommand.Parameters.AddWithValue("@newTitle", category.Title);
+            updateCommand.Parameters.AddWithValue("@newSubtitle", category.Subtitle);
+            updateCommand.Parameters.AddWithValue("@categoryId", category.Id);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
 
-        //public static bool UpdateCategory(Category category)
+        public static bool UpdateQuestion(Question question)
+        {
+            string updateStatement =
+                "UPDATE questions " +
+                "SET Type = @newType, QuestionText = @newQuestionText, Answer = @newAnswer, Weight = @newWeight " +
+                "Where CategoryId = @categoryId, Id = @questionId";
+
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@questionId", question.Id);
+            updateCommand.Parameters.AddWithValue("@newType", question.Type);
+            updateCommand.Parameters.AddWithValue("@newQuestionText", question.QuestionText);
+            updateCommand.Parameters.AddWithValue("@newAnswer", question.Answer);
+            updateCommand.Parameters.AddWithValue("@newWeight", question.Weight);
+            updateCommand.Parameters.AddWithValue("@categoryId", question.CategoryId);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
 
-        //public static bool UpdateQuestion(Question question)
+        public static bool UpdateChoice(Choice choice)
+        {
+            string updateStatement =
+                "UPDATE choices " +
+                "SET ChoiceText = @newChoiceText " +
+                "Where Index = @index, QuestionId = @questionId, Id = @choiceId";
 
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@choiceId", choice.Id);
+            updateCommand.Parameters.AddWithValue("@questionId", choice.QuestionId);
+            updateCommand.Parameters.AddWithValue("@index", choice.Index);
+            updateCommand.Parameters.AddWithValue("@newChoiceText", choice.Text);
 
-        //public static bool UpdateChoice(Choice choice)
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
 
         public static bool UpdateGameName(string newGameName, int? gameId)
@@ -72,36 +253,464 @@ namespace Jeopardy
             return false;
         }
 
-        //Forrest, implement these
+        public static bool UpdateGameQuestionTimeLimit(TimeSpan newTimeLimit, int? gameId)
+        {
+            string updateStatement =
+                "UPDATE games " +
+                "SET QuestionTimeLimit = @newTimeLimit " +
+                "WHERE Id = @gameId";
 
-        //public static bool UpdateGameQuestionTimeLimit(TimeSpan newTimeLimit, int? gameId)
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@newTimeLimit", newTimeLimit);
+            updateCommand.Parameters.AddWithValue("@gameId", gameId);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
 
-        //public static bool UpdateGameNumCategories(int newNumCategories, int? gameId)
+        public static bool UpdateGameNumCategories(int newNumCategories, int? gameId)
+        {
+            string updateStatement =
+                "UPDATE games " +
+                "SET NumCategories = @newNumCategories " +
+                "WHERE Id = @gameId";
+
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@newNumCategories", newNumCategories);
+            updateCommand.Parameters.AddWithValue("@gameId", gameId);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
 
-        //public static bool UpdateGameNumQuestionsPerCategory(int newNumQuestionsPerCategory, int? gameId)
+        public static bool UpdateGameNumQuestionsPerCategory(int newNumQuestionsPerCategory, int? gameId)
+        {
+            string updateStatement =
+                "UPDATE games " +
+                "SET GameName = @newNumQuestionsPerCategory " +
+                "WHERE Id = @gameId";
+
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@newNumQuestionsPerCategory", newNumQuestionsPerCategory);
+            updateCommand.Parameters.AddWithValue("@gameId", gameId);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
 
-        //public static bool UpdateCategoryTitle(string newTitle, int? categoryId)
+        public static bool UpdateCategoryTitle(string newTitle, int? categoryId)
+        {
+            string updateStatement =
+                "UPDATE categories " +
+                "SET Title = @newTitle " +
+                "Where Id = @categoryId";
+
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@newTitle", newTitle);
+            updateCommand.Parameters.AddWithValue("@categoryId", categoryId);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
 
-        //public static bool UpdateCategorySubtitle(string newSubtitle, int? categoryId)
+        public static bool UpdateCategorySubtitle(string newSubtitle, int? categoryId)
+        {
+            string updateStatement =
+                "UPDATE categories " +
+                "SET Subtitle = @newSubtitle " +
+                "Where Id = @categoryId";
+
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@newSubtitle", newSubtitle);
+            updateCommand.Parameters.AddWithValue("@categoryId", categoryId);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
 
-        //public static bool UpdateQuestionType(string newQuestionType, int? questionId)
+        public static bool UpdateQuestionType(string newQuestionType, int? questionId)
+        {
+            string updateStatement =
+                "UPDATE questions " +
+                "SET Type = @newType " +
+                "Where Id = @questionId";
+
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@questionId", questionId);
+            updateCommand.Parameters.AddWithValue("@newType", newQuestionType);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
 
-        //public static bool UpdateQuestionText(string newQuestionText, int? questionId)
+        public static bool UpdateQuestionText(string newQuestionText, int? questionId)
+        {
+            string updateStatement =
+                "UPDATE questions " +
+                "SET QuestionText = @newQuestionText " +
+                "Where Id = @questionId";
+
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@questionId", questionId);
+            updateCommand.Parameters.AddWithValue("@newQuestionText", newQuestionText);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
 
-        //public static bool UpdateQuestionAnswer(string newAnswer, int? questionId)
+        public static bool UpdateQuestionAnswer(string newAnswer, int? questionId)
+        {
+            string updateStatement =
+                "UPDATE questions " +
+                "SET Answer = @newAnswer " +
+                "Where Id = @questionId";
+
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@questionId", questionId);
+            updateCommand.Parameters.AddWithValue("@newAnswer", newAnswer);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
 
-        //public static bool UpdateQuestionAnswer(int newWeight, int? questionId)
+        public static bool UpdateQuestionAnswer(int newWeight, int? questionId)
+        {
+            string updateStatement =
+                "UPDATE questions " +
+                "SET Weight = @newWeight " +
+                "Where Id = @questionId";
+
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@questionId", questionId);
+            updateCommand.Parameters.AddWithValue("@newWeight", newWeight);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
 
-        //public static bool UpdateChoiceText(string newChoiceText, int? choiceId)
+        public static bool UpdateChoiceText(string newChoiceText, int? choiceId)
+        {
+            string updateStatement =
+                "UPDATE choices " +
+                "SET ChoiceText = @newChoiceText " +
+                "Where Id = @choiceId";
+
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@choiceId", choiceId);
+            updateCommand.Parameters.AddWithValue("@newChoiceText", newChoiceText);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
 
     }
