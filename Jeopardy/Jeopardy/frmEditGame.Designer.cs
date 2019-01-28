@@ -81,6 +81,10 @@
             this.cmsCategories = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiEditCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDeleteCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.bwAddCategory = new System.ComponentModel.BackgroundWorker();
+            this.bwRemoveCategory = new System.ComponentModel.BackgroundWorker();
+            this.bwAddQuestions = new System.ComponentModel.BackgroundWorker();
+            this.bwRemoveQuestions = new System.ComponentModel.BackgroundWorker();
             this.menuStrip.SuspendLayout();
             this.gbxGameInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumQuestionCategory)).BeginInit();
@@ -392,8 +396,8 @@
             // nudNumQuestionCategory
             // 
             this.nudNumQuestionCategory.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.nudNumQuestionCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudNumQuestionCategory.Location = new System.Drawing.Point(866, 42);
+            this.nudNumQuestionCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudNumQuestionCategory.Location = new System.Drawing.Point(866, 39);
             this.nudNumQuestionCategory.Maximum = new decimal(new int[] {
             8,
             0,
@@ -406,8 +410,9 @@
             0});
             this.nudNumQuestionCategory.Name = "nudNumQuestionCategory";
             this.nudNumQuestionCategory.ReadOnly = true;
-            this.nudNumQuestionCategory.Size = new System.Drawing.Size(57, 26);
+            this.nudNumQuestionCategory.Size = new System.Drawing.Size(46, 29);
             this.nudNumQuestionCategory.TabIndex = 37;
+            this.nudNumQuestionCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudNumQuestionCategory.Value = new decimal(new int[] {
             5,
             0,
@@ -418,8 +423,8 @@
             // nudNumCategories
             // 
             this.nudNumCategories.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.nudNumCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudNumCategories.Location = new System.Drawing.Point(521, 42);
+            this.nudNumCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudNumCategories.Location = new System.Drawing.Point(521, 39);
             this.nudNumCategories.Maximum = new decimal(new int[] {
             8,
             0,
@@ -432,8 +437,9 @@
             0});
             this.nudNumCategories.Name = "nudNumCategories";
             this.nudNumCategories.ReadOnly = true;
-            this.nudNumCategories.Size = new System.Drawing.Size(57, 26);
+            this.nudNumCategories.Size = new System.Drawing.Size(46, 29);
             this.nudNumCategories.TabIndex = 36;
+            this.nudNumCategories.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudNumCategories.Value = new decimal(new int[] {
             6,
             0,
@@ -692,5 +698,9 @@
         private System.Windows.Forms.ContextMenuStrip cmsCategories;
         private System.Windows.Forms.ToolStripMenuItem tsmiEditCategory;
         private System.Windows.Forms.ToolStripMenuItem tsmiDeleteCategory;
+        private System.ComponentModel.BackgroundWorker bwAddCategory;
+        private System.ComponentModel.BackgroundWorker bwRemoveCategory;
+        private System.ComponentModel.BackgroundWorker bwAddQuestions;
+        private System.ComponentModel.BackgroundWorker bwRemoveQuestions;
     }
 }

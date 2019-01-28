@@ -195,6 +195,7 @@ namespace Jeopardy
                     tmpButton.Text = tmpButton.Tag.ToString();
                     tmpButton.ContextMenuStrip = cmsQuestions;
                     tmpButton.Click += QuestionButton_Click;
+                    tmpButton.MouseHover += questionButton_MouseHover;
 
                     questionButtons[x, y] = tmpButton; //add button to array
                 }
@@ -205,7 +206,7 @@ namespace Jeopardy
             {
                 for (int j = 0; j < game.NumQuestionsPerCategory && j < game.Categories[i].Questions.Count; j++)
                 {
-                    questionButtons[i, j].Text = game.Categories[i].Questions[j].Weight + "\n" + game.Categories[i].Questions[j].QuestionText;
+                    questionButtons[i, j].Text = game.Categories[i].Questions[j].Weight.ToString() + "\n" + game.Categories[i].Questions[j].QuestionText.Trim();
                 }
             }
 
@@ -213,6 +214,12 @@ namespace Jeopardy
             {
                 gbxQuestions.Controls.Add(b);
             }
+        }
+
+        private void questionButton_MouseHover(object sender, EventArgs e)
+        {
+            Button hoveredButton = (Button)sender;
+            hoveredButton.Focus();
         }
 
         private void QuestionButton_Click(object sender, EventArgs e)
@@ -242,13 +249,7 @@ namespace Jeopardy
 
             editQuestionForm.ShowDialog();
         }
-
         
-
-        
-
-        
-
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form about = new frmAbout();
