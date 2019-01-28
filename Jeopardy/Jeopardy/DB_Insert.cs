@@ -75,14 +75,15 @@ namespace Jeopardy
         public static int? InsertCategory(Category newCategory)
         {
             string insertStatement =
-                "INSERT INTO categories(GameId, Title, Subtitle) "
-              + "VALUES (@gameId, @title, @subtitle)";
+                "INSERT INTO categories(GameId, [Position], Title, Subtitle) "
+              + "VALUES (@gameId, @position, @title, @subtitle)";
 
             string identityStatement = "SELECT @@Identity";
 
             OleDbCommand insertCommand = new OleDbCommand(insertStatement, conn);
 
             insertCommand.Parameters.AddWithValue("@gameId", newCategory.GameId);
+            insertCommand.Parameters.AddWithValue("@position", newCategory.Position);
             insertCommand.Parameters.AddWithValue("@title", newCategory.Title);
             insertCommand.Parameters.AddWithValue("@subtitle", newCategory.Subtitle);
 
