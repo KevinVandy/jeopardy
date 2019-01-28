@@ -46,7 +46,7 @@ namespace Jeopardy
                 newCategory.Title = txtTitle.Text;
                 newCategory.Subtitle = txtSubtitle.Text;
 
-                DB_Insert.InsertCategory(newCategory);
+                //DB_Insert.InsertCategory(newCategory); change to update
             }
 
             this.DialogResult = DialogResult.OK;

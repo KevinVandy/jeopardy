@@ -67,6 +67,7 @@
             // 
             // nudNumQuestionCategory
             // 
+            this.nudNumQuestionCategory.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.nudNumQuestionCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudNumQuestionCategory.Location = new System.Drawing.Point(341, 264);
             this.nudNumQuestionCategory.Maximum = new decimal(new int[] {
@@ -80,6 +81,7 @@
             0,
             0});
             this.nudNumQuestionCategory.Name = "nudNumQuestionCategory";
+            this.nudNumQuestionCategory.ReadOnly = true;
             this.nudNumQuestionCategory.Size = new System.Drawing.Size(66, 35);
             this.nudNumQuestionCategory.TabIndex = 3;
             this.nudNumQuestionCategory.Value = new decimal(new int[] {
@@ -91,6 +93,7 @@
             // 
             // nudNumCategories
             // 
+            this.nudNumCategories.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.nudNumCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudNumCategories.Location = new System.Drawing.Point(341, 195);
             this.nudNumCategories.Maximum = new decimal(new int[] {
@@ -104,6 +107,7 @@
             0,
             0});
             this.nudNumCategories.Name = "nudNumCategories";
+            this.nudNumCategories.ReadOnly = true;
             this.nudNumCategories.Size = new System.Drawing.Size(66, 35);
             this.nudNumCategories.TabIndex = 2;
             this.nudNumCategories.Value = new decimal(new int[] {

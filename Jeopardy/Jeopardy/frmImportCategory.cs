@@ -38,9 +38,11 @@ namespace Jeopardy
 
         private void lstGames_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedGame = allGames[lstGames.SelectedIndex];
-
-            ShowCategories();
+            if(lstGames.SelectedIndex != -1)
+            {
+                selectedGame = allGames[lstGames.SelectedIndex];
+                ShowCategories();
+            }
         }
 
         private void lstCategories_SelectedIndexChanged(object sender, EventArgs e)

@@ -130,7 +130,7 @@ namespace Jeopardy
                 categoryButtonss[x] = tmpButton;
             }
             //fill in category info, but only for defined categories
-            for (int i = 0; i < game.Categories.Count; i++)
+            for (int i = 0; i < game.NumCategories && i < game.Categories.Count; i++)
             {
                 categoryButtonss[i].Text = game.Categories[i].Title + "\n" + game.Categories[i].Subtitle;
             }
@@ -170,7 +170,7 @@ namespace Jeopardy
             questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
 
             //draw blank buttons
-            for (int x = 0; x < game.NumCategories; x++)
+            for (int x = 0; x < game.NumCategories && x < game.NumCategories; x++)
             {
                 for (int y = 0; y < game.NumQuestionsPerCategory; y++)
                 {

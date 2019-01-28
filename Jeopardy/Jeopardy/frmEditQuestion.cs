@@ -28,6 +28,16 @@ namespace Jeopardy
             rdoFillInTheBlank.Checked = true;
         }
 
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void rdoType_CheckChanged(object sender, EventArgs e)
         {
             if (rdoFillInTheBlank.Checked)
@@ -168,15 +178,6 @@ namespace Jeopardy
                 txtAnswer.Text = "";
             }
         }
-
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
     }
 }
