@@ -29,6 +29,8 @@ namespace Jeopardy
             btnCreateGame.Enabled = true;
             btnEditGame.Enabled = false;
             btnDeleteGame.Enabled = false;
+            btnImportGame.Enabled = true;
+            btnExportGame.Enabled = false;
         }
 
         private void bwLoadGames_DoWork(object sender, DoWorkEventArgs e)
@@ -125,6 +127,10 @@ namespace Jeopardy
                 btnCreateGame.Enabled = true;
                 btnEditGame.Enabled = true;
                 btnDeleteGame.Enabled = true;
+                btnImportGame.Enabled = true;
+                btnExportGame.Enabled = true;
+
+                btnPlayGame.Focus();
             }
             else
             {
@@ -132,6 +138,8 @@ namespace Jeopardy
                 btnCreateGame.Enabled = true;
                 btnEditGame.Enabled = false;
                 btnDeleteGame.Enabled = false;
+                btnImportGame.Enabled = true;
+                btnExportGame.Enabled = false;
             }
         }
 

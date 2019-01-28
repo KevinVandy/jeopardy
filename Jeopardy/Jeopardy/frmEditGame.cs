@@ -13,7 +13,7 @@ namespace Jeopardy
     public partial class frmEditGame : Form
     {
         Game game;
-        Button[] categoryButtonss;
+        Button[] categoryButtons;
         Button[,] questionButtons;
 
         public frmEditGame(Game theGame)
@@ -26,7 +26,7 @@ namespace Jeopardy
         private void frmCreateGame_Load(object sender, EventArgs e)
         {
             //figure out diminsions of the grid
-            categoryButtonss = new Button[game.NumCategories];
+            categoryButtons = new Button[game.NumCategories];
             questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
 
             DrawGrids();
@@ -69,7 +69,7 @@ namespace Jeopardy
             game.NumCategories = (int)nudNumCategories.Value;
             DisplayNumberQuesions();
 
-            categoryButtonss = new Button[game.NumCategories];//diminsion change
+            categoryButtons = new Button[game.NumCategories];//diminsion change
             questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];//diminsion change
 
             DrawGrids();
@@ -114,7 +114,7 @@ namespace Jeopardy
             int start_x = 30;
             int start_y = 30;
 
-            categoryButtonss = new Button[game.NumCategories];
+            categoryButtons = new Button[game.NumCategories];
 
             //create the button with the button attributes
             for (int x = 0; x < game.NumCategories; x++)
@@ -127,16 +127,16 @@ namespace Jeopardy
                 tmpButton.Text = "Category " + (x + 1).ToString();
                 tmpButton.ContextMenuStrip = cmsCategories;
                 tmpButton.Click += CategoryButton_Click;
-                categoryButtonss[x] = tmpButton;
+                categoryButtons[x] = tmpButton;
             }
             //fill in category info, but only for defined categories
             for (int i = 0; i < game.NumCategories && i < game.Categories.Count; i++)
             {
-                categoryButtonss[i].Text = game.Categories[i].Title + "\n" + game.Categories[i].Subtitle;
+                categoryButtons[i].Text = game.Categories[i].Title + "\n" + game.Categories[i].Subtitle;
             }
 
 
-            foreach (Button b in categoryButtonss)
+            foreach (Button b in categoryButtons)
             {
                 gbxCategories.Controls.Add(b);
             }
@@ -145,7 +145,19 @@ namespace Jeopardy
         private void CategoryButton_Click(object sender, EventArgs e)
         {
             Button clickedButton = (Button)sender;
-            frmEditCategory editCategoryForm = new frmEditCategory((int)game.Id);
+
+            //detect position in button grid
+            int x = -1;
+            for (int i = 0; i < game.NumCategories && x < 0; ++i)
+            {
+                if (categoryButtons[i] == (Button)sender)
+                {
+                    x = i;
+                    break;
+                }
+            }
+            
+            frmEditCategory editCategoryForm = new frmEditCategory(game.Categories[x]);
             DialogResult dialogResult = editCategoryForm.ShowDialog();
 
             if(dialogResult == DialogResult.OK)
@@ -180,7 +192,7 @@ namespace Jeopardy
                     tmpButton.Left = start_y + ((x * buttonWidth) + (x * 5));
                     tmpButton.Width = buttonWidth;
                     tmpButton.Height = buttonHeight;
-                    tmpButton.Text = tmpButton.Tag + "\nCategory " + (x + 1).ToString() + "\n" + "Question " + (y + 1).ToString();
+                    tmpButton.Text = tmpButton.Tag.ToString();
                     tmpButton.ContextMenuStrip = cmsQuestions;
                     tmpButton.Click += QuestionButton_Click;
 
@@ -189,12 +201,11 @@ namespace Jeopardy
             }
 
             //add info to buttons (associate with actual question)
-            for (int i = 0; i < game.Categories.Count; i++)
+            for (int i = 0; i < game.NumCategories && i < game.Categories.Count; i++)
             {
-                for (int j = 0; j < game.Categories[i].Questions.Count; j++)
+                for (int j = 0; j < game.NumQuestionsPerCategory && j < game.Categories[i].Questions.Count; j++)
                 {
-                    questionButtons[i, j].Text = game.Categories[i].Questions[j].QuestionText;
-
+                    questionButtons[i, j].Text = game.Categories[i].Questions[j].Weight + "\n" + game.Categories[i].Questions[j].QuestionText;
                 }
             }
 
@@ -227,7 +238,7 @@ namespace Jeopardy
             //
 
             Question selectedQuestion = game.Categories[x].Questions[y];
-            frmEditQuestion editQuestionForm = new frmEditQuestion((int)game.Id, selectedQuestion);
+            frmEditQuestion editQuestionForm = new frmEditQuestion(selectedQuestion, (int)game.Id, game.Categories[x].Title + " " + game.Categories[x].Subtitle);
 
             editQuestionForm.ShowDialog();
         }

@@ -49,10 +49,10 @@
             // 
             // btnCreateGame
             // 
-            this.btnCreateGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateGame.Location = new System.Drawing.Point(419, 182);
+            this.btnCreateGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateGame.Location = new System.Drawing.Point(419, 341);
             this.btnCreateGame.Name = "btnCreateGame";
-            this.btnCreateGame.Size = new System.Drawing.Size(287, 62);
+            this.btnCreateGame.Size = new System.Drawing.Size(287, 56);
             this.btnCreateGame.TabIndex = 0;
             this.btnCreateGame.Text = "Create Game";
             this.btnCreateGame.UseVisualStyleBackColor = true;
@@ -60,10 +60,10 @@
             // 
             // btnPlayGame
             // 
-            this.btnPlayGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlayGame.Location = new System.Drawing.Point(419, 114);
+            this.btnPlayGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlayGame.Location = new System.Drawing.Point(419, 101);
             this.btnPlayGame.Name = "btnPlayGame";
-            this.btnPlayGame.Size = new System.Drawing.Size(287, 62);
+            this.btnPlayGame.Size = new System.Drawing.Size(287, 56);
             this.btnPlayGame.TabIndex = 1;
             this.btnPlayGame.Text = "Play Game";
             this.btnPlayGame.UseVisualStyleBackColor = true;
@@ -74,9 +74,9 @@
             this.lstGamesFromDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstGamesFromDB.FormattingEnabled = true;
             this.lstGamesFromDB.ItemHeight = 24;
-            this.lstGamesFromDB.Location = new System.Drawing.Point(47, 114);
+            this.lstGamesFromDB.Location = new System.Drawing.Point(48, 101);
             this.lstGamesFromDB.Name = "lstGamesFromDB";
-            this.lstGamesFromDB.Size = new System.Drawing.Size(321, 412);
+            this.lstGamesFromDB.Size = new System.Drawing.Size(321, 460);
             this.lstGamesFromDB.TabIndex = 2;
             this.lstGamesFromDB.SelectedIndexChanged += new System.EventHandler(this.lstGamesFromDB_SelectedIndexChanged);
             // 
@@ -84,11 +84,11 @@
             // 
             this.lblGames.AutoSize = true;
             this.lblGames.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGames.Location = new System.Drawing.Point(99, 69);
+            this.lblGames.Location = new System.Drawing.Point(136, 65);
             this.lblGames.Name = "lblGames";
-            this.lblGames.Size = new System.Drawing.Size(194, 24);
+            this.lblGames.Size = new System.Drawing.Size(133, 24);
             this.lblGames.TabIndex = 3;
-            this.lblGames.Text = "Select a game to play:";
+            this.lblGames.Text = "Select a Game";
             // 
             // menuStrip1
             // 
@@ -98,7 +98,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(788, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(744, 27);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -150,10 +150,10 @@
             // 
             // btnEditGame
             // 
-            this.btnEditGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditGame.Location = new System.Drawing.Point(419, 250);
+            this.btnEditGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditGame.Location = new System.Drawing.Point(419, 421);
             this.btnEditGame.Name = "btnEditGame";
-            this.btnEditGame.Size = new System.Drawing.Size(287, 62);
+            this.btnEditGame.Size = new System.Drawing.Size(287, 56);
             this.btnEditGame.TabIndex = 5;
             this.btnEditGame.Text = "Edit Game";
             this.btnEditGame.UseVisualStyleBackColor = true;
@@ -161,10 +161,10 @@
             // 
             // btnDeleteGame
             // 
-            this.btnDeleteGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteGame.Location = new System.Drawing.Point(419, 318);
+            this.btnDeleteGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteGame.Location = new System.Drawing.Point(419, 501);
             this.btnDeleteGame.Name = "btnDeleteGame";
-            this.btnDeleteGame.Size = new System.Drawing.Size(287, 62);
+            this.btnDeleteGame.Size = new System.Drawing.Size(287, 56);
             this.btnDeleteGame.TabIndex = 6;
             this.btnDeleteGame.Text = "Delete Game";
             this.btnDeleteGame.UseVisualStyleBackColor = true;
@@ -177,10 +177,10 @@
             // 
             // btnExportGame
             // 
-            this.btnExportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportGame.Location = new System.Drawing.Point(419, 396);
+            this.btnExportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportGame.Location = new System.Drawing.Point(419, 261);
             this.btnExportGame.Name = "btnExportGame";
-            this.btnExportGame.Size = new System.Drawing.Size(287, 62);
+            this.btnExportGame.Size = new System.Drawing.Size(287, 56);
             this.btnExportGame.TabIndex = 7;
             this.btnExportGame.Text = "Export Game";
             this.btnExportGame.UseVisualStyleBackColor = true;
@@ -188,10 +188,10 @@
             // 
             // btnImportGame
             // 
-            this.btnImportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImportGame.Location = new System.Drawing.Point(419, 464);
+            this.btnImportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportGame.Location = new System.Drawing.Point(419, 181);
             this.btnImportGame.Name = "btnImportGame";
-            this.btnImportGame.Size = new System.Drawing.Size(287, 62);
+            this.btnImportGame.Size = new System.Drawing.Size(287, 56);
             this.btnImportGame.TabIndex = 8;
             this.btnImportGame.Text = "Import Game";
             this.btnImportGame.UseVisualStyleBackColor = true;
@@ -201,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 600);
+            this.ClientSize = new System.Drawing.Size(744, 610);
             this.Controls.Add(this.btnImportGame);
             this.Controls.Add(this.btnExportGame);
             this.Controls.Add(this.btnDeleteGame);

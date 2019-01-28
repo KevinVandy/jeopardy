@@ -12,19 +12,22 @@ namespace Jeopardy
 {
     public partial class frmEditCategory : Form
     {
-        int gameId;
-        Category newCategory;
+        Category category;
 
-        public frmEditCategory(int theGameId)
+        public frmEditCategory(Category theCategory)
         {
-            gameId = theGameId;
+            category = theCategory;
 
             InitializeComponent();
         }
 
         private void frmEditCategory_Load(object sender, EventArgs e)
         {
-            newCategory = new Category();
+            txtTitle.Text = category.Title;
+            txtSubtitle.Text = category.Subtitle;
+
+            txtTitle.Focus();
+            txtTitle.SelectAll();
         }
 
         private void btnImport_Click(object sender, EventArgs e)
@@ -42,9 +45,8 @@ namespace Jeopardy
         {
             if(ValidateData.ValidateCategoryTitle(txtTitle.Text) && ValidateData.ValidateCategorySubtitle(txtSubtitle.Text))
             {
-                newCategory.GameId = gameId;
-                newCategory.Title = txtTitle.Text;
-                newCategory.Subtitle = txtSubtitle.Text;
+                category.Title = txtTitle.Text;
+                category.Subtitle = txtSubtitle.Text;
 
                 //DB_Insert.InsertCategory(newCategory); change to update
             }

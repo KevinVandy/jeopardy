@@ -13,19 +13,47 @@ namespace Jeopardy
     public partial class frmEditQuestion : Form
     {
         int gameId;
+        string categoryName;
         Question question;
+        
 
-        public frmEditQuestion(int theGameId, Question selectedQuestion)
+        public frmEditQuestion(Question selectedQuestion, int theGameId, string theCategoryName)
         {
-            gameId = theGameId;
             question = selectedQuestion;
+            gameId = theGameId;
+            categoryName = theCategoryName;
 
             InitializeComponent();
         }
 
         private void frmEditQuestion_Load(object sender, EventArgs e)
         {
-            rdoFillInTheBlank.Checked = true;
+            lblCategoryTitle.Text = categoryName;
+            lblWeight.Text = question.Weight.ToString();
+
+            txtQuestionText.Text = question.QuestionText;
+            txtAnswer.Text = question.Answer;
+            
+            if(question.Type == "fb")
+            {
+                rdoFillInTheBlank.Checked = true;
+            }
+            else if (question.Type == "mc")
+            {
+                rdoMultipleChoice.Checked = true;
+                txtChoiceA.Text = question.Choices[0].Text;
+                txtChoiceB.Text = question.Choices[1].Text;
+                txtChoiceC.Text = question.Choices[2].Text;
+                txtChoiceD.Text = question.Choices[3].Text;
+            }
+            else if (question.Type == "tf")
+            {
+                rdoTrueFalse.Checked = true;
+            }
+
+            txtQuestionText.Focus();
+            txtQuestionText.SelectAll();
+
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -178,6 +206,37 @@ namespace Jeopardy
                 txtAnswer.Text = "";
             }
         }
-        
+
+        private void txtChoiceA_TextChanged(object sender, EventArgs e)
+        {
+            if (rdoChoiceA.Checked)
+            {
+                txtAnswer.Text = txtChoiceA.Text;
+            }
+        }
+
+        private void txtChoiceB_TextChanged(object sender, EventArgs e)
+        {
+            if (rdoChoiceB.Checked)
+            {
+                txtAnswer.Text = txtChoiceB.Text;
+            }
+        }
+
+        private void txtChoiceC_TextChanged(object sender, EventArgs e)
+        {
+            if (rdoChoiceC.Checked)
+            {
+                txtAnswer.Text = txtChoiceC.Text;
+            }
+        }
+
+        private void txtChoiceD_TextChanged(object sender, EventArgs e)
+        {
+            if (rdoChoiceD.Checked)
+            {
+                txtAnswer.Text = txtChoiceD.Text;
+            }
+        }
     }
 }
