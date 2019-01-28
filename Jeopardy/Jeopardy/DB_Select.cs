@@ -146,7 +146,7 @@ namespace Jeopardy
                 {
                     category.Id = Convert.ToInt32(reader["Id"]);
                     category.GameId = Convert.ToInt32(reader["GameId"]);
-                    category.Index = Convert.ToInt32(reader["Index"]);
+                    category.Position = Convert.ToInt32(reader["Position"]);
                     category.Title = Convert.ToString(reader["Title"]);
                     category.Subtitle = Convert.ToString(reader["Subtitle"]);
                 }
@@ -201,7 +201,7 @@ namespace Jeopardy
                     Category category = new Category();
                     category.Id = Convert.ToInt32(reader["Id"]);
                     category.GameId = Convert.ToInt32(reader["GameId"]);
-                    category.Index = Convert.ToInt32(reader["Index"]);
+                    category.Position = Convert.ToInt32(reader["Position"]);
                     category.Title = Convert.ToString(reader["Title"]);
                     category.Subtitle = Convert.ToString(reader["Subtitle"]);
 
