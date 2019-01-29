@@ -31,7 +31,7 @@ namespace Jeopardy
 
             DrawGrids();
 
-            DisplayNumberQuesions();
+            DisplayNumberQuestions();
             
             txtGameName.Text = game.GameName;
             nudNumCategories.Value = game.NumCategories;
@@ -67,7 +67,7 @@ namespace Jeopardy
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
         {
             game.NumCategories = (int)nudNumCategories.Value;
-            DisplayNumberQuesions();
+            DisplayNumberQuestions();
 
             categoryButtons = new Button[game.NumCategories];//diminsion change
             questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];//diminsion change
@@ -78,14 +78,14 @@ namespace Jeopardy
         private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
         {
             game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
-            DisplayNumberQuesions();
+            DisplayNumberQuestions();
             
             questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory]; //diminsion change
 
             CreateQuestionGrid();
         }
 
-        private void DisplayNumberQuesions()
+        private void DisplayNumberQuestions()
         {
             lblNumberQuestions.Text = CalcNumberOfQuestions().ToString();
         }

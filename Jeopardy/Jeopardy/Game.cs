@@ -43,6 +43,10 @@ namespace Jeopardy
                 {
                     gameName = value;
                 }
+                else
+                {
+                    gameName = "Untitled Game";
+                }
             }
         }
 

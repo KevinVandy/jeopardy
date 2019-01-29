@@ -18,6 +18,7 @@ namespace Jeopardy
         private List<Label> LabelList = new List<Label>();
         private Team[] teams = new Team[4];
         private Game currentGame = new Game();
+        private Team currentTeam = new Team();
 
         public frmPlayGame(Game theGame, Team[] theTeams)
         {
@@ -30,6 +31,7 @@ namespace Jeopardy
 
         private void frmPlayGame_Load(object sender, EventArgs e)
         {
+            LoadTeams();
             ModifyPanelWidths();
             DrawCategories();
             DrawForm();
@@ -37,6 +39,7 @@ namespace Jeopardy
 
         private void frmPlayGame_ResizeEnd(object sender, EventArgs e)
         {
+            LoadTeams();
             ModifyPanelWidths();
             DrawCategories();
             DrawForm();
@@ -46,6 +49,11 @@ namespace Jeopardy
         {
             Button button = sender as Button;
             MessageBox.Show(button.Text.ToString() + " got clicked");
+
+            //TODO: method to assign score to the right team
+
+            //method to automatically move the teams along
+            MoveToNextTeam();
         }
 
         private void DrawCategories()
@@ -96,10 +104,15 @@ namespace Jeopardy
                 pnlGameboard.Controls.Remove(b);
             }
             ButtonList.Clear();
-            int formWidth = this.Width;
-            int formHeight = this.Height;
-            pnlGameboard.Width = formWidth - 50;
-            pnlGameboard.Height = formHeight - 70;
+            //int formWidth = this.Width;
+            //int formHeight = this.Height;
+            int formWidth = pnlGameboard.Width;
+            int formHeight = pnlGameboard.Height;
+
+            //This code scrunches the buttons
+            //pnlGameboard.Width = formWidth - 50;
+            //pnlGameboard.Height = formHeight - 70;
+
 
             // Some default options, can change later
             int ButtonWidth = (pnlGameboard.Width - 60) / (rows + 1);
@@ -137,6 +150,89 @@ namespace Jeopardy
         {
             pnlCategories.Width = Width - 70;
             pnlGameboard.Width = Width - 70;
+        }
+
+        private void LoadTeams()
+        {
+            if(teams[0] != null)
+            {
+                pnlTeamOne.Visible = true;
+                pnlTeamOne.BackColor = Color.LightBlue;
+                lblTeamOne.Text = "Team " + teams[0].TeamName;
+                lblTeamOne.MaximumSize = new Size(100, 0);
+                lblTeamOne.AutoSize = true;
+                currentTeam = teams[0];
+            }
+
+            if (teams[1] != null)
+            {
+                pnlTeamTwo.Visible = true;
+                lblTeamTwo.Text = "Team " + teams[1].TeamName;
+                lblTeamTwo.MaximumSize = new Size(100, 0);
+                lblTeamTwo.AutoSize = true;
+            }
+
+            if (teams[2] != null)
+            {
+                pnlTeamThree.Visible = true;
+                lblTeamThree.Text = "Team " + teams[2].TeamName;
+                lblTeamThree.MaximumSize = new Size(100, 0);
+                lblTeamThree.AutoSize = true;
+            }
+
+            if (teams[3] != null)
+            {
+                pnlTeamFour.Visible = true;
+                lblTeamFour.Text = "Team " + teams[3].TeamName;
+                lblTeamFour.MaximumSize = new Size(100, 0);
+                lblTeamFour.AutoSize = true;
+            }
+        }
+
+        private void MoveToNextTeam()
+        {
+            if(currentTeam == teams[0])
+            {
+                currentTeam = teams[1];
+                pnlTeamOne.BackColor = SystemColors.Control;
+                pnlTeamTwo.BackColor = Color.LightBlue;
+            }
+            else if(currentTeam == teams[1])
+            {
+                if(teams[2] != null)
+                {
+                    currentTeam = teams[2];
+                    pnlTeamTwo.BackColor = SystemColors.Control;
+                    pnlTeamThree.BackColor = Color.LightBlue;
+                }
+                else
+                {
+                    currentTeam = teams[0];
+                    pnlTeamOne.BackColor = Color.LightBlue;
+                    pnlTeamTwo.BackColor = SystemColors.Control;
+                }
+            }
+            else if(currentTeam == teams[2])
+            {
+                if (teams[3] != null)
+                {
+                    currentTeam = teams[3];
+                    pnlTeamThree.BackColor = SystemColors.Control;
+                    pnlTeamFour.BackColor = Color.LightBlue;
+                }
+                else
+                {
+                    currentTeam = teams[0];
+                    pnlTeamOne.BackColor = Color.LightBlue;
+                    pnlTeamThree.BackColor = SystemColors.Control;
+                }
+            }
+            else if(currentTeam == teams[3])
+            {
+                currentTeam = teams[0];
+                pnlTeamOne.BackColor = Color.LightBlue;
+                pnlTeamFour.BackColor = SystemColors.Control;
+            }
         }
     }
 }
