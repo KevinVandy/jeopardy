@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeopardy", "Jeopardy\Jeopar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeopardy.UnitTests", "Jeopardy.UnitTests\Jeopardy.UnitTests.csproj", "{409001A1-8A68-4098-B56F-9EA1704008B2}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "JeopardyInstaller", "JeopardyInstaller\JeopardyInstaller.vdproj", "{F41F2D82-5138-4EC3-9478-73832F56523B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{409001A1-8A68-4098-B56F-9EA1704008B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{409001A1-8A68-4098-B56F-9EA1704008B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{409001A1-8A68-4098-B56F-9EA1704008B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F41F2D82-5138-4EC3-9478-73832F56523B}.Debug|Any CPU.ActiveCfg = Debug
+		{F41F2D82-5138-4EC3-9478-73832F56523B}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
