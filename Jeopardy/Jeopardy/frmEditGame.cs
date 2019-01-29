@@ -195,7 +195,7 @@ namespace Jeopardy
                     tmpButton.Text = tmpButton.Tag.ToString();
                     tmpButton.ContextMenuStrip = cmsQuestions;
                     tmpButton.Click += QuestionButton_Click;
-                    tmpButton.MouseHover += questionButton_MouseHover;
+                    tmpButton.MouseEnter += questionButton_MouseHover;
 
                     questionButtons[x, y] = tmpButton; //add button to array
                 }
@@ -241,9 +241,7 @@ namespace Jeopardy
                     }
                 }
             }
-
-            //
-
+            
             Question selectedQuestion = game.Categories[x].Questions[y];
             frmEditQuestion editQuestionForm = new frmEditQuestion(selectedQuestion, (int)game.Id, game.Categories[x].Title + " " + game.Categories[x].Subtitle);
 

@@ -58,7 +58,31 @@ namespace Jeopardy
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if (rdoFillInTheBlank.Checked)
+            {
+                question.Type = "fb";
+            }
+            else if (rdoMultipleChoice.Checked)
+            {
+                question.Type = "mc";
 
+                question.Choices[0].Text = txtChoiceA.Text;
+                question.Choices[1].Text = txtChoiceB.Text;
+                question.Choices[2].Text = txtChoiceC.Text;
+                question.Choices[3].Text = txtChoiceD.Text;
+            }
+            else if (rdoTrueFalse.Checked)
+            {
+                question.Type = "tf";
+            }
+
+            question.QuestionText = txtQuestionText.Text;
+            question.Answer = txtAnswer.Text;
+
+            if (!DB_Update.UpdateQuestion(question))
+            {
+                MessageBox.Show("Updating Question failed");
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -66,10 +90,51 @@ namespace Jeopardy
             this.Close();
         }
 
+        private void bwCreateChoices_DoWork(object sender, DoWorkEventArgs e)
+        {
+            question.Choices = new List<Choice>(new Choice[4]);
+
+            for (int i = 0; i < 4; i++ )
+            {
+                question.Choices[i] = new Choice();
+                question.Choices[i].QuestionId = (int)question.Id;
+                question.Choices[i].Index = i;
+                question.Choices[i].Text = " ";
+                question.Choices[i].Id = DB_Insert.InsertChoice(question.Choices[i]);
+            }
+
+        }
+
+        private void bwCreateChoices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+
+        private void bwRemoveChoices_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if(question.Choices != null && question.Choices.Count > 0)
+            {
+                foreach (Choice c in question.Choices)
+                {
+                    DB_Delete.DeleteChoice(c.Id);
+                }
+            }
+        }
+        
+        private void bwRemoveChoices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            question.Choices = new List<Choice>(); //reset to null
+        }
+
         private void rdoType_CheckChanged(object sender, EventArgs e)
         {
             if (rdoFillInTheBlank.Checked)
             {
+                if (!bwRemoveChoices.IsBusy)
+                {
+                    bwRemoveChoices.RunWorkerAsync();
+                }
+
                 rdoChoiceA.Checked = false;
                 rdoChoiceB.Checked = false;
                 rdoChoiceC.Checked = false;
@@ -96,9 +161,16 @@ namespace Jeopardy
                 txtChoiceD.Enabled = false;
 
                 txtAnswer.Enabled = true;
+
+                
             }
             else if (rdoMultipleChoice.Checked)
             {
+                if (!bwCreateChoices.IsBusy)
+                {
+                    bwCreateChoices.RunWorkerAsync();
+                }
+
                 rdoChoiceA.Checked = false;
                 rdoChoiceB.Checked = false;
                 rdoChoiceC.Checked = false;
@@ -128,6 +200,11 @@ namespace Jeopardy
             }
             else if (rdoTrueFalse.Checked)
             {
+                if (!bwRemoveChoices.IsBusy)
+                {
+                    bwRemoveChoices.RunWorkerAsync();
+                }
+
                 rdoChoiceA.Checked = false;
                 rdoChoiceB.Checked = false;
                 rdoChoiceC.Checked = false;
@@ -238,5 +315,7 @@ namespace Jeopardy
                 txtAnswer.Text = txtChoiceD.Text;
             }
         }
+
+        
     }
 }

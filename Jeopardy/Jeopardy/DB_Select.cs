@@ -146,7 +146,7 @@ namespace Jeopardy
                 {
                     category.Id = Convert.ToInt32(reader["Id"]);
                     category.GameId = Convert.ToInt32(reader["GameId"]);
-                    category.Position = Convert.ToInt32(reader["Position"]);
+                    category.Index = Convert.ToInt32(reader["Index"]);
                     category.Title = Convert.ToString(reader["Title"]);
                     category.Subtitle = Convert.ToString(reader["Subtitle"]);
                 }
@@ -201,7 +201,7 @@ namespace Jeopardy
                     Category category = new Category();
                     category.Id = Convert.ToInt32(reader["Id"]);
                     category.GameId = Convert.ToInt32(reader["GameId"]);
-                    category.Position = Convert.ToInt32(reader["Position"]);
+                    category.Index = Convert.ToInt32(reader["Index"]);
                     category.Title = Convert.ToString(reader["Title"]);
                     category.Subtitle = Convert.ToString(reader["Subtitle"]);
 
@@ -374,7 +374,7 @@ namespace Jeopardy
                 {
                     choice.Id = Convert.ToInt32(reader["Id"]);
                     choice.QuestionId = Convert.ToInt32(reader["QuestionId"]);
-                    choice.Index = Convert.ToString(reader["Index"]);
+                    choice.Index = Convert.ToInt32(reader["Index"]);
                     choice.Text = Convert.ToString(reader["ChoiceText"]);
                 }
                 else
@@ -425,7 +425,7 @@ namespace Jeopardy
                     Choice choice = new Choice();
                     choice.Id = Convert.ToInt32(reader["Id"]);
                     choice.QuestionId = Convert.ToInt32(reader["QuestionId"]);
-                    choice.Index = Convert.ToString(reader["Index"]);
+                    choice.Index = Convert.ToInt32(reader["Index"]);
                     choice.Text = Convert.ToString(reader["ChoiceText"]);
 
                     choices.Add(choice);

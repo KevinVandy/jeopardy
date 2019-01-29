@@ -51,13 +51,17 @@
             this.rdoChoiceC = new System.Windows.Forms.RadioButton();
             this.rdoChoiceA = new System.Windows.Forms.RadioButton();
             this.txtAnswer = new System.Windows.Forms.TextBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importQuestionFromOtherGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bwCreateChoices = new System.ComponentModel.BackgroundWorker();
+            this.bwRemoveChoices = new System.ComponentModel.BackgroundWorker();
             this.pnlTypes.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCategoryTitle
@@ -316,17 +320,17 @@
             this.txtAnswer.Size = new System.Drawing.Size(763, 35);
             this.txtAnswer.TabIndex = 1;
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(955, 29);
-            this.menuStrip1.TabIndex = 21;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(955, 29);
+            this.menuStrip.TabIndex = 21;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -336,17 +340,42 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 25);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
             // importQuestionFromOtherGameToolStripMenuItem
             // 
             this.importQuestionFromOtherGameToolStripMenuItem.Name = "importQuestionFromOtherGameToolStripMenuItem";
             this.importQuestionFromOtherGameToolStripMenuItem.Size = new System.Drawing.Size(324, 26);
             this.importQuestionFromOtherGameToolStripMenuItem.Text = "Import Question From Other Game";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpToolStripMenuItem1,
+            this.tutorialToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // helpToolStripMenuItem1
+            // 
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(180, 26);
+            this.helpToolStripMenuItem1.Text = "Help";
+            // 
+            // tutorialToolStripMenuItem
+            // 
+            this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.tutorialToolStripMenuItem.Text = "Tutorial";
+            // 
+            // bwCreateChoices
+            // 
+            this.bwCreateChoices.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwCreateChoices_DoWork);
+            this.bwCreateChoices.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwCreateChoices_RunWorkerCompleted);
+            // 
+            // bwRemoveChoices
+            // 
+            this.bwRemoveChoices.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwRemoveChoices_DoWork);
+            this.bwRemoveChoices.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwRemoveChoices_RunWorkerCompleted);
             // 
             // frmEditQuestion
             // 
@@ -368,19 +397,22 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblWeight);
             this.Controls.Add(this.lblCategoryTitle);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(900, 700);
             this.Name = "frmEditQuestion";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmEditQuestion";
+            this.Text = "Edit Question";
             this.Load += new System.EventHandler(this.frmEditQuestion_Load);
             this.pnlTypes.ResumeLayout(false);
             this.pnlTypes.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,9 +443,13 @@
         private System.Windows.Forms.RadioButton rdoChoiceC;
         private System.Windows.Forms.RadioButton rdoChoiceA;
         private System.Windows.Forms.TextBox txtAnswer;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importQuestionFromOtherGameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker bwCreateChoices;
+        private System.ComponentModel.BackgroundWorker bwRemoveChoices;
     }
 }

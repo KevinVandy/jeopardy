@@ -119,7 +119,7 @@ namespace Jeopardy
             {
                 this.Categories[i] = new Category();
                 this.Categories[i].GameId = (int)this.id;
-                this.Categories[i].Position = (i + 1);
+                this.Categories[i].Index = (i + 1);
                 this.Categories[i].Title = "Category " + (i + 1);
                 this.Categories[i].Subtitle = " ";
                 this.Categories[i].Id = DB_Insert.InsertCategory(this.Categories[i]);

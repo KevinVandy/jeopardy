@@ -115,14 +115,9 @@ namespace Jeopardy
         }
 
         //MARK: Validate Choice properties
-        public static bool ValidateChoiceIndex(string index)
+        public static bool ValidateChoiceIndex(int index)
         {
-            string[] validIndexes = new string[] { "a", "b", "c", "d", "T", "F" };
-            if (validIndexes.Contains(index))
-            {
-                return true;
-            }
-            return false; 
+            return true;
         }
 
         public static bool ValidateChoiceText(string choiceText)

@@ -30,12 +30,12 @@ namespace Jeopardy
             txtTitle.SelectAll();
         }
 
-        private void btnImport_Click(object sender, EventArgs e)
+        private void importCategoryFromOtherGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmImportCategory importCategoryForm = new frmImportCategory();
             DialogResult dialogResult = importCategoryForm.ShowDialog();
 
-            if(dialogResult == DialogResult.OK)
+            if (dialogResult == DialogResult.OK)
             {
                 //TODO
             }
@@ -48,7 +48,10 @@ namespace Jeopardy
                 category.Title = txtTitle.Text;
                 category.Subtitle = txtSubtitle.Text;
 
-                //DB_Insert.InsertCategory(newCategory); change to update
+                if (!DB_Update.UpdateCategory(category))
+                {
+                    MessageBox.Show("Updating Category Failed");
+                }
             }
 
             this.DialogResult = DialogResult.OK;

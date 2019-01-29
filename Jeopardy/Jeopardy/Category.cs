@@ -10,18 +10,18 @@ namespace Jeopardy
     {
         private int? id;
         private int gameId;
-        private int position;
+        private int index;
         private string title;
         private string subtitle;
         private List<Question> questions;
 
         public Category() { }
 
-        public Category(int? id, int gameId, int position, string title, string subtitle, List<Question> questions)
+        public Category(int? id, int gameId, int index, string title, string subtitle, List<Question> questions)
         {
             this.id = id;
             this.gameId = gameId;
-            this.position = position;
+            this.index = index;
             this.title = title;
             this.subtitle = subtitle;
             this.questions = questions;
@@ -39,10 +39,10 @@ namespace Jeopardy
             set => gameId = value;
         }
 
-        public int Position
+        public int Index
         {
-            get => position;
-            set => position = value;
+            get => index;
+            set => index = value;
         }
 
         public string Title
