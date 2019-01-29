@@ -43,6 +43,10 @@ namespace Jeopardy
                 {
                     gameName = value;
                 }
+                else
+                {
+                    gameName = "Untitled Game";
+                }
             }
         }
 
@@ -61,13 +65,33 @@ namespace Jeopardy
         public int NumCategories
         {
             get => numCategories;
-            set => numCategories = value;
+            set
+            {
+                if(ValidateData.ValidateNumCategories(value))
+                {
+                    numCategories = value;
+                }
+                else
+                {
+                    numCategories = 5;
+                }
+            }
         }
 
         public int NumQuestionsPerCategory
         {
             get => numQuestionsPerCategory;
-            set => numQuestionsPerCategory = value;
+            set
+            {
+                if(ValidateData.ValidateNumQuestionsPerCategory(value))
+                {
+                    numQuestionsPerCategory = value;
+                }
+                else
+                {
+                    numQuestionsPerCategory = 6;
+                }
+            }
         }
 
         public List<Category> Categories

@@ -47,7 +47,34 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; 
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool ValidateNumCategories(int numCategories)
+        {
+            if(numCategories >= 3 && numCategories <= 8)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool ValidateNumQuestionsPerCategory(int numQuestions)
+        {
+            if(numQuestions >= 3 && numQuestions <= 8)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         //MARK: Validate Category properties
@@ -74,6 +101,7 @@ namespace Jeopardy
                 return false;
             }
         }
+
 
         //MARK: Validate Question properties
         public static bool ValidateQuestionType(string type)

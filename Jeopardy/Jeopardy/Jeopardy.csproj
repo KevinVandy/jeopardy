@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Syroot.KnownFolders, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Syroot.Windows.IO.KnownFolders.1.2.1\lib\net452\Syroot.KnownFolders.dll</HintPath>
@@ -212,6 +215,7 @@
     <Content Include="games.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="icon.ico" />
     <None Include="Resources\Question_16x.png" />
     <None Include="Resources\Export_16x.png" />
     <None Include="Resources\Import_16x.png" />
