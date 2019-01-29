@@ -345,6 +345,7 @@
             this.importQuestionFromOtherGameToolStripMenuItem.Name = "importQuestionFromOtherGameToolStripMenuItem";
             this.importQuestionFromOtherGameToolStripMenuItem.Size = new System.Drawing.Size(324, 26);
             this.importQuestionFromOtherGameToolStripMenuItem.Text = "Import Question From Other Game";
+            this.importQuestionFromOtherGameToolStripMenuItem.Click += new System.EventHandler(this.importQuestionFromOtherGameToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -358,13 +359,13 @@
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(180, 26);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(133, 26);
             this.helpToolStripMenuItem1.Text = "Help";
             // 
             // tutorialToolStripMenuItem
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
-            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
             // 
             // bwCreateChoices

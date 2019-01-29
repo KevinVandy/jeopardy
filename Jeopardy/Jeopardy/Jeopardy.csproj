@@ -168,6 +168,9 @@
     <EmbeddedResource Include="frmImportCategory.resx">
       <DependentUpon>frmImportCategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmImportQuestion.resx">
+      <DependentUpon>frmImportQuestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>

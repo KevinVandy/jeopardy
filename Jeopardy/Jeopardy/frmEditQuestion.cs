@@ -45,6 +45,23 @@ namespace Jeopardy
                 txtChoiceB.Text = question.Choices[1].Text;
                 txtChoiceC.Text = question.Choices[2].Text;
                 txtChoiceD.Text = question.Choices[3].Text;
+
+                if(question.Choices[0].Text == question.Answer)
+                {
+                    rdoChoiceA.Checked = true;
+                }
+                else if (question.Choices[1].Text == question.Answer)
+                {
+                    rdoChoiceB.Checked = true;
+                }
+                else if (question.Choices[2].Text == question.Answer)
+                {
+                    rdoChoiceC.Checked = true;
+                }
+                else if (question.Choices[3].Text == question.Answer)
+                {
+                    rdoChoiceD.Checked = true;
+                }
             }
             else if (question.Type == "tf")
             {
@@ -128,16 +145,16 @@ namespace Jeopardy
         {
             if(question.Choices != null && question.Choices.Count > 0)
             {
-                foreach (Choice c in question.Choices)
-                {
-                    DB_Delete.DeleteChoice(c.Id);
-                }
+                //foreach (Choice c in question.Choices)
+                //{
+                //    DB_Delete.DeleteChoice(c.Id);
+                //}
             }
         }
         
         private void bwRemoveChoices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            question.Choices = new List<Choice>(); //reset to null
+            //question.Choices = new List<Choice>(); //reset to null
         }
 
         private void rdoType_CheckChanged(object sender, EventArgs e)
@@ -330,6 +347,10 @@ namespace Jeopardy
             }
         }
 
-        
+        private void importQuestionFromOtherGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmImportQuestion importQuestionForm = new frmImportQuestion();
+            importQuestionForm.ShowDialog();
+        }
     }
 }

@@ -326,5 +326,25 @@ namespace Jeopardy
                 }
             }
         }
+
+        private void bwAddCategory_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void bwRemoveCategory_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void bwAddQuestions_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void bwRemoveQuestions_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
     }
 }

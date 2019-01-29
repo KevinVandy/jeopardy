@@ -42,7 +42,6 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.importGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,8 +67,6 @@
             this.tsbtnOpenGame = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSaveGame = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSaveGameAs = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnImportGame = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnExportGame = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnTutorial = new System.Windows.Forms.ToolStripButton();
             this.bwLoadGame = new System.ComponentModel.BackgroundWorker();
@@ -156,7 +153,6 @@
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
             this.toolStripSeparator5,
-            this.importGameToolStripMenuItem,
             this.exportGameToolStripMenuItem,
             this.toolStripSeparator6,
             this.exitToolStripMenuItem});
@@ -207,13 +203,6 @@
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
-            // 
-            // importGameToolStripMenuItem
-            // 
-            this.importGameToolStripMenuItem.Name = "importGameToolStripMenuItem";
-            this.importGameToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.importGameToolStripMenuItem.Text = "Import From File";
-            this.importGameToolStripMenuItem.Click += new System.EventHandler(this.importGameToolStripMenuItem_Click);
             // 
             // exportGameToolStripMenuItem
             // 
@@ -456,8 +445,6 @@
             this.tsbtnOpenGame,
             this.tsbtnSaveGame,
             this.tsbtnSaveGameAs,
-            this.tsbtnImportGame,
-            this.tsbtnExportGame,
             this.toolStripSeparator1,
             this.tsbtnTutorial});
             this.toolStrip.Location = new System.Drawing.Point(0, 27);
@@ -505,26 +492,6 @@
             this.tsbtnSaveGameAs.Size = new System.Drawing.Size(23, 32);
             this.tsbtnSaveGameAs.Text = "toolStripButton1";
             this.tsbtnSaveGameAs.ToolTipText = "Save As";
-            // 
-            // tsbtnImportGame
-            // 
-            this.tsbtnImportGame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnImportGame.Image = global::Jeopardy.Properties.Resources.Import_16x;
-            this.tsbtnImportGame.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnImportGame.Name = "tsbtnImportGame";
-            this.tsbtnImportGame.Size = new System.Drawing.Size(23, 32);
-            this.tsbtnImportGame.Text = "toolStripButton1";
-            this.tsbtnImportGame.ToolTipText = "Import Game From File";
-            // 
-            // tsbtnExportGame
-            // 
-            this.tsbtnExportGame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnExportGame.Image = global::Jeopardy.Properties.Resources.Export_16x;
-            this.tsbtnExportGame.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnExportGame.Name = "tsbtnExportGame";
-            this.tsbtnExportGame.Size = new System.Drawing.Size(23, 32);
-            this.tsbtnExportGame.Text = "toolStripButton1";
-            this.tsbtnExportGame.ToolTipText = "Export Game To File";
             // 
             // toolStripSeparator1
             // 
@@ -605,6 +572,22 @@
             this.tsmiDeleteCategory.Size = new System.Drawing.Size(124, 26);
             this.tsmiDeleteCategory.Text = "Delete";
             // 
+            // bwAddCategory
+            // 
+            this.bwAddCategory.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwAddCategory_DoWork);
+            // 
+            // bwRemoveCategory
+            // 
+            this.bwRemoveCategory.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwRemoveCategory_DoWork);
+            // 
+            // bwAddQuestions
+            // 
+            this.bwAddQuestions.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwAddQuestions_DoWork);
+            // 
+            // bwRemoveQuestions
+            // 
+            this.bwRemoveQuestions.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwRemoveQuestions_DoWork);
+            // 
             // frmEditGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -660,7 +643,6 @@
         private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.Label lblQuestionTimeLimit;
         private System.Windows.Forms.ComboBox cboQuestionTimeLimit;
@@ -670,8 +652,6 @@
         private System.Windows.Forms.ToolStripButton tsbtnOpenGame;
         private System.Windows.Forms.ToolStripButton tsbtnSaveGame;
         private System.Windows.Forms.ToolStripButton tsbtnSaveGameAs;
-        private System.Windows.Forms.ToolStripButton tsbtnImportGame;
-        private System.Windows.Forms.ToolStripButton tsbtnExportGame;
         private System.Windows.Forms.ToolStripButton tsbtnNewGame;
         private System.Windows.Forms.ToolStripButton tsbtnTutorial;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
