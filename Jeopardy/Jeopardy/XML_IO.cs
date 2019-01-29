@@ -17,7 +17,9 @@ namespace Jeopardy
         public static void exportXML(Game selectedGame)
         {
             string gameName = selectedGame.GameName;
-            String downloadPath = KnownFolders.Downloads.Path + $"\\{gameName}.xml";
+           // String downloadPath = KnownFolders.Downloads.Path + $"\\{gameName}.xml";
+
+            String downloadPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + $"\\{gameName}.xml";
 
             XmlSerializer xs = new XmlSerializer(typeof(Game));
             TextWriter tw = new StreamWriter(downloadPath);
