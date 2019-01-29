@@ -103,7 +103,7 @@
             this.gbxQuestions.Size = new System.Drawing.Size(1005, 496);
             this.gbxQuestions.TabIndex = 30;
             this.gbxQuestions.TabStop = false;
-            this.gbxQuestions.Text = "Quesions";
+            this.gbxQuestions.Text = "Questions";
             // 
             // gbxCategories
             // 
@@ -142,7 +142,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1073, 27);
+            this.menuStrip.Size = new System.Drawing.Size(1056, 27);
             this.menuStrip.TabIndex = 33;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -462,7 +462,7 @@
             this.tsbtnTutorial});
             this.toolStrip.Location = new System.Drawing.Point(0, 27);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1073, 35);
+            this.toolStrip.Size = new System.Drawing.Size(1056, 35);
             this.toolStrip.TabIndex = 37;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -549,10 +549,10 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslblSaveState});
-            this.statusStrip.Location = new System.Drawing.Point(0, 916);
+            this.statusStrip.Location = new System.Drawing.Point(0, 894);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.ShowItemToolTips = true;
-            this.statusStrip.Size = new System.Drawing.Size(1073, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1056, 22);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 38;
             this.statusStrip.Text = "statusStrip1";
@@ -610,7 +610,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1073, 938);
+            this.ClientSize = new System.Drawing.Size(1073, 881);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.gbxGameInfo);

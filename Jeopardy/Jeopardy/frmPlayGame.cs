@@ -75,8 +75,8 @@ namespace Jeopardy
                     tmpLabel.Left = start_y + ((y * labelWidth) + (y * 5));
                     tmpLabel.Width = labelWidth;
                     tmpLabel.Height = labelHeight;
-                    //tmpLabel.Text = currentGame.Categories[y].Title + '\n' + currentGame.Categories[y].Subtitle;
-                    tmpLabel.Text = "Category " + (y + 1);
+                    tmpLabel.Text = currentGame.Categories[y].Title + '\n' + currentGame.Categories[y].Subtitle;
+                    //tmpLabel.Text = "Category " + (y + 1);
                     tmpLabel.TextAlign = ContentAlignment.MiddleCenter;
                     tmpLabel.Font = new Font("Arial", 18, FontStyle.Bold);
                     LabelList.Add(tmpLabel);
