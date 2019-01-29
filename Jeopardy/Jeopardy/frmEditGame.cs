@@ -244,8 +244,14 @@ namespace Jeopardy
             
             Question selectedQuestion = game.Categories[x].Questions[y];
             frmEditQuestion editQuestionForm = new frmEditQuestion(selectedQuestion, (int)game.Id, game.Categories[x].Title + " " + game.Categories[x].Subtitle);
+            
+            DialogResult dialogResult = editQuestionForm.ShowDialog();
 
-            editQuestionForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                bwLoadGame.RunWorkerAsync(); //refresh game data and grid
+            }
+
         }
         
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)

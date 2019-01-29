@@ -52,10 +52,12 @@ namespace Jeopardy
                 {
                     MessageBox.Show("Updating Category Failed");
                 }
+                else
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
-
-            this.DialogResult = DialogResult.OK;
-            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

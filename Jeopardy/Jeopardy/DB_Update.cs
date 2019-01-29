@@ -66,15 +66,16 @@ namespace Jeopardy
         {
             string updateStatement =
                 "UPDATE categories " +
-                "SET [Position] = @newIndex, Title = @newTitle, Subtitle = @newSubtitle " +
+                "SET [Index] = @newIndex, Title = @newTitle, Subtitle = @newSubtitle " +
                 "Where Id = @categoryId";
 
             OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
-            updateCommand.Parameters.AddWithValue("@categoryId", category.Id);
+            
             updateCommand.Parameters.AddWithValue("@newIndex", category.Index);
             updateCommand.Parameters.AddWithValue("@newTitle", category.Title);
             updateCommand.Parameters.AddWithValue("@newSubtitle", category.Subtitle);
-            
+            updateCommand.Parameters.AddWithValue("@categoryId", category.Id);
+
 
             try
             {
@@ -119,12 +120,12 @@ namespace Jeopardy
                 "Where Id = @questionId";
 
             OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
-            updateCommand.Parameters.AddWithValue("@questionId", question.Id);
+            
             updateCommand.Parameters.AddWithValue("@newType", question.Type);
             updateCommand.Parameters.AddWithValue("@newQuestionText", question.QuestionText);
             updateCommand.Parameters.AddWithValue("@newAnswer", question.Answer);
             updateCommand.Parameters.AddWithValue("@newWeight", question.Weight);
-            updateCommand.Parameters.AddWithValue("@categoryId", question.CategoryId);
+            updateCommand.Parameters.AddWithValue("@questionId", question.Id);
 
             try
             {
