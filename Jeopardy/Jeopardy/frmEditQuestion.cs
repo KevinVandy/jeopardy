@@ -70,6 +70,12 @@ namespace Jeopardy
                 question.Choices[1].Text = txtChoiceB.Text;
                 question.Choices[2].Text = txtChoiceC.Text;
                 question.Choices[3].Text = txtChoiceD.Text;
+
+                for(int i = 0; i < 4; i++)
+                {
+                    DB_Update.UpdateChoiceText(question.Choices[i].Text, question.Choices[i].Id);
+                }
+
             }
             else if (rdoTrueFalse.Checked)
             {
@@ -98,17 +104,19 @@ namespace Jeopardy
 
         private void bwCreateChoices_DoWork(object sender, DoWorkEventArgs e)
         {
-            question.Choices = new List<Choice>(new Choice[4]);
-
-            for (int i = 0; i < 4; i++ )
+            if(question.Choices == null || question.Choices.Count == 0)
             {
-                question.Choices[i] = new Choice();
-                question.Choices[i].QuestionId = (int)question.Id;
-                question.Choices[i].Index = i;
-                question.Choices[i].Text = " ";
-                question.Choices[i].Id = DB_Insert.InsertChoice(question.Choices[i]);
-            }
+                question.Choices = new List<Choice>(new Choice[4]);
 
+                for (int i = 0; i < 4; i++)
+                {
+                    question.Choices[i] = new Choice();
+                    question.Choices[i].QuestionId = (int)question.Id;
+                    question.Choices[i].Index = i;
+                    question.Choices[i].Text = " ";
+                    question.Choices[i].Id = DB_Insert.InsertChoice(question.Choices[i]);
+                }
+            }
         }
 
         private void bwCreateChoices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

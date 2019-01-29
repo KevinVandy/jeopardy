@@ -44,26 +44,32 @@
             this.bwLoadGames = new System.ComponentModel.BackgroundWorker();
             this.btnExportGame = new System.Windows.Forms.Button();
             this.btnImportGame = new System.Windows.Forms.Button();
+            this.exportGameToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.editGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCreateGame
             // 
             this.btnCreateGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateGame.Location = new System.Drawing.Point(419, 341);
+            this.btnCreateGame.Location = new System.Drawing.Point(359, 96);
             this.btnCreateGame.Name = "btnCreateGame";
             this.btnCreateGame.Size = new System.Drawing.Size(287, 56);
             this.btnCreateGame.TabIndex = 0;
-            this.btnCreateGame.Text = "Create Game";
+            this.btnCreateGame.Text = "New Game";
             this.btnCreateGame.UseVisualStyleBackColor = true;
             this.btnCreateGame.Click += new System.EventHandler(this.btnCreateGame_Click);
             // 
             // btnPlayGame
             // 
             this.btnPlayGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlayGame.Location = new System.Drawing.Point(419, 101);
+            this.btnPlayGame.Location = new System.Drawing.Point(48, 330);
             this.btnPlayGame.Name = "btnPlayGame";
-            this.btnPlayGame.Size = new System.Drawing.Size(287, 56);
+            this.btnPlayGame.Size = new System.Drawing.Size(287, 134);
             this.btnPlayGame.TabIndex = 1;
             this.btnPlayGame.Text = "Play Game";
             this.btnPlayGame.UseVisualStyleBackColor = true;
@@ -74,9 +80,9 @@
             this.lstGamesFromDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstGamesFromDB.FormattingEnabled = true;
             this.lstGamesFromDB.ItemHeight = 24;
-            this.lstGamesFromDB.Location = new System.Drawing.Point(48, 101);
+            this.lstGamesFromDB.Location = new System.Drawing.Point(48, 96);
             this.lstGamesFromDB.Name = "lstGamesFromDB";
-            this.lstGamesFromDB.Size = new System.Drawing.Size(321, 460);
+            this.lstGamesFromDB.Size = new System.Drawing.Size(287, 220);
             this.lstGamesFromDB.TabIndex = 2;
             this.lstGamesFromDB.SelectedIndexChanged += new System.EventHandler(this.lstGamesFromDB_SelectedIndexChanged);
             // 
@@ -84,7 +90,7 @@
             // 
             this.lblGames.AutoSize = true;
             this.lblGames.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGames.Location = new System.Drawing.Point(136, 65);
+            this.lblGames.Location = new System.Drawing.Point(121, 55);
             this.lblGames.Name = "lblGames";
             this.lblGames.Size = new System.Drawing.Size(133, 24);
             this.lblGames.TabIndex = 3;
@@ -98,14 +104,20 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(744, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(683, 27);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newGameToolStripMenuItem,
+            this.editGameToolStripMenuItem,
+            this.deleteGameToolStripMenuItem,
+            this.toolStripSeparator1,
             this.importGameFromFileToolStripMenuItem,
+            this.exportGameToFileToolStripMenuItem,
+            this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(41, 23);
@@ -137,21 +149,21 @@
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(116, 24);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
             this.helpToolStripMenuItem1.Text = "About";
             this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
             // 
             // helpToolStripMenuItem2
             // 
             this.helpToolStripMenuItem2.Name = "helpToolStripMenuItem2";
-            this.helpToolStripMenuItem2.Size = new System.Drawing.Size(116, 24);
+            this.helpToolStripMenuItem2.Size = new System.Drawing.Size(180, 24);
             this.helpToolStripMenuItem2.Text = "Help";
             this.helpToolStripMenuItem2.Click += new System.EventHandler(this.helpToolStripMenuItem2_Click);
             // 
             // btnEditGame
             // 
             this.btnEditGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditGame.Location = new System.Drawing.Point(419, 421);
+            this.btnEditGame.Location = new System.Drawing.Point(359, 174);
             this.btnEditGame.Name = "btnEditGame";
             this.btnEditGame.Size = new System.Drawing.Size(287, 56);
             this.btnEditGame.TabIndex = 5;
@@ -162,7 +174,7 @@
             // btnDeleteGame
             // 
             this.btnDeleteGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteGame.Location = new System.Drawing.Point(419, 501);
+            this.btnDeleteGame.Location = new System.Drawing.Point(359, 252);
             this.btnDeleteGame.Name = "btnDeleteGame";
             this.btnDeleteGame.Size = new System.Drawing.Size(287, 56);
             this.btnDeleteGame.TabIndex = 6;
@@ -178,30 +190,68 @@
             // btnExportGame
             // 
             this.btnExportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportGame.Location = new System.Drawing.Point(419, 261);
+            this.btnExportGame.Location = new System.Drawing.Point(359, 408);
             this.btnExportGame.Name = "btnExportGame";
             this.btnExportGame.Size = new System.Drawing.Size(287, 56);
             this.btnExportGame.TabIndex = 7;
-            this.btnExportGame.Text = "Export Game";
+            this.btnExportGame.Text = "Export to File";
             this.btnExportGame.UseVisualStyleBackColor = true;
             this.btnExportGame.Click += new System.EventHandler(this.btnExportGame_Click);
             // 
             // btnImportGame
             // 
             this.btnImportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImportGame.Location = new System.Drawing.Point(419, 181);
+            this.btnImportGame.Location = new System.Drawing.Point(359, 330);
             this.btnImportGame.Name = "btnImportGame";
             this.btnImportGame.Size = new System.Drawing.Size(287, 56);
             this.btnImportGame.TabIndex = 8;
-            this.btnImportGame.Text = "Import Game";
+            this.btnImportGame.Text = "Import From File";
             this.btnImportGame.UseVisualStyleBackColor = true;
             this.btnImportGame.Click += new System.EventHandler(this.btnImportGame_Click);
+            // 
+            // exportGameToFileToolStripMenuItem
+            // 
+            this.exportGameToFileToolStripMenuItem.Name = "exportGameToFileToolStripMenuItem";
+            this.exportGameToFileToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.exportGameToFileToolStripMenuItem.Text = "Export Game To File";
+            this.exportGameToFileToolStripMenuItem.Click += new System.EventHandler(this.exportGameToFileToolStripMenuItem_Click);
+            // 
+            // newGameToolStripMenuItem
+            // 
+            this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.newGameToolStripMenuItem.Text = "New Game";
+            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(217, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(217, 6);
+            // 
+            // editGameToolStripMenuItem
+            // 
+            this.editGameToolStripMenuItem.Name = "editGameToolStripMenuItem";
+            this.editGameToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.editGameToolStripMenuItem.Text = "Edit Game";
+            this.editGameToolStripMenuItem.Click += new System.EventHandler(this.editGameToolStripMenuItem_Click);
+            // 
+            // deleteGameToolStripMenuItem
+            // 
+            this.deleteGameToolStripMenuItem.Name = "deleteGameToolStripMenuItem";
+            this.deleteGameToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.deleteGameToolStripMenuItem.Text = "Delete Game";
+            this.deleteGameToolStripMenuItem.Click += new System.EventHandler(this.deleteGameToolStripMenuItem_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 610);
+            this.ClientSize = new System.Drawing.Size(683, 506);
             this.Controls.Add(this.btnImportGame);
             this.Controls.Add(this.btnExportGame);
             this.Controls.Add(this.btnDeleteGame);
@@ -212,6 +262,7 @@
             this.Controls.Add(this.btnCreateGame);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome to Jeopardy!";
@@ -241,6 +292,12 @@
         private System.ComponentModel.BackgroundWorker bwLoadGames;
         private System.Windows.Forms.Button btnExportGame;
         private System.Windows.Forms.Button btnImportGame;
+        private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editGameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteGameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem exportGameToFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

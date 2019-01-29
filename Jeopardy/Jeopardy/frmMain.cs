@@ -25,6 +25,12 @@ namespace Jeopardy
         {
             bwLoadGames.RunWorkerAsync();
 
+            newGameToolStripMenuItem.Enabled = true;
+            editGameToolStripMenuItem.Enabled = false;
+            deleteGameToolStripMenuItem.Enabled = false;
+            importGameFromFileToolStripMenuItem.Enabled = true;
+            exportGameToFileToolStripMenuItem.Enabled = false;
+
             btnPlayGame.Enabled = false;
             btnCreateGame.Enabled = true;
             btnEditGame.Enabled = false;
@@ -53,11 +59,7 @@ namespace Jeopardy
             lstGamesFromDB_SelectedIndexChanged(null, null);
         }
 
-        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Form about = new frmAbout();
-            about.ShowDialog();
-        }
+        
 
         private void btnPlayGame_Click(object sender, EventArgs e)
         {
@@ -101,21 +103,9 @@ namespace Jeopardy
             XML_IO.exportXML(selectedGame);
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        
 
-        private void helpToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Form help = new frmHelp();
-            help.ShowDialog();
-        }
-
-        private void importGameFromFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void lstGamesFromDB_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -123,17 +113,29 @@ namespace Jeopardy
             {
                 selectedGame = allGames[lstGamesFromDB.SelectedIndex];
 
+                newGameToolStripMenuItem.Enabled = true;
+                editGameToolStripMenuItem.Enabled = true;
+                deleteGameToolStripMenuItem.Enabled = true;
+                importGameFromFileToolStripMenuItem.Enabled = true;
+                exportGameToFileToolStripMenuItem.Enabled = true;
+
                 btnPlayGame.Enabled = true;
                 btnCreateGame.Enabled = true;
                 btnEditGame.Enabled = true;
                 btnDeleteGame.Enabled = true;
                 btnImportGame.Enabled = true;
                 btnExportGame.Enabled = true;
-
+                
                 btnPlayGame.Focus();
             }
             else
             {
+                newGameToolStripMenuItem.Enabled = true;
+                editGameToolStripMenuItem.Enabled = false;
+                deleteGameToolStripMenuItem.Enabled = false;
+                importGameFromFileToolStripMenuItem.Enabled = true;
+                exportGameToFileToolStripMenuItem.Enabled = false;
+
                 btnPlayGame.Enabled = false;
                 btnCreateGame.Enabled = true;
                 btnEditGame.Enabled = false;
@@ -160,6 +162,48 @@ namespace Jeopardy
                 RefreshListBox();
 
             }
+        }
+
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnCreateGame_Click(sender, e);
+        }
+
+        private void editGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnEditGame_Click(sender, e);
+        }
+
+        private void deleteGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnDeleteGame_Click(sender, e);
+        }
+
+        private void importGameFromFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnImportGame_Click(sender, e);
+        }
+
+        private void exportGameToFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnEditGame_Click(sender, e);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form about = new frmAbout();
+            about.ShowDialog();
+        }
+
+        private void helpToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Form help = new frmHelp();
+            help.ShowDialog();
         }
     }
 }
