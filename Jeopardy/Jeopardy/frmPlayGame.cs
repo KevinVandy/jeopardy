@@ -53,6 +53,18 @@ namespace Jeopardy
             MessageBox.Show(currentQuestion.QuestionText + " got clicked");
 
             //TODO: call up the question form w/ the question passed
+            switch (currentQuestion.Type)
+            {
+                case "tf":
+                    //call up true/false question form
+                    break;
+                case "fb":
+                    //call up fill in the blank question form
+                    break;
+                case "mc":
+                    //call up multiple choice question form
+                    break;
+            }
 
             //hide the clicked button
             button.Visible = false;
