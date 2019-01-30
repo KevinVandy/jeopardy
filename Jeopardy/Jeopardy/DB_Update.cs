@@ -353,7 +353,7 @@ namespace Jeopardy
         {
             string updateStatement =
                 "UPDATE games " +
-                "SET GameName = @newNumQuestionsPerCategory " +
+                "SET NumQuestionsPerCategory = @newNumQuestionsPerCategory " +
                 "WHERE Id = @gameId";
 
             OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
