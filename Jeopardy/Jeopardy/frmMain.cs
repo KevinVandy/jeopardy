@@ -154,8 +154,17 @@ namespace Jeopardy
                 DialogResult result = fbd.ShowDialog();
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.FileName))
-                {
-                    XML_IO.importXML(fbd.FileName, fbd.SafeFileName);
+                { 
+                    if(Path.GetExtension(fbd.FileName) == ".xml")
+                    {
+                        string fileName = Path.GetFileNameWithoutExtension(fbd.FileName);
+                        XML_IO.importXML(fbd.FileName, fileName);
+                    }
+                    else
+                    {
+                        MessageBox.Show("File Needs To Be .xml");
+                    }
+                    
                 }
 
                 allGames = DB_Select.SelectAllGames();
