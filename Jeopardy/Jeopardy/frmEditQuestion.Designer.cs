@@ -179,7 +179,7 @@
             this.btnCancel.Location = new System.Drawing.Point(147, 643);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(170, 51);
-            this.btnCancel.TabIndex = 3;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -190,7 +190,7 @@
             this.btnOK.Location = new System.Drawing.Point(740, 643);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(170, 51);
-            this.btnOK.TabIndex = 2;
+            this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -202,7 +202,7 @@
             this.txtChoiceA.Multiline = true;
             this.txtChoiceA.Name = "txtChoiceA";
             this.txtChoiceA.Size = new System.Drawing.Size(296, 101);
-            this.txtChoiceA.TabIndex = 1;
+            this.txtChoiceA.TabIndex = 0;
             this.txtChoiceA.TextChanged += new System.EventHandler(this.txtChoiceA_TextChanged);
             // 
             // txtChoiceC
@@ -212,7 +212,7 @@
             this.txtChoiceC.Multiline = true;
             this.txtChoiceC.Name = "txtChoiceC";
             this.txtChoiceC.Size = new System.Drawing.Size(296, 101);
-            this.txtChoiceC.TabIndex = 5;
+            this.txtChoiceC.TabIndex = 2;
             this.txtChoiceC.TextChanged += new System.EventHandler(this.txtChoiceC_TextChanged);
             // 
             // txtChoiceD
@@ -222,7 +222,7 @@
             this.txtChoiceD.Multiline = true;
             this.txtChoiceD.Name = "txtChoiceD";
             this.txtChoiceD.Size = new System.Drawing.Size(296, 101);
-            this.txtChoiceD.TabIndex = 7;
+            this.txtChoiceD.TabIndex = 3;
             this.txtChoiceD.TextChanged += new System.EventHandler(this.txtChoiceD_TextChanged);
             // 
             // txtChoiceB
@@ -232,7 +232,7 @@
             this.txtChoiceB.Multiline = true;
             this.txtChoiceB.Name = "txtChoiceB";
             this.txtChoiceB.Size = new System.Drawing.Size(296, 101);
-            this.txtChoiceB.TabIndex = 3;
+            this.txtChoiceB.TabIndex = 1;
             this.txtChoiceB.TextChanged += new System.EventHandler(this.txtChoiceB_TextChanged);
             // 
             // label4

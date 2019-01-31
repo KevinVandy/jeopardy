@@ -82,8 +82,6 @@ namespace Jeopardy
             }
             
             DisplayNumberQuestions();
-            
-            
         }
 
         private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
@@ -93,12 +91,14 @@ namespace Jeopardy
                 nudNumQuestionCategory.Enabled = false;
                 game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
                 bwAddQuestions.RunWorkerAsync();
+                bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
             }
-            else if ((int)nudNumCategories.Value < game.NumCategories) //if down was clicked
+            else if ((int)nudNumQuestionCategory.Value < game.NumQuestionsPerCategory) //if down was clicked
             {
                 nudNumQuestionCategory.Enabled = false;
                 game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
                 bwRemoveQuestions.RunWorkerAsync();
+                bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
             }
 
             DisplayNumberQuestions();            
@@ -116,7 +116,7 @@ namespace Jeopardy
 
         private void bwUpdateNumQuestionsPerCategory_DoWork(object sender, DoWorkEventArgs e)
         {
-
+            DB_Update.UpdateGameNumQuestionsPerCategory(game.NumQuestionsPerCategory, game.Id);
         }
 
         private void bwUpdateNumQuestionsPerCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -132,6 +132,7 @@ namespace Jeopardy
             for (int i = 0; i < game.NumQuestionsPerCategory; i++)
             {
                 newCategory.Questions[i] = new Question();
+
                 newCategory.Questions[i].CategoryId = (int)newCategory.Id;
                 newCategory.Questions[i].Type = "fb";
                 newCategory.Questions[i].QuestionText = " ";
@@ -164,22 +165,46 @@ namespace Jeopardy
 
         private void bwAddQuestions_DoWork(object sender, DoWorkEventArgs e)
         {
+            for(int i = 0; i < game.NumCategories; i++)
+            {
+                Question newQuestion = new Question();
 
+                newQuestion.CategoryId = (int)game.Categories[i].Id;
+                newQuestion.Type = "fb";
+                newQuestion.QuestionText = " ";
+                newQuestion.Answer = " ";
+                newQuestion.Weight = (game.NumQuestionsPerCategory) * 100;
+                newQuestion.Id = DB_Insert.InsertQuestion(newQuestion);
+
+                game.Categories[i].Questions.Add(newQuestion);
+            }
         }
 
         private void bwAddQuestions_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             CreateQuestionGrid();
+            nudNumQuestionCategory.Enabled = true;
         }
 
         private void bwRemoveQuestions_DoWork(object sender, DoWorkEventArgs e)
         {
-
+            for (int i = 0; i < game.NumCategories; i++)
+            {
+                if(DB_Delete.DeleteQuestion(game.Categories[i].Questions[game.NumQuestionsPerCategory].Id) > 0)
+                {
+                    game.Categories[i].Questions.RemoveAt(game.NumQuestionsPerCategory);
+                }
+                else
+                {
+                    MessageBox.Show("failed to delete");
+                }
+            }
         }
         
         private void bwRemoveQuestions_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             CreateQuestionGrid();
+            nudNumQuestionCategory.Enabled = true;
         }
 
         private void DisplayNumberQuestions()
