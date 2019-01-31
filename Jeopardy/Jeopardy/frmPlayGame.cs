@@ -27,6 +27,7 @@ namespace Jeopardy
             teams = theTeams;
             rows = currentGame.NumQuestionsPerCategory;
             columns = currentGame.NumCategories;
+            currentTeam = teams[0];
             InitializeComponent();
         }
 
@@ -40,7 +41,6 @@ namespace Jeopardy
 
         private void frmPlayGame_ResizeEnd(object sender, EventArgs e)
         {
-            LoadTeams();
             ModifyPanelWidths();
             DrawCategories();
             DrawForm();
@@ -224,8 +224,7 @@ namespace Jeopardy
                 pnlTeamOne.BackColor = Color.LightBlue;
                 lblTeamOne.Text = "Team " + teams[0].TeamName;
                 lblTeamOne.MaximumSize = new Size(100, 0);
-                lblTeamOne.AutoSize = true;
-                currentTeam = teams[0];
+                lblTeamOne.AutoSize = true;              
             }
 
             if (teams[1] != null)
