@@ -28,7 +28,7 @@ namespace Jeopardy
             //TODO: progress bar/question time needs start on form load
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
+        private async void btnSubmit_Click(object sender, EventArgs e)
         {
             if(ValidateData.ValidateQuestionAnswer(txtUserAnswer.Text) == true && txtUserAnswer.Text.Trim() != "")
             {
@@ -41,9 +41,9 @@ namespace Jeopardy
                 {
                     txtUserAnswer.ForeColor = Color.ForestGreen;
                     txtCorrectAnswer.BackColor = txtCorrectAnswer.BackColor;
-                    txtCorrectAnswer.ForeColor = Color.ForestGreen;
-                    //TODO: Insert a delay so the users can see the answers
+                    txtCorrectAnswer.ForeColor = Color.ForestGreen;                   
                     this.correct = true;
+                    await Task.Delay(3000); //show the answer for a bit
                     this.Close();
                     
                 }
@@ -52,8 +52,8 @@ namespace Jeopardy
                     txtUserAnswer.ForeColor = Color.Red;
                     txtCorrectAnswer.BackColor = txtCorrectAnswer.BackColor;
                     txtCorrectAnswer.ForeColor = Color.ForestGreen;
-                    //TODO: Insert a delay so the users can see the answers
                     this.correct = false;
+                    await Task.Delay(3000); //show the answer for a bit
                     this.Close();
                 }               
             }

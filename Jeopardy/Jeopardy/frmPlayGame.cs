@@ -14,7 +14,6 @@ namespace Jeopardy
     {
         int rows = 1;
         int columns = 1;
-        //private List<Button> ButtonList = new List<Button>();
         Button[,] questionButtons;
         private List<Label> LabelList = new List<Label>();
         private Team[] teams = new Team[4];

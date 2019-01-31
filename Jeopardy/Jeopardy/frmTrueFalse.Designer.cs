@@ -31,6 +31,7 @@
             this.lblQuestion = new System.Windows.Forms.Label();
             this.btnTrue = new System.Windows.Forms.Button();
             this.btnFalse = new System.Windows.Forms.Button();
+            this.lblCorrectAnswer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblQuestion
@@ -40,8 +41,9 @@
             this.lblQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuestion.Location = new System.Drawing.Point(357, 23);
             this.lblQuestion.Name = "lblQuestion";
-            this.lblQuestion.Size = new System.Drawing.Size(0, 29);
+            this.lblQuestion.Size = new System.Drawing.Size(147, 29);
             this.lblQuestion.TabIndex = 0;
+            this.lblQuestion.Text = "lblQuestion";
             this.lblQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnTrue
@@ -64,12 +66,24 @@
             this.btnFalse.UseVisualStyleBackColor = true;
             this.btnFalse.Click += new System.EventHandler(this.btnFalse_Click);
             // 
+            // lblCorrectAnswer
+            // 
+            this.lblCorrectAnswer.AutoSize = true;
+            this.lblCorrectAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorrectAnswer.Location = new System.Drawing.Point(362, 127);
+            this.lblCorrectAnswer.Name = "lblCorrectAnswer";
+            this.lblCorrectAnswer.Size = new System.Drawing.Size(76, 25);
+            this.lblCorrectAnswer.TabIndex = 3;
+            this.lblCorrectAnswer.Text = "label1";
+            this.lblCorrectAnswer.Visible = false;
+            // 
             // frmTrueFalse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.lblCorrectAnswer);
             this.Controls.Add(this.btnFalse);
             this.Controls.Add(this.btnTrue);
             this.Controls.Add(this.lblQuestion);
@@ -87,5 +101,6 @@
         private System.Windows.Forms.Label lblQuestion;
         private System.Windows.Forms.Button btnTrue;
         private System.Windows.Forms.Button btnFalse;
+        private System.Windows.Forms.Label lblCorrectAnswer;
     }
 }
