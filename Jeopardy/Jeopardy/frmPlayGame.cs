@@ -62,9 +62,7 @@ namespace Jeopardy
                     {
                         frmTFQuestion.ShowDialog();
 
-                        bool correct = frmTFQuestion.correct;
-
-                        // do what ever with result...
+                        answeredCorrectly = frmTFQuestion.correct;
                     }
                     break;
                 case "fb":
@@ -82,7 +80,7 @@ namespace Jeopardy
             //hide the clicked button
             button.Visible = false;
 
-            //TODO: method to assign score to the right team
+            //method to assign score to the right team
             AssignPoints(answeredCorrectly, currentQuestion);
 
             //method to automatically move the teams along
