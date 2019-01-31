@@ -115,7 +115,10 @@ namespace Jeopardy
             this.Hide();
             createGameForm.ShowDialog();
             this.Show();
-            bwLoadGames.RunWorkerAsync();
+            if (!bwLoadGames.IsBusy)
+            {
+                bwLoadGames.RunWorkerAsync();
+            }       
             RefreshListBox();
         }
 

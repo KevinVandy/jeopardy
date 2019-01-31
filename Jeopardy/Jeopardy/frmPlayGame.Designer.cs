@@ -31,8 +31,8 @@
             this.pnlGameboard = new System.Windows.Forms.Panel();
             this.pnlCategories = new System.Windows.Forms.Panel();
             this.pnlTeamOne = new System.Windows.Forms.Panel();
-            this.lblTeamOne = new System.Windows.Forms.Label();
             this.nudTeamOne = new System.Windows.Forms.NumericUpDown();
+            this.lblTeamOne = new System.Windows.Forms.Label();
             this.pnlTeamTwo = new System.Windows.Forms.Panel();
             this.nudTeamTwo = new System.Windows.Forms.NumericUpDown();
             this.lblTeamTwo = new System.Windows.Forms.Label();
@@ -77,16 +77,6 @@
             this.pnlTeamOne.TabIndex = 2;
             this.pnlTeamOne.Visible = false;
             // 
-            // lblTeamOne
-            // 
-            this.lblTeamOne.AutoSize = true;
-            this.lblTeamOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeamOne.Location = new System.Drawing.Point(3, 9);
-            this.lblTeamOne.Name = "lblTeamOne";
-            this.lblTeamOne.Size = new System.Drawing.Size(52, 17);
-            this.lblTeamOne.TabIndex = 0;
-            this.lblTeamOne.Text = "label1";
-            // 
             // nudTeamOne
             // 
             this.nudTeamOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,12 +91,27 @@
             0,
             0,
             0});
+            this.nudTeamOne.Minimum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            -2147483648});
             this.nudTeamOne.Name = "nudTeamOne";
             this.nudTeamOne.ReadOnly = true;
             this.nudTeamOne.Size = new System.Drawing.Size(120, 38);
             this.nudTeamOne.TabIndex = 1;
             this.nudTeamOne.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudTeamOne.ThousandsSeparator = true;
+            // 
+            // lblTeamOne
+            // 
+            this.lblTeamOne.AutoSize = true;
+            this.lblTeamOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeamOne.Location = new System.Drawing.Point(3, 9);
+            this.lblTeamOne.Name = "lblTeamOne";
+            this.lblTeamOne.Size = new System.Drawing.Size(52, 17);
+            this.lblTeamOne.TabIndex = 0;
+            this.lblTeamOne.Text = "label1";
             // 
             // pnlTeamTwo
             // 
@@ -132,6 +137,11 @@
             0,
             0,
             0});
+            this.nudTeamTwo.Minimum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            -2147483648});
             this.nudTeamTwo.Name = "nudTeamTwo";
             this.nudTeamTwo.ReadOnly = true;
             this.nudTeamTwo.Size = new System.Drawing.Size(120, 38);
@@ -173,6 +183,11 @@
             0,
             0,
             0});
+            this.nudTeamThree.Minimum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            -2147483648});
             this.nudTeamThree.Name = "nudTeamThree";
             this.nudTeamThree.ReadOnly = true;
             this.nudTeamThree.Size = new System.Drawing.Size(120, 38);
@@ -214,6 +229,11 @@
             0,
             0,
             0});
+            this.nudTeamFour.Minimum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            -2147483648});
             this.nudTeamFour.Name = "nudTeamFour";
             this.nudTeamFour.ReadOnly = true;
             this.nudTeamFour.Size = new System.Drawing.Size(120, 38);

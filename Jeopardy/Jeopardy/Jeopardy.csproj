@@ -83,6 +83,12 @@
     <Compile Include="frmEditQuestion.Designer.cs">
       <DependentUpon>frmEditQuestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFillInTheBlank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFillInTheBlank.Designer.cs">
+      <DependentUpon>frmFillInTheBlank.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHelp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,12 @@
     <Compile Include="frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTrueFalse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTrueFalse.Designer.cs">
+      <DependentUpon>frmTrueFalse.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTutorial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +177,9 @@
     <EmbeddedResource Include="frmEditQuestion.resx">
       <DependentUpon>frmEditQuestion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmFillInTheBlank.resx">
+      <DependentUpon>frmFillInTheBlank.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHelp.resx">
       <DependentUpon>frmHelp.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTrueFalse.resx">
+      <DependentUpon>frmTrueFalse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTutorial.resx">
       <DependentUpon>frmTutorial.cs</DependentUpon>
