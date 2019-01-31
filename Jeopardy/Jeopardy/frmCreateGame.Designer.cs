@@ -85,6 +85,7 @@
             this.nudNumQuestionCategory.ReadOnly = true;
             this.nudNumQuestionCategory.Size = new System.Drawing.Size(66, 35);
             this.nudNumQuestionCategory.TabIndex = 3;
+            this.nudNumQuestionCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudNumQuestionCategory.Value = new decimal(new int[] {
             5,
             0,
@@ -111,6 +112,7 @@
             this.nudNumCategories.ReadOnly = true;
             this.nudNumCategories.Size = new System.Drawing.Size(66, 35);
             this.nudNumCategories.TabIndex = 2;
+            this.nudNumCategories.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudNumCategories.Value = new decimal(new int[] {
             6,
             0,
@@ -169,7 +171,7 @@
             this.btnCreateGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateGame.Location = new System.Drawing.Point(400, 402);
             this.btnCreateGame.Name = "btnCreateGame";
-            this.btnCreateGame.Size = new System.Drawing.Size(235, 49);
+            this.btnCreateGame.Size = new System.Drawing.Size(235, 54);
             this.btnCreateGame.TabIndex = 4;
             this.btnCreateGame.Text = "Create New Game";
             this.btnCreateGame.UseVisualStyleBackColor = true;
@@ -181,7 +183,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(65, 402);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(235, 49);
+            this.btnCancel.Size = new System.Drawing.Size(235, 54);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -230,7 +232,6 @@
             this.AcceptButton = this.btnCreateGame;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(700, 499);
             this.Controls.Add(this.lblDefault2);
             this.Controls.Add(this.lblDefault1);

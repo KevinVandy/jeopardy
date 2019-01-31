@@ -25,14 +25,11 @@ namespace Jeopardy
 
         private void frmCreateGame_Load(object sender, EventArgs e)
         {
-            //figure out diminsions of the grid
+            //figure out diminsions of the grids
             categoryButtons = new Button[game.NumCategories];
             questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
-
-            DrawGrids();
-
-            DisplayNumberQuestions();
-
+            
+            //Display Game Info
             txtGameName.Text = game.GameName;
             nudNumCategories.Value = game.NumCategories;
             nudNumQuestionCategory.Value = game.NumQuestionsPerCategory;
@@ -56,18 +53,27 @@ namespace Jeopardy
             {
                 cboQuestionTimeLimit.SelectedIndex = 4;
             }
+
+            //Display Stats
+            DisplayNumberQuestions();
+
+            //Draw the grids and make sure they take advantage of the screen size
+            frmCreateGame_ResizeEnd(sender, e);
         }
 
+        //background thread to load/reload the game from the database
         private void bwLoadGame_DoWork(object sender, DoWorkEventArgs e)
         {
             game = DB_Select.SelectGame_ByGameId(game.Id);
         }
 
+        //after the game has loaded/reloaded the game grids will redraw with updated info
         private void bwLoadGame_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             DrawGrids();
         }
 
+        //MARK Value & Index Change Event Handlers
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
         {
             if ((int)nudNumCategories.Value > game.NumCategories) //if up was clicked
@@ -84,7 +90,7 @@ namespace Jeopardy
                 bwRemoveCategory.RunWorkerAsync();
                 bwUpdateNumCategories.RunWorkerAsync();
             }
-            
+
             DisplayNumberQuestions();
         }
 
@@ -105,27 +111,24 @@ namespace Jeopardy
                 bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
             }
 
-            DisplayNumberQuestions();            
+            DisplayNumberQuestions();
         }
 
+        //MARK Background Worker Threads for interacting with the database
         private void bwUpdateNumCategories_DoWork(object sender, DoWorkEventArgs e)
         {
-            DB_Update.UpdateGameNumCategories(game.NumCategories, game.Id);
-        }
-
-        private void bwUpdateNumCategories_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-
+            if (!DB_Update.UpdateGameNumCategories(game.NumCategories, game.Id))
+            {
+                MessageBox.Show("Failed to update NumCategories");
+            }
         }
 
         private void bwUpdateNumQuestionsPerCategory_DoWork(object sender, DoWorkEventArgs e)
         {
-            DB_Update.UpdateGameNumQuestionsPerCategory(game.NumQuestionsPerCategory, game.Id);
-        }
-
-        private void bwUpdateNumQuestionsPerCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-
+            if (!DB_Update.UpdateGameNumQuestionsPerCategory(game.NumQuestionsPerCategory, game.Id))
+            {
+                MessageBox.Show("Failed to update NumQuestionsPerCategory");
+            }
         }
 
         private void bwAddCategory_DoWork(object sender, DoWorkEventArgs e)
@@ -155,7 +158,7 @@ namespace Jeopardy
 
         private void bwRemoveCategory_DoWork(object sender, DoWorkEventArgs e)
         {
-            if(DB_Delete.DeleteCategory(game.Categories[game.NumCategories].Id) > 0)
+            if (DB_Delete.DeleteCategory(game.Categories[game.NumCategories].Id) > 0)
             {
                 game.Categories.RemoveAt(game.NumCategories);
             }
@@ -169,7 +172,7 @@ namespace Jeopardy
 
         private void bwAddQuestions_DoWork(object sender, DoWorkEventArgs e)
         {
-            for(int i = 0; i < game.NumCategories; i++)
+            for (int i = 0; i < game.NumCategories; i++)
             {
                 Question newQuestion = new Question();
 
@@ -194,32 +197,24 @@ namespace Jeopardy
         {
             for (int i = 0; i < game.NumCategories; i++)
             {
-                if(DB_Delete.DeleteQuestion(game.Categories[i].Questions[game.NumQuestionsPerCategory].Id) > 0)
+                if (DB_Delete.DeleteQuestion(game.Categories[i].Questions[game.NumQuestionsPerCategory].Id) > 0)
                 {
                     game.Categories[i].Questions.RemoveAt(game.NumQuestionsPerCategory);
                 }
                 else
                 {
-                    MessageBox.Show("failed to delete");
+                    MessageBox.Show("Failed to delete questions");
                 }
             }
         }
-        
+
         private void bwRemoveQuestions_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             CreateQuestionGrid();
             nudNumQuestionCategory.Enabled = true;
         }
 
-        private void DisplayNumberQuestions()
-        {
-            lblNumberQuestions.Text = CalcNumberOfQuestions().ToString();
-        }
 
-        private int CalcNumberOfQuestions()
-        {
-            return (int)nudNumCategories.Value * (int)nudNumQuestionCategory.Value;
-        }
 
         private void DrawGrids()
         {
@@ -380,45 +375,33 @@ namespace Jeopardy
 
         }
 
+        //MARK ToolStrip MenuItem Click Event Handlers
+        private void exportGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form about = new frmAbout();
             about.ShowDialog();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        //MARK Private Utility Functions
+        private void DisplayNumberQuestions()
         {
-            Close();
+            lblNumberQuestions.Text = CalcNumberOfQuestions().ToString();
         }
 
-        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        private int CalcNumberOfQuestions()
         {
-
-        }
-
-        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void openGameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void importGameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void exportGameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmsQuestions_Opening(object sender, CancelEventArgs e)
-        {
-
+            return (int)nudNumCategories.Value * (int)nudNumQuestionCategory.Value;
         }
 
         private void ModifyGroupBoxWidths()
@@ -428,11 +411,24 @@ namespace Jeopardy
             gbxQuestions.Width = Width - 70;
         }
 
+        private void ModifyGroupBoxHeights()
+        {
+            gbxGameInfo.Top = 50;
+            gbxGameInfo.Height = 163;
+
+            gbxCategories.Top = gbxGameInfo.Top + gbxGameInfo.Height + 30;
+            gbxCategories.Height = 127;
+
+            gbxQuestions.Top = gbxCategories.Top + gbxCategories.Height + 30;
+            gbxQuestions.Height = this.Height - gbxCategories.Height - gbxGameInfo.Height - gbxCategories.Top;
+
+        }
+
         private void frmCreateGame_ResizeEnd(object sender, EventArgs e)
         {
             ModifyGroupBoxWidths();
-            CreateCategoryGrid();
-            CreateQuestionGrid();
+            ModifyGroupBoxHeights();
+            DrawGrids();
         }
 
         //code to make maximizing and restoring the window act the same as resizing
@@ -442,11 +438,7 @@ namespace Jeopardy
             if (WindowState != LastWindowState)
             {
                 LastWindowState = WindowState;
-                if (WindowState == FormWindowState.Maximized)
-                {
-                    frmCreateGame_ResizeEnd(sender, e);
-                }
-                if (WindowState == FormWindowState.Normal)
+                if (WindowState == FormWindowState.Maximized || WindowState == FormWindowState.Normal)
                 {
                     frmCreateGame_ResizeEnd(sender, e);
                 }

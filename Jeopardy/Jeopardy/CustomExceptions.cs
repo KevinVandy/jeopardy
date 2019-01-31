@@ -21,6 +21,7 @@ namespace Jeopardy
 
         //MARK: Data Exceptions
 
+        [Serializable]
         public class ArgumentNullException : Exception
         {
             public ArgumentNullException()
@@ -34,6 +35,7 @@ namespace Jeopardy
             }
         }
 
+        [Serializable]
         public class WrongCountException : Exception
         {
             public WrongCountException()
@@ -47,6 +49,7 @@ namespace Jeopardy
             }
         }
 
+        [Serializable]
         public class IdNotFoundException: Exception
         {
             public IdNotFoundException()
@@ -61,6 +64,7 @@ namespace Jeopardy
 
         }
 
+        [Serializable]
         public class StringTooLongException : Exception
         {
             public StringTooLongException()
