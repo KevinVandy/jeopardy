@@ -78,6 +78,18 @@ namespace Jeopardy
         }
 
         //MARK: Validate Category properties
+        public static bool ValidateCategoryIndex(int index)
+        {
+            if(index >= 0 && index <= 7)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public static bool ValidateCategoryTitle(string title)
         {
             if (title.Length > 0 && title.Length < 255)

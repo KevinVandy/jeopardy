@@ -36,6 +36,10 @@ namespace Jeopardy
                 {
                     teamName = value;
                 }
+                else
+                {
+                    teamName = "Team";
+                }
             }
         }
 
@@ -47,6 +51,10 @@ namespace Jeopardy
                 if (ValidateData.ValidateTeamScore(value))
                 {
                     score = value;
+                }
+                else
+                {
+                    score = 0;
                 }
             }
         }
