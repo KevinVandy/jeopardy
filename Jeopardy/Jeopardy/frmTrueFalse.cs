@@ -28,6 +28,7 @@ namespace Jeopardy
         private void frmTrueFalse_Load(object sender, EventArgs e)
         {
             lblQuestion.Text = question.QuestionText.ToString();
+            lblCorrectAnswer.Text = question.Answer;
         }
 
         private async void btnTrue_Click(object sender, EventArgs e)
@@ -35,14 +36,12 @@ namespace Jeopardy
             if (question.Answer == "True") 
             {
                 correct = true;
-                lblCorrectAnswer.Text = "True";
                 lblCorrectAnswer.Visible = true;
                 lblCorrectAnswer.ForeColor = Color.ForestGreen;
                 await Task.Delay(3000); //show the answer for a bit              
             }
             else{
                 correct = false;
-                lblCorrectAnswer.Text = "False";
                 lblCorrectAnswer.Visible = true;
                 lblCorrectAnswer.ForeColor = Color.Red;
                 await Task.Delay(3000); //show the answer for a bit               
@@ -56,7 +55,6 @@ namespace Jeopardy
             if (question.Answer == "False")
             {
                 correct = true;
-                lblCorrectAnswer.Text = "False";
                 lblCorrectAnswer.Visible = true;
                 lblCorrectAnswer.ForeColor = Color.ForestGreen;
                 await Task.Delay(3000); //show the answer for a bit
@@ -64,7 +62,6 @@ namespace Jeopardy
             else
             {
                 correct = false;
-                lblCorrectAnswer.Text = "True";
                 lblCorrectAnswer.Visible = true;
                 lblCorrectAnswer.ForeColor = Color.Red;
                 await Task.Delay(3000); //show the answer for a bit

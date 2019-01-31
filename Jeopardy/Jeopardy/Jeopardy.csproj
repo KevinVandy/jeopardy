@@ -119,6 +119,12 @@
     <Compile Include="frmEditGame.Designer.cs">
       <DependentUpon>frmEditGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMultipleChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMultipleChoice.Designer.cs">
+      <DependentUpon>frmMultipleChoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPlayGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditGame.resx">
       <DependentUpon>frmEditGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMultipleChoice.resx">
+      <DependentUpon>frmMultipleChoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPlayGame.resx">
       <DependentUpon>frmPlayGame.cs</DependentUpon>
