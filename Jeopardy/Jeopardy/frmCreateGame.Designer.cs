@@ -133,6 +133,7 @@
             this.cboQuestionTimeLimit.Name = "cboQuestionTimeLimit";
             this.cboQuestionTimeLimit.Size = new System.Drawing.Size(294, 37);
             this.cboQuestionTimeLimit.TabIndex = 1;
+            this.cboQuestionTimeLimit.SelectedIndexChanged += new System.EventHandler(this.cboQuestionTimeLimit_SelectedIndexChanged);
             // 
             // lblGameName
             // 
