@@ -28,7 +28,7 @@ namespace Jeopardy
             //figure out diminsions of the grids
             categoryButtons = new Button[game.NumCategories];
             questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
-            
+
             //Display Game Info
             txtGameName.Text = game.GameName;
             nudNumCategories.Value = game.NumCategories;
@@ -74,6 +74,56 @@ namespace Jeopardy
         }
 
         //MARK Value & Index Change Event Handlers
+        private void txtGameName_Leave(object sender, EventArgs e)
+        {
+            if (txtGameName.Text != game.GameName)
+            {
+                game.GameName = txtGameName.Text;
+                bwUpdateGameName.RunWorkerAsync();
+            }
+        }
+
+        private void bwUpdateGameName_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (!DB_Update.UpdateGameName(game.GameName, game.Id))
+            {
+                MessageBox.Show("Error updating Game name");
+            }
+        }
+        
+        private void cboQuestionTimeLimit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboQuestionTimeLimit.SelectedIndex == 0 )
+            {
+                game.QuestionTimeLimit = new TimeSpan(0, 0, 30);
+            }
+            else if (cboQuestionTimeLimit.SelectedIndex == 1)
+            {
+                game.QuestionTimeLimit = new TimeSpan(0, 1, 0);
+            }
+            else if (cboQuestionTimeLimit.SelectedIndex == 2)
+            {
+                game.QuestionTimeLimit = new TimeSpan(0, 1, 30);
+            }
+            else if (cboQuestionTimeLimit.SelectedIndex == 3)
+            {
+                game.QuestionTimeLimit = new TimeSpan(0, 2, 0);
+            }
+            else if (cboQuestionTimeLimit.SelectedIndex == 4)
+            {
+                game.QuestionTimeLimit = new TimeSpan(0, 3, 0);
+            }
+            bwUpdateTimeLimit.RunWorkerAsync();
+        }
+        
+        private void bwUpdateTimeLimit_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (!DB_Update.UpdateGameQuestionTimeLimit(game.QuestionTimeLimit, game.Id))
+            {
+                MessageBox.Show("Error updating Game name");
+            }
+        }
+
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
         {
             if ((int)nudNumCategories.Value > game.NumCategories) //if up was clicked
@@ -383,7 +433,7 @@ namespace Jeopardy
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -392,7 +442,7 @@ namespace Jeopardy
             about.ShowDialog();
         }
 
-        
+
         //MARK Private Utility Functions
         private void DisplayNumberQuestions()
         {
@@ -420,7 +470,7 @@ namespace Jeopardy
             gbxCategories.Height = 127;
 
             gbxQuestions.Top = gbxCategories.Top + gbxCategories.Height + 30;
-            gbxQuestions.Height = this.Height - gbxCategories.Height - gbxGameInfo.Height - gbxCategories.Top;
+            gbxQuestions.Height = Height - gbxCategories.Height - gbxGameInfo.Height - gbxCategories.Top;
 
         }
 
@@ -445,6 +495,5 @@ namespace Jeopardy
             }
         }
 
-        
     }
 }

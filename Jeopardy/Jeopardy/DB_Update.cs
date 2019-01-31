@@ -264,7 +264,7 @@ namespace Jeopardy
 
             OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
 
-            updateCommand.Parameters.AddWithValue("@newTimeLimit", newTimeLimit);
+            updateCommand.Parameters.AddWithValue("@newTimeLimit", newTimeLimit.TotalSeconds);
             updateCommand.Parameters.AddWithValue("@gameId", gameId);
 
             try

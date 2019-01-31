@@ -69,6 +69,8 @@
             this.bwRemoveQuestions = new System.ComponentModel.BackgroundWorker();
             this.bwUpdateNumCategories = new System.ComponentModel.BackgroundWorker();
             this.bwUpdateNumQuestionsPerCategory = new System.ComponentModel.BackgroundWorker();
+            this.bwUpdateGameName = new System.ComponentModel.BackgroundWorker();
+            this.bwUpdateTimeLimit = new System.ComponentModel.BackgroundWorker();
             this.menuStrip.SuspendLayout();
             this.gbxGameInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumQuestionCategory)).BeginInit();
@@ -115,6 +117,7 @@
             this.txtGameName.Name = "txtGameName";
             this.txtGameName.Size = new System.Drawing.Size(188, 26);
             this.txtGameName.TabIndex = 32;
+            this.txtGameName.Leave += new System.EventHandler(this.txtGameName_Leave);
             // 
             // menuStrip
             // 
@@ -141,19 +144,19 @@
             // exportGameToolStripMenuItem
             // 
             this.exportGameToolStripMenuItem.Name = "exportGameToolStripMenuItem";
-            this.exportGameToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.exportGameToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.exportGameToolStripMenuItem.Text = "Export To File";
             this.exportGameToolStripMenuItem.Click += new System.EventHandler(this.exportGameToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(156, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -204,6 +207,7 @@
             this.cboQuestionTimeLimit.Name = "cboQuestionTimeLimit";
             this.cboQuestionTimeLimit.Size = new System.Drawing.Size(128, 28);
             this.cboQuestionTimeLimit.TabIndex = 35;
+            this.cboQuestionTimeLimit.SelectedIndexChanged += new System.EventHandler(this.cboQuestionTimeLimit_SelectedIndexChanged);
             // 
             // gbxGameInfo
             // 
@@ -457,6 +461,14 @@
             // 
             this.bwUpdateNumQuestionsPerCategory.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwUpdateNumQuestionsPerCategory_DoWork);
             // 
+            // bwUpdateGameName
+            // 
+            this.bwUpdateGameName.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwUpdateGameName_DoWork);
+            // 
+            // bwUpdateTimeLimit
+            // 
+            this.bwUpdateTimeLimit.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwUpdateTimeLimit_DoWork);
+            // 
             // frmEditGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,5 +547,7 @@
         private System.ComponentModel.BackgroundWorker bwRemoveQuestions;
         private System.ComponentModel.BackgroundWorker bwUpdateNumCategories;
         private System.ComponentModel.BackgroundWorker bwUpdateNumQuestionsPerCategory;
+        private System.ComponentModel.BackgroundWorker bwUpdateGameName;
+        private System.ComponentModel.BackgroundWorker bwUpdateTimeLimit;
     }
 }
