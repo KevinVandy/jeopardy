@@ -59,6 +59,10 @@ namespace Jeopardy
                 {
                     questionTimeLimit = value;
                 }
+                else
+                {
+                    questionTimeLimit = new TimeSpan(0,1,0);
+                }
             }
         }
 
