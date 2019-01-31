@@ -88,6 +88,10 @@ namespace Jeopardy
                 {
                     weight = value;
                 }
+                else
+                {
+                    weight = 0;
+                }
             }
         }
 

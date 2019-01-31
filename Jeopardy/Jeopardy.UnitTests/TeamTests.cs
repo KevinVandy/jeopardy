@@ -7,10 +7,6 @@ namespace Jeopardy.UnitTests
     [TestClass]
     public class TeamTests
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-            
-        }
+        
     }
 }
