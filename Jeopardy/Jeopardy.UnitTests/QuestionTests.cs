@@ -22,7 +22,7 @@ namespace Jeopardy.UnitTests
         }
 
         [TestMethod]
-        public void SetQuestionWeight_Set99_Return100()
+        public void SetQuestionWeight_Set99_Return0()
         {
             int weight = 99;
             //Arrange
@@ -32,7 +32,7 @@ namespace Jeopardy.UnitTests
             question.Weight = weight;
 
             //Assert
-            Assert.AreNotEqual(question.Weight, weight);
+            Assert.AreEqual(question.Weight, 0);
 
         }
     }
