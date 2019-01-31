@@ -127,7 +127,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1124, 27);
+            this.menuStrip.Size = new System.Drawing.Size(1079, 27);
             this.menuStrip.TabIndex = 33;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -203,9 +203,9 @@
             "90 seconds",
             "2 minutes",
             "3 minutes"});
-            this.cboQuestionTimeLimit.Location = new System.Drawing.Point(184, 93);
+            this.cboQuestionTimeLimit.Location = new System.Drawing.Point(173, 93);
             this.cboQuestionTimeLimit.Name = "cboQuestionTimeLimit";
-            this.cboQuestionTimeLimit.Size = new System.Drawing.Size(128, 28);
+            this.cboQuestionTimeLimit.Size = new System.Drawing.Size(139, 28);
             this.cboQuestionTimeLimit.TabIndex = 35;
             this.cboQuestionTimeLimit.SelectedIndexChanged += new System.EventHandler(this.cboQuestionTimeLimit_SelectedIndexChanged);
             // 
@@ -377,10 +377,10 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslblSaveState});
-            this.statusStrip.Location = new System.Drawing.Point(0, 871);
+            this.statusStrip.Location = new System.Drawing.Point(0, 889);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.ShowItemToolTips = true;
-            this.statusStrip.Size = new System.Drawing.Size(1124, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1079, 22);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 38;
             this.statusStrip.Text = "statusStrip1";
@@ -474,7 +474,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1141, 881);
+            this.ClientSize = new System.Drawing.Size(1079, 911);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.gbxGameInfo);
             this.Controls.Add(this.gbxCategories);
