@@ -104,7 +104,58 @@ namespace Jeopardy.UnitTests
             Question question = new Question();
 
             //Act
-            question.QuestionText = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of  (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32."; //too long
+            question.QuestionText = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of  (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of  (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32."; //too long(should be under 1000 characters)
+
+            //Assert
+            Assert.AreEqual(question.QuestionText, " "); // empty space is default
+        }
+
+        [TestMethod]
+        public void SetQuestionAnswerFBMC_SetValid_ReturnValid() //valid should set and get valid
+        {
+            //Arrange
+            Question question = new Question();
+
+            //Act
+            question.QuestionText = "This is an answer"; //fb
+
+            //Assert
+            Assert.AreEqual(question.QuestionText, "This is an answer");
+        }
+
+        [TestMethod]
+        public void SetQuestionAnswerTF_SetTrue_ReturnTrue() //valid should set and get valid
+        {
+            //Arrange
+            Question question = new Question();
+
+            //Act
+            question.QuestionText = "True"; //fb
+
+            //Assert
+            Assert.AreEqual(question.QuestionText, "True");
+        }
+
+        [TestMethod]
+        public void SetQuestionAnswerTF_SetFalse_ReturnFalse() //valid should set and get valid
+        {
+            //Arrange
+            Question question = new Question();
+
+            //Act
+            question.QuestionText = "False"; //fb
+
+            //Assert
+            Assert.AreEqual(question.QuestionText, "False");
+        }
+
+        public void SetQuestionAnswerTF_SetNull_ReturnSpace() //invalid should not set and get default
+        {
+            //Arrange
+            Question question = new Question();
+
+            //Act
+            question.QuestionText = ""; //fb
 
             //Assert
             Assert.AreEqual(question.QuestionText, " ");

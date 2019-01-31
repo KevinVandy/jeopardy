@@ -70,7 +70,7 @@ namespace Jeopardy
                 }
                 else
                 {
-                    type = "fb";
+                    type = "fb"; //fill in the blank
                 }
             }
         }
@@ -83,6 +83,10 @@ namespace Jeopardy
                 if (ValidateData.ValidateQuestionAnswer(value))
                 {
                     answer = value;
+                }
+                else
+                {
+                    answer = " ";
                 }
             }
         }
