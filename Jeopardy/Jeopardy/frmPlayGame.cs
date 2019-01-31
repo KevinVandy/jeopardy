@@ -50,10 +50,8 @@ namespace Jeopardy
         {
             Button button = sender as Button;
             Question currentQuestion = (Question)button.Tag;
-            MessageBox.Show(currentQuestion.QuestionText + " got clicked");
             bool answeredCorrectly = false;
 
-            //TODO: call up the question form w/ the question passed
             switch (currentQuestion.Type)
             {
                 case "tf":
@@ -129,51 +127,6 @@ namespace Jeopardy
 
         private void DrawForm()
         {
-            //foreach (Button b in ButtonList)
-            //{
-            //    pnlGameboard.Controls.Remove(b);
-            //}
-            //ButtonList.Clear();
-            ////int formWidth = this.Width;
-            ////int formHeight = this.Height;
-            //int formWidth = pnlGameboard.Width;
-            //int formHeight = pnlGameboard.Height;
-
-            ////This code scrunches the buttons
-            ////pnlGameboard.Width = formWidth - 50;
-            ////pnlGameboard.Height = formHeight - 70;
-
-
-            //// Some default options, can change later
-            //int ButtonWidth = (pnlGameboard.Width - 60) / (rows + 1);
-            //int ButtonHeight = (pnlGameboard.Height - 30) / (columns - 1);
-            //int Distance = 20;
-            //int start_x = 10;
-            //int start_y = 10;
-
-
-            //// For each row..
-            //for (int x = 0; x < rows; x++)
-            //{
-            //    // Create that many columns until you break out of for loop
-            //    // Which in turn starts the next row
-            //    for (int y = 0; y < columns; y++)
-            //    {
-            //        Button tmpButton = new Button();
-            //        tmpButton.Top = start_x + (x * ButtonHeight + Distance);
-            //        tmpButton.Left = start_y + (y * ButtonWidth + Distance);
-            //        tmpButton.Width = ButtonWidth;
-            //        tmpButton.Height = ButtonHeight;
-            //        tmpButton.Click += new EventHandler(button_Click);
-            //        tmpButton.Text = "X: " + x.ToString() + " Y: " + y.ToString();
-            //        ButtonList.Add(tmpButton);
-
-            //        // Add the buttons to the panel, not the form itself
-            //        pnlGameboard.Controls.Add(tmpButton);
-            //    }
-
-            //}
-
             pnlGameboard.Controls.Clear();
 
             int gbxWidth = pnlGameboard.Width;

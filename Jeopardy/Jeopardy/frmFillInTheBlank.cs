@@ -30,7 +30,7 @@ namespace Jeopardy
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if(ValidateData.ValidateQuestionAnswer(txtUserAnswer.Text) == true)
+            if(ValidateData.ValidateQuestionAnswer(txtUserAnswer.Text) == true && txtUserAnswer.Text.Trim() != "")
             {
                 string userAnswer = txtUserAnswer.Text.Trim().ToLower();
                 string correctAnswer = currentQuestion.Answer.Trim().ToLower();
