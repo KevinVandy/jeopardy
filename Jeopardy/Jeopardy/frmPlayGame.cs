@@ -57,6 +57,14 @@ namespace Jeopardy
             {
                 case "tf":
                     //call up true/false question form
+                    using (frmTrueFalse frmTFQuestion = new frmTrueFalse(currentQuestion))
+                    {
+                        frmTFQuestion.ShowDialog();
+
+                        bool correct = frmTFQuestion.correct;
+
+                        // do what ever with result...
+                    }
                     break;
                 case "fb":
                     //call up fill in the blank question form
