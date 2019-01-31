@@ -26,6 +26,11 @@ namespace Jeopardy
         }
 
         //MARK Value & Index Change Event Handlers
+        private void cboQuestionTimeLimit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedIndex = cboQuestionTimeLimit.SelectedIndex;
+        }
+
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
         {
             if (nudNumCategories.Value == 6)
@@ -49,12 +54,7 @@ namespace Jeopardy
                 lblDefault2.Visible = false;
             }
         }
-
-        private void cboQuestionTimeLimit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            selectedIndex = cboQuestionTimeLimit.SelectedIndex;
-        }
-
+        
         //MARK Button Event Handlers
         private void btnCancel_Click(object sender, EventArgs e)
         {
