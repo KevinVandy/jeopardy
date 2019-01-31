@@ -9,29 +9,27 @@ namespace Jeopardy.UnitTests
         [TestMethod]
         public void SetQuestionType_Setfb_Returnfb() //invalid should not set and get default
         {
-            string type = "fc";
             //Arrange
             Question question = new Question();
 
             //Act
-            question.Type = type;
+            question.Type = "fb";
 
             //Assert
-            Assert.AreEqual(question.Type, type);
+            Assert.AreEqual(question.Type, "fb");
         }
 
         [TestMethod]
         public void SetQuestionType_Setfc_Returnfb() //valid should set and get valid
         {
-            string type = "fb";
             //Arrange
             Question question = new Question();
 
             //Act
-            question.Type = type;
+            question.Type = "fc";
 
             //Assert
-            Assert.AreEqual(question.Type, type);
+            Assert.AreEqual(question.Type, "fb");
         }
 
         [TestMethod]
