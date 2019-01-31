@@ -51,6 +51,7 @@ namespace Jeopardy
             Button button = sender as Button;
             Question currentQuestion = (Question)button.Tag;
             MessageBox.Show(currentQuestion.QuestionText + " got clicked");
+            bool answeredCorrectly = false;
 
             //TODO: call up the question form w/ the question passed
             switch (currentQuestion.Type)
@@ -60,6 +61,10 @@ namespace Jeopardy
                     break;
                 case "fb":
                     //call up fill in the blank question form
+                    frmFillInTheBlank frmFB = new frmFillInTheBlank(currentQuestion);
+                    frmFB.ShowDialog();
+
+                    answeredCorrectly = frmFB.correct;
                     break;
                 case "mc":
                     //call up multiple choice question form
@@ -70,6 +75,7 @@ namespace Jeopardy
             button.Visible = false;
 
             //TODO: method to assign score to the right team
+            AssignPoints(answeredCorrectly, currentQuestion);
 
             //method to automatically move the teams along
             MoveToNextTeam();
@@ -295,6 +301,48 @@ namespace Jeopardy
                 currentTeam = teams[0];
                 pnlTeamOne.BackColor = Color.LightBlue;
                 pnlTeamFour.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void AssignPoints(bool answeredCorrectly, Question theQuestion)
+        {
+            if(answeredCorrectly == true)
+            {
+                if(currentTeam == teams[0])
+                {
+                    nudTeamOne.Value += theQuestion.Weight;
+                }
+                else if(currentTeam == teams[1])
+                {
+                    nudTeamTwo.Value += theQuestion.Weight;
+                }
+                else if (currentTeam == teams[2])
+                {
+                    nudTeamThree.Value += theQuestion.Weight;
+                }
+                else if (currentTeam == teams[3])
+                {
+                    nudTeamFour.Value += theQuestion.Weight;
+                }
+            }
+            else if (answeredCorrectly == false)
+            {
+                if (currentTeam == teams[0])
+                {
+                    nudTeamOne.Value -= theQuestion.Weight;
+                }
+                else if (currentTeam == teams[1])
+                {
+                    nudTeamTwo.Value -= theQuestion.Weight;
+                }
+                else if (currentTeam == teams[2])
+                {
+                    nudTeamThree.Value -= theQuestion.Weight;
+                }
+                else if (currentTeam == teams[3])
+                {
+                    nudTeamFour.Value -= theQuestion.Weight;
+                }
             }
         }
     }
