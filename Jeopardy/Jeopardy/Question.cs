@@ -52,6 +52,10 @@ namespace Jeopardy
                 {
                     questionText = value;
                 }
+                else
+                {
+                    questionText = " ";
+                }
             }
         }
 
@@ -63,6 +67,10 @@ namespace Jeopardy
                 if (ValidateData.ValidateQuestionType(value))
                 {
                     type = value;
+                }
+                else
+                {
+                    type = "fb"; //fill in the blank
                 }
             }
         }
@@ -76,6 +84,10 @@ namespace Jeopardy
                 {
                     answer = value;
                 }
+                else
+                {
+                    answer = " ";
+                }
             }
         }
 
@@ -87,6 +99,10 @@ namespace Jeopardy
                 if (ValidateData.ValidateQuestionWeight(value))
                 {
                     weight = value;
+                }
+                else
+                {
+                    weight = 0;
                 }
             }
         }
