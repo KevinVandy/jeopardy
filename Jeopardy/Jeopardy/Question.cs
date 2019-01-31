@@ -52,6 +52,10 @@ namespace Jeopardy
                 {
                     questionText = value;
                 }
+                else
+                {
+                    questionText = " ";
+                }
             }
         }
 
