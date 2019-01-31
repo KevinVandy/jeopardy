@@ -42,7 +42,17 @@ namespace Jeopardy
         public int Index
         {
             get => index;
-            set => index = value;
+            set
+            {
+                if(ValidateData.ValidateCategoryIndex(value))
+                {
+                    index = value;
+                }
+                else
+                {
+                    index = 0;
+                }
+            }
         }
 
         public string Title
@@ -53,6 +63,10 @@ namespace Jeopardy
                 if (ValidateData.ValidateCategoryTitle(value))
                 {
                     title = value;
+                }
+                else
+                {
+                    title = " ";
                 }
             }
         }
@@ -65,6 +79,10 @@ namespace Jeopardy
                 if (ValidateData.ValidateCategorySubtitle(value))
                 {
                     subtitle = value;
+                }
+                else
+                {
+                    subtitle = " ";
                 }
             }
         }
