@@ -42,12 +42,39 @@ namespace Jeopardy
 
         public static bool ValidateGameTimeLimit(TimeSpan defaultTimeLimit)
         {
-            TimeSpan[] validTimeLimits = new TimeSpan[] { new TimeSpan(0, 0, 30), new TimeSpan(0, 1, 0), new TimeSpan(0, 2, 0), new TimeSpan(0, 3, 0) };
+            TimeSpan[] validTimeLimits = new TimeSpan[] { new TimeSpan(0, 0, 30), new TimeSpan(0, 1, 0), new TimeSpan(0, 1, 30), new TimeSpan(0, 2, 0), new TimeSpan(0, 3, 0) };
             if (validTimeLimits.Contains(defaultTimeLimit))
             {
                 return true;
             }
-            return false; 
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool ValidateNumCategories(int numCategories)
+        {
+            if(numCategories >= 3 && numCategories <= 8)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool ValidateNumQuestionsPerCategory(int numQuestions)
+        {
+            if(numQuestions >= 3 && numQuestions <= 8)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         //MARK: Validate Category properties
@@ -74,6 +101,7 @@ namespace Jeopardy
                 return false;
             }
         }
+
 
         //MARK: Validate Question properties
         public static bool ValidateQuestionType(string type)
@@ -115,14 +143,9 @@ namespace Jeopardy
         }
 
         //MARK: Validate Choice properties
-        public static bool ValidateChoiceIndex(string index)
+        public static bool ValidateChoiceIndex(int index)
         {
-            string[] validIndexes = new string[] { "a", "b", "c", "d", "T", "F" };
-            if (validIndexes.Contains(index))
-            {
-                return true;
-            }
-            return false; 
+            return true;
         }
 
         public static bool ValidateChoiceText(string choiceText)

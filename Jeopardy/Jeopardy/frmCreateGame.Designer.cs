@@ -41,6 +41,7 @@
             this.lblHint = new System.Windows.Forms.Label();
             this.lblDefault1 = new System.Windows.Forms.Label();
             this.lblDefault2 = new System.Windows.Forms.Label();
+            this.bwCreateGame = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumQuestionCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumCategories)).BeginInit();
             this.SuspendLayout();
@@ -125,12 +126,14 @@
             this.cboQuestionTimeLimit.Items.AddRange(new object[] {
             "30 seconds",
             "1 minute",
+            "90 seconds",
             "2 minutes",
             "3 minutes"});
             this.cboQuestionTimeLimit.Location = new System.Drawing.Point(341, 125);
             this.cboQuestionTimeLimit.Name = "cboQuestionTimeLimit";
             this.cboQuestionTimeLimit.Size = new System.Drawing.Size(294, 37);
             this.cboQuestionTimeLimit.TabIndex = 1;
+            this.cboQuestionTimeLimit.SelectedIndexChanged += new System.EventHandler(this.cboQuestionTimeLimit_SelectedIndexChanged);
             // 
             // lblGameName
             // 
@@ -217,6 +220,11 @@
             this.lblDefault2.TabIndex = 6;
             this.lblDefault2.Text = "(Default)";
             // 
+            // bwCreateGame
+            // 
+            this.bwCreateGame.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwCreateGame_DoWork);
+            this.bwCreateGame.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwCreateGame_RunWorkerCompleted);
+            // 
             // frmCreateGame
             // 
             this.AcceptButton = this.btnCreateGame;
@@ -264,5 +272,6 @@
         private System.Windows.Forms.Label lblHint;
         private System.Windows.Forms.Label lblDefault1;
         private System.Windows.Forms.Label lblDefault2;
+        private System.ComponentModel.BackgroundWorker bwCreateGame;
     }
 }

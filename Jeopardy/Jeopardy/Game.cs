@@ -43,6 +43,10 @@ namespace Jeopardy
                 {
                     gameName = value;
                 }
+                else
+                {
+                    gameName = "Untitled Game";
+                }
             }
         }
 
@@ -61,13 +65,33 @@ namespace Jeopardy
         public int NumCategories
         {
             get => numCategories;
-            set => numCategories = value;
+            set
+            {
+                if(ValidateData.ValidateNumCategories(value))
+                {
+                    numCategories = value;
+                }
+                else
+                {
+                    numCategories = 5;
+                }
+            }
         }
 
         public int NumQuestionsPerCategory
         {
             get => numQuestionsPerCategory;
-            set => numQuestionsPerCategory = value;
+            set
+            {
+                if(ValidateData.ValidateNumQuestionsPerCategory(value))
+                {
+                    numQuestionsPerCategory = value;
+                }
+                else
+                {
+                    numQuestionsPerCategory = 6;
+                }
+            }
         }
 
         public List<Category> Categories
@@ -90,9 +114,13 @@ namespace Jeopardy
             }
             else if (questionTimeLimitIndex == 2)
             {
-                questionTimeLimit = new TimeSpan(0, 2, 0);
+                questionTimeLimit = new TimeSpan(0, 1, 30);
             }
             else if (questionTimeLimitIndex == 3)
+            {
+                questionTimeLimit = new TimeSpan(0, 2, 0);
+            }
+            else if (questionTimeLimitIndex == 4)
             {
                 questionTimeLimit = new TimeSpan(0, 3, 0);
             }
@@ -119,6 +147,7 @@ namespace Jeopardy
             {
                 this.Categories[i] = new Category();
                 this.Categories[i].GameId = (int)this.id;
+                this.Categories[i].Index = i;
                 this.Categories[i].Title = "Category " + (i + 1);
                 this.Categories[i].Subtitle = " ";
                 this.Categories[i].Id = DB_Insert.InsertCategory(this.Categories[i]);

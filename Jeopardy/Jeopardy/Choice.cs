@@ -10,12 +10,12 @@ namespace Jeopardy
     {
         private int? id;
         private int questionId;
-        private string index;
+        private int index;
         private string text;
 
         public Choice() { }
 
-        public Choice(int? id, int questionId, string index, string text)
+        public Choice(int? id, int questionId, int index, string text)
         {
             this.id = id;
             this.questionId = questionId;
@@ -35,7 +35,7 @@ namespace Jeopardy
             set => questionId = value;
         }
 
-        public string Index
+        public int Index
         {
             get => index;
             set

@@ -31,8 +31,8 @@ namespace Jeopardy
 
             DrawGrids();
 
-            DisplayNumberQuesions();
-            
+            DisplayNumberQuestions();
+
             txtGameName.Text = game.GameName;
             nudNumCategories.Value = game.NumCategories;
             nudNumQuestionCategory.Value = game.NumQuestionsPerCategory;
@@ -44,13 +44,17 @@ namespace Jeopardy
             {
                 cboQuestionTimeLimit.SelectedIndex = 1;
             }
-            else if (game.QuestionTimeLimit == new TimeSpan(0, 2, 0))
+            else if (game.QuestionTimeLimit == new TimeSpan(0, 1, 30))
             {
                 cboQuestionTimeLimit.SelectedIndex = 2;
             }
-            else if (game.QuestionTimeLimit == new TimeSpan(0, 3, 0))
+            else if (game.QuestionTimeLimit == new TimeSpan(0, 2, 0))
             {
                 cboQuestionTimeLimit.SelectedIndex = 3;
+            }
+            else if (game.QuestionTimeLimit == new TimeSpan(0, 3, 0))
+            {
+                cboQuestionTimeLimit.SelectedIndex = 4;
             }
         }
 
@@ -66,26 +70,148 @@ namespace Jeopardy
 
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
         {
-            game.NumCategories = (int)nudNumCategories.Value;
-            DisplayNumberQuesions();
-
-            categoryButtons = new Button[game.NumCategories];//diminsion change
-            questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];//diminsion change
-
-            DrawGrids();
+            if ((int)nudNumCategories.Value > game.NumCategories) //if up was clicked
+            {
+                nudNumCategories.Enabled = false;
+                game.NumCategories = (int)nudNumCategories.Value;
+                bwAddCategory.RunWorkerAsync();
+                bwUpdateNumCategories.RunWorkerAsync();
+            }
+            else if ((int)nudNumCategories.Value < game.NumCategories) //if down was clicked
+            {
+                nudNumCategories.Enabled = false;
+                game.NumCategories = (int)nudNumCategories.Value;
+                bwRemoveCategory.RunWorkerAsync();
+                bwUpdateNumCategories.RunWorkerAsync();
+            }
+            
+            DisplayNumberQuestions();
         }
 
         private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
         {
-            game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
-            DisplayNumberQuesions();
-            
-            questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory]; //diminsion change
+            if ((int)nudNumQuestionCategory.Value > game.NumQuestionsPerCategory) //if up was clicked
+            {
+                nudNumQuestionCategory.Enabled = false;
+                game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
+                bwAddQuestions.RunWorkerAsync();
+                bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
+            }
+            else if ((int)nudNumQuestionCategory.Value < game.NumQuestionsPerCategory) //if down was clicked
+            {
+                nudNumQuestionCategory.Enabled = false;
+                game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
+                bwRemoveQuestions.RunWorkerAsync();
+                bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
+            }
 
-            CreateQuestionGrid();
+            DisplayNumberQuestions();            
         }
 
-        private void DisplayNumberQuesions()
+        private void bwUpdateNumCategories_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DB_Update.UpdateGameNumCategories(game.NumCategories, game.Id);
+        }
+
+        private void bwUpdateNumCategories_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+
+        private void bwUpdateNumQuestionsPerCategory_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DB_Update.UpdateGameNumQuestionsPerCategory(game.NumQuestionsPerCategory, game.Id);
+        }
+
+        private void bwUpdateNumQuestionsPerCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+
+        private void bwAddCategory_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Category newCategory = new Category(null, (int)game.Id, game.Categories.Count, "Category " + (game.Categories.Count + 1), " ", null);
+            newCategory.Id = DB_Insert.InsertCategory(newCategory);
+            newCategory.Questions = new List<Question>(new Question[game.NumQuestionsPerCategory]);
+            for (int i = 0; i < game.NumQuestionsPerCategory; i++)
+            {
+                newCategory.Questions[i] = new Question();
+
+                newCategory.Questions[i].CategoryId = (int)newCategory.Id;
+                newCategory.Questions[i].Type = "fb";
+                newCategory.Questions[i].QuestionText = " ";
+                newCategory.Questions[i].Answer = " ";
+                newCategory.Questions[i].Weight = (i + 1) * 100;
+                newCategory.Questions[i].Id = DB_Insert.InsertQuestion(newCategory.Questions[i]);
+            }
+            game.Categories.Add(newCategory);
+        }
+
+        private void bwAddCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            DrawGrids();
+            nudNumCategories.Enabled = true;
+        }
+
+        private void bwRemoveCategory_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if(DB_Delete.DeleteCategory(game.Categories[game.NumCategories].Id) > 0)
+            {
+                game.Categories.RemoveAt(game.NumCategories);
+            }
+        }
+
+        private void bwRemoveCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            DrawGrids();
+            nudNumCategories.Enabled = true;
+        }
+
+        private void bwAddQuestions_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for(int i = 0; i < game.NumCategories; i++)
+            {
+                Question newQuestion = new Question();
+
+                newQuestion.CategoryId = (int)game.Categories[i].Id;
+                newQuestion.Type = "fb";
+                newQuestion.QuestionText = " ";
+                newQuestion.Answer = " ";
+                newQuestion.Weight = (game.NumQuestionsPerCategory) * 100;
+                newQuestion.Id = DB_Insert.InsertQuestion(newQuestion);
+
+                game.Categories[i].Questions.Add(newQuestion);
+            }
+        }
+
+        private void bwAddQuestions_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            CreateQuestionGrid();
+            nudNumQuestionCategory.Enabled = true;
+        }
+
+        private void bwRemoveQuestions_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 0; i < game.NumCategories; i++)
+            {
+                if(DB_Delete.DeleteQuestion(game.Categories[i].Questions[game.NumQuestionsPerCategory].Id) > 0)
+                {
+                    game.Categories[i].Questions.RemoveAt(game.NumQuestionsPerCategory);
+                }
+                else
+                {
+                    MessageBox.Show("failed to delete");
+                }
+            }
+        }
+        
+        private void bwRemoveQuestions_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            CreateQuestionGrid();
+            nudNumQuestionCategory.Enabled = true;
+        }
+
+        private void DisplayNumberQuestions()
         {
             lblNumberQuestions.Text = CalcNumberOfQuestions().ToString();
         }
@@ -104,7 +230,7 @@ namespace Jeopardy
         private void CreateCategoryGrid()
         {
             gbxCategories.Controls.Clear();
-            
+
             int gbxWidth = gbxCategories.Width;
             int gbxHeight = gbxCategories.Height;
 
@@ -156,11 +282,11 @@ namespace Jeopardy
                     break;
                 }
             }
-            
+
             frmEditCategory editCategoryForm = new frmEditCategory(game.Categories[x]);
             DialogResult dialogResult = editCategoryForm.ShowDialog();
 
-            if(dialogResult == DialogResult.OK)
+            if (dialogResult == DialogResult.OK)
             {
                 bwLoadGame.RunWorkerAsync(); //refresh game data and grid
             }
@@ -195,6 +321,7 @@ namespace Jeopardy
                     tmpButton.Text = tmpButton.Tag.ToString();
                     tmpButton.ContextMenuStrip = cmsQuestions;
                     tmpButton.Click += QuestionButton_Click;
+                    tmpButton.MouseEnter += questionButton_MouseHover;
 
                     questionButtons[x, y] = tmpButton; //add button to array
                 }
@@ -205,7 +332,7 @@ namespace Jeopardy
             {
                 for (int j = 0; j < game.NumQuestionsPerCategory && j < game.Categories[i].Questions.Count; j++)
                 {
-                    questionButtons[i, j].Text = game.Categories[i].Questions[j].Weight + "\n" + game.Categories[i].Questions[j].QuestionText;
+                    questionButtons[i, j].Text = game.Categories[i].Questions[j].Weight.ToString() + "\n" + game.Categories[i].Questions[j].QuestionText.Trim();
                 }
             }
 
@@ -215,10 +342,16 @@ namespace Jeopardy
             }
         }
 
+        private void questionButton_MouseHover(object sender, EventArgs e)
+        {
+            Button hoveredButton = (Button)sender;
+            hoveredButton.Focus();
+        }
+
         private void QuestionButton_Click(object sender, EventArgs e)
         {
             Button clickedButton = (Button)sender;
-            
+
             //detect position in button grid
             int x = -1;
             int y = -1;
@@ -235,19 +368,17 @@ namespace Jeopardy
                 }
             }
 
-            //
-
             Question selectedQuestion = game.Categories[x].Questions[y];
             frmEditQuestion editQuestionForm = new frmEditQuestion(selectedQuestion, (int)game.Id, game.Categories[x].Title + " " + game.Categories[x].Subtitle);
 
-            editQuestionForm.ShowDialog();
+            DialogResult dialogResult = editQuestionForm.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                bwLoadGame.RunWorkerAsync(); //refresh game data and grid
+            }
+
         }
-
-        
-
-        
-
-        
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -321,5 +452,7 @@ namespace Jeopardy
                 }
             }
         }
+
+        
     }
 }
