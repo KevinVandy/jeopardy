@@ -64,6 +64,10 @@ namespace Jeopardy
                 {
                     type = value;
                 }
+                else
+                {
+                    type = "fb";
+                }
             }
         }
 
