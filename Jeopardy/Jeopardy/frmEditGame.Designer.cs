@@ -35,13 +35,6 @@
             this.txtGameName = new System.Windows.Forms.TextBox();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.autosaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.exportGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,13 +55,6 @@
             this.lblNumberCategories = new System.Windows.Forms.Label();
             this.nudNumQuestionCategory = new System.Windows.Forms.NumericUpDown();
             this.nudNumCategories = new System.Windows.Forms.NumericUpDown();
-            this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.tsbtnNewGame = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnOpenGame = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnSaveGame = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnSaveGameAs = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbtnTutorial = new System.Windows.Forms.ToolStripButton();
             this.bwLoadGame = new System.ComponentModel.BackgroundWorker();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tslblSaveState = new System.Windows.Forms.ToolStripStatusLabel();
@@ -88,7 +74,6 @@
             this.gbxGameInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumQuestionCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumCategories)).BeginInit();
-            this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.cmsQuestions.SuspendLayout();
             this.cmsCategories.SuspendLayout();
@@ -97,7 +82,7 @@
             // gbxQuestions
             // 
             this.gbxQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxQuestions.Location = new System.Drawing.Point(21, 398);
+            this.gbxQuestions.Location = new System.Drawing.Point(23, 375);
             this.gbxQuestions.Name = "gbxQuestions";
             this.gbxQuestions.Size = new System.Drawing.Size(1005, 496);
             this.gbxQuestions.TabIndex = 30;
@@ -107,7 +92,7 @@
             // gbxCategories
             // 
             this.gbxCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxCategories.Location = new System.Drawing.Point(21, 247);
+            this.gbxCategories.Location = new System.Drawing.Point(23, 224);
             this.gbxCategories.Name = "gbxCategories";
             this.gbxCategories.Size = new System.Drawing.Size(1005, 127);
             this.gbxCategories.TabIndex = 30;
@@ -141,70 +126,19 @@
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1073, 27);
+            this.menuStrip.Size = new System.Drawing.Size(1090, 27);
             this.menuStrip.TabIndex = 33;
             this.menuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newGameToolStripMenuItem,
-            this.openGameToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.autosaveToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem,
-            this.toolStripSeparator5,
             this.exportGameToolStripMenuItem,
             this.toolStripSeparator6,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(41, 23);
             this.fileToolStripMenuItem.Text = "File";
-            // 
-            // newGameToolStripMenuItem
-            // 
-            this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
-            this.newGameToolStripMenuItem.Text = "New Game";
-            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
-            // 
-            // openGameToolStripMenuItem
-            // 
-            this.openGameToolStripMenuItem.Name = "openGameToolStripMenuItem";
-            this.openGameToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
-            this.openGameToolStripMenuItem.Text = "Open Game";
-            this.openGameToolStripMenuItem.Click += new System.EventHandler(this.openGameToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(156, 6);
-            // 
-            // autosaveToolStripMenuItem
-            // 
-            this.autosaveToolStripMenuItem.Checked = true;
-            this.autosaveToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.autosaveToolStripMenuItem.Name = "autosaveToolStripMenuItem";
-            this.autosaveToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
-            this.autosaveToolStripMenuItem.Text = "Autosave";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
-            this.saveToolStripMenuItem.Text = "Save";
-            // 
-            // saveAsToolStripMenuItem
-            // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
-            this.saveAsToolStripMenuItem.Text = "Save As...";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(156, 6);
             // 
             // exportGameToolStripMenuItem
             // 
@@ -272,6 +206,7 @@
             this.cboQuestionTimeLimit.Items.AddRange(new object[] {
             "30 seconds",
             "1 minute",
+            "90 seconds",
             "2 minutes",
             "3 minutes"});
             this.cboQuestionTimeLimit.Location = new System.Drawing.Point(184, 93);
@@ -296,7 +231,7 @@
             this.gbxGameInfo.Controls.Add(this.lblQuestionTimeLimit);
             this.gbxGameInfo.Controls.Add(this.txtGameName);
             this.gbxGameInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxGameInfo.Location = new System.Drawing.Point(21, 78);
+            this.gbxGameInfo.Location = new System.Drawing.Point(23, 55);
             this.gbxGameInfo.MinimumSize = new System.Drawing.Size(1000, 0);
             this.gbxGameInfo.Name = "gbxGameInfo";
             this.gbxGameInfo.Size = new System.Drawing.Size(1005, 163);
@@ -438,77 +373,6 @@
             0});
             this.nudNumCategories.ValueChanged += new System.EventHandler(this.nudNumCategories_ValueChanged);
             // 
-            // toolStrip
-            // 
-            this.toolStrip.AutoSize = false;
-            this.toolStrip.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbtnNewGame,
-            this.tsbtnOpenGame,
-            this.tsbtnSaveGame,
-            this.tsbtnSaveGameAs,
-            this.toolStripSeparator1,
-            this.tsbtnTutorial});
-            this.toolStrip.Location = new System.Drawing.Point(0, 27);
-            this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1073, 35);
-            this.toolStrip.TabIndex = 37;
-            this.toolStrip.Text = "toolStrip1";
-            // 
-            // tsbtnNewGame
-            // 
-            this.tsbtnNewGame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnNewGame.Image = global::Jeopardy.Properties.Resources.NewTable_16x;
-            this.tsbtnNewGame.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnNewGame.Name = "tsbtnNewGame";
-            this.tsbtnNewGame.Size = new System.Drawing.Size(23, 32);
-            this.tsbtnNewGame.Text = "toolStripButton1";
-            this.tsbtnNewGame.ToolTipText = "Create New Game";
-            // 
-            // tsbtnOpenGame
-            // 
-            this.tsbtnOpenGame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnOpenGame.Image = global::Jeopardy.Properties.Resources.OpenfileDialog_16x;
-            this.tsbtnOpenGame.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnOpenGame.Name = "tsbtnOpenGame";
-            this.tsbtnOpenGame.Size = new System.Drawing.Size(23, 32);
-            this.tsbtnOpenGame.Text = "toolStripButton1";
-            this.tsbtnOpenGame.ToolTipText = "Open Game";
-            // 
-            // tsbtnSaveGame
-            // 
-            this.tsbtnSaveGame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnSaveGame.Image = global::Jeopardy.Properties.Resources.Save_16x;
-            this.tsbtnSaveGame.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnSaveGame.Name = "tsbtnSaveGame";
-            this.tsbtnSaveGame.Size = new System.Drawing.Size(23, 32);
-            this.tsbtnSaveGame.Text = "toolStripButton1";
-            this.tsbtnSaveGame.ToolTipText = "Save";
-            // 
-            // tsbtnSaveGameAs
-            // 
-            this.tsbtnSaveGameAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnSaveGameAs.Image = global::Jeopardy.Properties.Resources.SaveAs_16x;
-            this.tsbtnSaveGameAs.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnSaveGameAs.Name = "tsbtnSaveGameAs";
-            this.tsbtnSaveGameAs.Size = new System.Drawing.Size(23, 32);
-            this.tsbtnSaveGameAs.Text = "toolStripButton1";
-            this.tsbtnSaveGameAs.ToolTipText = "Save As";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 35);
-            // 
-            // tsbtnTutorial
-            // 
-            this.tsbtnTutorial.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnTutorial.Image = global::Jeopardy.Properties.Resources.Question_16x;
-            this.tsbtnTutorial.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnTutorial.Name = "tsbtnTutorial";
-            this.tsbtnTutorial.Size = new System.Drawing.Size(23, 32);
-            this.tsbtnTutorial.Text = "toolStripButton1";
-            // 
             // bwLoadGame
             // 
             this.bwLoadGame.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLoadGame_DoWork);
@@ -518,10 +382,10 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslblSaveState});
-            this.statusStrip.Location = new System.Drawing.Point(0, 894);
+            this.statusStrip.Location = new System.Drawing.Point(0, 871);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.ShowItemToolTips = true;
-            this.statusStrip.Size = new System.Drawing.Size(1073, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1090, 22);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 38;
             this.statusStrip.Text = "statusStrip1";
@@ -609,9 +473,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1090, 881);
+            this.ClientSize = new System.Drawing.Size(1107, 881);
             this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.gbxGameInfo);
             this.Controls.Add(this.gbxCategories);
             this.Controls.Add(this.gbxQuestions);
@@ -633,8 +496,6 @@
             this.gbxGameInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumQuestionCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumCategories)).EndInit();
-            this.toolStrip.ResumeLayout(false);
-            this.toolStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.cmsQuestions.ResumeLayout(false);
@@ -651,33 +512,20 @@
         private System.Windows.Forms.TextBox txtGameName;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.Label lblQuestionTimeLimit;
         private System.Windows.Forms.ComboBox cboQuestionTimeLimit;
         private System.Windows.Forms.GroupBox gbxGameInfo;
-        private System.Windows.Forms.ToolStripMenuItem openGameToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip;
-        private System.Windows.Forms.ToolStripButton tsbtnOpenGame;
-        private System.Windows.Forms.ToolStripButton tsbtnSaveGame;
-        private System.Windows.Forms.ToolStripButton tsbtnSaveGameAs;
-        private System.Windows.Forms.ToolStripButton tsbtnNewGame;
-        private System.Windows.Forms.ToolStripButton tsbtnTutorial;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblNumberCategories;
         private System.Windows.Forms.NumericUpDown nudNumQuestionCategory;
         private System.Windows.Forms.NumericUpDown nudNumCategories;
         private System.ComponentModel.BackgroundWorker bwLoadGame;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.Label lblNumberEmptyQuestions;
         private System.Windows.Forms.Label label6;
@@ -685,7 +533,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblNumberQuestions;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem autosaveToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel tslblSaveState;
         private System.Windows.Forms.ContextMenuStrip cmsQuestions;

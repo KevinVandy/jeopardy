@@ -42,7 +42,7 @@ namespace Jeopardy
 
         public static bool ValidateGameTimeLimit(TimeSpan defaultTimeLimit)
         {
-            TimeSpan[] validTimeLimits = new TimeSpan[] { new TimeSpan(0, 0, 30), new TimeSpan(0, 1, 0), new TimeSpan(0, 2, 0), new TimeSpan(0, 3, 0) };
+            TimeSpan[] validTimeLimits = new TimeSpan[] { new TimeSpan(0, 0, 30), new TimeSpan(0, 1, 0), new TimeSpan(0, 1, 30), new TimeSpan(0, 2, 0), new TimeSpan(0, 3, 0) };
             if (validTimeLimits.Contains(defaultTimeLimit))
             {
                 return true;

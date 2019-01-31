@@ -114,9 +114,13 @@ namespace Jeopardy
             }
             else if (questionTimeLimitIndex == 2)
             {
-                questionTimeLimit = new TimeSpan(0, 2, 0);
+                questionTimeLimit = new TimeSpan(0, 1, 30);
             }
             else if (questionTimeLimitIndex == 3)
+            {
+                questionTimeLimit = new TimeSpan(0, 2, 0);
+            }
+            else if (questionTimeLimitIndex == 4)
             {
                 questionTimeLimit = new TimeSpan(0, 3, 0);
             }

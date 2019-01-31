@@ -44,13 +44,17 @@ namespace Jeopardy
             {
                 cboQuestionTimeLimit.SelectedIndex = 1;
             }
-            else if (game.QuestionTimeLimit == new TimeSpan(0, 2, 0))
+            else if (game.QuestionTimeLimit == new TimeSpan(0, 1, 30))
             {
                 cboQuestionTimeLimit.SelectedIndex = 2;
             }
-            else if (game.QuestionTimeLimit == new TimeSpan(0, 3, 0))
+            else if (game.QuestionTimeLimit == new TimeSpan(0, 2, 0))
             {
                 cboQuestionTimeLimit.SelectedIndex = 3;
+            }
+            else if (game.QuestionTimeLimit == new TimeSpan(0, 3, 0))
+            {
+                cboQuestionTimeLimit.SelectedIndex = 4;
             }
         }
 

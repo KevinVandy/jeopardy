@@ -23,29 +23,7 @@ namespace Jeopardy
         {
             cboQuestionTimeLimit.SelectedIndex = 1;
         }
-
-        private void btnCreateGame_Click(object sender, EventArgs e)
-        {
-            string gameName = txtGameName.Text;
-            int numCategories = (int)nudNumCategories.Value;
-            int numQuestionsPerCat = (int)nudNumQuestionCategory.Value;
-            
-            if (ValidateData.ValidateGameName(gameName))
-            {
-                newGame = newGame.CreateGame(gameName,numCategories,numQuestionsPerCat,cboQuestionTimeLimit.SelectedIndex);
-
-                frmEditGame createGameForm = new frmEditGame(newGame);
-                createGameForm.Tag = newGame;
-                this.Hide();
-                createGameForm.ShowDialog();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Invalid Game Name");
-            }
-        }
-
+        
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -73,6 +51,38 @@ namespace Jeopardy
             {
                 lblDefault2.Visible = false;
             }
+        }
+
+        private void btnCreateGame_Click(object sender, EventArgs e)
+        {
+            string gameName = txtGameName.Text;
+            int numCategories = (int)nudNumCategories.Value;
+            int numQuestionsPerCat = (int)nudNumQuestionCategory.Value;
+
+            if (ValidateData.ValidateGameName(gameName))
+            {
+                newGame = newGame.CreateGame(gameName, numCategories, numQuestionsPerCat, cboQuestionTimeLimit.SelectedIndex);
+
+                frmEditGame createGameForm = new frmEditGame(newGame);
+                createGameForm.Tag = newGame;
+                this.Hide();
+                createGameForm.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Game Name");
+            }
+        }
+
+        private void bwCreateGame_DoWork(object sender, DoWorkEventArgs e)
+        {
+            
+        }
+
+        private void bwCreateGame_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
         }
     }
 }
