@@ -156,13 +156,14 @@ namespace Jeopardy
                     {
                         Button tmpButton = new Button();
                         tmpButton.Tag = currentGame.Categories[x].Questions[y]; //send the entire question through the tag
-                        tmpButton.Top = start_x + ((y * buttonHeight) + (y * 3));
-                        tmpButton.Left = start_y + ((x * buttonWidth) + (x * 3));
+                        tmpButton.Top = start_x + ((y * buttonHeight) + (y * 0));
+                        tmpButton.Left = start_y + ((x * buttonWidth) + (x * 0));
                         tmpButton.Width = buttonWidth;
                         tmpButton.Height = buttonHeight;
                         tmpButton.Font = new Font("Stencil", 30);
                         tmpButton.ForeColor = Color.Yellow;
                         tmpButton.BackColor = Color.DarkBlue;
+                        tmpButton.Cursor = new Cursor(Cursor.Handle);
                         tmpButton.Click += button_Click;
 
                         questionButtons[x, y] = tmpButton; //add button to array

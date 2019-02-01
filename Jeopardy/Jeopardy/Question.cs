@@ -126,5 +126,38 @@ namespace Jeopardy
             get => state;
             set => state = value;
         }
+
+        public void DetermineState(string mode)
+        {
+            if(mode == "edit")
+            {
+                if (this.QuestionText.Length <= 1 || this.QuestionText == " ")
+                {
+                    this.State = "no question";
+                }
+                else if (this.QuestionText.Length > 1 && (this.Answer.Length <= 1 || this.Answer == " "))
+                {
+                    this.State = "no answer";
+                }
+                else if (this.QuestionText.Length > 1 && this.Type == "mc") //if is multiple choice
+                {
+                    foreach (Choice ch in this.Choices)
+                    {
+                        if (ch.Text.Length <= 1 || ch.Text == " ")
+                        {
+                            this.State = "no choices";
+                        }
+                    }
+                }
+                else
+                {
+                    this.State = "done";
+                }
+            }
+            else if(mode == "play")
+            {
+                //TODO - Ryan, you can add your own code here
+            }
+        }
     }
 }

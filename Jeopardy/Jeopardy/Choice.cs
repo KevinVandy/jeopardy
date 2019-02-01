@@ -56,6 +56,10 @@ namespace Jeopardy
                 {
                     text = value;
                 }
+                else
+                {
+                    text = " ";
+                }
             }
         }
     }

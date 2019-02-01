@@ -19,12 +19,14 @@ namespace Jeopardy
         public frmEditGame(Game theGame)
         {
             game = theGame;
-
+            
             InitializeComponent();
         }
 
         private void frmCreateGame_Load(object sender, EventArgs e)
         {
+            DetermineQuestionStates();
+
             //figure out diminsions of the grids
             categoryButtons = new Button[game.NumCategories];
             questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
@@ -372,6 +374,9 @@ namespace Jeopardy
                 }
             }
 
+            DetermineQuestionStates();
+            ColorCodeButtons();
+
             //add info to buttons (associate with actual question)
             for (int i = 0; i < game.NumCategories && i < game.Categories.Count; i++)
             {
@@ -444,6 +449,43 @@ namespace Jeopardy
 
 
         //MARK Private Utility Functions
+        private void DetermineQuestionStates()
+        {
+            foreach(Category c in game.Categories)
+            {
+                foreach(Question q in c.Questions)
+                {
+                    q.DetermineState("edit");
+                }
+            }
+        }
+
+        private void ColorCodeButtons()
+        {
+            for(int i = 0; i < game.NumCategories; i++)
+            {
+                for(int j = 0; j < game.NumQuestionsPerCategory; j++)
+                {
+                    if(game.Categories[i].Questions[j].State == "no question")
+                    {
+                        questionButtons[i, j].BackColor = Control.DefaultBackColor;
+                    }
+                    else if(game.Categories[i].Questions[j].State == "no answer")
+                    {
+                        questionButtons[i, j].BackColor = Color.Red;
+                    }
+                    else if (game.Categories[i].Questions[j].State == "no choices")
+                    {
+                        questionButtons[i, j].BackColor = Color.Orange;
+                    }
+                    else if (game.Categories[i].Questions[j].State == "done")
+                    {
+                        questionButtons[i, j].BackColor = Color.LightGreen;
+                    }
+                }
+            }
+        }
+
         private void DisplayNumberQuestions()
         {
             lblNumberQuestions.Text = CalcNumberOfQuestions().ToString();
