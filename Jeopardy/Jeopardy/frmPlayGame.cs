@@ -195,8 +195,11 @@ namespace Jeopardy
             gbxScoreBoard.Left = 0;
             gbxScoreBoard.Width = Width;
 
-            pnlCategories.Width = Width - 70;
-            pnlGameboard.Width = Width - 70;
+            pnlCategories.Left = 0;
+            pnlCategories.Width = Width;
+
+            pnlGameboard.Left = 0;
+            pnlGameboard.Width = Width;
         }
 
         private void ModifyPanelHeights()

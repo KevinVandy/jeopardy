@@ -58,6 +58,7 @@ namespace Jeopardy
 
             //Display Stats
             DisplayNumberQuestions();
+            DisplayNumFinishedQuestions();
 
             //Draw the grids and make sure they take advantage of the screen size
             frmCreateGame_ResizeEnd(sender, e);
@@ -376,6 +377,8 @@ namespace Jeopardy
 
             DetermineQuestionStates();
             ColorCodeButtons();
+            DisplayNumFinishedQuestions();
+            DisplayNumUnfinishedQuestions();
 
             //add info to buttons (associate with actual question)
             for (int i = 0; i < game.NumCategories && i < game.Categories.Count; i++)
@@ -433,7 +436,7 @@ namespace Jeopardy
         //MARK ToolStrip MenuItem Click Event Handlers
         private void exportGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //TODO
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -468,11 +471,11 @@ namespace Jeopardy
                 {
                     if(game.Categories[i].Questions[j].State == "no question")
                     {
-                        questionButtons[i, j].BackColor = Control.DefaultBackColor;
+                        questionButtons[i, j].BackColor = Color.Transparent;
                     }
                     else if(game.Categories[i].Questions[j].State == "no answer")
                     {
-                        questionButtons[i, j].BackColor = Color.Red;
+                        questionButtons[i, j].BackColor = Color.PaleVioletRed;
                     }
                     else if (game.Categories[i].Questions[j].State == "no choices")
                     {
@@ -494,6 +497,37 @@ namespace Jeopardy
         private int CalcNumberOfQuestions()
         {
             return (int)nudNumCategories.Value * (int)nudNumQuestionCategory.Value;
+        }
+
+        private void DisplayNumFinishedQuestions()
+        {
+            lblNumberFinishedQuestions.Text = CalcNumFinishedQuestions().ToString();
+        }
+
+        private int CalcNumFinishedQuestions()
+        {
+            int numFinishedQuestions = 0;
+            foreach (Category c in game.Categories)
+            {
+                foreach (Question q in c.Questions)
+                {
+                    if(q.State == "done")
+                    {
+                        numFinishedQuestions++;
+                    }
+                }
+            }
+            return numFinishedQuestions;
+        }
+
+        private void DisplayNumUnfinishedQuestions()
+        {
+            lblNumberEmptyQuestions.Text = CalcNumUnfinishedQuestions().ToString();
+        }
+
+        private int CalcNumUnfinishedQuestions()
+        {
+            return CalcNumberOfQuestions() - CalcNumFinishedQuestions();
         }
 
         private void ModifyGroupBoxWidths()

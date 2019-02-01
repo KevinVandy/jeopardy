@@ -147,6 +147,10 @@ namespace Jeopardy
                         {
                             this.State = "no choices";
                         }
+                        else
+                        {
+                            this.State = "done";
+                        }
                     }
                 }
                 else

@@ -249,17 +249,17 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(804, 96);
+            this.label6.Location = new System.Drawing.Point(783, 96);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 20);
+            this.label6.Size = new System.Drawing.Size(165, 20);
             this.label6.TabIndex = 44;
-            this.label6.Text = "Empty Questions:";
+            this.label6.Text = "Unfinished Questions:";
             // 
             // lblNumberFinishedQuestions
             // 
             this.lblNumberFinishedQuestions.AutoSize = true;
             this.lblNumberFinishedQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberFinishedQuestions.Location = new System.Drawing.Point(756, 96);
+            this.lblNumberFinishedQuestions.Location = new System.Drawing.Point(738, 96);
             this.lblNumberFinishedQuestions.Name = "lblNumberFinishedQuestions";
             this.lblNumberFinishedQuestions.Size = new System.Drawing.Size(18, 20);
             this.lblNumberFinishedQuestions.TabIndex = 43;
@@ -269,7 +269,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(601, 96);
+            this.label4.Location = new System.Drawing.Point(583, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(149, 20);
             this.label4.TabIndex = 42;
@@ -299,7 +299,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(601, 44);
+            this.label2.Location = new System.Drawing.Point(583, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(259, 20);
             this.label2.TabIndex = 39;
@@ -319,7 +319,7 @@
             // 
             this.nudNumQuestionCategory.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.nudNumQuestionCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudNumQuestionCategory.Location = new System.Drawing.Point(866, 39);
+            this.nudNumQuestionCategory.Location = new System.Drawing.Point(848, 39);
             this.nudNumQuestionCategory.Maximum = new decimal(new int[] {
             8,
             0,

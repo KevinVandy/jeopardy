@@ -49,7 +49,17 @@ namespace Jeopardy
 
         public string Text
         {
-            get => text;
+            get
+            {
+                if (ValidateData.ValidateChoiceText(text))
+                {
+                    return text;
+                }
+                else
+                {
+                    return " ";
+                }
+            }
             set
             {
                 if (ValidateData.ValidateChoiceText(value))
