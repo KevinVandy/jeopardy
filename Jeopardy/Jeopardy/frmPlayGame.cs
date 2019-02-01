@@ -154,7 +154,7 @@ namespace Jeopardy
                     tmpButton.Left = start_y + ((x * buttonWidth) + (x * 5));
                     tmpButton.Width = buttonWidth;
                     tmpButton.Height = buttonHeight;
-                    tmpButton.Text = tmpButton.Tag.ToString();
+                    tmpButton.Font = new Font("Imprint MT Shadow", 30);
                     tmpButton.Click += button_Click;
 
                     questionButtons[x, y] = tmpButton; //add button to array
@@ -182,6 +182,11 @@ namespace Jeopardy
         {
             pnlCategories.Width = Width - 70;
             pnlGameboard.Width = Width - 70;
+        }
+
+        private void ModifyPanelHeights()
+        {
+
         }
 
         private void LoadTeams()

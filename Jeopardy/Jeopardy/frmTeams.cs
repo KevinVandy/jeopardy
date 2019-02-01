@@ -139,6 +139,44 @@ namespace Jeopardy
 
         }
 
-        
+        private void txtFirstTeam_Enter(object sender, EventArgs e)
+        {
+            txtFirstTeam.SelectAll();
+        }
+
+        private void txtSecondTeam_Enter(object sender, EventArgs e)
+        {
+            txtSecondTeam.SelectAll();
+        }
+
+        private void txtThirdTeam_Enter(object sender, EventArgs e)
+        {
+            txtThirdTeam.SelectAll();
+        }
+
+        private void txtFourthTeam_Enter(object sender, EventArgs e)
+        {
+            txtFourthTeam.SelectAll();
+        }
+
+        private void txtFirstTeam_Click(object sender, EventArgs e)
+        {
+            txtFirstTeam.SelectAll();
+        }
+
+        private void txtSecondTeam_Click(object sender, EventArgs e)
+        {
+            txtSecondTeam.SelectAll();
+        }
+
+        private void txtThirdTeam_Click(object sender, EventArgs e)
+        {
+            txtThirdTeam.SelectAll();
+        }
+
+        private void txtFourthTeam_Click(object sender, EventArgs e)
+        {
+            txtFourthTeam.SelectAll();
+        }
     }
 }
