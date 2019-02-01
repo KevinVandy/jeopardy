@@ -16,10 +16,11 @@ namespace Jeopardy
         private int weight;
         private List<Choice> choices;
         private bool dailyDouble;
+        private string state;
 
         public Question() { }
 
-        public Question(int? id, int categoryId, string questionText, string type, string answer, int weight, List<Choice> choices = null, bool dailyDouble = false)
+        public Question(int? id, int categoryId, string questionText, string type, string answer, int weight, string state, List<Choice> choices = null, bool dailyDouble = false)
         {
             this.id = id;
             this.categoryId = categoryId;
@@ -27,6 +28,7 @@ namespace Jeopardy
             this.type = type;
             this.answer = answer;
             this.weight = weight;
+            this.state = state;
             this.choices = choices;
             this.dailyDouble = dailyDouble;
         }
@@ -117,6 +119,12 @@ namespace Jeopardy
         {
             get => dailyDouble;
             set => dailyDouble = value;
+        }
+
+        public string State
+        {
+            get => state;
+            set => state = value;
         }
     }
 }

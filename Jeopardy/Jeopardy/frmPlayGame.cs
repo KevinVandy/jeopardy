@@ -35,14 +35,14 @@ namespace Jeopardy
             LoadTeams();
             ModifyPanelWidths();
             DrawCategories();
-            DrawForm();
+            DrawGameGrid();
         }
 
         private void frmPlayGame_ResizeEnd(object sender, EventArgs e)
         {
             ModifyPanelWidths();
             DrawCategories();
-            DrawForm();
+            DrawGameGrid();
         }
 
         private void button_Click(object sender, EventArgs e)
@@ -80,6 +80,7 @@ namespace Jeopardy
 
             //hide the clicked button
             button.Visible = false;
+            currentQuestion.State = "Answered";
 
             //method to assign score to the right team
             AssignPoints(answeredCorrectly, currentQuestion);
@@ -128,7 +129,7 @@ namespace Jeopardy
             }
         }
 
-        private void DrawForm()
+        private void DrawGameGrid()
         {
             pnlGameboard.Controls.Clear();
 
@@ -148,16 +149,19 @@ namespace Jeopardy
             {
                 for (int y = 0; y < currentGame.NumQuestionsPerCategory; y++)
                 {
-                    Button tmpButton = new Button();
-                    tmpButton.Tag = currentGame.Categories[x].Questions[y]; //send the entire question through the tag
-                    tmpButton.Top = start_x + ((y * buttonHeight) + (y * 5));
-                    tmpButton.Left = start_y + ((x * buttonWidth) + (x * 5));
-                    tmpButton.Width = buttonWidth;
-                    tmpButton.Height = buttonHeight;
-                    tmpButton.Font = new Font("Imprint MT Shadow", 30);
-                    tmpButton.Click += button_Click;
+                    if(currentGame.Categories[x].Questions[y].State != "Answered")
+                    {
+                        Button tmpButton = new Button();
+                        tmpButton.Tag = currentGame.Categories[x].Questions[y]; //send the entire question through the tag
+                        tmpButton.Top = start_x + ((y * buttonHeight) + (y * 5));
+                        tmpButton.Left = start_y + ((x * buttonWidth) + (x * 5));
+                        tmpButton.Width = buttonWidth;
+                        tmpButton.Height = buttonHeight;
+                        tmpButton.Text = tmpButton.Tag.ToString();
+                        tmpButton.Click += button_Click;
 
-                    questionButtons[x, y] = tmpButton; //add button to array
+                        questionButtons[x, y] = tmpButton; //add button to array
+                    }
                 }
             }
 
@@ -166,8 +170,10 @@ namespace Jeopardy
             {
                 for (int j = 0; j < currentGame.NumQuestionsPerCategory && j < currentGame.Categories[i].Questions.Count; j++)
                 {
-                    questionButtons[i, j].Text = currentGame.Categories[i].Questions[j].Weight.ToString();
-                    //currentGame.Categories[i].Questions[j].QuestionText.Trim();
+                    if (currentGame.Categories[i].Questions[j].State != "Answered")
+                    {
+                        questionButtons[i, j].Text = currentGame.Categories[i].Questions[j].Weight.ToString();
+                    }
                 }
             }
 
@@ -182,11 +188,6 @@ namespace Jeopardy
         {
             pnlCategories.Width = Width - 70;
             pnlGameboard.Width = Width - 70;
-        }
-
-        private void ModifyPanelHeights()
-        {
-
         }
 
         private void LoadTeams()
