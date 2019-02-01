@@ -271,6 +271,7 @@
             // 
             // gbxScoreBoard
             // 
+            this.gbxScoreBoard.BackColor = System.Drawing.SystemColors.Control;
             this.gbxScoreBoard.Controls.Add(this.cboQuestionTimeLimit);
             this.gbxScoreBoard.Controls.Add(this.lblQuestionTimeLimit);
             this.gbxScoreBoard.Controls.Add(this.pnlTeamOne);
@@ -314,7 +315,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 766);
+            this.BackColor = System.Drawing.Color.DarkBlue;
+            this.ClientSize = new System.Drawing.Size(1228, 766);
             this.Controls.Add(this.gbxScoreBoard);
             this.Controls.Add(this.pnlCategories);
             this.Controls.Add(this.pnlGameboard);
