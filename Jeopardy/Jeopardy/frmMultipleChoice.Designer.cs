@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMultipleChoice));
             this.lblQuestionText = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.rdoFirstChoice = new System.Windows.Forms.RadioButton();
@@ -112,6 +113,7 @@
             this.Controls.Add(this.rdoFirstChoice);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblQuestionText);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMultipleChoice";
             this.Text = "Jeopardy!";
             this.Load += new System.EventHandler(this.frmMultipleChoice_Load);

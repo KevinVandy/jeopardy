@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditQuestion));
             this.lblCategoryTitle = new System.Windows.Forms.Label();
             this.lblWeight = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -399,6 +400,7 @@
             this.Controls.Add(this.lblWeight);
             this.Controls.Add(this.lblCategoryTitle);
             this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

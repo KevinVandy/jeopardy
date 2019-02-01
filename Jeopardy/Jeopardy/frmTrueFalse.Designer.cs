@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrueFalse));
             this.lblQuestion = new System.Windows.Forms.Label();
             this.btnTrue = new System.Windows.Forms.Button();
             this.btnFalse = new System.Windows.Forms.Button();
@@ -88,6 +89,7 @@
             this.Controls.Add(this.btnTrue);
             this.Controls.Add(this.lblQuestion);
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmTrueFalse";
             this.Text = "True or False";
             this.Load += new System.EventHandler(this.frmTrueFalse_Load);

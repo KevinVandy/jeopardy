@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFillInTheBlank));
             this.lblQuestionText = new System.Windows.Forms.Label();
             this.lblAnswer = new System.Windows.Forms.Label();
             this.txtUserAnswer = new System.Windows.Forms.TextBox();
@@ -40,9 +41,10 @@
             // 
             this.lblQuestionText.AutoSize = true;
             this.lblQuestionText.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestionText.Location = new System.Drawing.Point(46, 9);
+            this.lblQuestionText.Location = new System.Drawing.Point(34, 7);
+            this.lblQuestionText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuestionText.Name = "lblQuestionText";
-            this.lblQuestionText.Size = new System.Drawing.Size(99, 32);
+            this.lblQuestionText.Size = new System.Drawing.Size(76, 26);
             this.lblQuestionText.TabIndex = 0;
             this.lblQuestionText.Text = "label1";
             // 
@@ -50,28 +52,31 @@
             // 
             this.lblAnswer.AutoSize = true;
             this.lblAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAnswer.Location = new System.Drawing.Point(13, 218);
+            this.lblAnswer.Location = new System.Drawing.Point(10, 177);
+            this.lblAnswer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAnswer.Name = "lblAnswer";
-            this.lblAnswer.Size = new System.Drawing.Size(132, 32);
+            this.lblAnswer.Size = new System.Drawing.Size(104, 26);
             this.lblAnswer.TabIndex = 1;
             this.lblAnswer.Text = "Answer?";
             // 
             // txtUserAnswer
             // 
             this.txtUserAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserAnswer.Location = new System.Drawing.Point(312, 202);
+            this.txtUserAnswer.Location = new System.Drawing.Point(234, 164);
+            this.txtUserAnswer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtUserAnswer.Multiline = true;
             this.txtUserAnswer.Name = "txtUserAnswer";
-            this.txtUserAnswer.Size = new System.Drawing.Size(476, 48);
+            this.txtUserAnswer.Size = new System.Drawing.Size(358, 40);
             this.txtUserAnswer.TabIndex = 2;
             // 
             // lblCorrectAnswer
             // 
             this.lblCorrectAnswer.AutoSize = true;
             this.lblCorrectAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorrectAnswer.Location = new System.Drawing.Point(13, 287);
+            this.lblCorrectAnswer.Location = new System.Drawing.Point(10, 233);
+            this.lblCorrectAnswer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCorrectAnswer.Name = "lblCorrectAnswer";
-            this.lblCorrectAnswer.Size = new System.Drawing.Size(231, 32);
+            this.lblCorrectAnswer.Size = new System.Drawing.Size(183, 26);
             this.lblCorrectAnswer.TabIndex = 3;
             this.lblCorrectAnswer.Text = "Correct Answer:";
             // 
@@ -79,19 +84,21 @@
             // 
             this.txtCorrectAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorrectAnswer.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtCorrectAnswer.Location = new System.Drawing.Point(312, 271);
+            this.txtCorrectAnswer.Location = new System.Drawing.Point(234, 220);
+            this.txtCorrectAnswer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCorrectAnswer.Multiline = true;
             this.txtCorrectAnswer.Name = "txtCorrectAnswer";
             this.txtCorrectAnswer.ReadOnly = true;
-            this.txtCorrectAnswer.Size = new System.Drawing.Size(476, 48);
+            this.txtCorrectAnswer.Size = new System.Drawing.Size(358, 40);
             this.txtCorrectAnswer.TabIndex = 4;
             // 
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(268, 356);
+            this.btnSubmit.Location = new System.Drawing.Point(201, 289);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(264, 82);
+            this.btnSubmit.Size = new System.Drawing.Size(198, 67);
             this.btnSubmit.TabIndex = 5;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -100,15 +107,17 @@
             // frmFillInTheBlank
             // 
             this.AcceptButton = this.btnSubmit;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtCorrectAnswer);
             this.Controls.Add(this.lblCorrectAnswer);
             this.Controls.Add(this.txtUserAnswer);
             this.Controls.Add(this.lblAnswer);
             this.Controls.Add(this.lblQuestionText);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmFillInTheBlank";
             this.Text = "Jeopardy!";
             this.Load += new System.EventHandler(this.frmFillInTheBlank_Load);

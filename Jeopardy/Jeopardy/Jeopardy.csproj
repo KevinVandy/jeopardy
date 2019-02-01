@@ -234,6 +234,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="icon.ico" />
+    <Content Include="j-logo.ico" />
     <None Include="Resources\Question_16x.png" />
     <None Include="Resources\Export_16x.png" />
     <None Include="Resources\Import_16x.png" />

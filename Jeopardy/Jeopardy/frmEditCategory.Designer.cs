@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditCategory));
             this.lblCategoryTitle = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.txtSubtitle = new System.Windows.Forms.TextBox();
@@ -36,10 +37,10 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importCategoryFromOtherGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importCategoryFromOtherGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,6 +123,13 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 25);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // importCategoryFromOtherGameToolStripMenuItem
+            // 
+            this.importCategoryFromOtherGameToolStripMenuItem.Name = "importCategoryFromOtherGameToolStripMenuItem";
+            this.importCategoryFromOtherGameToolStripMenuItem.Size = new System.Drawing.Size(324, 26);
+            this.importCategoryFromOtherGameToolStripMenuItem.Text = "Import Category From Other Game";
+            this.importCategoryFromOtherGameToolStripMenuItem.Click += new System.EventHandler(this.importCategoryFromOtherGameToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -134,21 +142,14 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // tutorialToolStripMenuItem
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
-            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
-            // 
-            // importCategoryFromOtherGameToolStripMenuItem
-            // 
-            this.importCategoryFromOtherGameToolStripMenuItem.Name = "importCategoryFromOtherGameToolStripMenuItem";
-            this.importCategoryFromOtherGameToolStripMenuItem.Size = new System.Drawing.Size(324, 26);
-            this.importCategoryFromOtherGameToolStripMenuItem.Text = "Import Category From Other Game";
-            this.importCategoryFromOtherGameToolStripMenuItem.Click += new System.EventHandler(this.importCategoryFromOtherGameToolStripMenuItem_Click);
             // 
             // frmEditCategory
             // 
@@ -165,6 +166,7 @@
             this.Controls.Add(this.lblCategoryTitle);
             this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

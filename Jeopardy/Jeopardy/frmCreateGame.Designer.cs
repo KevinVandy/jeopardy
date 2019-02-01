@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateGame));
             this.label2 = new System.Windows.Forms.Label();
             this.lblNumberCategories = new System.Windows.Forms.Label();
             this.nudNumQuestionCategory = new System.Windows.Forms.NumericUpDown();
@@ -247,6 +248,7 @@
             this.Controls.Add(this.lblQuestionTimeLimit);
             this.Controls.Add(this.txtGameName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCreateGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmCreateGameStart";

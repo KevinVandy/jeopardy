@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTeams));
             this.label1 = new System.Windows.Forms.Label();
             this.nudNumberOfTeams = new System.Windows.Forms.NumericUpDown();
             this.pnlFirstTeam = new System.Windows.Forms.Panel();
@@ -246,6 +247,7 @@
             this.Controls.Add(this.pnlFirstTeam);
             this.Controls.Add(this.nudNumberOfTeams);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmTeams";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Team Information";

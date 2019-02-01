@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHelp));
             this.okButton = new System.Windows.Forms.Button();
             this.lblPlay = new System.Windows.Forms.Label();
             this.lblCreate = new System.Windows.Forms.Label();
@@ -115,6 +116,7 @@
             this.Controls.Add(this.lblCreate);
             this.Controls.Add(this.lblPlay);
             this.Controls.Add(this.okButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmHelp";
             this.Text = "frmHelp";
             this.ResumeLayout(false);

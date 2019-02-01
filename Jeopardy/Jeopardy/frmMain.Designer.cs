@@ -28,13 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.btnCreateGame = new System.Windows.Forms.Button();
             this.btnPlayGame = new System.Windows.Forms.Button();
             this.lstGamesFromDB = new System.Windows.Forms.ListBox();
             this.lblGames = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.importGameFromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportGameToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,12 +51,6 @@
             this.bwLoadGames = new System.ComponentModel.BackgroundWorker();
             this.btnExportGame = new System.Windows.Forms.Button();
             this.btnImportGame = new System.Windows.Forms.Button();
-            this.exportGameToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.editGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,12 +124,50 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(41, 23);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // newGameToolStripMenuItem
+            // 
+            this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.newGameToolStripMenuItem.Text = "New Game";
+            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
+            // 
+            // editGameToolStripMenuItem
+            // 
+            this.editGameToolStripMenuItem.Name = "editGameToolStripMenuItem";
+            this.editGameToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.editGameToolStripMenuItem.Text = "Edit Game";
+            this.editGameToolStripMenuItem.Click += new System.EventHandler(this.editGameToolStripMenuItem_Click);
+            // 
+            // deleteGameToolStripMenuItem
+            // 
+            this.deleteGameToolStripMenuItem.Name = "deleteGameToolStripMenuItem";
+            this.deleteGameToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.deleteGameToolStripMenuItem.Text = "Delete Game";
+            this.deleteGameToolStripMenuItem.Click += new System.EventHandler(this.deleteGameToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(217, 6);
+            // 
             // importGameFromFileToolStripMenuItem
             // 
             this.importGameFromFileToolStripMenuItem.Name = "importGameFromFileToolStripMenuItem";
             this.importGameFromFileToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
             this.importGameFromFileToolStripMenuItem.Text = "Import Game From File";
             this.importGameFromFileToolStripMenuItem.Click += new System.EventHandler(this.importGameFromFileToolStripMenuItem_Click);
+            // 
+            // exportGameToFileToolStripMenuItem
+            // 
+            this.exportGameToFileToolStripMenuItem.Name = "exportGameToFileToolStripMenuItem";
+            this.exportGameToFileToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.exportGameToFileToolStripMenuItem.Text = "Export Game To File";
+            this.exportGameToFileToolStripMenuItem.Click += new System.EventHandler(this.exportGameToFileToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(217, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -149,14 +188,14 @@
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(116, 24);
             this.helpToolStripMenuItem1.Text = "About";
             this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
             // 
             // helpToolStripMenuItem2
             // 
             this.helpToolStripMenuItem2.Name = "helpToolStripMenuItem2";
-            this.helpToolStripMenuItem2.Size = new System.Drawing.Size(180, 24);
+            this.helpToolStripMenuItem2.Size = new System.Drawing.Size(116, 24);
             this.helpToolStripMenuItem2.Text = "Help";
             this.helpToolStripMenuItem2.Click += new System.EventHandler(this.helpToolStripMenuItem2_Click);
             // 
@@ -209,44 +248,6 @@
             this.btnImportGame.UseVisualStyleBackColor = true;
             this.btnImportGame.Click += new System.EventHandler(this.btnImportGame_Click);
             // 
-            // exportGameToFileToolStripMenuItem
-            // 
-            this.exportGameToFileToolStripMenuItem.Name = "exportGameToFileToolStripMenuItem";
-            this.exportGameToFileToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
-            this.exportGameToFileToolStripMenuItem.Text = "Export Game To File";
-            this.exportGameToFileToolStripMenuItem.Click += new System.EventHandler(this.exportGameToFileToolStripMenuItem_Click);
-            // 
-            // newGameToolStripMenuItem
-            // 
-            this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
-            this.newGameToolStripMenuItem.Text = "New Game";
-            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(217, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(217, 6);
-            // 
-            // editGameToolStripMenuItem
-            // 
-            this.editGameToolStripMenuItem.Name = "editGameToolStripMenuItem";
-            this.editGameToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
-            this.editGameToolStripMenuItem.Text = "Edit Game";
-            this.editGameToolStripMenuItem.Click += new System.EventHandler(this.editGameToolStripMenuItem_Click);
-            // 
-            // deleteGameToolStripMenuItem
-            // 
-            this.deleteGameToolStripMenuItem.Name = "deleteGameToolStripMenuItem";
-            this.deleteGameToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
-            this.deleteGameToolStripMenuItem.Text = "Delete Game";
-            this.deleteGameToolStripMenuItem.Click += new System.EventHandler(this.deleteGameToolStripMenuItem_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,6 +262,7 @@
             this.Controls.Add(this.btnPlayGame);
             this.Controls.Add(this.btnCreateGame);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "frmMain";

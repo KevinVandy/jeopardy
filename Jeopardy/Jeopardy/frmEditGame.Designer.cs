@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditGame));
             this.gbxQuestions = new System.Windows.Forms.GroupBox();
             this.gbxCategories = new System.Windows.Forms.GroupBox();
             this.lblGameName = new System.Windows.Forms.Label();
@@ -480,6 +481,7 @@
             this.Controls.Add(this.gbxCategories);
             this.Controls.Add(this.gbxQuestions);
             this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(360, 240);

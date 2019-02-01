@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmImportCategory));
             this.lstGames = new System.Windows.Forms.ListBox();
             this.cbxQuestions = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -160,6 +161,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxQuestions);
             this.Controls.Add(this.lstGames);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmImportCategory";
             this.Text = "frmImportCategory";
             this.Load += new System.EventHandler(this.frmImportCategory_Load);
