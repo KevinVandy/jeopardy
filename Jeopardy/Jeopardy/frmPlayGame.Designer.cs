@@ -58,6 +58,7 @@
             // 
             // pnlGameboard
             // 
+            this.pnlGameboard.BackColor = System.Drawing.Color.DarkBlue;
             this.pnlGameboard.Location = new System.Drawing.Point(28, 260);
             this.pnlGameboard.Name = "pnlGameboard";
             this.pnlGameboard.Size = new System.Drawing.Size(1182, 425);
@@ -65,6 +66,7 @@
             // 
             // pnlCategories
             // 
+            this.pnlCategories.BackColor = System.Drawing.Color.DarkBlue;
             this.pnlCategories.Location = new System.Drawing.Point(28, 155);
             this.pnlCategories.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlCategories.Name = "pnlCategories";
@@ -312,7 +314,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1222, 766);
             this.Controls.Add(this.gbxScoreBoard);
             this.Controls.Add(this.pnlCategories);

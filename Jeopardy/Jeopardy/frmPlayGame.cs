@@ -121,6 +121,7 @@ namespace Jeopardy
                     tmpLabel.Text = currentGame.Categories[y].Title + '\n' + currentGame.Categories[y].Subtitle;
                     tmpLabel.TextAlign = ContentAlignment.MiddleCenter;
                     tmpLabel.Font = new Font("Arial", 18, FontStyle.Bold);
+                    tmpLabel.ForeColor = Color.Yellow;
                     LabelList.Add(tmpLabel);
                 }
             }
