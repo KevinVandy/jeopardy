@@ -68,7 +68,7 @@
             // 
             this.pnlCategories.BackColor = System.Drawing.Color.DarkBlue;
             this.pnlCategories.Location = new System.Drawing.Point(0, 125);
-            this.pnlCategories.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlCategories.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCategories.Name = "pnlCategories";
             this.pnlCategories.Size = new System.Drawing.Size(1182, 100);
             this.pnlCategories.TabIndex = 1;
@@ -78,7 +78,7 @@
             this.pnlTeamOne.Controls.Add(this.nudTeamOne);
             this.pnlTeamOne.Controls.Add(this.lblTeamOne);
             this.pnlTeamOne.Location = new System.Drawing.Point(192, 7);
-            this.pnlTeamOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlTeamOne.Margin = new System.Windows.Forms.Padding(2);
             this.pnlTeamOne.Name = "pnlTeamOne";
             this.pnlTeamOne.Size = new System.Drawing.Size(246, 113);
             this.pnlTeamOne.TabIndex = 2;
@@ -93,7 +93,7 @@
             0,
             0});
             this.nudTeamOne.Location = new System.Drawing.Point(156, 79);
-            this.nudTeamOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudTeamOne.Margin = new System.Windows.Forms.Padding(2);
             this.nudTeamOne.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -127,7 +127,7 @@
             this.pnlTeamTwo.Controls.Add(this.nudTeamTwo);
             this.pnlTeamTwo.Controls.Add(this.lblTeamTwo);
             this.pnlTeamTwo.Location = new System.Drawing.Point(440, 7);
-            this.pnlTeamTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlTeamTwo.Margin = new System.Windows.Forms.Padding(2);
             this.pnlTeamTwo.Name = "pnlTeamTwo";
             this.pnlTeamTwo.Size = new System.Drawing.Size(246, 113);
             this.pnlTeamTwo.TabIndex = 3;
@@ -142,7 +142,7 @@
             0,
             0});
             this.nudTeamTwo.Location = new System.Drawing.Point(156, 79);
-            this.nudTeamTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudTeamTwo.Margin = new System.Windows.Forms.Padding(2);
             this.nudTeamTwo.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -176,7 +176,7 @@
             this.pnlTeamThree.Controls.Add(this.nudTeamThree);
             this.pnlTeamThree.Controls.Add(this.lblTeamThree);
             this.pnlTeamThree.Location = new System.Drawing.Point(688, 7);
-            this.pnlTeamThree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlTeamThree.Margin = new System.Windows.Forms.Padding(2);
             this.pnlTeamThree.Name = "pnlTeamThree";
             this.pnlTeamThree.Size = new System.Drawing.Size(246, 113);
             this.pnlTeamThree.TabIndex = 4;
@@ -191,7 +191,7 @@
             0,
             0});
             this.nudTeamThree.Location = new System.Drawing.Point(154, 79);
-            this.nudTeamThree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudTeamThree.Margin = new System.Windows.Forms.Padding(2);
             this.nudTeamThree.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -225,7 +225,7 @@
             this.pnlTeamFour.Controls.Add(this.nudTeamFour);
             this.pnlTeamFour.Controls.Add(this.lblTeamFour);
             this.pnlTeamFour.Location = new System.Drawing.Point(936, 7);
-            this.pnlTeamFour.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlTeamFour.Margin = new System.Windows.Forms.Padding(2);
             this.pnlTeamFour.Name = "pnlTeamFour";
             this.pnlTeamFour.Size = new System.Drawing.Size(246, 113);
             this.pnlTeamFour.TabIndex = 5;
@@ -240,7 +240,7 @@
             0,
             0});
             this.nudTeamFour.Location = new System.Drawing.Point(154, 79);
-            this.nudTeamFour.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudTeamFour.Margin = new System.Windows.Forms.Padding(2);
             this.nudTeamFour.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -324,6 +324,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Jeopardy!";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPlayGame_FormClosing);
             this.Load += new System.EventHandler(this.frmPlayGame_Load);
             this.ResizeEnd += new System.EventHandler(this.frmPlayGame_ResizeEnd);
             this.pnlTeamOne.ResumeLayout(false);

@@ -333,5 +333,17 @@ namespace Jeopardy
                 }
             }
         }
+
+        private void frmPlayGame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Resets all the questions' statuses if the game is closed
+            foreach(Category c in currentGame.Categories)
+            {
+                foreach(Question q in c.Questions)
+                {
+                    q.State = "";
+                }
+            }
+        }
     }
 }
