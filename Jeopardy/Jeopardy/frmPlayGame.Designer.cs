@@ -326,6 +326,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Jeopardy!";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPlayGame_FormClosing);
             this.Load += new System.EventHandler(this.frmPlayGame_Load);
             this.ResizeEnd += new System.EventHandler(this.frmPlayGame_ResizeEnd);
             this.pnlTeamOne.ResumeLayout(false);
