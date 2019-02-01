@@ -59,7 +59,7 @@
             // pnlGameboard
             // 
             this.pnlGameboard.BackColor = System.Drawing.Color.DarkBlue;
-            this.pnlGameboard.Location = new System.Drawing.Point(28, 260);
+            this.pnlGameboard.Location = new System.Drawing.Point(0, 230);
             this.pnlGameboard.Name = "pnlGameboard";
             this.pnlGameboard.Size = new System.Drawing.Size(1182, 425);
             this.pnlGameboard.TabIndex = 0;
@@ -67,7 +67,7 @@
             // pnlCategories
             // 
             this.pnlCategories.BackColor = System.Drawing.Color.DarkBlue;
-            this.pnlCategories.Location = new System.Drawing.Point(28, 155);
+            this.pnlCategories.Location = new System.Drawing.Point(0, 125);
             this.pnlCategories.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlCategories.Name = "pnlCategories";
             this.pnlCategories.Size = new System.Drawing.Size(1182, 100);
@@ -278,12 +278,11 @@
             this.gbxScoreBoard.Controls.Add(this.pnlTeamFour);
             this.gbxScoreBoard.Controls.Add(this.pnlTeamTwo);
             this.gbxScoreBoard.Controls.Add(this.pnlTeamThree);
-            this.gbxScoreBoard.Location = new System.Drawing.Point(28, 30);
+            this.gbxScoreBoard.Location = new System.Drawing.Point(0, 0);
             this.gbxScoreBoard.Name = "gbxScoreBoard";
             this.gbxScoreBoard.Size = new System.Drawing.Size(1182, 120);
             this.gbxScoreBoard.TabIndex = 2;
             this.gbxScoreBoard.TabStop = false;
-            this.gbxScoreBoard.Text = "Score Board";
             // 
             // cboQuestionTimeLimit
             // 
