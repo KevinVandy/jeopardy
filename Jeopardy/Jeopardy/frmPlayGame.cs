@@ -34,6 +34,7 @@ namespace Jeopardy
         {
             LoadTeams();
             ModifyPanelWidths();
+            ModifyPanelHeights();
             DrawCategories();
             DrawGameGrid();
         }
@@ -41,6 +42,7 @@ namespace Jeopardy
         private void frmPlayGame_ResizeEnd(object sender, EventArgs e)
         {
             ModifyPanelWidths();
+            ModifyPanelHeights();
             DrawCategories();
             DrawGameGrid();
         }
@@ -188,14 +190,21 @@ namespace Jeopardy
 
         private void ModifyPanelWidths()
         {
+            gbxScoreBoard.Width = Width - 70;
             pnlCategories.Width = Width - 70;
             pnlGameboard.Width = Width - 70;
         }
 
         private void ModifyPanelHeights()
         {
-            pnlCategories.Top = 20;
-            pnlCategories.Height = 143;
+            gbxScoreBoard.Top = 20;
+            gbxScoreBoard.Height = 120;
+
+            pnlCategories.Top = gbxScoreBoard.Top + gbxScoreBoard.Height;
+            pnlCategories.Height = 100;
+
+            pnlGameboard.Top = pnlCategories.Top + pnlCategories.Height;
+            pnlGameboard.Height = this.Height - pnlGameboard.Top - 50;
         }
 
         private void LoadTeams()

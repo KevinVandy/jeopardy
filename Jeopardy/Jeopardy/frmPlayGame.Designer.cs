@@ -42,6 +42,9 @@
             this.pnlTeamFour = new System.Windows.Forms.Panel();
             this.nudTeamFour = new System.Windows.Forms.NumericUpDown();
             this.lblTeamFour = new System.Windows.Forms.Label();
+            this.gbxScoreBoard = new System.Windows.Forms.GroupBox();
+            this.cboQuestionTimeLimit = new System.Windows.Forms.ComboBox();
+            this.lblQuestionTimeLimit = new System.Windows.Forms.Label();
             this.pnlTeamOne.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTeamOne)).BeginInit();
             this.pnlTeamTwo.SuspendLayout();
@@ -50,30 +53,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudTeamThree)).BeginInit();
             this.pnlTeamFour.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTeamFour)).BeginInit();
+            this.gbxScoreBoard.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlGameboard
             // 
-            this.pnlGameboard.Location = new System.Drawing.Point(30, 211);
-            this.pnlGameboard.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlGameboard.Location = new System.Drawing.Point(28, 260);
             this.pnlGameboard.Name = "pnlGameboard";
-            this.pnlGameboard.Size = new System.Drawing.Size(1033, 523);
+            this.pnlGameboard.Size = new System.Drawing.Size(1182, 425);
             this.pnlGameboard.TabIndex = 0;
             // 
             // pnlCategories
             // 
-            this.pnlCategories.Location = new System.Drawing.Point(30, 13);
+            this.pnlCategories.Location = new System.Drawing.Point(28, 155);
+            this.pnlCategories.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlCategories.Name = "pnlCategories";
-            this.pnlCategories.Size = new System.Drawing.Size(1033, 176);
+            this.pnlCategories.Size = new System.Drawing.Size(1182, 100);
             this.pnlCategories.TabIndex = 1;
             // 
             // pnlTeamOne
             // 
             this.pnlTeamOne.Controls.Add(this.nudTeamOne);
             this.pnlTeamOne.Controls.Add(this.lblTeamOne);
-            this.pnlTeamOne.Location = new System.Drawing.Point(74, 741);
+            this.pnlTeamOne.Location = new System.Drawing.Point(192, 7);
+            this.pnlTeamOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlTeamOne.Name = "pnlTeamOne";
-            this.pnlTeamOne.Size = new System.Drawing.Size(202, 123);
+            this.pnlTeamOne.Size = new System.Drawing.Size(246, 113);
             this.pnlTeamOne.TabIndex = 2;
             this.pnlTeamOne.Visible = false;
             // 
@@ -85,7 +90,8 @@
             0,
             0,
             0});
-            this.nudTeamOne.Location = new System.Drawing.Point(46, 81);
+            this.nudTeamOne.Location = new System.Drawing.Point(156, 79);
+            this.nudTeamOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudTeamOne.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -98,7 +104,7 @@
             -2147483648});
             this.nudTeamOne.Name = "nudTeamOne";
             this.nudTeamOne.ReadOnly = true;
-            this.nudTeamOne.Size = new System.Drawing.Size(120, 38);
+            this.nudTeamOne.Size = new System.Drawing.Size(90, 32);
             this.nudTeamOne.TabIndex = 1;
             this.nudTeamOne.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudTeamOne.ThousandsSeparator = true;
@@ -106,20 +112,22 @@
             // lblTeamOne
             // 
             this.lblTeamOne.AutoSize = true;
-            this.lblTeamOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeamOne.Location = new System.Drawing.Point(3, 9);
+            this.lblTeamOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeamOne.Location = new System.Drawing.Point(2, 7);
+            this.lblTeamOne.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTeamOne.Name = "lblTeamOne";
-            this.lblTeamOne.Size = new System.Drawing.Size(52, 17);
+            this.lblTeamOne.Size = new System.Drawing.Size(91, 26);
             this.lblTeamOne.TabIndex = 0;
-            this.lblTeamOne.Text = "label1";
+            this.lblTeamOne.Text = "Team 1";
             // 
             // pnlTeamTwo
             // 
             this.pnlTeamTwo.Controls.Add(this.nudTeamTwo);
             this.pnlTeamTwo.Controls.Add(this.lblTeamTwo);
-            this.pnlTeamTwo.Location = new System.Drawing.Point(324, 741);
+            this.pnlTeamTwo.Location = new System.Drawing.Point(440, 7);
+            this.pnlTeamTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlTeamTwo.Name = "pnlTeamTwo";
-            this.pnlTeamTwo.Size = new System.Drawing.Size(202, 123);
+            this.pnlTeamTwo.Size = new System.Drawing.Size(246, 113);
             this.pnlTeamTwo.TabIndex = 3;
             this.pnlTeamTwo.Visible = false;
             // 
@@ -131,7 +139,8 @@
             0,
             0,
             0});
-            this.nudTeamTwo.Location = new System.Drawing.Point(46, 81);
+            this.nudTeamTwo.Location = new System.Drawing.Point(156, 79);
+            this.nudTeamTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudTeamTwo.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -144,7 +153,7 @@
             -2147483648});
             this.nudTeamTwo.Name = "nudTeamTwo";
             this.nudTeamTwo.ReadOnly = true;
-            this.nudTeamTwo.Size = new System.Drawing.Size(120, 38);
+            this.nudTeamTwo.Size = new System.Drawing.Size(90, 32);
             this.nudTeamTwo.TabIndex = 1;
             this.nudTeamTwo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudTeamTwo.ThousandsSeparator = true;
@@ -152,20 +161,22 @@
             // lblTeamTwo
             // 
             this.lblTeamTwo.AutoSize = true;
-            this.lblTeamTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeamTwo.Location = new System.Drawing.Point(3, 9);
+            this.lblTeamTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeamTwo.Location = new System.Drawing.Point(2, 7);
+            this.lblTeamTwo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTeamTwo.Name = "lblTeamTwo";
-            this.lblTeamTwo.Size = new System.Drawing.Size(52, 17);
+            this.lblTeamTwo.Size = new System.Drawing.Size(91, 26);
             this.lblTeamTwo.TabIndex = 0;
-            this.lblTeamTwo.Text = "label1";
+            this.lblTeamTwo.Text = "Team 2";
             // 
             // pnlTeamThree
             // 
             this.pnlTeamThree.Controls.Add(this.nudTeamThree);
             this.pnlTeamThree.Controls.Add(this.lblTeamThree);
-            this.pnlTeamThree.Location = new System.Drawing.Point(574, 741);
+            this.pnlTeamThree.Location = new System.Drawing.Point(688, 7);
+            this.pnlTeamThree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlTeamThree.Name = "pnlTeamThree";
-            this.pnlTeamThree.Size = new System.Drawing.Size(202, 123);
+            this.pnlTeamThree.Size = new System.Drawing.Size(246, 113);
             this.pnlTeamThree.TabIndex = 4;
             this.pnlTeamThree.Visible = false;
             // 
@@ -177,7 +188,8 @@
             0,
             0,
             0});
-            this.nudTeamThree.Location = new System.Drawing.Point(46, 81);
+            this.nudTeamThree.Location = new System.Drawing.Point(154, 79);
+            this.nudTeamThree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudTeamThree.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -190,7 +202,7 @@
             -2147483648});
             this.nudTeamThree.Name = "nudTeamThree";
             this.nudTeamThree.ReadOnly = true;
-            this.nudTeamThree.Size = new System.Drawing.Size(120, 38);
+            this.nudTeamThree.Size = new System.Drawing.Size(90, 32);
             this.nudTeamThree.TabIndex = 1;
             this.nudTeamThree.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudTeamThree.ThousandsSeparator = true;
@@ -198,20 +210,22 @@
             // lblTeamThree
             // 
             this.lblTeamThree.AutoSize = true;
-            this.lblTeamThree.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeamThree.Location = new System.Drawing.Point(3, 9);
+            this.lblTeamThree.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeamThree.Location = new System.Drawing.Point(2, 7);
+            this.lblTeamThree.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTeamThree.Name = "lblTeamThree";
-            this.lblTeamThree.Size = new System.Drawing.Size(52, 17);
+            this.lblTeamThree.Size = new System.Drawing.Size(91, 26);
             this.lblTeamThree.TabIndex = 0;
-            this.lblTeamThree.Text = "label1";
+            this.lblTeamThree.Text = "Team 3";
             // 
             // pnlTeamFour
             // 
             this.pnlTeamFour.Controls.Add(this.nudTeamFour);
             this.pnlTeamFour.Controls.Add(this.lblTeamFour);
-            this.pnlTeamFour.Location = new System.Drawing.Point(824, 741);
+            this.pnlTeamFour.Location = new System.Drawing.Point(936, 7);
+            this.pnlTeamFour.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlTeamFour.Name = "pnlTeamFour";
-            this.pnlTeamFour.Size = new System.Drawing.Size(202, 123);
+            this.pnlTeamFour.Size = new System.Drawing.Size(246, 113);
             this.pnlTeamFour.TabIndex = 5;
             this.pnlTeamFour.Visible = false;
             // 
@@ -223,7 +237,8 @@
             0,
             0,
             0});
-            this.nudTeamFour.Location = new System.Drawing.Point(46, 81);
+            this.nudTeamFour.Location = new System.Drawing.Point(154, 79);
+            this.nudTeamFour.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudTeamFour.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -236,7 +251,7 @@
             -2147483648});
             this.nudTeamFour.Name = "nudTeamFour";
             this.nudTeamFour.ReadOnly = true;
-            this.nudTeamFour.Size = new System.Drawing.Size(120, 38);
+            this.nudTeamFour.Size = new System.Drawing.Size(90, 32);
             this.nudTeamFour.TabIndex = 1;
             this.nudTeamFour.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudTeamFour.ThousandsSeparator = true;
@@ -244,26 +259,64 @@
             // lblTeamFour
             // 
             this.lblTeamFour.AutoSize = true;
-            this.lblTeamFour.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeamFour.Location = new System.Drawing.Point(3, 9);
+            this.lblTeamFour.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeamFour.Location = new System.Drawing.Point(2, 7);
+            this.lblTeamFour.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTeamFour.Name = "lblTeamFour";
-            this.lblTeamFour.Size = new System.Drawing.Size(52, 17);
+            this.lblTeamFour.Size = new System.Drawing.Size(91, 26);
             this.lblTeamFour.TabIndex = 0;
-            this.lblTeamFour.Text = "label1";
+            this.lblTeamFour.Text = "Team 4";
+            // 
+            // gbxScoreBoard
+            // 
+            this.gbxScoreBoard.Controls.Add(this.cboQuestionTimeLimit);
+            this.gbxScoreBoard.Controls.Add(this.lblQuestionTimeLimit);
+            this.gbxScoreBoard.Controls.Add(this.pnlTeamOne);
+            this.gbxScoreBoard.Controls.Add(this.pnlTeamFour);
+            this.gbxScoreBoard.Controls.Add(this.pnlTeamTwo);
+            this.gbxScoreBoard.Controls.Add(this.pnlTeamThree);
+            this.gbxScoreBoard.Location = new System.Drawing.Point(28, 30);
+            this.gbxScoreBoard.Name = "gbxScoreBoard";
+            this.gbxScoreBoard.Size = new System.Drawing.Size(1182, 120);
+            this.gbxScoreBoard.TabIndex = 2;
+            this.gbxScoreBoard.TabStop = false;
+            this.gbxScoreBoard.Text = "Score Board";
+            // 
+            // cboQuestionTimeLimit
+            // 
+            this.cboQuestionTimeLimit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboQuestionTimeLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboQuestionTimeLimit.FormattingEnabled = true;
+            this.cboQuestionTimeLimit.Items.AddRange(new object[] {
+            "30 seconds",
+            "1 minute",
+            "90 seconds",
+            "2 minutes",
+            "3 minutes"});
+            this.cboQuestionTimeLimit.Location = new System.Drawing.Point(19, 51);
+            this.cboQuestionTimeLimit.Name = "cboQuestionTimeLimit";
+            this.cboQuestionTimeLimit.Size = new System.Drawing.Size(148, 28);
+            this.cboQuestionTimeLimit.TabIndex = 37;
+            // 
+            // lblQuestionTimeLimit
+            // 
+            this.lblQuestionTimeLimit.AutoSize = true;
+            this.lblQuestionTimeLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestionTimeLimit.Location = new System.Drawing.Point(15, 27);
+            this.lblQuestionTimeLimit.Name = "lblQuestionTimeLimit";
+            this.lblQuestionTimeLimit.Size = new System.Drawing.Size(152, 20);
+            this.lblQuestionTimeLimit.TabIndex = 36;
+            this.lblQuestionTimeLimit.Text = "Question Time Limit:";
             // 
             // frmPlayGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1101, 872);
-            this.Controls.Add(this.pnlTeamFour);
-            this.Controls.Add(this.pnlTeamThree);
-            this.Controls.Add(this.pnlTeamTwo);
-            this.Controls.Add(this.pnlTeamOne);
+            this.ClientSize = new System.Drawing.Size(1222, 766);
+            this.Controls.Add(this.gbxScoreBoard);
             this.Controls.Add(this.pnlCategories);
             this.Controls.Add(this.pnlGameboard);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPlayGame";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -283,6 +336,8 @@
             this.pnlTeamFour.ResumeLayout(false);
             this.pnlTeamFour.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTeamFour)).EndInit();
+            this.gbxScoreBoard.ResumeLayout(false);
+            this.gbxScoreBoard.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -303,5 +358,8 @@
         private System.Windows.Forms.Panel pnlTeamFour;
         private System.Windows.Forms.NumericUpDown nudTeamFour;
         private System.Windows.Forms.Label lblTeamFour;
+        private System.Windows.Forms.GroupBox gbxScoreBoard;
+        private System.Windows.Forms.ComboBox cboQuestionTimeLimit;
+        private System.Windows.Forms.Label lblQuestionTimeLimit;
     }
 }
