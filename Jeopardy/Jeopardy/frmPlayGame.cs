@@ -153,11 +153,13 @@ namespace Jeopardy
                     {
                         Button tmpButton = new Button();
                         tmpButton.Tag = currentGame.Categories[x].Questions[y]; //send the entire question through the tag
-                        tmpButton.Top = start_x + ((y * buttonHeight) + (y * 5));
-                        tmpButton.Left = start_y + ((x * buttonWidth) + (x * 5));
+                        tmpButton.Top = start_x + ((y * buttonHeight) + (y * 3));
+                        tmpButton.Left = start_y + ((x * buttonWidth) + (x * 3));
                         tmpButton.Width = buttonWidth;
                         tmpButton.Height = buttonHeight;
-                        tmpButton.Text = tmpButton.Tag.ToString();
+                        tmpButton.Font = new Font("Stencil", 30);
+                        tmpButton.ForeColor = Color.Yellow;
+                        tmpButton.BackColor = Color.DarkBlue;
                         tmpButton.Click += button_Click;
 
                         questionButtons[x, y] = tmpButton; //add button to array
@@ -188,6 +190,12 @@ namespace Jeopardy
         {
             pnlCategories.Width = Width - 70;
             pnlGameboard.Width = Width - 70;
+        }
+
+        private void ModifyPanelHeights()
+        {
+            pnlCategories.Top = 20;
+            pnlCategories.Height = 143;
         }
 
         private void LoadTeams()
