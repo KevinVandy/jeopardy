@@ -37,6 +37,27 @@ namespace Jeopardy
             ModifyPanelHeights();
             DrawCategories();
             DrawGameGrid();
+
+            if (currentGame.QuestionTimeLimit == new TimeSpan(0, 0, 30))
+            {
+                cboQuestionTimeLimit.SelectedIndex = 0;
+            }
+            else if (currentGame.QuestionTimeLimit == new TimeSpan(0, 1, 0))
+            {
+                cboQuestionTimeLimit.SelectedIndex = 1;
+            }
+            else if (currentGame.QuestionTimeLimit == new TimeSpan(0, 1, 30))
+            {
+                cboQuestionTimeLimit.SelectedIndex = 2;
+            }
+            else if (currentGame.QuestionTimeLimit == new TimeSpan(0, 2, 0))
+            {
+                cboQuestionTimeLimit.SelectedIndex = 3;
+            }
+            else if (currentGame.QuestionTimeLimit == new TimeSpan(0, 3, 0))
+            {
+                cboQuestionTimeLimit.SelectedIndex = 4;
+            }
         }
 
         private void frmPlayGame_ResizeEnd(object sender, EventArgs e)
@@ -347,6 +368,39 @@ namespace Jeopardy
                 {
                     q.State = "";
                 }
+            }
+        }
+
+        private void cboQuestionTimeLimit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboQuestionTimeLimit.SelectedIndex == 0)
+            {
+                currentGame.QuestionTimeLimit = new TimeSpan(0, 0, 30);
+            }
+            else if (cboQuestionTimeLimit.SelectedIndex == 1)
+            {
+                currentGame.QuestionTimeLimit = new TimeSpan(0, 1, 0);
+            }
+            else if (cboQuestionTimeLimit.SelectedIndex == 2)
+            {
+                currentGame.QuestionTimeLimit = new TimeSpan(0, 1, 30);
+            }
+            else if (cboQuestionTimeLimit.SelectedIndex == 3)
+            {
+                currentGame.QuestionTimeLimit = new TimeSpan(0, 2, 0);
+            }
+            else if (cboQuestionTimeLimit.SelectedIndex == 4)
+            {
+                currentGame.QuestionTimeLimit = new TimeSpan(0, 3, 0);
+            }
+            bwUpdateTimeLimit.RunWorkerAsync();
+        }
+
+        private void bwUpdateTimeLimit_DoWork(object sender, DoWorkEventArgs e) //also update in db for future games
+        {
+            if (!DB_Update.UpdateGameQuestionTimeLimit(currentGame.QuestionTimeLimit, currentGame.Id))
+            {
+                MessageBox.Show("Error updating Game name");
             }
         }
     }

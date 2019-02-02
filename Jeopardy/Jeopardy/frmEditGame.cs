@@ -546,7 +546,7 @@ namespace Jeopardy
             gbxCategories.Height = 127;
 
             gbxQuestions.Top = gbxCategories.Top + gbxCategories.Height + 30;
-            gbxQuestions.Height = Height - gbxCategories.Height - gbxGameInfo.Height - gbxCategories.Top;
+            gbxQuestions.Height = Height - gbxCategories.Height - gbxGameInfo.Height - gbxCategories.Top + 30;
 
         }
 

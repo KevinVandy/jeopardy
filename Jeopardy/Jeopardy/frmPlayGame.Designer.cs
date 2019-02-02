@@ -46,6 +46,7 @@
             this.gbxScoreBoard = new System.Windows.Forms.GroupBox();
             this.cboQuestionTimeLimit = new System.Windows.Forms.ComboBox();
             this.lblQuestionTimeLimit = new System.Windows.Forms.Label();
+            this.bwUpdateTimeLimit = new System.ComponentModel.BackgroundWorker();
             this.pnlTeamOne.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTeamOne)).BeginInit();
             this.pnlTeamTwo.SuspendLayout();
@@ -300,6 +301,7 @@
             this.cboQuestionTimeLimit.Name = "cboQuestionTimeLimit";
             this.cboQuestionTimeLimit.Size = new System.Drawing.Size(148, 28);
             this.cboQuestionTimeLimit.TabIndex = 37;
+            this.cboQuestionTimeLimit.SelectedIndexChanged += new System.EventHandler(this.cboQuestionTimeLimit_SelectedIndexChanged);
             // 
             // lblQuestionTimeLimit
             // 
@@ -310,6 +312,10 @@
             this.lblQuestionTimeLimit.Size = new System.Drawing.Size(152, 20);
             this.lblQuestionTimeLimit.TabIndex = 36;
             this.lblQuestionTimeLimit.Text = "Question Time Limit:";
+            // 
+            // bwUpdateTimeLimit
+            // 
+            this.bwUpdateTimeLimit.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwUpdateTimeLimit_DoWork);
             // 
             // frmPlayGame
             // 
@@ -366,5 +372,6 @@
         private System.Windows.Forms.GroupBox gbxScoreBoard;
         private System.Windows.Forms.ComboBox cboQuestionTimeLimit;
         private System.Windows.Forms.Label lblQuestionTimeLimit;
+        private System.ComponentModel.BackgroundWorker bwUpdateTimeLimit;
     }
 }

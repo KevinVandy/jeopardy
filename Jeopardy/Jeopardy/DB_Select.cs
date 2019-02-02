@@ -182,7 +182,7 @@ namespace Jeopardy
         {
             List<Category> categories = new List<Category>();
 
-            string query = "SELECT * FROM categories WHERE GameId = @gameId";
+            string query = "SELECT * FROM categories WHERE GameId = @gameId ORDER BY [Index]";
 
             OleDbCommand selectCommand = new OleDbCommand(query, conn);
             selectCommand.Parameters.AddWithValue("@gameId", gameId);
@@ -296,7 +296,7 @@ namespace Jeopardy
         {
             List<Question> questions = new List<Question>();
 
-            string query = "SELECT * FROM questions WHERE CategoryId = @categoryId";
+            string query = "SELECT * FROM questions WHERE CategoryId = @categoryId ORDER BY Weight";
 
             OleDbCommand selectCommand = new OleDbCommand(query, conn);
             selectCommand.Parameters.AddWithValue("@categoryId", categoryId);
@@ -406,7 +406,7 @@ namespace Jeopardy
         {
             List<Choice> choices = new List<Choice>();
 
-            string query = "SELECT * FROM choices WHERE QuestionId = @questionId";
+            string query = "SELECT * FROM choices WHERE QuestionId = @questionId ORDER BY [Index]";
 
             OleDbCommand selectCommand = new OleDbCommand(query, conn);
             selectCommand.Parameters.AddWithValue("@questionId", questionId);

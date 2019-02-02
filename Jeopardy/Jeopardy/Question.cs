@@ -15,8 +15,8 @@ namespace Jeopardy
         private string answer;
         private int weight;
         private List<Choice> choices;
-        private bool dailyDouble;
-        private string state;
+        private bool dailyDouble;       //NOT in database, determined at runtime
+        private string state;           //NOT in database, determined at runtime
 
         public Question() { }
 
