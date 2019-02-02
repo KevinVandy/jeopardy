@@ -33,7 +33,7 @@
             this.cbxQuestions = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lstCategories = new System.Windows.Forms.ListBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lsvQuestions = new System.Windows.Forms.ListView();
             this.Question = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Answer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
@@ -87,19 +87,21 @@
             this.lstCategories.TabIndex = 3;
             this.lstCategories.SelectedIndexChanged += new System.EventHandler(this.lstCategories_SelectedIndexChanged);
             // 
-            // listView1
+            // lsvQuestions
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lsvQuestions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Question,
             this.Answer});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.Location = new System.Drawing.Point(42, 262);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(676, 188);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lsvQuestions.Enabled = false;
+            this.lsvQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsvQuestions.FullRowSelect = true;
+            this.lsvQuestions.Location = new System.Drawing.Point(42, 262);
+            this.lsvQuestions.MultiSelect = false;
+            this.lsvQuestions.Name = "lsvQuestions";
+            this.lsvQuestions.Size = new System.Drawing.Size(676, 188);
+            this.lsvQuestions.TabIndex = 4;
+            this.lsvQuestions.UseCompatibleStateImageBehavior = false;
+            this.lsvQuestions.View = System.Windows.Forms.View.Details;
             // 
             // Question
             // 
@@ -156,7 +158,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.Import);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lsvQuestions);
             this.Controls.Add(this.lstCategories);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxQuestions);
@@ -176,7 +178,7 @@
         private System.Windows.Forms.CheckBox cbxQuestions;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lstCategories;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lsvQuestions;
         private System.Windows.Forms.ColumnHeader Question;
         private System.Windows.Forms.ColumnHeader Answer;
         private System.Windows.Forms.Label label2;

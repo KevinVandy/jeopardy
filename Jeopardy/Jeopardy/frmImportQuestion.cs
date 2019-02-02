@@ -87,7 +87,5 @@ namespace Jeopardy
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
-        
     }
 }

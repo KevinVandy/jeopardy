@@ -101,16 +101,16 @@ namespace Jeopardy
         {
             if(question.Choices != null && question.Choices.Count > 0)
             {
-                //foreach (Choice c in question.Choices)
-                //{
-                //    DB_Delete.DeleteChoice(c.Id);
-                //}
+                foreach (Choice c in question.Choices)
+                {
+                    DB_Delete.DeleteChoice(c.Id);
+                }
             }
         }
         
         private void bwRemoveChoices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            //question.Choices = new List<Choice>(); //reset to null
+            question.Choices = new List<Choice>(); //reset to null
         }
 
         private void rdoType_CheckChanged(object sender, EventArgs e)
@@ -347,19 +347,23 @@ namespace Jeopardy
         private void btnImport_Click(object sender, EventArgs e)
         {
             frmImportQuestion importQuestionForm = new frmImportQuestion();
-            importQuestionForm.ShowDialog();
+            DialogResult dialogResult = importQuestionForm.ShowDialog();
 
-            //get info from the selected question (not a complete clone because the IDs have to be different)
-            question.Type = importQuestionForm.selectedQuestion.Type;
-            question.QuestionText = importQuestionForm.selectedQuestion.QuestionText;
-            question.Answer = importQuestionForm.selectedQuestion.Answer;
-
-            if (importQuestionForm.selectedQuestion.Type == "mc")
+            if(dialogResult == DialogResult.OK)
             {
-                question.Choices = importQuestionForm.selectedQuestion.Choices;
-            }
+                //get info from the selected question (not a complete clone because the IDs have to be different)
+                question.Type = importQuestionForm.selectedQuestion.Type;
+                question.QuestionText = importQuestionForm.selectedQuestion.QuestionText;
+                question.Answer = importQuestionForm.selectedQuestion.Answer;
 
-            frmEditQuestion_Load(sender, e); //reload this form with the info
+                if (importQuestionForm.selectedQuestion.Type == "mc")
+                {
+                    question.Choices = importQuestionForm.selectedQuestion.Choices;
+                }
+
+                frmEditQuestion_Load(sender, e); //reload this form with the info
+            }
+            
         }
 
         private void importQuestionFromOtherGameToolStripMenuItem_Click(object sender, EventArgs e)
