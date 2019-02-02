@@ -15,7 +15,7 @@ namespace Jeopardy
         int gameId;
         string categoryName;
         Question question;
-        
+
 
         public frmEditQuestion(Question selectedQuestion, int theGameId, string theCategoryName)
         {
@@ -33,8 +33,8 @@ namespace Jeopardy
 
             txtQuestionText.Text = question.QuestionText;
             txtAnswer.Text = question.Answer;
-            
-            if(question.Type == "fb")
+
+            if (question.Type == "fb")
             {
                 rdoFillInTheBlank.Checked = true;
             }
@@ -46,7 +46,7 @@ namespace Jeopardy
                 txtChoiceC.Text = question.Choices[2].Text;
                 txtChoiceD.Text = question.Choices[3].Text;
 
-                if(question.Choices[0].Text == question.Answer)
+                if (question.Choices[0].Text == question.Answer)
                 {
                     rdoChoiceA.Checked = true;
                 }
@@ -73,11 +73,11 @@ namespace Jeopardy
 
         }
 
-        
+
 
         private void bwCreateChoices_DoWork(object sender, DoWorkEventArgs e)
         {
-            if(question.Choices == null || question.Choices.Count == 0)
+            if (question.Choices == null || question.Choices.Count == 0)
             {
                 question.Choices = new List<Choice>(new Choice[4]);
 
@@ -99,7 +99,7 @@ namespace Jeopardy
 
         private void bwRemoveChoices_DoWork(object sender, DoWorkEventArgs e)
         {
-            if(question.Choices != null && question.Choices.Count > 0)
+            if (question.Choices != null && question.Choices.Count > 0)
             {
                 foreach (Choice c in question.Choices)
                 {
@@ -107,7 +107,7 @@ namespace Jeopardy
                 }
             }
         }
-        
+
         private void bwRemoveChoices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             question.Choices = new List<Choice>(); //reset to null
@@ -149,7 +149,7 @@ namespace Jeopardy
 
                 txtAnswer.Enabled = true;
 
-                
+
             }
             else if (rdoMultipleChoice.Checked)
             {
@@ -206,7 +206,7 @@ namespace Jeopardy
                 rdoChoiceB.Enabled = false;
                 rdoChoiceC.Enabled = true;
                 rdoChoiceD.Enabled = false;
-                
+
                 txtChoiceA.Text = "True";
                 txtChoiceB.Text = "";
                 txtChoiceC.Text = "False";
@@ -258,7 +258,7 @@ namespace Jeopardy
                 txtChoiceC.ForeColor = Color.Black;
                 txtChoiceD.ForeColor = Color.DarkGreen;
 
-                txtAnswer.Text =txtChoiceD.Text;
+                txtAnswer.Text = txtChoiceD.Text;
             }
             else
             {
@@ -339,31 +339,59 @@ namespace Jeopardy
             }
             else
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                DialogResult = DialogResult.OK;
+                Close();
             }
         }
-        
+
         private void btnImport_Click(object sender, EventArgs e)
         {
             frmImportQuestion importQuestionForm = new frmImportQuestion();
             DialogResult dialogResult = importQuestionForm.ShowDialog();
 
-            if(dialogResult == DialogResult.OK)
+            if (dialogResult == DialogResult.OK)
             {
+                //if going from multiple choice to another type, delete the choices
+                if (question.Type == "mc" && importQuestionForm.selectedQuestion.Type != "mc")
+                {
+                    for (int j = 0; j < 4 && j < question.Choices.Count; j++)
+                    {
+                        DB_Delete.DeleteChoice(question.Choices[j].Id);
+                    }
+                }
+                // going from other type of question to multiple choice, make the choices
+                else if (question.Type != "mc" && importQuestionForm.selectedQuestion.Type == "mc")
+                {
+                    question.Choices = new List<Choice>(new Choice[4]);
+                    for (int j = 0; j < 4 && j < question.Choices.Count; j++)
+                    {
+                        question.Choices[j] = new Choice();
+                        question.Choices[j].QuestionId = (int)question.Id;
+                        question.Choices[j].Index = j;
+                        question.Choices[j].Text = importQuestionForm.selectedQuestion.Choices[j].Text;
+                        question.Choices[j].Id = DB_Insert.InsertChoice(question.Choices[j]);
+                    }
+                }
+                //if both are multiple choice, just do a simple update
+                else if (question.Type == "mc" && importQuestionForm.selectedQuestion.Type == "mc")
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        question.Choices[j].Text = importQuestionForm.selectedQuestion.Choices[j].Text;
+                        DB_Update.UpdateChoice(question.Choices[j]);
+                    }
+                }
+
                 //get info from the selected question (not a complete clone because the IDs have to be different)
                 question.Type = importQuestionForm.selectedQuestion.Type;
                 question.QuestionText = importQuestionForm.selectedQuestion.QuestionText;
                 question.Answer = importQuestionForm.selectedQuestion.Answer;
 
-                if (importQuestionForm.selectedQuestion.Type == "mc")
-                {
-                    question.Choices = importQuestionForm.selectedQuestion.Choices;
-                }
+
 
                 frmEditQuestion_Load(sender, e); //reload this form with the info
             }
-            
+
         }
 
         private void importQuestionFromOtherGameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -373,8 +401,8 @@ namespace Jeopardy
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         private void saveAndExitToolStripMenuItem_Click(object sender, EventArgs e)
