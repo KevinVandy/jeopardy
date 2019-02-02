@@ -65,25 +65,48 @@ namespace Jeopardy
                     //only imports questions to the max size of the grid and the max size of the other game grid
                     for (int i = 0; i < category.Questions.Count && i < importCategoryForm.selectedCategory.Questions.Count; i++) 
                     {
+                        //if going from multiple choice to another type, delete the choices
+                        if(category.Questions[i].Type == "mc" && importCategoryForm.selectedCategory.Questions[i].Type != "mc")
+                        {
+                            for(int j = 0; j < 4 && j < category.Questions[i].Choices.Count; j++)
+                            {
+                                DB_Delete.DeleteChoice(category.Questions[i].Choices[j].Id);
+                            }
+                        }
+                        // going from other type of question to multiple choice, make the choices
+                        else if(category.Questions[i].Type != "mc" && importCategoryForm.selectedCategory.Questions[i].Type == "mc")
+                        {
+                            category.Questions[i].Choices = new List<Choice>(new Choice[4]);
+                            for (int j = 0; j < 4 && j < category.Questions[i].Choices.Count; j++)
+                            {
+                                category.Questions[i].Choices[j] = new Choice();
+                                category.Questions[i].Choices[j].QuestionId = (int)category.Questions[i].Id;
+                                category.Questions[i].Choices[j].Index = j;
+                                category.Questions[i].Choices[j].Text = importCategoryForm.selectedCategory.Questions[i].Choices[j].Text;
+                                category.Questions[i].Choices[j].Id = DB_Insert.InsertChoice(category.Questions[i].Choices[j]);
+                            }
+                        }
+                        //if both are multiple choice, just do a simple update
+                        else if (category.Questions[i].Type == "mc" && importCategoryForm.selectedCategory.Questions[i].Type == "mc")
+                        {
+                            for (int j = 0; j < 4; j++)
+                            {
+                                category.Questions[i].Choices[j].Text = importCategoryForm.selectedCategory.Questions[i].Choices[j].Text;
+                                DB_Update.UpdateChoice(category.Questions[i].Choices[j]);
+                            }
+                        }
+
+                        //set the other new properties of the importing questions. This needs to go after the previous code
                         category.Questions[i].Type = importCategoryForm.selectedCategory.Questions[i].Type;
                         category.Questions[i].QuestionText = importCategoryForm.selectedCategory.Questions[i].QuestionText;
                         category.Questions[i].Answer = importCategoryForm.selectedCategory.Questions[i].Answer;
 
+                        //update the question (import the question)
                         DB_Update.UpdateQuestion(category.Questions[i]);
-
-                        if (importCategoryForm.selectedCategory.Questions[i].Type == "mc") //if is multiple choice
-                        {
-                            category.Questions[i].Choices = importCategoryForm.selectedCategory.Questions[i].Choices;
-
-                            for(int j = 0; j < 4; j++)
-                            {
-                                DB_Update.UpdateChoice(category.Questions[i].Choices[j]);
-                            }
-                        }
                     }
                 }
 
-                frmEditCategory_Load(sender, e);
+                frmEditCategory_Load(sender, e); //reload form and new info should show
             }
         }
 
