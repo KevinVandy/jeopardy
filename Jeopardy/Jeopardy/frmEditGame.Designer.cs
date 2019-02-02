@@ -72,6 +72,8 @@
             this.bwUpdateNumQuestionsPerCategory = new System.ComponentModel.BackgroundWorker();
             this.bwUpdateGameName = new System.ComponentModel.BackgroundWorker();
             this.bwUpdateTimeLimit = new System.ComponentModel.BackgroundWorker();
+            this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.gbxGameInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumQuestionCategory)).BeginInit();
@@ -135,6 +137,8 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newGameToolStripMenuItem,
+            this.toolStripSeparator1,
             this.exportGameToolStripMenuItem,
             this.toolStripSeparator6,
             this.exitToolStripMenuItem});
@@ -145,19 +149,19 @@
             // exportGameToolStripMenuItem
             // 
             this.exportGameToolStripMenuItem.Name = "exportGameToolStripMenuItem";
-            this.exportGameToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
+            this.exportGameToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.exportGameToolStripMenuItem.Text = "Export To File";
             this.exportGameToolStripMenuItem.Click += new System.EventHandler(this.exportGameToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -173,14 +177,14 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // tutorialToolStripMenuItem
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
-            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
             // 
             // lblQuestionTimeLimit
@@ -470,6 +474,18 @@
             // 
             this.bwUpdateTimeLimit.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwUpdateTimeLimit_DoWork);
             // 
+            // newGameToolStripMenuItem
+            // 
+            this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.newGameToolStripMenuItem.Text = "New Game";
+            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
             // frmEditGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -551,5 +567,7 @@
         private System.ComponentModel.BackgroundWorker bwUpdateNumQuestionsPerCategory;
         private System.ComponentModel.BackgroundWorker bwUpdateGameName;
         private System.ComponentModel.BackgroundWorker bwUpdateTimeLimit;
+        private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

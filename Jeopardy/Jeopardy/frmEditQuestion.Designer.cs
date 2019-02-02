@@ -60,6 +60,9 @@
             this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bwCreateChoices = new System.ComponentModel.BackgroundWorker();
             this.bwRemoveChoices = new System.ComponentModel.BackgroundWorker();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.saveAndExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlTypes.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -188,7 +191,7 @@
             // btnOK
             // 
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(740, 643);
+            this.btnOK.Location = new System.Drawing.Point(739, 643);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(170, 51);
             this.btnOK.TabIndex = 1;
@@ -336,7 +339,9 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importQuestionFromOtherGameToolStripMenuItem});
+            this.importQuestionFromOtherGameToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.saveAndExitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 25);
             this.fileToolStripMenuItem.Text = "File";
@@ -360,13 +365,13 @@
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(133, 26);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(180, 26);
             this.helpToolStripMenuItem1.Text = "Help";
             // 
             // tutorialToolStripMenuItem
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
-            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
             // 
             // bwCreateChoices
@@ -379,6 +384,29 @@
             this.bwRemoveChoices.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwRemoveChoices_DoWork);
             this.bwRemoveChoices.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwRemoveChoices_RunWorkerCompleted);
             // 
+            // btnImport
+            // 
+            this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.Location = new System.Drawing.Point(443, 643);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(170, 51);
+            this.btnImport.TabIndex = 22;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(321, 6);
+            // 
+            // saveAndExitToolStripMenuItem
+            // 
+            this.saveAndExitToolStripMenuItem.Name = "saveAndExitToolStripMenuItem";
+            this.saveAndExitToolStripMenuItem.Size = new System.Drawing.Size(324, 26);
+            this.saveAndExitToolStripMenuItem.Text = "Save and Exit";
+            this.saveAndExitToolStripMenuItem.Click += new System.EventHandler(this.saveAndExitToolStripMenuItem_Click);
+            // 
             // frmEditQuestion
             // 
             this.AcceptButton = this.btnOK;
@@ -387,6 +415,7 @@
             this.AutoScroll = true;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(955, 729);
+            this.Controls.Add(this.btnImport);
             this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
@@ -454,5 +483,8 @@
         private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
         private System.ComponentModel.BackgroundWorker bwCreateChoices;
         private System.ComponentModel.BackgroundWorker bwRemoveChoices;
+        private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem saveAndExitToolStripMenuItem;
     }
 }

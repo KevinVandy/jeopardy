@@ -73,51 +73,7 @@ namespace Jeopardy
 
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-            if (rdoFillInTheBlank.Checked)
-            {
-                question.Type = "fb";
-            }
-            else if (rdoMultipleChoice.Checked)
-            {
-                question.Type = "mc";
-
-                question.Choices[0].Text = txtChoiceA.Text;
-                question.Choices[1].Text = txtChoiceB.Text;
-                question.Choices[2].Text = txtChoiceC.Text;
-                question.Choices[3].Text = txtChoiceD.Text;
-
-                for(int i = 0; i < 4; i++)
-                {
-                    DB_Update.UpdateChoiceText(question.Choices[i].Text, question.Choices[i].Id);
-                }
-
-            }
-            else if (rdoTrueFalse.Checked)
-            {
-                question.Type = "tf";
-            }
-
-            question.QuestionText = txtQuestionText.Text;
-            question.Answer = txtAnswer.Text;
-
-            if (!DB_Update.UpdateQuestion(question))
-            {
-                MessageBox.Show("Updating Question failed");
-            }
-            else
-            {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
+        
 
         private void bwCreateChoices_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -125,7 +81,7 @@ namespace Jeopardy
             {
                 question.Choices = new List<Choice>(new Choice[4]);
 
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 4; i++) //make 4 blank choices
                 {
                     question.Choices[i] = new Choice();
                     question.Choices[i].QuestionId = (int)question.Id;
@@ -347,10 +303,79 @@ namespace Jeopardy
             }
         }
 
-        private void importQuestionFromOtherGameToolStripMenuItem_Click(object sender, EventArgs e)
+        //MARK: Button Event Handlers
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            if (rdoFillInTheBlank.Checked)
+            {
+                question.Type = "fb";
+            }
+            else if (rdoMultipleChoice.Checked)
+            {
+                question.Type = "mc";
+
+                question.Choices[0].Text = txtChoiceA.Text;
+                question.Choices[1].Text = txtChoiceB.Text;
+                question.Choices[2].Text = txtChoiceC.Text;
+                question.Choices[3].Text = txtChoiceD.Text;
+
+                for (int i = 0; i < 4; i++)
+                {
+                    DB_Update.UpdateChoiceText(question.Choices[i].Text, question.Choices[i].Id);
+                }
+
+            }
+            else if (rdoTrueFalse.Checked)
+            {
+                question.Type = "tf";
+            }
+
+            question.QuestionText = txtQuestionText.Text;
+            question.Answer = txtAnswer.Text;
+
+            if (!DB_Update.UpdateQuestion(question))
+            {
+                MessageBox.Show("Updating Question failed");
+            }
+            else
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+        
+        private void btnImport_Click(object sender, EventArgs e)
         {
             frmImportQuestion importQuestionForm = new frmImportQuestion();
             importQuestionForm.ShowDialog();
+
+            //get info from the selected question (not a complete clone because the IDs have to be different)
+            question.Type = importQuestionForm.selectedQuestion.Type;
+            question.QuestionText = importQuestionForm.selectedQuestion.QuestionText;
+            question.Answer = importQuestionForm.selectedQuestion.Answer;
+
+            if (importQuestionForm.selectedQuestion.Type == "mc")
+            {
+                question.Choices = importQuestionForm.selectedQuestion.Choices;
+            }
+
+            frmEditQuestion_Load(sender, e); //reload this form with the info
+        }
+
+        private void importQuestionFromOtherGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnImport_Click(sender, e);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void saveAndExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnOK_Click(sender, e);
         }
     }
 }

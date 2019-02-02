@@ -82,6 +82,7 @@
             this.chQuestion,
             this.chAnswer});
             this.lsvQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsvQuestions.FullRowSelect = true;
             this.lsvQuestions.Location = new System.Drawing.Point(40, 307);
             this.lsvQuestions.MultiSelect = false;
             this.lsvQuestions.Name = "lsvQuestions";
@@ -155,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 593);
+            this.ClientSize = new System.Drawing.Size(763, 593);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnImport);

@@ -571,5 +571,12 @@ namespace Jeopardy
             }
         }
 
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCreateGame createGameForm = new frmCreateGame();
+            this.Hide();
+            this.Close();
+            createGameForm.ShowDialog();
+        }
     }
 }
