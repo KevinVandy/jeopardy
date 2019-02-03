@@ -94,7 +94,7 @@
             0,
             0,
             0});
-            this.nudTeamOne.Location = new System.Drawing.Point(156, 79);
+            this.nudTeamOne.Location = new System.Drawing.Point(7, 76);
             this.nudTeamOne.Margin = new System.Windows.Forms.Padding(2);
             this.nudTeamOne.Maximum = new decimal(new int[] {
             5000,
@@ -108,7 +108,7 @@
             -2147483648});
             this.nudTeamOne.Name = "nudTeamOne";
             this.nudTeamOne.ReadOnly = true;
-            this.nudTeamOne.Size = new System.Drawing.Size(90, 32);
+            this.nudTeamOne.Size = new System.Drawing.Size(109, 32);
             this.nudTeamOne.TabIndex = 1;
             this.nudTeamOne.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudTeamOne.ThousandsSeparator = true;
@@ -143,7 +143,7 @@
             0,
             0,
             0});
-            this.nudTeamTwo.Location = new System.Drawing.Point(156, 79);
+            this.nudTeamTwo.Location = new System.Drawing.Point(7, 76);
             this.nudTeamTwo.Margin = new System.Windows.Forms.Padding(2);
             this.nudTeamTwo.Maximum = new decimal(new int[] {
             5000,
@@ -157,7 +157,7 @@
             -2147483648});
             this.nudTeamTwo.Name = "nudTeamTwo";
             this.nudTeamTwo.ReadOnly = true;
-            this.nudTeamTwo.Size = new System.Drawing.Size(90, 32);
+            this.nudTeamTwo.Size = new System.Drawing.Size(109, 32);
             this.nudTeamTwo.TabIndex = 1;
             this.nudTeamTwo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudTeamTwo.ThousandsSeparator = true;
@@ -192,7 +192,7 @@
             0,
             0,
             0});
-            this.nudTeamThree.Location = new System.Drawing.Point(154, 79);
+            this.nudTeamThree.Location = new System.Drawing.Point(7, 76);
             this.nudTeamThree.Margin = new System.Windows.Forms.Padding(2);
             this.nudTeamThree.Maximum = new decimal(new int[] {
             5000,
@@ -206,7 +206,7 @@
             -2147483648});
             this.nudTeamThree.Name = "nudTeamThree";
             this.nudTeamThree.ReadOnly = true;
-            this.nudTeamThree.Size = new System.Drawing.Size(90, 32);
+            this.nudTeamThree.Size = new System.Drawing.Size(109, 32);
             this.nudTeamThree.TabIndex = 1;
             this.nudTeamThree.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudTeamThree.ThousandsSeparator = true;
@@ -241,7 +241,7 @@
             0,
             0,
             0});
-            this.nudTeamFour.Location = new System.Drawing.Point(154, 79);
+            this.nudTeamFour.Location = new System.Drawing.Point(7, 76);
             this.nudTeamFour.Margin = new System.Windows.Forms.Padding(2);
             this.nudTeamFour.Maximum = new decimal(new int[] {
             5000,
@@ -255,7 +255,7 @@
             -2147483648});
             this.nudTeamFour.Name = "nudTeamFour";
             this.nudTeamFour.ReadOnly = true;
-            this.nudTeamFour.Size = new System.Drawing.Size(90, 32);
+            this.nudTeamFour.Size = new System.Drawing.Size(109, 32);
             this.nudTeamFour.TabIndex = 1;
             this.nudTeamFour.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudTeamFour.ThousandsSeparator = true;
@@ -335,6 +335,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPlayGame_FormClosing);
             this.Load += new System.EventHandler(this.frmPlayGame_Load);
             this.ResizeEnd += new System.EventHandler(this.frmPlayGame_ResizeEnd);
+            this.Resize += new System.EventHandler(this.frmPlayGame_Resize);
             this.pnlTeamOne.ResumeLayout(false);
             this.pnlTeamOne.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTeamOne)).EndInit();

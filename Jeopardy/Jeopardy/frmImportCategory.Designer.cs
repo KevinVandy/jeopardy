@@ -34,13 +34,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lstCategories = new System.Windows.Forms.ListBox();
             this.lsvQuestions = new System.Windows.Forms.ListView();
+            this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Question = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Answer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.bwLoadGames = new System.ComponentModel.BackgroundWorker();
-            this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lstGames
@@ -105,6 +105,11 @@
             this.lsvQuestions.UseCompatibleStateImageBehavior = false;
             this.lsvQuestions.View = System.Windows.Forms.View.Details;
             // 
+            // chType
+            // 
+            this.chType.Text = "Type";
+            this.chType.Width = 140;
+            // 
             // Question
             // 
             this.Question.Text = "Question";
@@ -152,11 +157,6 @@
             this.bwLoadGames.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLoadGames_DoWork);
             this.bwLoadGames.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwLoadGames_RunWorkerCompleted);
             // 
-            // chType
-            // 
-            this.chType.Text = "Type";
-            this.chType.Width = 140;
-            // 
             // frmImportCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,8 +170,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxQuestions);
             this.Controls.Add(this.lstGames);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmImportCategory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmImportCategory";
             this.Load += new System.EventHandler(this.frmImportCategory_Load);
             this.ResumeLayout(false);

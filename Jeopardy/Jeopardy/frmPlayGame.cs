@@ -173,7 +173,7 @@ namespace Jeopardy
             {
                 for (int y = 0; y < currentGame.NumQuestionsPerCategory; y++)
                 {
-                    if(currentGame.Categories[x].Questions[y].State != "Answered")
+                    if (currentGame.Categories[x].Questions[y].State != "Answered")
                     {
                         Button tmpButton = new Button();
                         tmpButton.Tag = currentGame.Categories[x].Questions[y]; //send the entire question through the tag
@@ -184,8 +184,10 @@ namespace Jeopardy
                         tmpButton.Font = new Font("Stencil", 30);
                         tmpButton.ForeColor = Color.Yellow;
                         tmpButton.BackColor = Color.DarkBlue;
-                        tmpButton.Cursor = new Cursor(Cursor.Handle);
+                        tmpButton.Cursor = Cursors.Hand;
                         tmpButton.Click += button_Click;
+                        tmpButton.MouseEnter += TmpButton_MouseEnter;
+                        tmpButton.MouseLeave += TmpButton_MouseLeave;
 
                         questionButtons[x, y] = tmpButton; //add button to array
                     }
@@ -211,6 +213,19 @@ namespace Jeopardy
 
         }
 
+        private void TmpButton_MouseEnter(object sender, EventArgs e)
+        {
+            Button hoveredButton = (Button)sender;
+            hoveredButton.Focus();
+            hoveredButton.BackColor = Color.Blue;
+        }
+
+        private void TmpButton_MouseLeave(object sender, EventArgs e)
+        {
+            Button hoveredButton = (Button)sender;
+            hoveredButton.BackColor = Color.DarkBlue;
+        }
+
         private void ModifyPanelWidths()
         {
             gbxScoreBoard.Left = 0;
@@ -232,18 +247,18 @@ namespace Jeopardy
             pnlCategories.Height = 100;
 
             pnlGameboard.Top = pnlCategories.Top + pnlCategories.Height;
-            pnlGameboard.Height = this.Height - pnlGameboard.Top - 50;
+            pnlGameboard.Height = Height - pnlGameboard.Top - 50;
         }
 
         private void LoadTeams()
         {
-            if(teams[0] != null)
+            if (teams[0] != null)
             {
                 pnlTeamOne.Visible = true;
                 pnlTeamOne.BackColor = Color.LightBlue;
                 lblTeamOne.Text = "Team " + teams[0].TeamName;
                 lblTeamOne.MaximumSize = new Size(100, 0);
-                lblTeamOne.AutoSize = true;              
+                lblTeamOne.AutoSize = true;
             }
 
             if (teams[1] != null)
@@ -273,15 +288,15 @@ namespace Jeopardy
 
         private void MoveToNextTeam()
         {
-            if(currentTeam == teams[0])
+            if (currentTeam == teams[0])
             {
                 currentTeam = teams[1];
                 pnlTeamOne.BackColor = SystemColors.Control;
                 pnlTeamTwo.BackColor = Color.LightBlue;
             }
-            else if(currentTeam == teams[1])
+            else if (currentTeam == teams[1])
             {
-                if(teams[2] != null)
+                if (teams[2] != null)
                 {
                     currentTeam = teams[2];
                     pnlTeamTwo.BackColor = SystemColors.Control;
@@ -294,7 +309,7 @@ namespace Jeopardy
                     pnlTeamTwo.BackColor = SystemColors.Control;
                 }
             }
-            else if(currentTeam == teams[2])
+            else if (currentTeam == teams[2])
             {
                 if (teams[3] != null)
                 {
@@ -309,7 +324,7 @@ namespace Jeopardy
                     pnlTeamThree.BackColor = SystemColors.Control;
                 }
             }
-            else if(currentTeam == teams[3])
+            else if (currentTeam == teams[3])
             {
                 currentTeam = teams[0];
                 pnlTeamOne.BackColor = Color.LightBlue;
@@ -319,13 +334,13 @@ namespace Jeopardy
 
         private void AssignPoints(bool answeredCorrectly, Question theQuestion)
         {
-            if(answeredCorrectly == true)
+            if (answeredCorrectly == true)
             {
-                if(currentTeam == teams[0])
+                if (currentTeam == teams[0])
                 {
                     nudTeamOne.Value += theQuestion.Weight;
                 }
-                else if(currentTeam == teams[1])
+                else if (currentTeam == teams[1])
                 {
                     nudTeamTwo.Value += theQuestion.Weight;
                 }
@@ -362,9 +377,9 @@ namespace Jeopardy
         private void frmPlayGame_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Resets all the questions' statuses if the game is closed
-            foreach(Category c in currentGame.Categories)
+            foreach (Category c in currentGame.Categories)
             {
-                foreach(Question q in c.Questions)
+                foreach (Question q in c.Questions)
                 {
                     q.State = "";
                 }
@@ -401,6 +416,20 @@ namespace Jeopardy
             if (!DB_Update.UpdateGameQuestionTimeLimit(currentGame.QuestionTimeLimit, currentGame.Id))
             {
                 MessageBox.Show("Error updating Game name");
+            }
+        }
+
+        //code to make maximizing and restoring the window act the same as resizing
+        FormWindowState LastWindowState = FormWindowState.Minimized;
+        private void frmPlayGame_Resize(object sender, EventArgs e) //just comment this out if it is causing problems
+        {
+            if (WindowState != LastWindowState)
+            {
+                LastWindowState = WindowState;
+                if (WindowState == FormWindowState.Maximized || WindowState == FormWindowState.Normal)
+                {
+                    frmPlayGame_ResizeEnd(sender, e);
+                }
             }
         }
     }

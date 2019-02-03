@@ -120,6 +120,7 @@
             this.txtGameName.Name = "txtGameName";
             this.txtGameName.Size = new System.Drawing.Size(188, 26);
             this.txtGameName.TabIndex = 32;
+            this.txtGameName.DoubleClick += new System.EventHandler(this.txtGameName_DoubleClick);
             this.txtGameName.Leave += new System.EventHandler(this.txtGameName_Leave);
             // 
             // menuStrip
@@ -485,6 +486,7 @@
             // bwUpdateTimeLimit
             // 
             this.bwUpdateTimeLimit.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwUpdateTimeLimit_DoWork);
+            this.bwUpdateTimeLimit.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwUpdateTimeLimit_RunWorkerCompleted);
             // 
             // frmEditGame
             // 

@@ -76,8 +76,18 @@ namespace Jeopardy
             DrawGrids();
         }
 
-        //MARK Value & Index Change Event Handlers
+//MARK: Value & Index Change Event Handlers (Mostly for stuff in the Game Info group box)
+
         private void txtGameName_Leave(object sender, EventArgs e)
+        {
+            if (txtGameName.Text != game.GameName)
+            {
+                game.GameName = txtGameName.Text;
+                bwUpdateGameName.RunWorkerAsync();
+            }
+        }
+
+        private void txtGameName_DoubleClick(object sender, EventArgs e)
         {
             if (txtGameName.Text != game.GameName)
             {
@@ -88,9 +98,9 @@ namespace Jeopardy
 
         private void bwUpdateGameName_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (!DB_Update.UpdateGameName(game.GameName, game.Id))
+            if (!DB_Update.UpdateGameName(game.GameName, game.Id)) //updating the database happens here
             {
-                MessageBox.Show("Error updating Game name");
+                MessageBox.Show("Error updating Game name", "Error");
             }
         }
 
@@ -98,25 +108,27 @@ namespace Jeopardy
         {
             if (cboQuestionTimeLimit.SelectedIndex == 0)
             {
-                game.QuestionTimeLimit = new TimeSpan(0, 0, 30);
+                game.QuestionTimeLimit = new TimeSpan(0, 0, 30); //30 seconds
             }
             else if (cboQuestionTimeLimit.SelectedIndex == 1)
             {
-                game.QuestionTimeLimit = new TimeSpan(0, 1, 0);
+                game.QuestionTimeLimit = new TimeSpan(0, 1, 0); //1 minute
             }
             else if (cboQuestionTimeLimit.SelectedIndex == 2)
             {
-                game.QuestionTimeLimit = new TimeSpan(0, 1, 30);
+                game.QuestionTimeLimit = new TimeSpan(0, 1, 30); //1 minute 30 seconds (90 seconds)
             }
             else if (cboQuestionTimeLimit.SelectedIndex == 3)
             {
-                game.QuestionTimeLimit = new TimeSpan(0, 2, 0);
+                game.QuestionTimeLimit = new TimeSpan(0, 2, 0); //2 minutes
             }
             else if (cboQuestionTimeLimit.SelectedIndex == 4)
             {
-                game.QuestionTimeLimit = new TimeSpan(0, 3, 0);
+                game.QuestionTimeLimit = new TimeSpan(0, 3, 0); //3 minutes
             }
-            bwUpdateTimeLimit.RunWorkerAsync();
+
+            cboQuestionTimeLimit.Enabled = false; //disable while other thread running
+            bwUpdateTimeLimit.RunWorkerAsync(); //update in backgroud thread
         }
 
         private void bwUpdateTimeLimit_DoWork(object sender, DoWorkEventArgs e)
@@ -125,6 +137,11 @@ namespace Jeopardy
             {
                 MessageBox.Show("Error updating Game name");
             }
+        }
+
+        private void bwUpdateTimeLimit_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            cboQuestionTimeLimit.Enabled = true; //re-enable once safe
         }
 
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
@@ -147,27 +164,6 @@ namespace Jeopardy
             DisplayNumberQuestions();
         }
 
-        private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
-        {
-            if ((int)nudNumQuestionCategory.Value > game.NumQuestionsPerCategory) //if up was clicked
-            {
-                nudNumQuestionCategory.Enabled = false;
-                game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
-                bwAddQuestions.RunWorkerAsync();
-                bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
-            }
-            else if ((int)nudNumQuestionCategory.Value < game.NumQuestionsPerCategory) //if down was clicked
-            {
-                nudNumQuestionCategory.Enabled = false;
-                game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
-                bwRemoveQuestions.RunWorkerAsync();
-                bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
-            }
-
-            DisplayNumberQuestions();
-        }
-
-        //MARK Background Worker Threads for interacting with the database
         private void bwUpdateNumCategories_DoWork(object sender, DoWorkEventArgs e)
         {
             if (!DB_Update.UpdateGameNumCategories(game.NumCategories, game.Id))
@@ -175,15 +171,7 @@ namespace Jeopardy
                 MessageBox.Show("Failed to update NumCategories");
             }
         }
-
-        private void bwUpdateNumQuestionsPerCategory_DoWork(object sender, DoWorkEventArgs e)
-        {
-            if (!DB_Update.UpdateGameNumQuestionsPerCategory(game.NumQuestionsPerCategory, game.Id))
-            {
-                MessageBox.Show("Failed to update NumQuestionsPerCategory");
-            }
-        }
-
+        
         private void bwAddCategory_DoWork(object sender, DoWorkEventArgs e)
         {
             Category newCategory = new Category(null, (int)game.Id, game.Categories.Count, "Category " + (game.Categories.Count + 1), " ", null);
@@ -223,6 +211,34 @@ namespace Jeopardy
             nudNumCategories.Enabled = true;
         }
 
+        private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
+        {
+            if ((int)nudNumQuestionCategory.Value > game.NumQuestionsPerCategory) //if up was clicked
+            {
+                nudNumQuestionCategory.Enabled = false;
+                game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
+                bwAddQuestions.RunWorkerAsync();
+                bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
+            }
+            else if ((int)nudNumQuestionCategory.Value < game.NumQuestionsPerCategory) //if down was clicked
+            {
+                nudNumQuestionCategory.Enabled = false;
+                game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
+                bwRemoveQuestions.RunWorkerAsync();
+                bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
+            }
+
+            DisplayNumberQuestions();
+        }
+
+        private void bwUpdateNumQuestionsPerCategory_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (!DB_Update.UpdateGameNumQuestionsPerCategory(game.NumQuestionsPerCategory, game.Id)) //updating db happens here
+            {
+                MessageBox.Show("Failed to update NumQuestionsPerCategory");
+            }
+        }
+
         private void bwAddQuestions_DoWork(object sender, DoWorkEventArgs e)
         {
             for (int i = 0; i < game.NumCategories; i++)
@@ -236,23 +252,26 @@ namespace Jeopardy
                 newQuestion.Weight = (game.NumQuestionsPerCategory) * 100;
                 newQuestion.Id = DB_Insert.InsertQuestion(newQuestion);
 
-                game.Categories[i].Questions.Add(newQuestion);
+                if(newQuestion.Id != null && newQuestion.Id > 0) //if the insert into db worked
+                {
+                    game.Categories[i].Questions.Add(newQuestion); //add it the the current game object too
+                }
             }
         }
 
         private void bwAddQuestions_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            CreateQuestionGrid();
-            nudNumQuestionCategory.Enabled = true;
+            CreateQuestionGrid(); //only recreate the question grid, category grid can stay the same
+            nudNumQuestionCategory.Enabled = true; //re-enable once thread safe
         }
 
         private void bwRemoveQuestions_DoWork(object sender, DoWorkEventArgs e)
         {
             for (int i = 0; i < game.NumCategories; i++)
             {
-                if (DB_Delete.DeleteQuestion(game.Categories[i].Questions[game.NumQuestionsPerCategory].Id) > 0)
+                if (DB_Delete.DeleteQuestion(game.Categories[i].Questions[game.NumQuestionsPerCategory].Id) > 0) //deleting question happens here
                 {
-                    game.Categories[i].Questions.RemoveAt(game.NumQuestionsPerCategory);
+                    game.Categories[i].Questions.RemoveAt(game.NumQuestionsPerCategory); //if deleting from db was successful, also remove from game
                 }
                 else
                 {
@@ -266,8 +285,8 @@ namespace Jeopardy
             CreateQuestionGrid();
             nudNumQuestionCategory.Enabled = true;
         }
-
-
+        
+//MARK: Methods for Drawing the Buttons in the Group Boxes
 
         private void DrawGrids()
         {
@@ -434,26 +453,8 @@ namespace Jeopardy
             }
 
         }
-
-        //MARK ToolStrip MenuItem Click Event Handlers
-        private void exportGameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //TODO
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form about = new frmAbout();
-            about.ShowDialog();
-        }
-
-
-        //MARK Private Utility Functions
+        
+//MARK Methods for figuring out stats and Button Colors
         private void DetermineQuestionStates()
         {
             foreach (Category c in game.Categories)
@@ -532,6 +533,32 @@ namespace Jeopardy
             return CalcNumberOfQuestions() - CalcNumFinishedQuestions();
         }
 
+        //MARK: ToolStrip MenuItem Click Event Handlers
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCreateGame createGameForm = new frmCreateGame();
+            Hide();
+            Close();
+            createGameForm.ShowDialog();
+        }
+
+        private void exportGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form about = new frmAbout();
+            about.ShowDialog();
+        }
+
+//MARK: Resizing the Window Event Handler stuff
         private void ModifyGroupBoxWidths()
         {
             gbxGameInfo.Width = Width - 70;
@@ -571,14 +598,6 @@ namespace Jeopardy
                     frmCreateGame_ResizeEnd(sender, e);
                 }
             }
-        }
-
-        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmCreateGame createGameForm = new frmCreateGame();
-            Hide();
-            Close();
-            createGameForm.ShowDialog();
         }
     }
 }
