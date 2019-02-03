@@ -23,6 +23,7 @@ namespace Jeopardy
         private void frmImportQuestion_Load(object sender, EventArgs e)
         {
             bwLoadGames.RunWorkerAsync(); //start thread to load games
+            btnImport.Enabled = false;
         }
 
         //Load all of the games in the background
@@ -34,7 +35,7 @@ namespace Jeopardy
         //After all of the games have loaded, show them in the list box
         private void bwLoadGames_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            foreach(Game g in allGames)
+            foreach (Game g in allGames)
             {
                 lstGames.Items.Add(g.GameName);
             }
@@ -44,9 +45,9 @@ namespace Jeopardy
         private void lstGames_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstCategories.Items.Clear();
-            if(lstGames.SelectedIndex != -1)
+            if (lstGames.SelectedIndex != -1)
             {
-                foreach(Category c in allGames[lstGames.SelectedIndex].Categories)
+                foreach (Category c in allGames[lstGames.SelectedIndex].Categories)
                 {
                     lstCategories.Items.Add(c.Title + " - " + c.Subtitle);
                 }
@@ -61,31 +62,58 @@ namespace Jeopardy
             {
                 foreach (Question q in allGames[lstGames.SelectedIndex].Categories[lstCategories.SelectedIndex].Questions)
                 {
-                    ListViewItem lvi = new ListViewItem(q.Type);
+                    string type = "";
+                    switch (q.Type)
+                    {
+                        case "fb": type = "Fill in the Blank"; break;
+                        case "mc": type = "Multiple Choice"; break;
+                        case "tf": type = "True / False"; break;
+                    }
+                    ListViewItem lvi = new ListViewItem(type);
                     lvi.SubItems.Add(q.QuestionText);
                     lvi.SubItems.Add(q.Answer);
 
                     lsvQuestions.Items.Add(lvi);
                 }
             }
+            if (lsvQuestions.SelectedIndices.Count > 0)
+            {
+                btnImport.Enabled = true;
+            }
+            else
+            {
+                btnImport.Enabled = false;
+            }
         }
-        
+
+        private void lsvQuestions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lsvQuestions.SelectedIndices.Count > 0)
+            {
+                btnImport.Enabled = true;
+            }
+            else
+            {
+                btnImport.Enabled = false;
+            }
+        }
+
         //MARK: Button Event Handlers
         private void btnImport_Click(object sender, EventArgs e)
         {
-            if(lstGames.SelectedIndex != -1 && lstCategories.SelectedIndex != -1 && lsvQuestions.SelectedIndices.Count > 0)
+            if (lstGames.SelectedIndex != -1 && lstCategories.SelectedIndex != -1 && lsvQuestions.SelectedIndices.Count > 0)
             {
                 selectedQuestion = allGames[lstGames.SelectedIndex].Categories[lstCategories.SelectedIndex].Questions[lsvQuestions.SelectedIndices[0]];
 
-                this.DialogResult = DialogResult.OK;
+                DialogResult = DialogResult.OK;
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             selectedQuestion = null;
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }

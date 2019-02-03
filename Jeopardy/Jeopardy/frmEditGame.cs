@@ -19,7 +19,7 @@ namespace Jeopardy
         public frmEditGame(Game theGame)
         {
             game = theGame;
-            
+
             InitializeComponent();
         }
 
@@ -93,10 +93,10 @@ namespace Jeopardy
                 MessageBox.Show("Error updating Game name");
             }
         }
-        
+
         private void cboQuestionTimeLimit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboQuestionTimeLimit.SelectedIndex == 0 )
+            if (cboQuestionTimeLimit.SelectedIndex == 0)
             {
                 game.QuestionTimeLimit = new TimeSpan(0, 0, 30);
             }
@@ -118,7 +118,7 @@ namespace Jeopardy
             }
             bwUpdateTimeLimit.RunWorkerAsync();
         }
-        
+
         private void bwUpdateTimeLimit_DoWork(object sender, DoWorkEventArgs e)
         {
             if (!DB_Update.UpdateGameQuestionTimeLimit(game.QuestionTimeLimit, game.Id))
@@ -299,6 +299,7 @@ namespace Jeopardy
                 tmpButton.Width = buttonWidth;
                 tmpButton.Height = buttonHeight;
                 tmpButton.Text = "Category " + (x + 1).ToString();
+                tmpButton.Font = new Font("Microsoft Sans Serif", 14);
                 tmpButton.ContextMenuStrip = cmsCategories;
                 tmpButton.Click += CategoryButton_Click;
                 categoryButtons[x] = tmpButton;
@@ -367,6 +368,7 @@ namespace Jeopardy
                     tmpButton.Width = buttonWidth;
                     tmpButton.Height = buttonHeight;
                     tmpButton.Text = tmpButton.Tag.ToString();
+                    tmpButton.Font = new Font("Microsoft Sans Serif", 12);
                     tmpButton.ContextMenuStrip = cmsQuestions;
                     tmpButton.Click += QuestionButton_Click;
                     tmpButton.MouseEnter += questionButton_MouseHover;
@@ -454,9 +456,9 @@ namespace Jeopardy
         //MARK Private Utility Functions
         private void DetermineQuestionStates()
         {
-            foreach(Category c in game.Categories)
+            foreach (Category c in game.Categories)
             {
-                foreach(Question q in c.Questions)
+                foreach (Question q in c.Questions)
                 {
                     q.DetermineState("edit");
                 }
@@ -465,15 +467,15 @@ namespace Jeopardy
 
         private void ColorCodeButtons()
         {
-            for(int i = 0; i < game.NumCategories; i++)
+            for (int i = 0; i < game.NumCategories; i++)
             {
-                for(int j = 0; j < game.NumQuestionsPerCategory; j++)
+                for (int j = 0; j < game.NumQuestionsPerCategory; j++)
                 {
-                    if(game.Categories[i].Questions[j].State == "no question")
+                    if (game.Categories[i].Questions[j].State == "no question")
                     {
                         questionButtons[i, j].BackColor = Color.Transparent;
                     }
-                    else if(game.Categories[i].Questions[j].State == "no answer")
+                    else if (game.Categories[i].Questions[j].State == "no answer")
                     {
                         questionButtons[i, j].BackColor = Color.PaleVioletRed;
                     }
@@ -511,7 +513,7 @@ namespace Jeopardy
             {
                 foreach (Question q in c.Questions)
                 {
-                    if(q.State == "done")
+                    if (q.State == "done")
                     {
                         numFinishedQuestions++;
                     }
@@ -574,8 +576,8 @@ namespace Jeopardy
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCreateGame createGameForm = new frmCreateGame();
-            this.Hide();
-            this.Close();
+            Hide();
+            Close();
             createGameForm.ShowDialog();
         }
     }

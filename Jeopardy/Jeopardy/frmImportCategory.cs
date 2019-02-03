@@ -23,6 +23,7 @@ namespace Jeopardy
         private void frmImportCategory_Load(object sender, EventArgs e)
         {
             bwLoadGames.RunWorkerAsync();
+            btnImport.Enabled = false;
         }
 
         private void bwLoadGames_DoWork(object sender, DoWorkEventArgs e)
@@ -50,6 +51,14 @@ namespace Jeopardy
                     lstCategories.Items.Add(c.Title + " - " + c.Subtitle);
                 }
             }
+            if (lstCategories.SelectedIndex != -1)
+            {
+                btnImport.Enabled = true;
+            }
+            else
+            {
+                btnImport.Enabled = false;
+            }
         }
 
         //After the user selects a category in the second list box, show each question in that game
@@ -60,17 +69,29 @@ namespace Jeopardy
             {
                 foreach (Question q in allGames[lstGames.SelectedIndex].Categories[lstCategories.SelectedIndex].Questions)
                 {
-                    ListViewItem lvi = new ListViewItem(q.Type);
+                    string type = "";
+                    switch (q.Type)
+                    {
+                        case "fb": type = "Fill in the Blank"; break;
+                        case "mc": type = "Multiple Choice"; break;
+                        case "tf": type = "True / False"; break;
+                    }
+                    ListViewItem lvi = new ListViewItem(type);
                     lvi.SubItems.Add(q.QuestionText);
                     lvi.SubItems.Add(q.Answer);
 
                     lsvQuestions.Items.Add(lvi);
                 }
+                btnImport.Enabled = true;
+            }
+            else
+            {
+                btnImport.Enabled = false;
             }
         }
 
         //MARK: Button Event Handlers
-        private void Import_Click(object sender, EventArgs e)
+        private void btnImport_Click(object sender, EventArgs e)
         {
             if (lstGames.SelectedIndex != -1 && lstCategories.SelectedIndex != -1)
             {

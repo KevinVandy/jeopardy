@@ -37,9 +37,10 @@
             this.Question = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Answer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
-            this.Import = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.bwLoadGames = new System.ComponentModel.BackgroundWorker();
+            this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lstGames
@@ -90,6 +91,7 @@
             // lsvQuestions
             // 
             this.lsvQuestions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chType,
             this.Question,
             this.Answer});
             this.lsvQuestions.Enabled = false;
@@ -106,12 +108,12 @@
             // Question
             // 
             this.Question.Text = "Question";
-            this.Question.Width = 462;
+            this.Question.Width = 342;
             // 
             // Answer
             // 
             this.Answer.Text = "Answer";
-            this.Answer.Width = 192;
+            this.Answer.Width = 174;
             // 
             // label2
             // 
@@ -123,16 +125,16 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Select Category";
             // 
-            // Import
+            // btnImport
             // 
-            this.Import.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Import.Location = new System.Drawing.Point(514, 495);
-            this.Import.Name = "Import";
-            this.Import.Size = new System.Drawing.Size(204, 49);
-            this.Import.TabIndex = 6;
-            this.Import.Text = "Import Category";
-            this.Import.UseVisualStyleBackColor = true;
-            this.Import.Click += new System.EventHandler(this.Import_Click);
+            this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.Location = new System.Drawing.Point(514, 495);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(204, 49);
+            this.btnImport.TabIndex = 6;
+            this.btnImport.Text = "Import Category";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // btnCancel
             // 
@@ -150,13 +152,18 @@
             this.bwLoadGames.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLoadGames_DoWork);
             this.bwLoadGames.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwLoadGames_RunWorkerCompleted);
             // 
+            // chType
+            // 
+            this.chType.Text = "Type";
+            this.chType.Width = 140;
+            // 
             // frmImportCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 590);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.Import);
+            this.Controls.Add(this.btnImport);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lsvQuestions);
             this.Controls.Add(this.lstCategories);
@@ -182,8 +189,9 @@
         private System.Windows.Forms.ColumnHeader Question;
         private System.Windows.Forms.ColumnHeader Answer;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button Import;
+        private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnCancel;
         private System.ComponentModel.BackgroundWorker bwLoadGames;
+        private System.Windows.Forms.ColumnHeader chType;
     }
 }

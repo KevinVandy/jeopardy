@@ -147,7 +147,7 @@ namespace Jeopardy
                 txtChoiceC.Enabled = false;
                 txtChoiceD.Enabled = false;
 
-                txtAnswer.Enabled = true;
+                txtAnswer.ReadOnly = false;
 
 
             }
@@ -183,7 +183,7 @@ namespace Jeopardy
                 txtChoiceC.Enabled = true;
                 txtChoiceD.Enabled = true;
 
-                txtAnswer.Enabled = false;
+                txtAnswer.ReadOnly = true;
             }
             else if (rdoTrueFalse.Checked)
             {
@@ -217,7 +217,7 @@ namespace Jeopardy
                 txtChoiceC.Enabled = false;
                 txtChoiceD.Enabled = false;
 
-                txtAnswer.Enabled = false;
+                txtAnswer.ReadOnly = true;
             }
 
         }
@@ -306,6 +306,11 @@ namespace Jeopardy
         //MARK: Button Event Handlers
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if(txtQuestionText.Text.Length > 1 && (txtAnswer.Text == "" || txtAnswer.Text == " "))
+            {
+                MessageBox.Show("Warning. This question does not have an answer. This question will be marked as imcomplete and colored RED until you give it an answer", "Warning");
+            }
+
             if (rdoFillInTheBlank.Checked)
             {
                 question.Type = "fb";

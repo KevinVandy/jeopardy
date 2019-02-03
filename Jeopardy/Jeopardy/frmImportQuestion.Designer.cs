@@ -90,20 +90,22 @@
             this.lsvQuestions.TabIndex = 12;
             this.lsvQuestions.UseCompatibleStateImageBehavior = false;
             this.lsvQuestions.View = System.Windows.Forms.View.Details;
+            this.lsvQuestions.SelectedIndexChanged += new System.EventHandler(this.lsvQuestions_SelectedIndexChanged);
             // 
             // chType
             // 
             this.chType.Text = "Type";
+            this.chType.Width = 153;
             // 
             // chQuestion
             // 
             this.chQuestion.Text = "Question";
-            this.chQuestion.Width = 427;
+            this.chQuestion.Width = 335;
             // 
             // chAnswer
             // 
             this.chAnswer.Text = "Answer";
-            this.chAnswer.Width = 171;
+            this.chAnswer.Width = 172;
             // 
             // lstCategories
             // 
