@@ -234,5 +234,10 @@ namespace Jeopardy
             }
 
         }
+
+        private void rdoFirstChoice_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

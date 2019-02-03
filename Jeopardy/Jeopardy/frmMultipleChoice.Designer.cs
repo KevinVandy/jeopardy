@@ -29,30 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMultipleChoice));
-            this.lblQuestionText = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.rdoFirstChoice = new System.Windows.Forms.RadioButton();
             this.rdoSecondChoice = new System.Windows.Forms.RadioButton();
             this.rdoThirdChoice = new System.Windows.Forms.RadioButton();
             this.rdoFourthChoice = new System.Windows.Forms.RadioButton();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnDone = new System.Windows.Forms.Button();
+            this.lblQuestionText = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lblQuestionText
-            // 
-            this.lblQuestionText.AutoSize = true;
-            this.lblQuestionText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestionText.Location = new System.Drawing.Point(13, 13);
-            this.lblQuestionText.Name = "lblQuestionText";
-            this.lblQuestionText.Size = new System.Drawing.Size(76, 25);
-            this.lblQuestionText.TabIndex = 0;
-            this.lblQuestionText.Text = "label1";
             // 
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(204, 286);
+            this.btnSubmit.Location = new System.Drawing.Point(457, 399);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(235, 45);
+            this.btnSubmit.Size = new System.Drawing.Size(235, 60);
             this.btnSubmit.TabIndex = 2;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -61,61 +54,120 @@
             // rdoFirstChoice
             // 
             this.rdoFirstChoice.AutoSize = true;
-            this.rdoFirstChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoFirstChoice.Location = new System.Drawing.Point(18, 71);
+            this.rdoFirstChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoFirstChoice.Location = new System.Drawing.Point(35, 231);
             this.rdoFirstChoice.Name = "rdoFirstChoice";
-            this.rdoFirstChoice.Size = new System.Drawing.Size(14, 13);
+            this.rdoFirstChoice.Size = new System.Drawing.Size(103, 28);
             this.rdoFirstChoice.TabIndex = 3;
             this.rdoFirstChoice.TabStop = true;
+            this.rdoFirstChoice.Text = "Choice 1";
             this.rdoFirstChoice.UseVisualStyleBackColor = true;
+            this.rdoFirstChoice.CheckedChanged += new System.EventHandler(this.rdoFirstChoice_CheckedChanged);
             // 
             // rdoSecondChoice
             // 
             this.rdoSecondChoice.AutoSize = true;
-            this.rdoSecondChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoSecondChoice.Location = new System.Drawing.Point(18, 127);
+            this.rdoSecondChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoSecondChoice.Location = new System.Drawing.Point(35, 299);
             this.rdoSecondChoice.Name = "rdoSecondChoice";
-            this.rdoSecondChoice.Size = new System.Drawing.Size(14, 13);
+            this.rdoSecondChoice.Size = new System.Drawing.Size(103, 28);
             this.rdoSecondChoice.TabIndex = 4;
             this.rdoSecondChoice.TabStop = true;
+            this.rdoSecondChoice.Text = "Choice 2";
             this.rdoSecondChoice.UseVisualStyleBackColor = true;
             // 
             // rdoThirdChoice
             // 
             this.rdoThirdChoice.AutoSize = true;
-            this.rdoThirdChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoThirdChoice.Location = new System.Drawing.Point(18, 183);
+            this.rdoThirdChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoThirdChoice.Location = new System.Drawing.Point(35, 367);
             this.rdoThirdChoice.Name = "rdoThirdChoice";
-            this.rdoThirdChoice.Size = new System.Drawing.Size(14, 13);
+            this.rdoThirdChoice.Size = new System.Drawing.Size(103, 28);
             this.rdoThirdChoice.TabIndex = 5;
             this.rdoThirdChoice.TabStop = true;
+            this.rdoThirdChoice.Text = "Choice 3";
             this.rdoThirdChoice.UseVisualStyleBackColor = true;
             // 
             // rdoFourthChoice
             // 
             this.rdoFourthChoice.AutoSize = true;
-            this.rdoFourthChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoFourthChoice.Location = new System.Drawing.Point(18, 239);
+            this.rdoFourthChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoFourthChoice.Location = new System.Drawing.Point(34, 435);
             this.rdoFourthChoice.Name = "rdoFourthChoice";
-            this.rdoFourthChoice.Size = new System.Drawing.Size(14, 13);
+            this.rdoFourthChoice.Size = new System.Drawing.Size(103, 28);
             this.rdoFourthChoice.TabIndex = 6;
             this.rdoFourthChoice.TabStop = true;
+            this.rdoFourthChoice.Text = "Choice 4";
             this.rdoFourthChoice.UseVisualStyleBackColor = true;
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(450, 513);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(82, 37);
+            this.lblTimer.TabIndex = 9;
+            this.lblTimer.Text = "1:00";
+            this.lblTimer.Visible = false;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(34, 504);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(249, 54);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnDone
+            // 
+            this.btnDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDone.Location = new System.Drawing.Point(679, 504);
+            this.btnDone.Name = "btnDone";
+            this.btnDone.Size = new System.Drawing.Size(249, 54);
+            this.btnDone.TabIndex = 7;
+            this.btnDone.Text = "Done";
+            this.btnDone.UseVisualStyleBackColor = true;
+            // 
+            // lblQuestionText
+            // 
+            this.lblQuestionText.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblQuestionText.AutoSize = true;
+            this.lblQuestionText.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestionText.Location = new System.Drawing.Point(20, 7);
+            this.lblQuestionText.MaximumSize = new System.Drawing.Size(900, 200);
+            this.lblQuestionText.Name = "lblQuestionText";
+            this.lblQuestionText.Size = new System.Drawing.Size(900, 200);
+            this.lblQuestionText.TabIndex = 10;
+            this.lblQuestionText.Text = resources.GetString("lblQuestionText.Text");
+            this.lblQuestionText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmMultipleChoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 342);
+            this.ClientSize = new System.Drawing.Size(970, 590);
+            this.Controls.Add(this.lblQuestionText);
+            this.Controls.Add(this.lblTimer);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnDone);
             this.Controls.Add(this.rdoFourthChoice);
             this.Controls.Add(this.rdoThirdChoice);
             this.Controls.Add(this.rdoSecondChoice);
             this.Controls.Add(this.rdoFirstChoice);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.lblQuestionText);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMultipleChoice";
+            this.Opacity = 0.99D;
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Jeopardy!";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmMultipleChoice_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -123,12 +175,14 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblQuestionText;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.RadioButton rdoFirstChoice;
         private System.Windows.Forms.RadioButton rdoSecondChoice;
         private System.Windows.Forms.RadioButton rdoThirdChoice;
         private System.Windows.Forms.RadioButton rdoFourthChoice;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnDone;
+        private System.Windows.Forms.Label lblQuestionText;
     }
 }

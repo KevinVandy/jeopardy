@@ -78,11 +78,11 @@ namespace Jeopardy
             {
                 case "tf":
                     //call up true/false question form
-                    using (frmTrueFalse frmTFQuestion = new frmTrueFalse(currentQuestion))
+                    using (frmTrueFalse frmTFQuestion = new frmTrueFalse(currentQuestion, currentGame.QuestionTimeLimit))
                     {
                         frmTFQuestion.ShowDialog();
 
-                        answeredCorrectly = frmTFQuestion.correct;
+                        answeredCorrectly = frmTFQuestion.Correct;
                     }
                     break;
                 case "fb":

@@ -67,6 +67,10 @@ namespace Jeopardy
             {
                 rdoTrueFalse.Checked = true;
             }
+            else
+            {
+                MessageBox.Show("Warning. This question does not have a valid type. Database may be corrupt", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
             txtQuestionText.Focus();
             txtQuestionText.SelectAll();
@@ -94,7 +98,9 @@ namespace Jeopardy
 
         private void bwCreateChoices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-
+            rdoFillInTheBlank.Enabled = true;
+            rdoMultipleChoice.Enabled = true;
+            rdoTrueFalse.Enabled = true;
         }
 
         private void bwRemoveChoices_DoWork(object sender, DoWorkEventArgs e)
@@ -111,6 +117,9 @@ namespace Jeopardy
         private void bwRemoveChoices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             question.Choices = new List<Choice>(); //reset to null
+            rdoFillInTheBlank.Enabled = true;
+            rdoMultipleChoice.Enabled = true;
+            rdoTrueFalse.Enabled = true;
         }
 
         private void rdoType_CheckChanged(object sender, EventArgs e)
@@ -119,6 +128,9 @@ namespace Jeopardy
             {
                 if (!bwRemoveChoices.IsBusy)
                 {
+                    rdoFillInTheBlank.Enabled = false;
+                    rdoMultipleChoice.Enabled = false;
+                    rdoTrueFalse.Enabled = false;
                     bwRemoveChoices.RunWorkerAsync();
                 }
 
@@ -155,6 +167,9 @@ namespace Jeopardy
             {
                 if (!bwCreateChoices.IsBusy)
                 {
+                    rdoFillInTheBlank.Enabled = false;
+                    rdoMultipleChoice.Enabled = false;
+                    rdoTrueFalse.Enabled = false;
                     bwCreateChoices.RunWorkerAsync();
                 }
 
@@ -189,6 +204,9 @@ namespace Jeopardy
             {
                 if (!bwRemoveChoices.IsBusy)
                 {
+                    rdoFillInTheBlank.Enabled = false;
+                    rdoMultipleChoice.Enabled = false;
+                    rdoTrueFalse.Enabled = false;
                     bwRemoveChoices.RunWorkerAsync();
                 }
 

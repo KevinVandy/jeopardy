@@ -12,62 +12,83 @@ namespace Jeopardy
 {
     public partial class frmTrueFalse : Form
     {
-        public bool correct { get; set; }
+        public bool Correct { get; set; }
 
         Question question;
-        
 
-        public frmTrueFalse(Question question)
+
+        public frmTrueFalse(Question question, TimeSpan timeLimit)
         {
             this.question = question;
             InitializeComponent();
         }
 
-        
-
         private void frmTrueFalse_Load(object sender, EventArgs e)
         {
             lblQuestion.Text = question.QuestionText.ToString();
             lblCorrectAnswer.Text = question.Answer;
+
+            btnDone.Enabled = false;
         }
 
         private async void btnTrue_Click(object sender, EventArgs e)
         {
-            if (question.Answer == "True") 
+            btnDone.Enabled = true;
+            btnCancel.Enabled = false;
+            btnTrue.Enabled = false;
+            btnFalse.Enabled = false;
+
+            if (question.Answer == "True")
             {
-                correct = true;
+                Correct = true;
                 lblCorrectAnswer.Visible = true;
                 lblCorrectAnswer.ForeColor = Color.ForestGreen;
-                await Task.Delay(3000); //show the answer for a bit              
             }
-            else{
-                correct = false;
+            else
+            {
+                Correct = false;
                 lblCorrectAnswer.Visible = true;
                 lblCorrectAnswer.ForeColor = Color.Red;
-                await Task.Delay(3000); //show the answer for a bit               
             }
 
-            this.Close();
+            //await Task.Delay(3000); //show the answer for a bit      
+            //this.Close();
         }
 
         private async void btnFalse_Click(object sender, EventArgs e)
         {
+            btnDone.Enabled = true;
+            btnCancel.Enabled = false;
+            btnTrue.Enabled = false;
+            btnFalse.Enabled = false;
+
             if (question.Answer == "False")
             {
-                correct = true;
+                Correct = true;
                 lblCorrectAnswer.Visible = true;
                 lblCorrectAnswer.ForeColor = Color.ForestGreen;
-                await Task.Delay(3000); //show the answer for a bit
             }
             else
             {
-                correct = false;
+                Correct = false;
                 lblCorrectAnswer.Visible = true;
                 lblCorrectAnswer.ForeColor = Color.Red;
-                await Task.Delay(3000); //show the answer for a bit
             }
 
-            this.Close();
+            //await Task.Delay(3000); //show the answer for a bit
+            //this.Close();
+        }
+
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK; //This was a valid question experience (count the points)
+            Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel; //They clicked on this button by mistake or something (don't count the points)
+            Close();
         }
     }
 }
