@@ -161,6 +161,8 @@ namespace Jeopardy
             else if(mode == "play")
             {
                 //TODO - Ryan, you can add your own code here
+                //Added this code to return a value for testing feel free to delete
+                this.State = "pass";
             }
         }
     }
