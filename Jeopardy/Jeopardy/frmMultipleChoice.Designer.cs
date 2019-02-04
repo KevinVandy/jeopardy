@@ -53,7 +53,6 @@
             this.rdoFirstChoice.TabStop = true;
             this.rdoFirstChoice.Text = "Choice 1";
             this.rdoFirstChoice.UseVisualStyleBackColor = true;
-            this.rdoFirstChoice.CheckedChanged += new System.EventHandler(this.rdoChoice_CheckedChanged);
             // 
             // rdoSecondChoice
             // 
@@ -66,7 +65,6 @@
             this.rdoSecondChoice.TabStop = true;
             this.rdoSecondChoice.Text = "Choice 2";
             this.rdoSecondChoice.UseVisualStyleBackColor = true;
-            this.rdoSecondChoice.CheckedChanged += new System.EventHandler(this.rdoChoice_CheckedChanged);
             // 
             // rdoThirdChoice
             // 
@@ -79,7 +77,6 @@
             this.rdoThirdChoice.TabStop = true;
             this.rdoThirdChoice.Text = "Choice 3";
             this.rdoThirdChoice.UseVisualStyleBackColor = true;
-            this.rdoThirdChoice.CheckedChanged += new System.EventHandler(this.rdoChoice_CheckedChanged);
             // 
             // rdoFourthChoice
             // 
@@ -92,18 +89,16 @@
             this.rdoFourthChoice.TabStop = true;
             this.rdoFourthChoice.Text = "Choice 4";
             this.rdoFourthChoice.UseVisualStyleBackColor = true;
-            this.rdoFourthChoice.CheckedChanged += new System.EventHandler(this.rdoChoice_CheckedChanged);
             // 
             // lblTimer
             // 
             this.lblTimer.AutoSize = true;
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(336, 513);
+            this.lblTimer.Location = new System.Drawing.Point(333, 513);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(82, 37);
             this.lblTimer.TabIndex = 9;
             this.lblTimer.Text = "1:00";
-            this.lblTimer.Visible = false;
             // 
             // btnCancel
             // 
@@ -139,6 +134,11 @@
             this.lblQuestionText.TabIndex = 10;
             this.lblQuestionText.Text = resources.GetString("lblQuestionText.Text");
             this.lblQuestionText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // btnSubmit
             // 

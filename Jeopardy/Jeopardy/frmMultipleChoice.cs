@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +15,13 @@ namespace Jeopardy
     {
         public bool Correct { get; set; }
 
-        private Question currentQuestion = new Question();
+        Question currentQuestion = new Question();
+        TimeSpan timeLimit;
 
         public frmMultipleChoice(Question theQuestion, TimeSpan timeLimit)
         {
             currentQuestion = theQuestion;
+            this.timeLimit = timeLimit;
             InitializeComponent();
         }
 
@@ -26,7 +29,7 @@ namespace Jeopardy
         {
             lblQuestionText.Text = currentQuestion.QuestionText;
 
-            if(currentQuestion.Choices.Count >= 4)
+            if (currentQuestion.Choices.Count >= 4)
             {
                 rdoFirstChoice.Text = currentQuestion.Choices[0].Text;
                 rdoSecondChoice.Text = currentQuestion.Choices[1].Text;
@@ -35,14 +38,14 @@ namespace Jeopardy
             }
             else
             {
-                MessageBox.Show("This question did not have 4 Choices","Error");
-                this.Close();
+                MessageBox.Show("This question did not have 4 Choices", "Error");
+                Close();
             }
-        }
 
-        private void rdoChoice_CheckedChanged(object sender, EventArgs e)
-        {
+            lblTimer.Text = timeLimit.Minutes.ToString("0") + ":" + timeLimit.Seconds.ToString("00");
+            timer.Start();
 
+            btnDone.Enabled = false;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -52,8 +55,12 @@ namespace Jeopardy
                 Correct = CheckAnswer();
                 ColorChoices();
             }
+
+            timer.Stop();
+            btnSubmit.Enabled = false;
+            btnDone.Enabled = true;
         }
-        
+
         private bool ValidateChecked()
         {
             return rdoFirstChoice.Checked || rdoSecondChoice.Checked || rdoThirdChoice.Checked || rdoFourthChoice.Checked;
@@ -106,6 +113,10 @@ namespace Jeopardy
             {
                 rdoFourthChoice.ForeColor = Color.DarkGreen;
             }
+            else
+            {
+                MessageBox.Show("There was no correct answer! Either your teacher or the programmers made a mistake! Riot!");
+            }
         }
 
         private void btnDone_Click(object sender, EventArgs e)
@@ -120,8 +131,38 @@ namespace Jeopardy
             Close();
         }
 
-        
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (lblTimer.Text == "0:00")
+            {
+                timer.Stop(); //todo
+                if (ValidateChecked())
+                {
+                    btnSubmit_Click(sender, e);
+                }
+                else
+                {
+                    Correct = false;
+                    ColorChoices();
+                }
+                btnDone.Enabled = true;
+            }
+            else
+            {
+                TimeSpan currentTime = TimeSpan.ParseExact(lblTimer.Text, "m\\:ss", CultureInfo.InstalledUICulture);
 
+                currentTime = currentTime.Subtract(new TimeSpan(0, 0, 1)); //subtrack 1 second every tick
+
+                lblTimer.Text = currentTime.Minutes.ToString("0") + ":" + currentTime.Seconds.ToString("00");
+            }
+
+            if (lblTimer.Text == "0:10")
+            {
+                System.Media.SystemSounds.Hand.Play(); //warning sound
+                lblTimer.ForeColor = Color.DarkRed;
+            }
+        }
+        
         //private void IsUserCorrect()
         //{
         //    //I realize this code is messy and dumb

@@ -117,7 +117,11 @@
             this.lblTimer.Size = new System.Drawing.Size(82, 37);
             this.lblTimer.TabIndex = 6;
             this.lblTimer.Text = "1:00";
-            this.lblTimer.Visible = false;
+            // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // frmTrueFalse
             // 

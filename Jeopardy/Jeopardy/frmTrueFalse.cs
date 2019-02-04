@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +16,13 @@ namespace Jeopardy
         public bool Correct { get; set; }
 
         Question question;
+        TimeSpan timeLimit;
 
 
         public frmTrueFalse(Question question, TimeSpan timeLimit)
         {
             this.question = question;
+            this.timeLimit = timeLimit;
             InitializeComponent();
         }
 
@@ -28,10 +31,13 @@ namespace Jeopardy
             lblQuestion.Text = question.QuestionText.ToString();
             lblCorrectAnswer.Text = question.Answer;
 
+            lblTimer.Text = timeLimit.Minutes.ToString("0") + ":" + timeLimit.Seconds.ToString("00");
+            timer.Start();
+
             btnDone.Enabled = false;
         }
 
-        private async void btnTrue_Click(object sender, EventArgs e)
+        private void btnTrue_Click(object sender, EventArgs e)
         {
             btnDone.Enabled = true;
             btnCancel.Enabled = false;
@@ -51,11 +57,13 @@ namespace Jeopardy
                 lblCorrectAnswer.ForeColor = Color.Red;
             }
 
+            timer.Stop();
+
             //await Task.Delay(3000); //show the answer for a bit      
             //this.Close();
         }
 
-        private async void btnFalse_Click(object sender, EventArgs e)
+        private void btnFalse_Click(object sender, EventArgs e)
         {
             btnDone.Enabled = true;
             btnCancel.Enabled = false;
@@ -75,6 +83,8 @@ namespace Jeopardy
                 lblCorrectAnswer.ForeColor = Color.Red;
             }
 
+            timer.Stop();
+
             //await Task.Delay(3000); //show the answer for a bit
             //this.Close();
         }
@@ -89,6 +99,29 @@ namespace Jeopardy
         {
             DialogResult = DialogResult.Cancel; //They clicked on this button by mistake or something (don't count the points)
             Close();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (lblTimer.Text == "0:00")
+            {
+                timer.Stop(); //todo
+                Correct = false;
+            }
+            else
+            {
+                TimeSpan currentTime = TimeSpan.ParseExact(lblTimer.Text, "m\\:ss", CultureInfo.InstalledUICulture);
+
+                currentTime = currentTime.Subtract(new TimeSpan(0, 0, 1)); //subtrack 1 second every tick
+
+                lblTimer.Text = currentTime.Minutes.ToString("0") + ":" + currentTime.Seconds.ToString("00");
+            }
+
+            if (lblTimer.Text == "0:10")
+            {
+                System.Media.SystemSounds.Hand.Play(); //warning sound
+                lblTimer.ForeColor = Color.DarkRed;
+            }
         }
     }
 }
