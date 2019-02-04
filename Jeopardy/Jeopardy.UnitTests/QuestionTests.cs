@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Jeopardy.UnitTests
@@ -173,6 +174,107 @@ namespace Jeopardy.UnitTests
             //Assert
             Assert.AreEqual(question.Weight, 0); //0 is default and should be got
 
+        }
+
+        [TestMethod]
+        public void DetermineState_StringEqualsEdit_StringLength1orLess_ReturnVoie()
+        {
+            //Arange
+            string pass;
+            Question question = new Question();
+            pass = "edit";
+            question.QuestionText = "";
+            //Act
+            question.DetermineState(pass);
+            //Assert
+            Assert.AreEqual(question.State, "no question");
+        }
+
+        [TestMethod]
+        public void DetermineState_StringEqualsEdit_QuestionTextSingleSpace()
+        {
+            //Arrange
+            Question question = new Question();
+            question.QuestionText = " ";
+            var pass = "edit";
+            //Act
+            question.DetermineState(pass);
+            //Assert
+            Assert.AreEqual(question.State, "no question");
+        }
+
+        [TestMethod]
+        public void DetermineState_StringEqualsEdit_QuestionTextLengthGreaterThanOne_AnswerLengthLessThanOne()
+        {
+            //Arange
+            Question question = new Question();
+            string pass  = "edit";
+            question.QuestionText = "string.length > 1";
+            question.Answer = "";
+            //Act
+            question.DetermineState(pass);
+            //Assert
+            Assert.AreEqual(question.State, "no answer");
+        }
+
+        [TestMethod]
+        public void DetermineState_StringEqualsEdit_QuestionTextLengthGreaterThanOne_AnswerEqualsSingleSpace()
+        {
+            //Arange
+            Question question = new Question();
+            string pass = "edit";
+            question.QuestionText = "string.length > 1";
+            question.Answer = " ";
+            //Act
+            question.DetermineState(pass);
+            //Assert
+            Assert.AreEqual(question.State, "no answer");
+        }
+
+        //[TestMethod]
+        //public void DetermineState_StringEqualsEdit_QuestionTextLengthGreaterThanOne_TypeEqualMC_ChoiceTextLengthLessThanOne()
+        //{
+        //    //Arange
+        //    List<Choice> Choices = new List<Choice>();
+        //    Question question = new Question();
+        //    Choice choice = new Choice();
+        //    string pass = "edit";
+        //    question.QuestionText = "string.length > 1";
+        //    question.Answer = "string.length > 1";
+        //    question.Type = "mc";
+        //    choice.Text = " ";
+        //    Choices.Add(choice);
+        //    //Act
+        //    question.DetermineState(pass);
+        //    //Assert
+        //    Assert.AreEqual(question.State, "done");
+        //}
+
+        [TestMethod]
+        public void DetermineState_StringEqualsEdit_QuestionTextLengthGreaterThanOne_QuestionAnswerGreaterThanOne_QuestionTypeNotEqualMC()
+        {
+            //Arange
+            Question question = new Question();
+            question.QuestionText = "string.length > 1";
+            question.Answer = "string.lenght > 1";
+            question.Type = "not mc";
+            string pass = "edit";
+            //Act
+            question.DetermineState(pass);
+            //Assert
+            Assert.AreEqual(question.State, "done");
+        }
+
+        [TestMethod]
+        public void DetermineState_StringEqualsPlay()
+        {
+            //Arange
+            Question question = new Question();
+            string pass = "play";
+            //Act
+            question.DetermineState(pass);
+            //Assert
+            Assert.AreEqual(question.State, "pass");
         }
     }
 }
