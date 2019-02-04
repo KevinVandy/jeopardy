@@ -94,10 +94,10 @@ namespace Jeopardy
                     break;
                 case "mc":
                     //call up multiple choice question form
-                    frmMultipleChoice frmMC = new frmMultipleChoice(currentQuestion);
+                    frmMultipleChoice frmMC = new frmMultipleChoice(currentQuestion, currentGame.QuestionTimeLimit);
                     frmMC.ShowDialog();
 
-                    answeredCorrectly = frmMC.correct;
+                    answeredCorrectly = frmMC.Correct;
                     break;
             }
 

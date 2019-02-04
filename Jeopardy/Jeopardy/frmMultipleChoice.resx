@@ -120,6 +120,9 @@
   <data name="lblQuestionText.Text" xml:space="preserve">
     <value>This a question. Here is a lot of text that might be in a question. Questions can be very long. We let them be up to 1000 characters so we need to have enough room for a long question. I am running out of things to say. Actually we might need to lower the limit to whatever fits here.</value>
   </data>
+  <metadata name="timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

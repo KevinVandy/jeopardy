@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrueFalse));
             this.lblQuestion = new System.Windows.Forms.Label();
             this.btnTrue = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@
             this.btnDone = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblTimer = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblQuestion
@@ -43,10 +45,10 @@
             this.lblQuestion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblQuestion.AutoSize = true;
             this.lblQuestion.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestion.Location = new System.Drawing.Point(33, 26);
-            this.lblQuestion.MaximumSize = new System.Drawing.Size(550, 600);
+            this.lblQuestion.Location = new System.Drawing.Point(43, 26);
+            this.lblQuestion.MaximumSize = new System.Drawing.Size(600, 600);
             this.lblQuestion.Name = "lblQuestion";
-            this.lblQuestion.Size = new System.Drawing.Size(544, 380);
+            this.lblQuestion.Size = new System.Drawing.Size(595, 342);
             this.lblQuestion.TabIndex = 0;
             this.lblQuestion.Text = resources.GetString("lblQuestion.Text");
             this.lblQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -54,7 +56,7 @@
             // btnTrue
             // 
             this.btnTrue.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTrue.Location = new System.Drawing.Point(601, 26);
+            this.btnTrue.Location = new System.Drawing.Point(713, 26);
             this.btnTrue.Name = "btnTrue";
             this.btnTrue.Size = new System.Drawing.Size(249, 83);
             this.btnTrue.TabIndex = 1;
@@ -65,7 +67,7 @@
             // btnFalse
             // 
             this.btnFalse.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFalse.Location = new System.Drawing.Point(601, 187);
+            this.btnFalse.Location = new System.Drawing.Point(713, 187);
             this.btnFalse.Name = "btnFalse";
             this.btnFalse.Size = new System.Drawing.Size(249, 83);
             this.btnFalse.TabIndex = 2;
@@ -77,7 +79,7 @@
             // 
             this.lblCorrectAnswer.AutoSize = true;
             this.lblCorrectAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorrectAnswer.Location = new System.Drawing.Point(654, 348);
+            this.lblCorrectAnswer.Location = new System.Drawing.Point(766, 348);
             this.lblCorrectAnswer.Name = "lblCorrectAnswer";
             this.lblCorrectAnswer.Size = new System.Drawing.Size(142, 63);
             this.lblCorrectAnswer.TabIndex = 3;
@@ -87,7 +89,7 @@
             // btnDone
             // 
             this.btnDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDone.Location = new System.Drawing.Point(601, 489);
+            this.btnDone.Location = new System.Drawing.Point(713, 489);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(249, 54);
             this.btnDone.TabIndex = 4;
@@ -121,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 577);
+            this.ClientSize = new System.Drawing.Size(1002, 577);
             this.ControlBox = false;
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.btnCancel);
@@ -155,5 +157,6 @@
         private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Timer timer;
     }
 }
