@@ -118,8 +118,9 @@ namespace Jeopardy
             if (!bwLoadGames.IsBusy)
             {
                 bwLoadGames.RunWorkerAsync();
-            }       
-            RefreshListBox();
+                RefreshListBox();
+            } 
+            
         }
 
         private void btnEditGame_Click(object sender, EventArgs e)
@@ -207,10 +208,5 @@ namespace Jeopardy
             about.ShowDialog();
         }
 
-        private void helpToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Form help = new frmHelp();
-            help.ShowDialog();
-        }
     }
 }

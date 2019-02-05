@@ -165,5 +165,17 @@ namespace Jeopardy
                 this.State = "pass";
             }
         }
+
+        public Question CreateBlankQuestion(int? categoryId, int weight)
+        {
+            this.CategoryId = (int)categoryId;
+            this.Type = "fb";
+            this.QuestionText = " ";
+            this.Answer = " ";
+            this.Weight = weight;
+            this.Id = DB_Insert.InsertQuestion(this);
+
+            return this;
+        }
     }
 }
