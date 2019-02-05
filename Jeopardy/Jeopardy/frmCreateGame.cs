@@ -88,7 +88,7 @@ namespace Jeopardy
         //creating the new blank game in the db can take a few seconds, so do it in a background thread
         private void bwCreateGame_DoWork(object sender, DoWorkEventArgs e)
         {
-            newGame = newGame.CreateGame(newGame.GameName, newGame.NumCategories, newGame.NumQuestionsPerCategory, selectedIndex);
+            newGame = newGame.CreateBlankGame(newGame.GameName, newGame.NumCategories, newGame.NumQuestionsPerCategory, selectedIndex);
         }
 
         //after creating the game, open the game to edit it

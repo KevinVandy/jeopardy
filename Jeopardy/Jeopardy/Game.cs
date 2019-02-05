@@ -105,7 +105,7 @@ namespace Jeopardy
         }
 
         //MARK: Public Methods
-        public Game CreateGame(string gameName, int numCategories, int numQuestionsPerCat, int questionTimeLimitIndex)
+        public Game CreateBlankGame(string gameName, int numCategories, int numQuestionsPerCat, int questionTimeLimitIndex)
         {
             TimeSpan questionTimeLimit = new TimeSpan();
             if (questionTimeLimitIndex == 0)
@@ -143,63 +143,17 @@ namespace Jeopardy
             {
                 MessageBox.Show("Invalid Game Name");
             }
-
-            this.Categories = new List<Category>(new Category[this.numCategories]);
-
-            //insert blank categories
-            for (int i = 0; i < this.numCategories; i++)
-            {
-                this.Categories[i] = new Category();
-                this.Categories[i].GameId = (int)this.id;
-                this.Categories[i].Index = i;
-                this.Categories[i].Title = "Category " + (i + 1);
-                this.Categories[i].Subtitle = " ";
-                this.Categories[i].Id = DB_Insert.InsertCategory(this.Categories[i]);
-
-                this.Categories[i].Questions = new List<Question>(new Question[this.numQuestionsPerCategory]);
-
-                //insert blank questions
-                for(int j = 0; j < this.numQuestionsPerCategory; j++)
-                {
-                    this.Categories[i].Questions[j] = new Question();
-                    this.Categories[i].Questions[j].CategoryId = (int)this.Categories[i].Id;
-                    this.Categories[i].Questions[j].Type = "fb";
-                    this.Categories[i].Questions[j].QuestionText = " ";
-                    this.Categories[i].Questions[j].Answer = " ";
-                    this.Categories[i].Questions[j].Weight = (j + 1) * 100;
-                    this.Categories[i].Questions[j].Id = DB_Insert.InsertQuestion(this.Categories[i].Questions[j]);
-                }
-            }
             
+            //insert blank categories, also will insert blank questions for each category
+            this.Categories = new List<Category>(new Category[this.numCategories]);
+            for (int index = 0; index < this.numCategories; index++)
+            {
+                this.Categories[index] = new Category();
+                this.Categories[index] = Categories[index].CreateBlankCategory(this.Id, this.numQuestionsPerCategory, index);
+            }
             
             return this;
         }
-
-       
-
-        public void EditGame()
-        {
-
-        }
-
-        public void DeleteGame()
-        {
-
-        }
-
-        public void ImportGame()
-        {
-
-        }
-
-        public void ExportGame()
-        {
-
-        }
-
-        public void PlayGame()
-        {
-
-        }
+        
     }
 }
