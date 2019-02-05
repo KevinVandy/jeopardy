@@ -58,7 +58,7 @@
             // 
             this.btnCreateGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateGame.Location = new System.Drawing.Point(479, 118);
-            this.btnCreateGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateGame.Name = "btnCreateGame";
             this.btnCreateGame.Size = new System.Drawing.Size(383, 69);
             this.btnCreateGame.TabIndex = 0;
@@ -70,7 +70,7 @@
             // 
             this.btnPlayGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlayGame.Location = new System.Drawing.Point(64, 406);
-            this.btnPlayGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPlayGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnPlayGame.Name = "btnPlayGame";
             this.btnPlayGame.Size = new System.Drawing.Size(383, 165);
             this.btnPlayGame.TabIndex = 1;
@@ -84,7 +84,7 @@
             this.lstGamesFromDB.FormattingEnabled = true;
             this.lstGamesFromDB.ItemHeight = 29;
             this.lstGamesFromDB.Location = new System.Drawing.Point(64, 118);
-            this.lstGamesFromDB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstGamesFromDB.Margin = new System.Windows.Forms.Padding(4);
             this.lstGamesFromDB.Name = "lstGamesFromDB";
             this.lstGamesFromDB.Size = new System.Drawing.Size(381, 265);
             this.lstGamesFromDB.TabIndex = 2;
@@ -203,12 +203,13 @@
             this.helpToolStripMenuItem2.Name = "helpToolStripMenuItem2";
             this.helpToolStripMenuItem2.Size = new System.Drawing.Size(216, 28);
             this.helpToolStripMenuItem2.Text = "Help";
+            this.helpToolStripMenuItem2.Click += new System.EventHandler(this.helpToolStripMenuItem2_Click);
             // 
             // btnEditGame
             // 
             this.btnEditGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditGame.Location = new System.Drawing.Point(479, 214);
-            this.btnEditGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditGame.Name = "btnEditGame";
             this.btnEditGame.Size = new System.Drawing.Size(383, 69);
             this.btnEditGame.TabIndex = 5;
@@ -220,7 +221,7 @@
             // 
             this.btnDeleteGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteGame.Location = new System.Drawing.Point(479, 310);
-            this.btnDeleteGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteGame.Name = "btnDeleteGame";
             this.btnDeleteGame.Size = new System.Drawing.Size(383, 69);
             this.btnDeleteGame.TabIndex = 6;
@@ -237,7 +238,7 @@
             // 
             this.btnExportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportGame.Location = new System.Drawing.Point(479, 502);
-            this.btnExportGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExportGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnExportGame.Name = "btnExportGame";
             this.btnExportGame.Size = new System.Drawing.Size(383, 69);
             this.btnExportGame.TabIndex = 7;
@@ -249,7 +250,7 @@
             // 
             this.btnImportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportGame.Location = new System.Drawing.Point(479, 406);
-            this.btnImportGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImportGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnImportGame.Name = "btnImportGame";
             this.btnImportGame.Size = new System.Drawing.Size(383, 69);
             this.btnImportGame.TabIndex = 8;
@@ -273,7 +274,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
