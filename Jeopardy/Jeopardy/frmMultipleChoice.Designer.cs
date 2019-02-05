@@ -99,6 +99,7 @@
             this.lblTimer.Size = new System.Drawing.Size(82, 37);
             this.lblTimer.TabIndex = 9;
             this.lblTimer.Text = "1:00";
+            this.lblTimer.Click += new System.EventHandler(this.lblTimer_Click);
             // 
             // btnCancel
             // 
