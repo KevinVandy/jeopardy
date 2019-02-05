@@ -212,7 +212,7 @@ namespace Jeopardy
         private void helpToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process process = new Process();
-            process.StartInfo.FileName = @"C:\\Users\\ts269649\\source\\repos\\jeopardy\\Jeopardy\\Jeopardy\\help.chm";
+            process.StartInfo.FileName = @"C:\\Windows\\System32\\appverif.chm";
             process.Start();
             //C:\\Windows\\System32\\appverif.chm
             //
