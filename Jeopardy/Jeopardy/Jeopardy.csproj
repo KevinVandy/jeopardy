@@ -89,12 +89,6 @@
     <Compile Include="frmFillInTheBlank.Designer.cs">
       <DependentUpon>frmFillInTheBlank.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHelp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmHelp.Designer.cs">
-      <DependentUpon>frmHelp.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmImportCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,12 +137,6 @@
     <Compile Include="frmTrueFalse.Designer.cs">
       <DependentUpon>frmTrueFalse.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTutorial.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTutorial.Designer.cs">
-      <DependentUpon>frmTutorial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="DB_Conn.cs" />
     <Compile Include="DB_Select.cs" />
@@ -180,9 +168,6 @@
     <EmbeddedResource Include="frmFillInTheBlank.resx">
       <DependentUpon>frmFillInTheBlank.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHelp.resx">
-      <DependentUpon>frmHelp.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmImportCategory.resx">
       <DependentUpon>frmImportCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,9 +191,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTrueFalse.resx">
       <DependentUpon>frmTrueFalse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTutorial.resx">
-      <DependentUpon>frmTutorial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

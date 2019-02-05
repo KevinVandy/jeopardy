@@ -207,10 +207,5 @@ namespace Jeopardy
             about.ShowDialog();
         }
 
-        private void helpToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Form help = new frmHelp();
-            help.ShowDialog();
-        }
     }
 }
