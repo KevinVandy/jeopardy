@@ -154,6 +154,22 @@ namespace Jeopardy
             
             return this;
         }
-        
+
+        public void GenerateDailyDouble()
+        {
+            foreach (Category c in this.Categories)
+            {
+                foreach (Question q in c.Questions)
+                {
+                    q.DailyDouble = false;
+                }
+            }
+            Random rnd = new Random();
+            int rndCategory = rnd.Next(1, this.NumCategories);
+            int rndQuestion = rnd.Next(1, this.NumQuestionsPerCategory);
+
+            this.Categories[rndCategory].Questions[rndQuestion].DailyDouble = true;
+        }
+
     }
 }
