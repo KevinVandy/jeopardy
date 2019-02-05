@@ -83,6 +83,16 @@ namespace Jeopardy.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap j_logo {
+            get {
+                object obj = ResourceManager.GetObject("j-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NewTable_16x {
             get {
                 object obj = ResourceManager.GetObject("NewTable_16x", resourceCulture);
