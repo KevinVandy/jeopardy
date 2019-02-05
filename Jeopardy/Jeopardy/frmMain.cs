@@ -119,8 +119,9 @@ namespace Jeopardy
             if (!bwLoadGames.IsBusy)
             {
                 bwLoadGames.RunWorkerAsync();
-            }       
-            RefreshListBox();
+                RefreshListBox();
+            } 
+            
         }
 
         private void btnEditGame_Click(object sender, EventArgs e)

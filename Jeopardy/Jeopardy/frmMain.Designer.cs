@@ -194,14 +194,14 @@
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(216, 28);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(133, 28);
             this.helpToolStripMenuItem1.Text = "About";
             this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
             // 
             // helpToolStripMenuItem2
             // 
             this.helpToolStripMenuItem2.Name = "helpToolStripMenuItem2";
-            this.helpToolStripMenuItem2.Size = new System.Drawing.Size(216, 28);
+            this.helpToolStripMenuItem2.Size = new System.Drawing.Size(133, 28);
             this.helpToolStripMenuItem2.Text = "Help";
             this.helpToolStripMenuItem2.Click += new System.EventHandler(this.helpToolStripMenuItem2_Click);
             // 
@@ -231,6 +231,7 @@
             // 
             // bwLoadGames
             // 
+            this.bwLoadGames.WorkerSupportsCancellation = true;
             this.bwLoadGames.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLoadGames_DoWork);
             this.bwLoadGames.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwLoadGames_RunWorkerCompleted);
             // 
