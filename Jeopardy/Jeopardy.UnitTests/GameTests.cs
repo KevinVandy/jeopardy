@@ -27,6 +27,16 @@ namespace Jeopardy.UnitTests
         }
 
         [TestMethod]
+        public void SetGameName_SetNull_ReturnBlank()
+        {
+            Game game = new Game();
+
+            game.GameName = "";
+
+            Assert.AreEqual(game.GameName, "Untitled Game");
+        }
+
+        [TestMethod]
         public void SetQuestionTimeLimit_Set30Sec_Return30Sec()
         {
             Game game = new Game();
@@ -97,11 +107,41 @@ namespace Jeopardy.UnitTests
         }
 
         [TestMethod]
+        public void SetNumCategories_Set3_Return3()
+        {
+            Game game = new Game();
+
+            game.NumCategories = 3;
+
+            Assert.AreEqual(game.NumCategories, 3);
+        }
+
+        [TestMethod]
+        public void SetNumCategories_Set8_Return8()
+        {
+            Game game = new Game();
+
+            game.NumCategories = 8;
+
+            Assert.AreEqual(game.NumCategories, 8);
+        }
+
+        [TestMethod]
         public void SetNumCategories_Set2_Return5()
         {
             Game game = new Game();
 
             game.NumCategories = 2;
+
+            Assert.AreEqual(game.NumCategories, 5);
+        }
+
+        [TestMethod]
+        public void SetNumCategories_Set9_Return5()
+        {
+            Game game = new Game();
+
+            game.NumCategories = 9;
 
             Assert.AreEqual(game.NumCategories, 5);
         }
@@ -117,11 +157,41 @@ namespace Jeopardy.UnitTests
         }
 
         [TestMethod]
+        public void SetNumQuestionsPerCategory_Set3_Return3()
+        {
+            Game game = new Game();
+
+            game.NumQuestionsPerCategory = 3;
+
+            Assert.AreEqual(game.NumQuestionsPerCategory, 3);
+        }
+
+        [TestMethod]
+        public void SetNumQuestionsPerCategory_Set8_Return8()
+        {
+            Game game = new Game();
+
+            game.NumQuestionsPerCategory = 8;
+
+            Assert.AreEqual(game.NumQuestionsPerCategory, 8);
+        }
+
+        [TestMethod]
         public void SetNumQuestionsPerCategory_Set2_Return6()
         {
             Game game = new Game();
 
             game.NumQuestionsPerCategory = 2;
+
+            Assert.AreEqual(game.NumQuestionsPerCategory, 6);
+        }
+
+        [TestMethod]
+        public void SetNumQuestionsPerCategory_Set9_Return6()
+        {
+            Game game = new Game();
+
+            game.NumQuestionsPerCategory = 9;
 
             Assert.AreEqual(game.NumQuestionsPerCategory, 6);
         }
