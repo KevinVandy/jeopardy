@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -208,5 +209,14 @@ namespace Jeopardy
             about.ShowDialog();
         }
 
+        private void helpToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process process = new Process();
+            process.StartInfo.FileName = @"C:\\Users\\ts269649\\source\\repos\\jeopardy\\Jeopardy\\Jeopardy\\help.chm";
+            process.Start();
+            //C:\\Windows\\System32\\appverif.chm
+            //
+            //ystem.Windows.Forms.Help.ShowHelp(this, "help.chm");
+        }
     }
 }
