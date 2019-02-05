@@ -58,9 +58,6 @@ namespace Jeopardy
             }
 
             timer.Stop();
-
-            //await Task.Delay(3000); //show the answer for a bit      
-            //this.Close();
         }
 
         private void btnFalse_Click(object sender, EventArgs e)
@@ -84,9 +81,6 @@ namespace Jeopardy
             }
 
             timer.Stop();
-
-            //await Task.Delay(3000); //show the answer for a bit
-            //this.Close();
         }
 
         private void btnDone_Click(object sender, EventArgs e)

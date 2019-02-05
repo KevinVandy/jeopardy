@@ -87,10 +87,10 @@ namespace Jeopardy
                     break;
                 case "fb":
                     //call up fill in the blank question form
-                    frmFillInTheBlank frmFB = new frmFillInTheBlank(currentQuestion);
+                    frmFillInTheBlank frmFB = new frmFillInTheBlank(currentQuestion, currentGame.QuestionTimeLimit);
                     frmFB.ShowDialog();
 
-                    answeredCorrectly = frmFB.correct;
+                    answeredCorrectly = frmFB.Correct;
                     break;
                 case "mc":
                     //call up multiple choice question form

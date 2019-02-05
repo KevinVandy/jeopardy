@@ -162,7 +162,12 @@ namespace Jeopardy
                 lblTimer.ForeColor = Color.DarkRed;
             }
         }
-        
+
+        private void lblTimer_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //private void IsUserCorrect()
         //{
         //    //I realize this code is messy and dumb
