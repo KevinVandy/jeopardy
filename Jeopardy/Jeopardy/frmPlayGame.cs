@@ -76,44 +76,52 @@ namespace Jeopardy
             bool answeredCorrectly = false;
             DialogResult formResult = DialogResult.Cancel;
 
+            if(currentQuestion.DailyDouble == true)
+            {
+                frmDoubleJeopardy frmDJ = new frmDoubleJeopardy(currentQuestion, currentTeam);
+                frmDJ.ShowDialog();
+                currentQuestion = (Question)frmDJ.Tag;
+            }
+
             switch (currentQuestion.Type)
             {
-                case "tf":
-                    //call up true/false question form
-                    using (frmTrueFalse frmTFQuestion = new frmTrueFalse(currentQuestion, currentGame.QuestionTimeLimit))
-                    {
-                        formResult = frmTFQuestion.ShowDialog();
+                    case "tf":
+                        //call up true/false question form
+                        using (frmTrueFalse frmTFQuestion = new frmTrueFalse(currentQuestion, currentGame.QuestionTimeLimit))
+                        {
+                            formResult = frmTFQuestion.ShowDialog();
 
-                        answeredCorrectly = frmTFQuestion.Correct;
-                    }
-                    break;
-                case "fb":
-                    //call up fill in the blank question form
-                    frmFillInTheBlank frmFB = new frmFillInTheBlank(currentQuestion, currentGame.QuestionTimeLimit);
-                    formResult = frmFB.ShowDialog();
+                            answeredCorrectly = frmTFQuestion.Correct;
+                        }
+                        break;
+                    case "fb":
+                        //call up fill in the blank question form
+                        frmFillInTheBlank frmFB = new frmFillInTheBlank(currentQuestion, currentGame.QuestionTimeLimit);
+                        formResult = frmFB.ShowDialog();
 
-                    answeredCorrectly = frmFB.Correct;
-                    break;
-                case "mc":
-                    //call up multiple choice question form
-                    frmMultipleChoice frmMC = new frmMultipleChoice(currentQuestion, currentGame.QuestionTimeLimit);
-                    formResult = frmMC.ShowDialog();
+                        answeredCorrectly = frmFB.Correct;
+                        break;
+                    case "mc":
+                        //call up multiple choice question form
+                        frmMultipleChoice frmMC = new frmMultipleChoice(currentQuestion, currentGame.QuestionTimeLimit);
+                        formResult = frmMC.ShowDialog();
 
-                    answeredCorrectly = frmMC.Correct;
-                    break;
+                        answeredCorrectly = frmMC.Correct;
+                        break;
             }
-            if(formResult == DialogResult.OK)
+
+            if (formResult == DialogResult.OK)
             {
-                //hide the clicked button
-                button.Visible = false;
-                currentQuestion.State = "Answered";
+                    //hide the clicked button
+                    button.Visible = false;
+                    currentQuestion.State = "Answered";
 
-                //method to assign score to the right team
-                AssignPoints(answeredCorrectly, currentQuestion);
+                    //method to assign score to the right team
+                    AssignPoints(answeredCorrectly, currentQuestion);
 
-                //method to automatically move the teams along
-                MoveToNextTeam();
-            }
+                    //method to automatically move the teams along
+                    MoveToNextTeam();
+            }         
         }
 
         private void DrawCategories()
