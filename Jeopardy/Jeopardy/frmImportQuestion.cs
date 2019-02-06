@@ -52,6 +52,14 @@ namespace Jeopardy
                     lstCategories.Items.Add(c.Title + " - " + c.Subtitle);
                 }
             }
+            if (lsvQuestions.SelectedIndices.Count > 0)
+            {
+                btnImport.Enabled = true;
+            }
+            else
+            {
+                btnImport.Enabled = false;
+            }
         }
 
         //After the user selects a category in the second list box, show each question in that game

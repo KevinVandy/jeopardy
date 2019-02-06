@@ -128,7 +128,6 @@ namespace Jeopardy
         {
             frmEditGame createGameForm = new frmEditGame(selectedGame);
             createGameForm.Tag = selectedGame;
-            createGameForm.Text = "Edit a Game!";
             this.Hide();
             createGameForm.ShowDialog();
             this.Show();

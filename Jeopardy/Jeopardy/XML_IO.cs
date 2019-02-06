@@ -16,8 +16,6 @@ namespace Jeopardy
 {
     class XML_IO
     {
-
-
         public static void exportXML(Game selectedGame)
         {
             string gameName = selectedGame.GameName;
