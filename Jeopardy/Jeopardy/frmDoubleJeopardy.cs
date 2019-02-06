@@ -37,7 +37,7 @@ namespace Jeopardy
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+            this.Tag = currentQuestion;
             this.Close();
         }
 
