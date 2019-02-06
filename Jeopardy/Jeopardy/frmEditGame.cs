@@ -76,7 +76,7 @@ namespace Jeopardy
             DrawGrids();
         }
 
-//MARK: Value & Index Change Event Handlers (Mostly for stuff in the Game Info group box)
+        //MARK: Value & Index Change Event Handlers (Mostly for stuff in the Game Info group box)
 
         private void txtGameName_Leave(object sender, EventArgs e)
         {
@@ -171,7 +171,7 @@ namespace Jeopardy
                 MessageBox.Show("Failed to update NumCategories");
             }
         }
-        
+
         private void bwAddCategory_DoWork(object sender, DoWorkEventArgs e)
         {
             Category newCategory = new Category(null, (int)game.Id, game.Categories.Count, "Category " + (game.Categories.Count + 1), " ", null);
@@ -252,7 +252,7 @@ namespace Jeopardy
                 newQuestion.Weight = (game.NumQuestionsPerCategory) * 100;
                 newQuestion.Id = DB_Insert.InsertQuestion(newQuestion);
 
-                if(newQuestion.Id != null && newQuestion.Id > 0) //if the insert into db worked
+                if (newQuestion.Id != null && newQuestion.Id > 0) //if the insert into db worked
                 {
                     game.Categories[i].Questions.Add(newQuestion); //add it the the current game object too
                 }
@@ -285,8 +285,8 @@ namespace Jeopardy
             CreateQuestionGrid();
             nudNumQuestionCategory.Enabled = true;
         }
-        
-//MARK: Methods for Drawing the Buttons in the Group Boxes
+
+        //MARK: Methods for Drawing the Buttons in the Group Boxes
 
         private void DrawGrids()
         {
@@ -453,8 +453,8 @@ namespace Jeopardy
             }
 
         }
-        
-//MARK Methods for figuring out stats and Button Colors
+
+        //MARK Methods for figuring out stats and Button Colors
         private void DetermineQuestionStates()
         {
             foreach (Category c in game.Categories)
@@ -558,7 +558,97 @@ namespace Jeopardy
             about.ShowDialog();
         }
 
-//MARK: Resizing the Window Event Handler stuff
+        //MARK: Context Menu Item Click Event Handlers
+        private void tsmiEditCategory_Click(object sender, EventArgs e) //just simulates a click of the button
+        {
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    Button clickedButton = (Button)owner.SourceControl;
+                    CategoryButton_Click(clickedButton, null);
+                }
+            }
+        }
+
+        private void tsmiDeleteCategory_Click(object sender, EventArgs e) //updates a category to be blank and default
+        {
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    Button clickedButton = (Button)owner.SourceControl;
+
+                    //detect position in button grid
+                    int x = -1;
+                    for (int i = 0; i < game.NumCategories && x < 0; ++i)
+                    {
+                        if (categoryButtons[i] == clickedButton)
+                        {
+                            x = i;
+                            break;
+                        }
+                    }
+                    game.Categories[x].Title = "Category " + (x + 1).ToString();
+                    game.Categories[x].Subtitle = " ";
+                    DB_Update.UpdateCategory(game.Categories[x]); //should change to be background thread
+                    bwLoadGame.RunWorkerAsync();
+                }
+            }
+        }
+
+        private void tsmiEditQuestion_Click(object sender, EventArgs e) //just simulates a click of the button
+        {
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    Button clickedButton = (Button)owner.SourceControl;
+                    QuestionButton_Click(clickedButton, null);
+                }
+            }
+        }
+
+        private void tsmiDeleteQuestion_Click(object sender, EventArgs e)
+        {
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    Button clickedButton = (Button)owner.SourceControl;
+
+                    //detect position in button grid
+                    int x = -1;
+                    int y = -1;
+                    for (int i = 0; i < game.NumCategories && x < 0; ++i)
+                    {
+                        for (int j = 0; j < game.NumQuestionsPerCategory; ++j)
+                        {
+                            if (questionButtons[i, j] == clickedButton)
+                            {
+                                x = i;
+                                y = j;
+                                break;
+                            }
+                        }
+                    }
+                    game.Categories[x].Questions[y].QuestionText = " ";
+                    game.Categories[x].Questions[y].Answer = " ";
+                    DB_Update.UpdateQuestion(game.Categories[x].Questions[y]); //should change to be background thread
+                    bwLoadGame.RunWorkerAsync();
+                }
+            }
+        }
+
+        //MARK: Resizing the Window Event Handler stuff
         private void ModifyGroupBoxWidths()
         {
             gbxGameInfo.Width = Width - 70;
@@ -599,5 +689,9 @@ namespace Jeopardy
                 }
             }
         }
+
+
+
+
     }
 }

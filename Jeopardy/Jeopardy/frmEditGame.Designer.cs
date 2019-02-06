@@ -150,32 +150,32 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.newGameToolStripMenuItem.Text = "New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // exportGameToolStripMenuItem
             // 
             this.exportGameToolStripMenuItem.Name = "exportGameToolStripMenuItem";
-            this.exportGameToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
+            this.exportGameToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.exportGameToolStripMenuItem.Text = "Export To File";
             this.exportGameToolStripMenuItem.Click += new System.EventHandler(this.exportGameToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.exitToolStripMenuItem.Text = "Save and Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
@@ -423,12 +423,14 @@
             this.tsmiEditQuestion.Name = "tsmiEditQuestion";
             this.tsmiEditQuestion.Size = new System.Drawing.Size(124, 26);
             this.tsmiEditQuestion.Text = "Edit";
+            this.tsmiEditQuestion.Click += new System.EventHandler(this.tsmiEditQuestion_Click);
             // 
             // tsmiDeleteQuestion
             // 
             this.tsmiDeleteQuestion.Name = "tsmiDeleteQuestion";
             this.tsmiDeleteQuestion.Size = new System.Drawing.Size(124, 26);
             this.tsmiDeleteQuestion.Text = "Delete";
+            this.tsmiDeleteQuestion.Click += new System.EventHandler(this.tsmiDeleteQuestion_Click);
             // 
             // cmsCategories
             // 
@@ -444,12 +446,14 @@
             this.tsmiEditCategory.Name = "tsmiEditCategory";
             this.tsmiEditCategory.Size = new System.Drawing.Size(124, 26);
             this.tsmiEditCategory.Text = "Edit";
+            this.tsmiEditCategory.Click += new System.EventHandler(this.tsmiEditCategory_Click);
             // 
             // tsmiDeleteCategory
             // 
             this.tsmiDeleteCategory.Name = "tsmiDeleteCategory";
             this.tsmiDeleteCategory.Size = new System.Drawing.Size(124, 26);
             this.tsmiDeleteCategory.Text = "Delete";
+            this.tsmiDeleteCategory.Click += new System.EventHandler(this.tsmiDeleteCategory_Click);
             // 
             // bwAddCategory
             // 
