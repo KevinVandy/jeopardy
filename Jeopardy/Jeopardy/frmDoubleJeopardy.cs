@@ -43,7 +43,7 @@ namespace Jeopardy
             lblMax.Text = nudPoints.Maximum.ToString();
 
             //set value
-            tbPoints.Value = currentQuestion.Weight * 2 / 100; //true daily double
+            tbPoints.Value = currentQuestion.Weight / 100; //true daily double
             nudPoints.Value = tbPoints.Value * 100;
         }
 
