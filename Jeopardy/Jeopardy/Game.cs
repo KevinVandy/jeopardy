@@ -165,8 +165,8 @@ namespace Jeopardy
                 }
             }
             Random rnd = new Random();
-            int rndCategory = rnd.Next(1, this.NumCategories);
-            int rndQuestion = rnd.Next(1, this.NumQuestionsPerCategory);
+            int rndCategory = rnd.Next(0, this.NumCategories);
+            int rndQuestion = rnd.Next(0, this.NumQuestionsPerCategory);
 
             this.Categories[rndCategory].Questions[rndQuestion].DailyDouble = true;
         }

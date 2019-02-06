@@ -24,36 +24,53 @@ namespace Jeopardy
 
         private void frmDoubleJeopardy_Load(object sender, EventArgs e)
         {
-            if(currentTeam.Score > 1000)
+            //set min
+            tbPoints.Minimum = 100 / 100;
+            nudPoints.Minimum = 100;
+            lblMin.Text = nudPoints.Minimum.ToString();
+
+            //set max
+            if (currentTeam.Score > 1000)
             {
-                tbPoints.Maximum = currentTeam.Score;
+                tbPoints.Maximum = currentTeam.Score / 100;
+                nudPoints.Maximum = currentTeam.Score;
             }
-            else if(currentTeam.Score <= 1000)
+            else if (currentTeam.Score <= 1000)
             {
-                tbPoints.Maximum = 1000;
+                tbPoints.Maximum = 1000 / 100;
+                nudPoints.Maximum = 1000;
             }
-            
+            lblMax.Text = nudPoints.Maximum.ToString();
+
+            //set value
+            tbPoints.Value = currentQuestion.Weight * 2 / 100; //true daily double
+            nudPoints.Value = tbPoints.Value * 100;
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Tag = currentQuestion;
-            this.Close();
-        }
-
+        //MARK: Value & Index Change Events
         private void tbPoints_Scroll(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(tbPoints, tbPoints.Value.ToString());
+            nudPoints.Value = tbPoints.Value * 100;
+            toolTip1.SetToolTip(tbPoints, (tbPoints.Value * 100).ToString());
+        }
+
+        private void nudPoints_ValueChanged(object sender, EventArgs e)
+        {
+            tbPoints.Value = (int)nudPoints.Value / 100;
+        }
+
+        //MARK: Button Event Handlers
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Tag = currentQuestion;
+            Close();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            //The Weight setter in the Question class doesn't work for anything thats not
-            // 100, 200, 300, 400, 500, 600, 700, 800
-            // We'll have to change that for this to work
-            currentQuestion.Weight = tbPoints.Value;
-            this.Tag = currentQuestion;
-            this.Close();
+            currentQuestion.Weight = (int)nudPoints.Value;
+            Tag = currentQuestion;
+            Close();
         }
     }
 }
