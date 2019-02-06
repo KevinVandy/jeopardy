@@ -91,6 +91,7 @@ namespace Jeopardy
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            timer.Stop();
             DialogResult = DialogResult.Cancel; //They clicked on this button by mistake or something (don't count the points)
             Close();
         }

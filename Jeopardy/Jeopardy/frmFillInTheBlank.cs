@@ -84,6 +84,7 @@ namespace Jeopardy
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            timer.Stop();
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }

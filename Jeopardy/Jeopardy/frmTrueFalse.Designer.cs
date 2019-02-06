@@ -89,7 +89,7 @@
             // btnDone
             // 
             this.btnDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDone.Location = new System.Drawing.Point(713, 489);
+            this.btnDone.Location = new System.Drawing.Point(712, 489);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(249, 54);
             this.btnDone.TabIndex = 4;
@@ -111,10 +111,10 @@
             // lblTimer
             // 
             this.lblTimer.AutoSize = true;
-            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(404, 498);
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(450, 490);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(82, 37);
+            this.lblTimer.Size = new System.Drawing.Size(101, 46);
             this.lblTimer.TabIndex = 6;
             this.lblTimer.Text = "1:00";
             // 

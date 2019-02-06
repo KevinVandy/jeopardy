@@ -59,6 +59,7 @@ namespace Jeopardy
             timer.Stop();
             btnSubmit.Enabled = false;
             btnDone.Enabled = true;
+            btnCancel.Enabled = false;
         }
 
         private bool ValidateChecked()
@@ -127,6 +128,7 @@ namespace Jeopardy
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            timer.Stop();
             DialogResult = DialogResult.Cancel;
             Close();
         }

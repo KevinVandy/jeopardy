@@ -93,10 +93,10 @@
             // lblTimer
             // 
             this.lblTimer.AutoSize = true;
-            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(333, 513);
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(329, 505);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(82, 37);
+            this.lblTimer.Size = new System.Drawing.Size(101, 46);
             this.lblTimer.TabIndex = 9;
             this.lblTimer.Text = "1:00";
             this.lblTimer.Click += new System.EventHandler(this.lblTimer_Click);
@@ -115,7 +115,7 @@
             // btnDone
             // 
             this.btnDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDone.Location = new System.Drawing.Point(788, 504);
+            this.btnDone.Location = new System.Drawing.Point(786, 504);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(234, 54);
             this.btnDone.TabIndex = 7;
@@ -144,7 +144,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(486, 504);
+            this.btnSubmit.Location = new System.Drawing.Point(491, 504);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(234, 54);
             this.btnSubmit.TabIndex = 11;
