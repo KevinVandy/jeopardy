@@ -19,6 +19,7 @@ namespace Jeopardy
         private Team[] teams = new Team[4];
         private Game currentGame = new Game();
         private Team currentTeam = new Team();
+        private List<Question> wrongQuestions = new List<Question>();
 
         public frmPlayGame(Game theGame, Team[] theTeams)
         {
@@ -112,6 +113,12 @@ namespace Jeopardy
 
             if (formResult == DialogResult.OK)
             {
+                //Insert question if it was answered wrong into a list for later
+                if (answeredCorrectly == false)
+                {
+                    wrongQuestions.Add(currentQuestion);
+                }
+
                 //hide the clicked button
                 button.Visible = false;
                 currentQuestion.State = "Answered";
@@ -121,6 +128,26 @@ namespace Jeopardy
 
                 //method to automatically move the teams along
                 MoveToNextTeam();
+
+                //If the game is done and every question has been answered
+                //Then pull up frmWrongQuestions
+                foreach (Category c in currentGame.Categories)
+                {
+                    foreach (Question q in c.Questions)
+                    {
+                        if (q.State != "Answered")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            //show the frmWrongQuestions for statistics
+
+                            //close the form
+                            this.Close();
+                        }
+                    }
+                }
             }
         }
 
