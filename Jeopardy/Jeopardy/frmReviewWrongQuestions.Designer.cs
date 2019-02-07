@@ -34,7 +34,7 @@
             this.btnRevealAnswer = new System.Windows.Forms.Button();
             this.txtCorrectAnswer = new System.Windows.Forms.TextBox();
             this.btnPrevious = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.lblIndex = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -70,6 +70,7 @@
             this.btnRevealAnswer.TabIndex = 14;
             this.btnRevealAnswer.Text = "Show Answer";
             this.btnRevealAnswer.UseVisualStyleBackColor = true;
+            this.btnRevealAnswer.Click += new System.EventHandler(this.btnRevealAnswer_Click);
             // 
             // txtCorrectAnswer
             // 
@@ -92,15 +93,16 @@
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnNext
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(697, 461);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(246, 59);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Next";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Location = new System.Drawing.Point(697, 461);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(246, 59);
+            this.btnNext.TabIndex = 17;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // lblIndex
             // 
@@ -118,7 +120,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 551);
             this.Controls.Add(this.lblIndex);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.txtCorrectAnswer);
             this.Controls.Add(this.btnRevealAnswer);
@@ -139,7 +141,7 @@
         private System.Windows.Forms.Button btnRevealAnswer;
         private System.Windows.Forms.TextBox txtCorrectAnswer;
         private System.Windows.Forms.Button btnPrevious;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label lblIndex;
     }
 }
