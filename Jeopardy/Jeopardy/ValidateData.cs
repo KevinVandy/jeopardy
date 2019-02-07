@@ -151,7 +151,7 @@ namespace Jeopardy
             //{
             //    return true;
             //}
-            if (weight > -10000 && weight < 10000)
+            if (weight > -100000 && weight < 100000)
             {
                 return true;
             }

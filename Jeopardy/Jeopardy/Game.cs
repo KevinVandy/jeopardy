@@ -41,7 +41,7 @@ namespace Jeopardy
             {
                 if (ValidateData.ValidateGameName(value))
                 {
-                    gameName = value;
+                    gameName = value.Trim();
                 }
                 else
                 {

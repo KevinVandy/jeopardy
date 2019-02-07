@@ -52,7 +52,7 @@ namespace Jeopardy
             {
                 if (ValidateData.ValidateQuestionText(value))
                 {
-                    questionText = value;
+                    questionText = value.Trim();
                 }
                 else
                 {
@@ -68,7 +68,7 @@ namespace Jeopardy
             {
                 if (ValidateData.ValidateQuestionType(value))
                 {
-                    type = value;
+                    type = value.Trim();
                 }
                 else
                 {
@@ -84,7 +84,7 @@ namespace Jeopardy
             {
                 if (ValidateData.ValidateQuestionAnswer(value))
                 {
-                    answer = value;
+                    answer = value.Trim();
                 }
                 else
                 {
@@ -131,23 +131,24 @@ namespace Jeopardy
         {
             if (mode == "edit")
             {
-                if (QuestionText.Length <= 1 || QuestionText == " ")
+                if (QuestionText == "" || QuestionText == " ")
                 {
                     State = "no question";
                 }
-                else if (QuestionText.Length > 1 && (Answer.Length <= 1 || Answer == " "))
+                else if (QuestionText.Length > 1 && (Answer == "" || Answer == " "))
                 {
                     State = "no answer";
                 }
                 else if (QuestionText.Length > 1 && Type == "mc") //if is multiple choice
                 {
-                    if (Choices[0].Text == " " || Choices[1].Text == " " || Choices[2].Text == " " || Choices[3].Text == " ")
+                    if (Choices[0].Text == " " || Choices[1].Text == " " || Choices[2].Text == " " || Choices[3].Text == " "
+                        || Choices[0].Text == "" || Choices[1].Text == "" || Choices[2].Text == "" || Choices[3].Text == "")
                     {
-                        state = "no choices";
+                        State = "no choices";
                     }
                     else
                     {
-                        state = "done";
+                        State = "done";
                     }
                 }
                 else

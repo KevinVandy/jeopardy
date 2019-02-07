@@ -62,7 +62,7 @@ namespace Jeopardy
             {
                 if (ValidateData.ValidateCategoryTitle(value))
                 {
-                    title = value;
+                    title = value.Trim();
                 }
                 else
                 {
@@ -78,7 +78,7 @@ namespace Jeopardy
             {
                 if (ValidateData.ValidateCategorySubtitle(value))
                 {
-                    subtitle = value;
+                    subtitle = value.Trim();
                 }
                 else
                 {
