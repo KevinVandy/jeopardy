@@ -14,7 +14,7 @@ namespace Jeopardy
     {
         List<Question> WrongQuestions;
         Team[] Teams;
-        int questionIndex = 0;
+        int questionIndex = -1;
 
         public frmReviewWrongQuestions(List<Question> wrongQuestions, Team[] teams)
         {
@@ -29,7 +29,10 @@ namespace Jeopardy
             
             foreach(Team t in Teams)
             {
-                lblQuestionText.Text = t.TeamName + ": " + t.Score.ToString() + "\n";
+                if(t != null)
+                {
+                    lblQuestionText.Text = t.TeamName + ": " + t.Score.ToString() + "\n";
+                }
             }
             lblIndex.Hide();
             txtCorrectAnswer.Hide();
@@ -40,8 +43,10 @@ namespace Jeopardy
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if(btnNext.Text == "Review")
+            questionIndex++;
+            if (btnNext.Text == "Review")
             {
+                
                 btnNext.Text = "Next";
                 lblIndex.Text = "1 of " + WrongQuestions.Count.ToString();
                 lblIndex.Show();
@@ -51,7 +56,6 @@ namespace Jeopardy
             }
             else if(questionIndex < WrongQuestions.Count)
             {
-                questionIndex++;
                 ShowQuestion(questionIndex);
             }
             else //done
