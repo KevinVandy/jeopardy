@@ -13,10 +13,12 @@ namespace Jeopardy
     public partial class frmReviewWrongQuestions : Form
     {
         List<Question> WrongQuestions;
+        Team[] Teams;
 
         public frmReviewWrongQuestions(List<Question> wrongQuestions, Team[] teams)
         {
             WrongQuestions = wrongQuestions;
+            Teams = teams;
             InitializeComponent();
         }
 
