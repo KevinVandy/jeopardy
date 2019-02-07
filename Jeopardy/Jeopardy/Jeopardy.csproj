@@ -71,6 +71,12 @@
     <Compile Include="frmCreateGame.Designer.cs">
       <DependentUpon>frmCreateGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDoubleJeopardy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoubleJeopardy.Designer.cs">
+      <DependentUpon>frmDoubleJeopardy.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,12 @@
     <Compile Include="frmPlayGame.Designer.cs">
       <DependentUpon>frmPlayGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReviewWrongQuestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReviewWrongQuestions.Designer.cs">
+      <DependentUpon>frmReviewWrongQuestions.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTeams.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +171,9 @@
     <EmbeddedResource Include="frmCreateGame.resx">
       <DependentUpon>frmCreateGame.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDoubleJeopardy.resx">
+      <DependentUpon>frmDoubleJeopardy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditCategory.resx">
       <DependentUpon>frmEditCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +201,9 @@
     <EmbeddedResource Include="frmPlayGame.resx">
       <DependentUpon>frmPlayGame.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReviewWrongQuestions.resx">
+      <DependentUpon>frmReviewWrongQuestions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTeams.resx">
       <DependentUpon>frmTeams.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +215,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="help.chm" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

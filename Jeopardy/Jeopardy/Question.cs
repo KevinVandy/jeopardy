@@ -52,7 +52,7 @@ namespace Jeopardy
             {
                 if (ValidateData.ValidateQuestionText(value))
                 {
-                    questionText = value;
+                    questionText = value.Trim();
                 }
                 else
                 {
@@ -68,7 +68,7 @@ namespace Jeopardy
             {
                 if (ValidateData.ValidateQuestionType(value))
                 {
-                    type = value;
+                    type = value.Trim();
                 }
                 else
                 {
@@ -84,7 +84,7 @@ namespace Jeopardy
             {
                 if (ValidateData.ValidateQuestionAnswer(value))
                 {
-                    answer = value;
+                    answer = value.Trim();
                 }
                 else
                 {
@@ -129,53 +129,56 @@ namespace Jeopardy
 
         public void DetermineState(string mode)
         {
-            if(mode == "edit")
+            if (mode == "edit")
             {
-                if (this.QuestionText.Length <= 1 || this.QuestionText == " ")
+                if (QuestionText == "" || QuestionText == " ")
                 {
-                    this.State = "no question";
+                    State = "no question";
                 }
-                else if (this.QuestionText.Length > 1 && (this.Answer.Length <= 1 || this.Answer == " "))
+                else if (QuestionText.Length > 1 && (Answer == "" || Answer == " "))
                 {
-                    this.State = "no answer";
+                    State = "no answer";
                 }
-                else if (this.QuestionText.Length > 1 && this.Type == "mc") //if is multiple choice
+                else if (QuestionText.Length > 1 && Type == "mc") //if is multiple choice
                 {
-                    foreach (Choice ch in this.Choices)
+                    if (Choices[0].Text == " " || Choices[1].Text == " " || Choices[2].Text == " " || Choices[3].Text == " "
+                        || Choices[0].Text == "" || Choices[1].Text == "" || Choices[2].Text == "" || Choices[3].Text == "")
                     {
-                        if (ch.Text.Length <= 1 || ch.Text == " ")
-                        {
-                            this.State = "no choices";
-                        }
-                        else
-                        {
-                            this.State = "done";
-                        }
+                        State = "no choices";
+                    }
+                    else
+                    {
+                        State = "done";
                     }
                 }
                 else
                 {
-                    this.State = "done";
+                    State = "done";
                 }
             }
-            else if(mode == "play")
+            else if (mode == "play")
             {
                 //TODO - Ryan, you can add your own code here
                 //Added this code to return a value for testing feel free to delete
-                this.State = "pass";
+                State = "pass";
             }
         }
 
         public Question CreateBlankQuestion(int? categoryId, int weight)
         {
-            this.CategoryId = (int)categoryId;
-            this.Type = "fb";
-            this.QuestionText = " ";
-            this.Answer = " ";
-            this.Weight = weight;
-            this.Id = DB_Insert.InsertQuestion(this);
+            CategoryId = (int)categoryId;
+            ResetQuestionToDefaults();
+            Weight = weight;
+            Id = DB_Insert.InsertQuestion(this);
 
             return this;
+        }
+
+        public void ResetQuestionToDefaults()
+        {
+            Type = "fb";
+            QuestionText = " ";
+            Answer = " ";
         }
     }
 }

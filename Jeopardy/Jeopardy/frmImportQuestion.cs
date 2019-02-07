@@ -52,6 +52,14 @@ namespace Jeopardy
                     lstCategories.Items.Add(c.Title + " - " + c.Subtitle);
                 }
             }
+            if (lstCategories.SelectedIndex > 0 && lsvQuestions.SelectedIndices.Count > 0)
+            {
+                btnImport.Enabled = true;
+            }
+            else
+            {
+                btnImport.Enabled = false;
+            }
         }
 
         //After the user selects a category in the second list box, show each question in that game
@@ -62,7 +70,7 @@ namespace Jeopardy
             {
                 foreach (Question q in allGames[lstGames.SelectedIndex].Categories[lstCategories.SelectedIndex].Questions)
                 {
-                    string type = "";
+                    string type = " ";
                     switch (q.Type)
                     {
                         case "fb": type = "Fill in the Blank"; break;

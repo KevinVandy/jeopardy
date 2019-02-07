@@ -324,47 +324,55 @@ namespace Jeopardy
         //MARK: Button Event Handlers
         private void btnOK_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = DialogResult.OK;
+
+            //error / warning checking
             if(txtQuestionText.Text.Length > 1 && (txtAnswer.Text == "" || txtAnswer.Text == " "))
             {
-                MessageBox.Show("Warning. This question does not have an answer. This question will be marked as imcomplete and colored RED until you give it an answer", "Warning");
+                dialogResult = MessageBox.Show("Warning. This question does not have an answer. This question will be marked as incomplete and colored RED until you give it an answer", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
 
-            if (rdoFillInTheBlank.Checked)
+            if(dialogResult == DialogResult.OK)
             {
-                question.Type = "fb";
-            }
-            else if (rdoMultipleChoice.Checked)
-            {
-                question.Type = "mc";
-
-                question.Choices[0].Text = txtChoiceA.Text;
-                question.Choices[1].Text = txtChoiceB.Text;
-                question.Choices[2].Text = txtChoiceC.Text;
-                question.Choices[3].Text = txtChoiceD.Text;
-
-                for (int i = 0; i < 4; i++)
+                if (rdoFillInTheBlank.Checked)
                 {
-                    DB_Update.UpdateChoiceText(question.Choices[i].Text, question.Choices[i].Id);
+                    question.Type = "fb";
+                }
+                else if (rdoMultipleChoice.Checked)
+                {
+                    question.Type = "mc";
+
+                    question.Choices[0].Text = txtChoiceA.Text;
+                    question.Choices[1].Text = txtChoiceB.Text;
+                    question.Choices[2].Text = txtChoiceC.Text;
+                    question.Choices[3].Text = txtChoiceD.Text;
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        DB_Update.UpdateChoiceText(question.Choices[i].Text, question.Choices[i].Id);
+                    }
+
+                }
+                else if (rdoTrueFalse.Checked)
+                {
+                    question.Type = "tf";
                 }
 
-            }
-            else if (rdoTrueFalse.Checked)
-            {
-                question.Type = "tf";
+                question.QuestionText = txtQuestionText.Text;
+                question.Answer = txtAnswer.Text;
+
+                if (!DB_Update.UpdateQuestion(question))
+                {
+                    MessageBox.Show("Updating Question failed");
+                }
+                else
+                {
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
             }
 
-            question.QuestionText = txtQuestionText.Text;
-            question.Answer = txtAnswer.Text;
-
-            if (!DB_Update.UpdateQuestion(question))
-            {
-                MessageBox.Show("Updating Question failed");
-            }
-            else
-            {
-                DialogResult = DialogResult.OK;
-                Close();
-            }
+            
         }
 
         private void btnImport_Click(object sender, EventArgs e)

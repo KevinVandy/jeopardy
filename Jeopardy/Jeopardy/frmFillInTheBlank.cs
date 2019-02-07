@@ -50,23 +50,25 @@ namespace Jeopardy
                 {
                     txtUserAnswer.ForeColor = Color.ForestGreen;
                     txtCorrectAnswer.BackColor = txtCorrectAnswer.BackColor;
-                    txtCorrectAnswer.ForeColor = Color.ForestGreen;                   
-                    this.Correct = true;
-                    //await Task.Delay(3000); //show the answer for a bit
-                    //this.Close();
-                    
+                    txtCorrectAnswer.ForeColor = Color.ForestGreen;
+                    lblCorrectIncorrect.ForeColor = Color.ForestGreen;
+                    lblCorrectIncorrect.Text = "Correct";
+                    this.Correct = true;              
                 }
                 else if(userAnswer != correctAnswer)
                 {
                     txtUserAnswer.ForeColor = Color.Red;
                     txtCorrectAnswer.BackColor = txtCorrectAnswer.BackColor;
                     txtCorrectAnswer.ForeColor = Color.ForestGreen;
+                    lblCorrectIncorrect.ForeColor = Color.Red;
+                    lblCorrectIncorrect.Text = "Incorrect";
                     this.Correct = false;
-                    //await Task.Delay(3000); //show the answer for a bit
-                    //this.Close();
                 }
+                lblCorrectIncorrect.Visible = true;
+                btnSubmit.Enabled = false;
                 btnDone.Enabled = true;
                 btnCancel.Enabled = false;
+                btnOverwrite.Enabled = true;
             }
             else
             {
@@ -82,6 +84,7 @@ namespace Jeopardy
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            timer.Stop();
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
@@ -100,6 +103,7 @@ namespace Jeopardy
                     Correct = false;
                 }
                 btnDone.Enabled = true;
+                btnOverwrite.Enabled = true;
             }
             else
             {
@@ -115,6 +119,23 @@ namespace Jeopardy
                 System.Media.SystemSounds.Hand.Play(); //warning sound
                 lblTimer.ForeColor = Color.DarkRed;
             }
+        }
+
+        private void btnOverwrite_Click(object sender, EventArgs e)
+        {
+            if(Correct == false)
+            {
+                Correct = true;
+                lblCorrectIncorrect.ForeColor = Color.ForestGreen;
+                lblCorrectIncorrect.Text = "Correct";
+            }
+            else if (Correct == true)
+            {
+                Correct = false;
+                lblCorrectIncorrect.ForeColor = Color.Red;
+                lblCorrectIncorrect.Text = "Incorrect";
+            }
+
         }
     }
 }

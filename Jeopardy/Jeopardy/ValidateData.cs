@@ -146,8 +146,12 @@ namespace Jeopardy
 
         public static bool ValidateQuestionWeight(int weight)
         {
-            List<int> validWeights = new List<int> ( new[] { 100, 200, 300, 400, 500, 600, 700, 800 } ); 
-            if (validWeights.Contains(weight))
+            //List<int> validWeights = new List<int> ( new[] { 100, 200, 300, 400, 500, 600, 700, 800 } ); 
+            //if (validWeights.Contains(weight))
+            //{
+            //    return true;
+            //}
+            if (weight > -100000 && weight < 100000)
             {
                 return true;
             }

@@ -64,7 +64,7 @@ namespace Jeopardy
             {
                 if (ValidateData.ValidateChoiceText(value))
                 {
-                    text = value;
+                    text = value.Trim();
                 }
                 else
                 {

@@ -59,6 +59,7 @@ namespace Jeopardy
             timer.Stop();
             btnSubmit.Enabled = false;
             btnDone.Enabled = true;
+            btnCancel.Enabled = false;
         }
 
         private bool ValidateChecked()
@@ -127,6 +128,7 @@ namespace Jeopardy
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            timer.Stop();
             DialogResult = DialogResult.Cancel;
             Close();
         }
@@ -167,164 +169,5 @@ namespace Jeopardy
         {
 
         }
-
-        //private void IsUserCorrect()
-        //{
-        //    //I realize this code is messy and dumb
-        //    //but it works
-        //    if (rdoFirstChoice.Checked == true)
-        //    {
-        //        if (rdoFirstChoice.Text == currentQuestion.Answer)
-        //        {
-        //            Correct = true;
-        //            rdoFirstChoice.ForeColor = Color.ForestGreen;
-        //            rdoSecondChoice.ForeColor = Color.Red;
-        //            rdoThirdChoice.ForeColor = Color.Red;
-        //            rdoFourthChoice.ForeColor = Color.Red;
-        //            //await Task.Delay(3000); //show the answer for a bit
-        //            //this.Close();
-        //        }
-        //        else
-        //        {
-        //            Correct = false;
-        //            rdoFirstChoice.ForeColor = Color.Red;
-        //            if (rdoSecondChoice.Text == currentQuestion.Answer)
-        //            {
-        //                rdoSecondChoice.ForeColor = Color.ForestGreen;
-        //                rdoThirdChoice.ForeColor = Color.Red;
-        //                rdoFourthChoice.ForeColor = Color.Red;
-        //            }
-        //            else if (rdoThirdChoice.Text == currentQuestion.Answer)
-        //            {
-        //                rdoSecondChoice.ForeColor = Color.Red;
-        //                rdoThirdChoice.ForeColor = Color.ForestGreen;
-        //                rdoFourthChoice.ForeColor = Color.Red;
-        //            }
-        //            else if (rdoFourthChoice.Text == currentQuestion.Answer)
-        //            {
-        //                rdoSecondChoice.ForeColor = Color.Red;
-        //                rdoThirdChoice.ForeColor = Color.Red;
-        //                rdoFourthChoice.ForeColor = Color.ForestGreen;
-        //            }
-        //            //await Task.Delay(3000); //show the answer for a bit
-        //            //this.Close();
-        //        }
-        //    }
-        //    else if (rdoSecondChoice.Checked == true)
-        //        {
-        //            if (rdoSecondChoice.Text == currentQuestion.Answer)
-        //            {
-        //                Correct = true;
-        //                rdoFirstChoice.ForeColor = Color.Red;
-        //                rdoSecondChoice.ForeColor = Color.ForestGreen;
-        //                rdoThirdChoice.ForeColor = Color.Red;
-        //                rdoFourthChoice.ForeColor = Color.Red;
-        //                //await Task.Delay(3000); //show the answer for a bit
-        //                //this.Close();
-        //            }
-        //            else
-        //            {
-        //                Correct = false;
-        //                rdoSecondChoice.ForeColor = Color.Red;
-        //                if (rdoFirstChoice.Text == currentQuestion.Answer)
-        //                {
-        //                    rdoFirstChoice.ForeColor = Color.ForestGreen;
-        //                    rdoThirdChoice.ForeColor = Color.Red;
-        //                    rdoFourthChoice.ForeColor = Color.Red;
-        //                }
-        //                else if (rdoThirdChoice.Text == currentQuestion.Answer)
-        //                {
-        //                    rdoFirstChoice.ForeColor = Color.Red;
-        //                    rdoThirdChoice.ForeColor = Color.ForestGreen;
-        //                    rdoFourthChoice.ForeColor = Color.Red;
-        //                }
-        //                else if (rdoFourthChoice.Text == currentQuestion.Answer)
-        //                {
-        //                    rdoFirstChoice.ForeColor = Color.Red;
-        //                    rdoThirdChoice.ForeColor = Color.Red;
-        //                    rdoFourthChoice.ForeColor = Color.ForestGreen;
-        //                }
-        //                //await Task.Delay(3000); //show the answer for a bit
-        //                //this.Close();
-        //            }
-        //        }
-        //    else if (rdoThirdChoice.Checked == true)
-        //    {
-        //        if (rdoThirdChoice.Text == currentQuestion.Answer)
-        //        {
-        //            Correct = true;
-        //            rdoFirstChoice.ForeColor = Color.Red;
-        //            rdoSecondChoice.ForeColor = Color.Red;
-        //            rdoThirdChoice.ForeColor = Color.ForestGreen;
-        //            rdoFourthChoice.ForeColor = Color.Red;
-        //            //await Task.Delay(3000); //show the answer for a bit
-        //            //this.Close();
-        //        }
-        //        else
-        //        {
-        //            Correct = false;
-        //            rdoThirdChoice.ForeColor = Color.Red;
-        //            if (rdoFirstChoice.Text == currentQuestion.Answer)
-        //            {
-        //                rdoFirstChoice.ForeColor = Color.ForestGreen;
-        //                rdoSecondChoice.ForeColor = Color.Red;
-        //                rdoFourthChoice.ForeColor = Color.Red;
-        //            }
-        //            else if (rdoSecondChoice.Text == currentQuestion.Answer)
-        //            {
-        //                rdoFirstChoice.ForeColor = Color.Red;
-        //                rdoSecondChoice.ForeColor = Color.ForestGreen;
-        //                rdoFourthChoice.ForeColor = Color.Red;
-        //            }
-        //            else if (rdoFourthChoice.Text == currentQuestion.Answer)
-        //            {
-        //                rdoFirstChoice.ForeColor = Color.Red;
-        //                rdoSecondChoice.ForeColor = Color.Red;
-        //                rdoFourthChoice.ForeColor = Color.ForestGreen;
-        //            }
-        //            //await Task.Delay(3000); //show the answer for a bit
-        //            //this.Close();
-        //        }
-        //    }
-        //    else if (rdoFourthChoice.Checked == true)
-        //    {
-        //        if (rdoFourthChoice.Text == currentQuestion.Answer)
-        //        {
-        //            Correct = true;
-        //            rdoFirstChoice.ForeColor = Color.Red;
-        //            rdoSecondChoice.ForeColor = Color.Red;
-        //            rdoThirdChoice.ForeColor = Color.Red;
-        //            rdoFourthChoice.ForeColor = Color.ForestGreen;
-        //            //await Task.Delay(3000); //show the answer for a bit
-        //            //this.Close();
-        //        }
-        //        else
-        //        {
-        //            Correct = false;
-        //            rdoFourthChoice.ForeColor = Color.Red;
-        //            if (rdoFirstChoice.Text == currentQuestion.Answer)
-        //            {
-        //                rdoFirstChoice.ForeColor = Color.ForestGreen;
-        //                rdoSecondChoice.ForeColor = Color.Red;
-        //                rdoThirdChoice.ForeColor = Color.Red;
-        //            }
-        //            else if (rdoSecondChoice.Text == currentQuestion.Answer)
-        //            {
-        //                rdoFirstChoice.ForeColor = Color.Red;
-        //                rdoSecondChoice.ForeColor = Color.ForestGreen;
-        //                rdoThirdChoice.ForeColor = Color.Red;
-        //            }
-        //            else if (rdoThirdChoice.Text == currentQuestion.Answer)
-        //            {
-        //                rdoFirstChoice.ForeColor = Color.Red;
-        //                rdoSecondChoice.ForeColor = Color.Red;
-        //                rdoThirdChoice.ForeColor = Color.ForestGreen;
-        //            }
-        //            //await Task.Delay(3000); //show the answer for a bit
-        //            //this.Close();
-        //        }
-        //    }
-        //}
-
     }
 }

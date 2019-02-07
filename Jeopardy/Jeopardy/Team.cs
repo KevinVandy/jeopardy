@@ -34,7 +34,7 @@ namespace Jeopardy
             {
                 if (ValidateData.ValidateTeamName(value))
                 {
-                    teamName = value;
+                    teamName = value.Trim();
                 }
                 else
                 {

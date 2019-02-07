@@ -168,6 +168,7 @@ namespace Jeopardy
                 {
                     foreach (Choice c in newQuestion.Choices)
                     {
+                        c.QuestionId = (int)newQuestion.Id;
                         c.Id = InsertChoice(c);
                     }
                 }

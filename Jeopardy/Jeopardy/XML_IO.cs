@@ -16,8 +16,6 @@ namespace Jeopardy
 {
     class XML_IO
     {
-
-
         public static void exportXML(Game selectedGame)
         {
             string gameName = selectedGame.GameName;
@@ -54,10 +52,10 @@ namespace Jeopardy
             using (var sr = new StreamReader(path))
             {
                 Game importedGame = (Game)xs.Deserialize(sr);
-
+                
                 importedGame.Id = null;
                 importedGame.GameName = fileName;
-
+                
                int? id = DB_Insert.InsertGame(importedGame);
 
             }

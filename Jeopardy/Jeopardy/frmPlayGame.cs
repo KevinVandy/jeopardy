@@ -19,6 +19,7 @@ namespace Jeopardy
         private Team[] teams = new Team[4];
         private Game currentGame = new Game();
         private Team currentTeam = new Team();
+        private List<Question> wrongQuestions = new List<Question>();
 
         public frmPlayGame(Game theGame, Team[] theTeams)
         {
@@ -37,6 +38,7 @@ namespace Jeopardy
             ModifyPanelHeights();
             DrawCategories();
             DrawGameGrid();
+            currentGame.GenerateDailyDouble();
 
             if (currentGame.QuestionTimeLimit == new TimeSpan(0, 0, 30))
             {
@@ -73,6 +75,14 @@ namespace Jeopardy
             Button button = sender as Button;
             Question currentQuestion = (Question)button.Tag;
             bool answeredCorrectly = false;
+            DialogResult formResult = DialogResult.Cancel;
+
+            if (currentQuestion.DailyDouble == true)
+            {
+                frmDoubleJeopardy frmDJ = new frmDoubleJeopardy(currentQuestion, currentTeam);
+                frmDJ.ShowDialog();
+                currentQuestion = (Question)frmDJ.Tag;
+            }
 
             switch (currentQuestion.Type)
             {
@@ -80,7 +90,7 @@ namespace Jeopardy
                     //call up true/false question form
                     using (frmTrueFalse frmTFQuestion = new frmTrueFalse(currentQuestion, currentGame.QuestionTimeLimit))
                     {
-                        frmTFQuestion.ShowDialog();
+                        formResult = frmTFQuestion.ShowDialog();
 
                         answeredCorrectly = frmTFQuestion.Correct;
                     }
@@ -88,28 +98,57 @@ namespace Jeopardy
                 case "fb":
                     //call up fill in the blank question form
                     frmFillInTheBlank frmFB = new frmFillInTheBlank(currentQuestion, currentGame.QuestionTimeLimit);
-                    frmFB.ShowDialog();
+                    formResult = frmFB.ShowDialog();
 
                     answeredCorrectly = frmFB.Correct;
                     break;
                 case "mc":
                     //call up multiple choice question form
                     frmMultipleChoice frmMC = new frmMultipleChoice(currentQuestion, currentGame.QuestionTimeLimit);
-                    frmMC.ShowDialog();
+                    formResult = frmMC.ShowDialog();
 
                     answeredCorrectly = frmMC.Correct;
                     break;
             }
 
-            //hide the clicked button
-            button.Visible = false;
-            currentQuestion.State = "Answered";
+            if (formResult == DialogResult.OK)
+            {
+                //Insert question if it was answered wrong into a list for later
+                if (answeredCorrectly == false)
+                {
+                    wrongQuestions.Add(currentQuestion);
+                }
 
-            //method to assign score to the right team
-            AssignPoints(answeredCorrectly, currentQuestion);
+                //hide the clicked button
+                button.Visible = false;
+                currentQuestion.State = "Answered";
 
-            //method to automatically move the teams along
-            MoveToNextTeam();
+                //method to assign score to the right team
+                AssignPoints(answeredCorrectly, currentQuestion);
+
+                //method to automatically move the teams along
+                MoveToNextTeam();
+
+                //If the game is done and every question has been answered
+                //Then pull up frmWrongQuestions
+                foreach (Category c in currentGame.Categories)
+                {
+                    foreach (Question q in c.Questions)
+                    {
+                        if (q.State != "Answered")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            //show the frmWrongQuestions for statistics
+
+                            //close the form
+                            this.Close();
+                        }
+                    }
+                }
+            }
         }
 
         private void DrawCategories()
@@ -256,32 +295,32 @@ namespace Jeopardy
             {
                 pnlTeamOne.Visible = true;
                 pnlTeamOne.BackColor = Color.LightBlue;
-                lblTeamOne.Text = "Team " + teams[0].TeamName;
-                lblTeamOne.MaximumSize = new Size(100, 0);
+                lblTeamOne.Text = "Team 1\n" + teams[0].TeamName;
+                lblTeamOne.MaximumSize = new Size(250, 0);
                 lblTeamOne.AutoSize = true;
             }
 
             if (teams[1] != null)
             {
                 pnlTeamTwo.Visible = true;
-                lblTeamTwo.Text = "Team " + teams[1].TeamName;
-                lblTeamTwo.MaximumSize = new Size(100, 0);
+                lblTeamTwo.Text = "Team 2\n" + teams[1].TeamName;
+                lblTeamTwo.MaximumSize = new Size(250, 0);
                 lblTeamTwo.AutoSize = true;
             }
 
             if (teams[2] != null)
             {
                 pnlTeamThree.Visible = true;
-                lblTeamThree.Text = "Team " + teams[2].TeamName;
-                lblTeamThree.MaximumSize = new Size(100, 0);
+                lblTeamThree.Text = "Team 3\n" + teams[2].TeamName;
+                lblTeamThree.MaximumSize = new Size(250, 0);
                 lblTeamThree.AutoSize = true;
             }
 
             if (teams[3] != null)
             {
                 pnlTeamFour.Visible = true;
-                lblTeamFour.Text = "Team " + teams[3].TeamName;
-                lblTeamFour.MaximumSize = new Size(100, 0);
+                lblTeamFour.Text = "Team 4\n" + teams[3].TeamName;
+                lblTeamFour.MaximumSize = new Size(250, 0);
                 lblTeamFour.AutoSize = true;
             }
         }
@@ -431,6 +470,26 @@ namespace Jeopardy
                     frmPlayGame_ResizeEnd(sender, e);
                 }
             }
+        }
+
+        private void nudTeamOne_ValueChanged(object sender, EventArgs e)
+        {
+            teams[0].Score = (int)nudTeamOne.Value;
+        }
+
+        private void nudTeamTwo_ValueChanged(object sender, EventArgs e)
+        {
+            teams[1].Score = (int)nudTeamTwo.Value;
+        }
+
+        private void nudTeamThree_ValueChanged(object sender, EventArgs e)
+        {
+            teams[2].Score = (int)nudTeamThree.Value;
+        }
+
+        private void nudTeamFour_ValueChanged(object sender, EventArgs e)
+        {
+            teams[3].Score = (int)nudTeamFour.Value;
         }
     }
 }

@@ -97,12 +97,12 @@
             this.nudTeamOne.Location = new System.Drawing.Point(7, 76);
             this.nudTeamOne.Margin = new System.Windows.Forms.Padding(2);
             this.nudTeamOne.Maximum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             0});
             this.nudTeamOne.Minimum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             -2147483648});
@@ -112,6 +112,7 @@
             this.nudTeamOne.TabIndex = 1;
             this.nudTeamOne.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudTeamOne.ThousandsSeparator = true;
+            this.nudTeamOne.ValueChanged += new System.EventHandler(this.nudTeamOne_ValueChanged);
             // 
             // lblTeamOne
             // 
@@ -146,12 +147,12 @@
             this.nudTeamTwo.Location = new System.Drawing.Point(7, 76);
             this.nudTeamTwo.Margin = new System.Windows.Forms.Padding(2);
             this.nudTeamTwo.Maximum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             0});
             this.nudTeamTwo.Minimum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             -2147483648});
@@ -161,6 +162,7 @@
             this.nudTeamTwo.TabIndex = 1;
             this.nudTeamTwo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudTeamTwo.ThousandsSeparator = true;
+            this.nudTeamTwo.ValueChanged += new System.EventHandler(this.nudTeamTwo_ValueChanged);
             // 
             // lblTeamTwo
             // 
@@ -195,12 +197,12 @@
             this.nudTeamThree.Location = new System.Drawing.Point(7, 76);
             this.nudTeamThree.Margin = new System.Windows.Forms.Padding(2);
             this.nudTeamThree.Maximum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             0});
             this.nudTeamThree.Minimum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             -2147483648});
@@ -210,6 +212,7 @@
             this.nudTeamThree.TabIndex = 1;
             this.nudTeamThree.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudTeamThree.ThousandsSeparator = true;
+            this.nudTeamThree.ValueChanged += new System.EventHandler(this.nudTeamThree_ValueChanged);
             // 
             // lblTeamThree
             // 
@@ -244,12 +247,12 @@
             this.nudTeamFour.Location = new System.Drawing.Point(7, 76);
             this.nudTeamFour.Margin = new System.Windows.Forms.Padding(2);
             this.nudTeamFour.Maximum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             0});
             this.nudTeamFour.Minimum = new decimal(new int[] {
-            5000,
+            50000,
             0,
             0,
             -2147483648});
@@ -259,6 +262,7 @@
             this.nudTeamFour.TabIndex = 1;
             this.nudTeamFour.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudTeamFour.ThousandsSeparator = true;
+            this.nudTeamFour.ValueChanged += new System.EventHandler(this.nudTeamFour_ValueChanged);
             // 
             // lblTeamFour
             // 

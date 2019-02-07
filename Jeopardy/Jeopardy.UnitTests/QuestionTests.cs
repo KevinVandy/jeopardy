@@ -150,6 +150,7 @@ namespace Jeopardy.UnitTests
             Assert.AreEqual(question.QuestionText, "False");
         }
 
+        [TestMethod]
         public void SetQuestionAnswerTF_SetNull_ReturnSpace() //invalid should not set and get default
         {
             //Arrange
@@ -163,13 +164,13 @@ namespace Jeopardy.UnitTests
         }
 
         [TestMethod]
-        public void SetQuestionWeight_Set99_Return0() //invalid should not set and get default
+        public void SetQuestionWeight_Set99999999_Return0() //invalid should not set and get default
         {
             //Arrange
             Question question = new Question();
 
             //Act
-            question.Weight = 99;
+            question.Weight = 999999999;
 
             //Assert
             Assert.AreEqual(question.Weight, 0); //0 is default and should be got
