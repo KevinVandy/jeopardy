@@ -154,14 +154,12 @@ namespace Jeopardy
                 nudNumCategories.Enabled = false;
                 game.NumCategories = (int)nudNumCategories.Value;
                 bwAddCategory.RunWorkerAsync();
-                bwUpdateNumCategories.RunWorkerAsync();
             }
             else if ((int)nudNumCategories.Value < game.NumCategories) //if down was clicked
             {
                 nudNumCategories.Enabled = false;
                 game.NumCategories = (int)nudNumCategories.Value;
                 bwRemoveCategory.RunWorkerAsync();
-                bwUpdateNumCategories.RunWorkerAsync();
             }
 
             DisplayNumberQuestions();
@@ -197,6 +195,7 @@ namespace Jeopardy
 
         private void bwAddCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            bwUpdateNumCategories.RunWorkerAsync();
             DrawGrids();
             nudNumCategories.Enabled = true;
         }
@@ -211,6 +210,8 @@ namespace Jeopardy
 
         private void bwRemoveCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+
+            bwUpdateNumCategories.RunWorkerAsync();
             DrawGrids();
             nudNumCategories.Enabled = true;
         }
@@ -222,14 +223,14 @@ namespace Jeopardy
                 nudNumQuestionCategory.Enabled = false;
                 game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
                 bwAddQuestions.RunWorkerAsync();
-                bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
+                
             }
             else if ((int)nudNumQuestionCategory.Value < game.NumQuestionsPerCategory) //if down was clicked
             {
                 nudNumQuestionCategory.Enabled = false;
                 game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
                 bwRemoveQuestions.RunWorkerAsync();
-                bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
+                
             }
 
             DisplayNumberQuestions();
@@ -263,6 +264,7 @@ namespace Jeopardy
 
         private void bwAddQuestions_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
             CreateQuestionGrid(); //only recreate the question grid, category grid can stay the same
             nudNumQuestionCategory.Enabled = true; //re-enable once thread safe
         }
@@ -284,6 +286,7 @@ namespace Jeopardy
 
         private void bwRemoveQuestions_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
             CreateQuestionGrid();
             nudNumQuestionCategory.Enabled = true;
         }
