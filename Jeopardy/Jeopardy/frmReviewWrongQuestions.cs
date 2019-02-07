@@ -34,6 +34,9 @@ namespace Jeopardy
                     lblQuestionText.Text += t.TeamName + ": " + t.Score.ToString() + "\n";
                 }
             }
+
+            lblQuestionText.Text += "\n\nClick 'Review' to Review the Questions you Missed!";
+
             lblIndex.Hide();
             txtCorrectAnswer.Hide();
             btnPrevious.Hide();

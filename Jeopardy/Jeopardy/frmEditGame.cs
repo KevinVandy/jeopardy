@@ -173,6 +173,11 @@ namespace Jeopardy
             }
         }
 
+        private void bwUpdateNumCategories_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            nudNumCategories.Enabled = true;
+        }
+
         private void bwAddCategory_DoWork(object sender, DoWorkEventArgs e)
         {
             Category newCategory = new Category();
@@ -197,7 +202,6 @@ namespace Jeopardy
         {
             bwUpdateNumCategories.RunWorkerAsync();
             DrawGrids();
-            nudNumCategories.Enabled = true;
         }
 
         private void bwRemoveCategory_DoWork(object sender, DoWorkEventArgs e)
@@ -244,6 +248,11 @@ namespace Jeopardy
             }
         }
 
+        private void bwUpdateNumQuestionsPerCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            nudNumQuestionCategory.Enabled = true; //re-enable once thread safe
+        }
+
         private void bwAddQuestions_DoWork(object sender, DoWorkEventArgs e)
         {
             for (int i = 0; i < game.NumCategories; i++)
@@ -266,7 +275,6 @@ namespace Jeopardy
         {
             bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
             CreateQuestionGrid(); //only recreate the question grid, category grid can stay the same
-            nudNumQuestionCategory.Enabled = true; //re-enable once thread safe
         }
 
         private void bwRemoveQuestions_DoWork(object sender, DoWorkEventArgs e)
@@ -722,5 +730,7 @@ namespace Jeopardy
                 }
             }
         }
+
+        
     }
 }
