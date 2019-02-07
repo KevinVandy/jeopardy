@@ -52,7 +52,7 @@ namespace Jeopardy
                     lstCategories.Items.Add(c.Title + " - " + c.Subtitle);
                 }
             }
-            if (lsvQuestions.SelectedIndices.Count > 0)
+            if (lstCategories.SelectedIndex > 0 && lsvQuestions.SelectedIndices.Count > 0)
             {
                 btnImport.Enabled = true;
             }
@@ -70,7 +70,7 @@ namespace Jeopardy
             {
                 foreach (Question q in allGames[lstGames.SelectedIndex].Categories[lstCategories.SelectedIndex].Questions)
                 {
-                    string type = "";
+                    string type = " ";
                     switch (q.Type)
                     {
                         case "fb": type = "Fill in the Blank"; break;

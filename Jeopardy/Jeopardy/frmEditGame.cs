@@ -16,6 +16,9 @@ namespace Jeopardy
         Button[] categoryButtons;
         Button[,] questionButtons;
 
+        Category currentCategory;
+        Question currentQuestion;
+
         public frmEditGame(Game theGame)
         {
             game = theGame;
@@ -174,7 +177,10 @@ namespace Jeopardy
 
         private void bwAddCategory_DoWork(object sender, DoWorkEventArgs e)
         {
-            Category newCategory = new Category(null, (int)game.Id, game.Categories.Count, "Category " + (game.Categories.Count + 1), " ", null);
+            Category newCategory = new Category();
+            newCategory.GameId = (int)game.Id;
+            newCategory.Index = game.Categories.Count;
+            newCategory.ResetCategoryToDefaults(); //other default data
             newCategory.Id = DB_Insert.InsertCategory(newCategory);
             newCategory.Questions = new List<Question>(new Question[game.NumQuestionsPerCategory]);
             for (int i = 0; i < game.NumQuestionsPerCategory; i++)
@@ -182,9 +188,7 @@ namespace Jeopardy
                 newCategory.Questions[i] = new Question();
 
                 newCategory.Questions[i].CategoryId = (int)newCategory.Id;
-                newCategory.Questions[i].Type = "fb";
-                newCategory.Questions[i].QuestionText = " ";
-                newCategory.Questions[i].Answer = " ";
+                newCategory.Questions[i].ResetQuestionToDefaults(); //other default data
                 newCategory.Questions[i].Weight = (i + 1) * 100;
                 newCategory.Questions[i].Id = DB_Insert.InsertQuestion(newCategory.Questions[i]);
             }
@@ -246,15 +250,13 @@ namespace Jeopardy
                 Question newQuestion = new Question();
 
                 newQuestion.CategoryId = (int)game.Categories[i].Id;
-                newQuestion.Type = "fb";
-                newQuestion.QuestionText = " ";
-                newQuestion.Answer = " ";
+                newQuestion.ResetQuestionToDefaults(); //default data
                 newQuestion.Weight = (game.NumQuestionsPerCategory) * 100;
                 newQuestion.Id = DB_Insert.InsertQuestion(newQuestion);
 
                 if (newQuestion.Id != null && newQuestion.Id > 0) //if the insert into db worked
                 {
-                    game.Categories[i].Questions.Add(newQuestion); //add it the the current game object too
+                    game.Categories[i].Questions.Add(newQuestion); //add it to the current game object too
                 }
             }
         }
@@ -312,25 +314,18 @@ namespace Jeopardy
             //create the button with the button attributes
             for (int x = 0; x < game.NumCategories; x++)
             {
-                Button tmpButton = new Button();
-                tmpButton.Top = start_x;
-                tmpButton.Left = start_y + ((x * buttonWidth) + (x * 5));
-                tmpButton.Width = buttonWidth;
-                tmpButton.Height = buttonHeight;
-                tmpButton.Text = "Category " + (x + 1).ToString();
-                tmpButton.Font = new Font("Microsoft Sans Serif", 14);
-                tmpButton.ContextMenuStrip = cmsCategories;
-                tmpButton.Click += CategoryButton_Click;
-                categoryButtons[x] = tmpButton;
+                categoryButtons[x] = new Button();
+                categoryButtons[x].Top = start_x;
+                categoryButtons[x].Left = start_y + ((x * buttonWidth) + (x * 5));
+                categoryButtons[x].Width = buttonWidth;
+                categoryButtons[x].Height = buttonHeight;
+                categoryButtons[x].Text = game.Categories[x].Title + "\n" + game.Categories[x].Subtitle;
+                categoryButtons[x].Font = new Font("Microsoft Sans Serif", 14);
+                categoryButtons[x].ContextMenuStrip = cmsCategories;
+                categoryButtons[x].Click += CategoryButton_Click;
             }
-            //fill in category info, but only for defined categories
-            for (int i = 0; i < game.NumCategories && i < game.Categories.Count; i++)
-            {
-                categoryButtons[i].Text = game.Categories[i].Title + "\n" + game.Categories[i].Subtitle;
-            }
-
-
-            foreach (Button b in categoryButtons)
+            
+            foreach (Button b in categoryButtons) //adds them with less stuttering when in its own foreach loop
             {
                 gbxCategories.Controls.Add(b);
             }
@@ -338,8 +333,6 @@ namespace Jeopardy
 
         private void CategoryButton_Click(object sender, EventArgs e)
         {
-            Button clickedButton = (Button)sender;
-
             //detect position in button grid
             int x = -1;
             for (int i = 0; i < game.NumCategories && x < 0; ++i)
@@ -356,7 +349,10 @@ namespace Jeopardy
 
             if (dialogResult == DialogResult.OK)
             {
-                bwLoadGame.RunWorkerAsync(); //refresh game data and grid
+                if (!bwLoadGame.IsBusy)
+                {
+                    bwLoadGame.RunWorkerAsync();
+                }
             }
         }
 
@@ -380,19 +376,16 @@ namespace Jeopardy
             {
                 for (int y = 0; y < game.NumQuestionsPerCategory; y++)
                 {
-                    Button tmpButton = new Button();
-                    tmpButton.Tag = (y + 1) * 100; //score aka weight
-                    tmpButton.Top = start_x + ((y * buttonHeight) + (y * 5));
-                    tmpButton.Left = start_y + ((x * buttonWidth) + (x * 5));
-                    tmpButton.Width = buttonWidth;
-                    tmpButton.Height = buttonHeight;
-                    tmpButton.Text = tmpButton.Tag.ToString();
-                    tmpButton.Font = new Font("Microsoft Sans Serif", 12);
-                    tmpButton.ContextMenuStrip = cmsQuestions;
-                    tmpButton.Click += QuestionButton_Click;
-                    tmpButton.MouseEnter += questionButton_MouseHover;
-
-                    questionButtons[x, y] = tmpButton; //add button to array
+                    questionButtons[x, y] = new Button();
+                    questionButtons[x, y].Top = start_x + ((y * buttonHeight) + (y * 5));
+                    questionButtons[x, y].Left = start_y + ((x * buttonWidth) + (x * 5));
+                    questionButtons[x, y].Width = buttonWidth;
+                    questionButtons[x, y].Height = buttonHeight;
+                    questionButtons[x, y].Text = game.Categories[x].Questions[y].Weight.ToString() + "\n" + game.Categories[x].Questions[y].QuestionText.Trim();
+                    questionButtons[x, y].Font = new Font("Microsoft Sans Serif", 12);
+                    questionButtons[x, y].ContextMenuStrip = cmsQuestions;
+                    questionButtons[x, y].Click += QuestionButton_Click;
+                    questionButtons[x, y].MouseEnter += questionButton_MouseHover;
                 }
             }
 
@@ -400,15 +393,6 @@ namespace Jeopardy
             ColorCodeButtons();
             DisplayNumFinishedQuestions();
             DisplayNumUnfinishedQuestions();
-
-            //add info to buttons (associate with actual question)
-            for (int i = 0; i < game.NumCategories && i < game.Categories.Count; i++)
-            {
-                for (int j = 0; j < game.NumQuestionsPerCategory && j < game.Categories[i].Questions.Count; j++)
-                {
-                    questionButtons[i, j].Text = game.Categories[i].Questions[j].Weight.ToString() + "\n" + game.Categories[i].Questions[j].QuestionText.Trim();
-                }
-            }
 
             foreach (Button b in questionButtons)
             {
@@ -424,9 +408,7 @@ namespace Jeopardy
 
         private void QuestionButton_Click(object sender, EventArgs e)
         {
-            Button clickedButton = (Button)sender;
-
-            //detect position in button grid
+            //detect position in button grid of sender
             int x = -1;
             int y = -1;
             for (int i = 0; i < game.NumCategories && x < 0; ++i)
@@ -449,7 +431,10 @@ namespace Jeopardy
 
             if (dialogResult == DialogResult.OK)
             {
-                bwLoadGame.RunWorkerAsync(); //refresh game data and grid
+                if (!bwLoadGame.IsBusy)
+                {
+                    bwLoadGame.RunWorkerAsync();
+                }
             }
 
         }
@@ -572,7 +557,7 @@ namespace Jeopardy
                 }
             }
         }
-
+        
         private void tsmiDeleteCategory_Click(object sender, EventArgs e) //updates a category to be blank and default
         {
             ToolStripItem menuItem = sender as ToolStripItem;
@@ -593,11 +578,23 @@ namespace Jeopardy
                             break;
                         }
                     }
-                    game.Categories[x].Title = "Category " + (x + 1).ToString();
-                    game.Categories[x].Subtitle = " ";
-                    DB_Update.UpdateCategory(game.Categories[x]); //should change to be background thread
-                    bwLoadGame.RunWorkerAsync();
+                    game.Categories[x].ResetCategoryToDefaults(); //deletes info, restores default values
+                    currentCategory = game.Categories[x];
+                    bwUpdateCategory.RunWorkerAsync();
                 }
+            }
+        }
+
+        private void bwUpdateCategory_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DB_Update.UpdateCategory(currentCategory);
+        }
+
+        private void bwUpdateCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (!bwLoadGame.IsBusy)
+            {
+                bwLoadGame.RunWorkerAsync();
             }
         }
 
@@ -640,11 +637,44 @@ namespace Jeopardy
                             }
                         }
                     }
-                    game.Categories[x].Questions[y].QuestionText = " ";
-                    game.Categories[x].Questions[y].Answer = " ";
-                    DB_Update.UpdateQuestion(game.Categories[x].Questions[y]); //should change to be background thread
-                    bwLoadGame.RunWorkerAsync();
+                    currentQuestion = game.Categories[x].Questions[y]; //needs to be here for the first bw to use
+                    if (game.Categories[x].Questions[y].Type == "mc")
+                    {
+                        bwDeleteChoices.RunWorkerAsync();
+                    }
+                    game.Categories[x].Questions[y].ResetQuestionToDefaults(); //reset with default blank data
+                    currentQuestion = game.Categories[x].Questions[y]; //needs to be here again with default data for the 2nd bw to use
+                    bwUpdateQuestion.RunWorkerAsync();
                 }
+            }
+        }
+
+        private void bwUpdateQuestion_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DB_Update.UpdateQuestion(currentQuestion);
+        }
+
+        private void bwUpdateQuestion_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (!bwLoadGame.IsBusy)
+            {
+                bwLoadGame.RunWorkerAsync();
+            }
+        }
+
+        private void bwDeleteChoices_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for(int i = 0; i < currentQuestion.Choices.Count; i++)
+            {
+                DB_Delete.DeleteChoice(currentQuestion.Choices[i].Id);
+            }
+        }
+
+        private void bwDeleteChoices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (!bwLoadGame.IsBusy)
+            {
+                bwLoadGame.RunWorkerAsync();
             }
         }
 
@@ -689,9 +719,5 @@ namespace Jeopardy
                 }
             }
         }
-
-
-
-
     }
 }

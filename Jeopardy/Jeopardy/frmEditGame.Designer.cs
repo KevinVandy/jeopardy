@@ -74,6 +74,9 @@
             this.bwUpdateNumQuestionsPerCategory = new System.ComponentModel.BackgroundWorker();
             this.bwUpdateGameName = new System.ComponentModel.BackgroundWorker();
             this.bwUpdateTimeLimit = new System.ComponentModel.BackgroundWorker();
+            this.bwUpdateCategory = new System.ComponentModel.BackgroundWorker();
+            this.bwUpdateQuestion = new System.ComponentModel.BackgroundWorker();
+            this.bwDeleteChoices = new System.ComponentModel.BackgroundWorker();
             this.menuStrip.SuspendLayout();
             this.gbxGameInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumQuestionCategory)).BeginInit();
@@ -492,6 +495,21 @@
             this.bwUpdateTimeLimit.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwUpdateTimeLimit_DoWork);
             this.bwUpdateTimeLimit.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwUpdateTimeLimit_RunWorkerCompleted);
             // 
+            // bwUpdateCategory
+            // 
+            this.bwUpdateCategory.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwUpdateCategory_DoWork);
+            this.bwUpdateCategory.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwUpdateCategory_RunWorkerCompleted);
+            // 
+            // bwUpdateQuestion
+            // 
+            this.bwUpdateQuestion.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwUpdateQuestion_DoWork);
+            this.bwUpdateQuestion.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwUpdateQuestion_RunWorkerCompleted);
+            // 
+            // bwDeleteChoices
+            // 
+            this.bwDeleteChoices.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwDeleteChoices_DoWork);
+            this.bwDeleteChoices.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwDeleteChoices_RunWorkerCompleted);
+            // 
             // frmEditGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -574,5 +592,8 @@
         private System.ComponentModel.BackgroundWorker bwUpdateTimeLimit;
         private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.ComponentModel.BackgroundWorker bwUpdateCategory;
+        private System.ComponentModel.BackgroundWorker bwUpdateQuestion;
+        private System.ComponentModel.BackgroundWorker bwDeleteChoices;
     }
 }

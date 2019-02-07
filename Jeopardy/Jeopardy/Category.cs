@@ -111,5 +111,11 @@ namespace Jeopardy
 
             return this;
         }
+
+        public void ResetCategoryToDefaults()
+        {
+            this.title = "Category " + (this.index + 1).ToString();
+            this.subtitle = " ";
+        }
     }
 }

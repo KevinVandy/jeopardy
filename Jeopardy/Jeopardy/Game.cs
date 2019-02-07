@@ -155,6 +155,12 @@ namespace Jeopardy
             return this;
         }
 
+        public void ResetGameToDefaults()
+        {
+            this.gameName = " ";
+            this.questionTimeLimit = new TimeSpan(0, 1, 0);
+        }
+
         public void GenerateDailyDouble()
         {
             foreach (Category c in this.Categories)
