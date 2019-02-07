@@ -44,31 +44,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(228, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(189, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(236, 39);
+            this.label1.Size = new System.Drawing.Size(363, 63);
             this.label1.TabIndex = 0;
             this.label1.Text = "Daily Double!";
             // 
             // tbPoints
             // 
-            this.tbPoints.LargeChange = 500;
-            this.tbPoints.Location = new System.Drawing.Point(123, 90);
-            this.tbPoints.Maximum = 1000;
-            this.tbPoints.Minimum = 100;
+            this.tbPoints.Location = new System.Drawing.Point(129, 148);
+            this.tbPoints.Minimum = 1;
             this.tbPoints.Name = "tbPoints";
             this.tbPoints.Size = new System.Drawing.Size(447, 45);
-            this.tbPoints.SmallChange = 100;
             this.tbPoints.TabIndex = 1;
-            this.tbPoints.TickFrequency = 100;
-            this.tbPoints.Value = 100;
+            this.tbPoints.Value = 3;
             this.tbPoints.Scroll += new System.EventHandler(this.tbPoints_Scroll);
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(32, 178);
+            this.btnCancel.Location = new System.Drawing.Point(32, 222);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(193, 44);
             this.btnCancel.TabIndex = 2;
@@ -79,7 +75,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(512, 178);
+            this.btnSubmit.Location = new System.Drawing.Point(512, 222);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(193, 44);
             this.btnSubmit.TabIndex = 3;
@@ -91,7 +87,7 @@
             // 
             this.lblMin.AutoSize = true;
             this.lblMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMin.Location = new System.Drawing.Point(25, 82);
+            this.lblMin.Location = new System.Drawing.Point(31, 140);
             this.lblMin.Name = "lblMin";
             this.lblMin.Size = new System.Drawing.Size(69, 37);
             this.lblMin.TabIndex = 4;
@@ -101,7 +97,7 @@
             // 
             this.lblMax.AutoSize = true;
             this.lblMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMax.Location = new System.Drawing.Point(599, 82);
+            this.lblMax.Location = new System.Drawing.Point(605, 140);
             this.lblMax.Name = "lblMax";
             this.lblMax.Size = new System.Drawing.Size(87, 37);
             this.lblMax.TabIndex = 5;
@@ -115,7 +111,7 @@
             0,
             0,
             0});
-            this.nudPoints.Location = new System.Drawing.Point(305, 177);
+            this.nudPoints.Location = new System.Drawing.Point(305, 221);
             this.nudPoints.Name = "nudPoints";
             this.nudPoints.ReadOnly = true;
             this.nudPoints.Size = new System.Drawing.Size(120, 44);
@@ -129,9 +125,11 @@
             // 
             // frmDoubleJeopardy
             // 
+            this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 250);
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(739, 295);
             this.Controls.Add(this.nudPoints);
             this.Controls.Add(this.lblMax);
             this.Controls.Add(this.lblMin);

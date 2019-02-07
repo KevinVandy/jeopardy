@@ -26,12 +26,12 @@ namespace Jeopardy
         private void frmReviewWrongQuestions_Load(object sender, EventArgs e)
         {
             lblQuestionText.Text = "";
-            
-            foreach(Team t in Teams)
+
+            foreach (Team t in Teams)
             {
-                if(t != null)
+                if (t != null)
                 {
-                    lblQuestionText.Text = t.TeamName + ": " + t.Score.ToString() + "\n";
+                    lblQuestionText.Text += t.TeamName + ": " + t.Score.ToString() + "\n";
                 }
             }
             lblIndex.Hide();
@@ -43,24 +43,43 @@ namespace Jeopardy
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            questionIndex++;
+
             if (btnNext.Text == "Review")
             {
-                
+                questionIndex++;
                 btnNext.Text = "Next";
                 lblIndex.Text = "1 of " + WrongQuestions.Count.ToString();
                 lblIndex.Show();
                 txtCorrectAnswer.Show();
                 btnPrevious.Show();
+                btnPrevious.Enabled = false;
                 btnRevealAnswer.Show();
-            }
-            else if(questionIndex < WrongQuestions.Count)
-            {
                 ShowQuestion(questionIndex);
             }
-            else //done
+            else if (questionIndex < WrongQuestions.Count - 1)
             {
-                
+                btnPrevious.Enabled = true;
+                questionIndex++;
+                ShowQuestion(questionIndex);
+            }
+
+            if((questionIndex + 1) == WrongQuestions.Count)
+            {
+                btnNext.Enabled = false;
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (questionIndex > 0)
+            {
+                btnNext.Enabled = true;
+                questionIndex--;
+                ShowQuestion(questionIndex);
+            }
+            if(questionIndex == 0)
+            {
+                btnPrevious.Enabled = false;
             }
         }
 
@@ -72,7 +91,8 @@ namespace Jeopardy
         private void ShowQuestion(int i)
         {
             lblQuestionText.Text = WrongQuestions[i].QuestionText;
-
+            lblIndex.Text = (questionIndex + 1).ToString() + " of " + WrongQuestions.Count.ToString();
+            txtCorrectAnswer.Text = "";
         }
 
         private void ShowAnswer(int i)
@@ -80,6 +100,9 @@ namespace Jeopardy
             txtCorrectAnswer.Text = WrongQuestions[i].Answer;
         }
 
-        
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

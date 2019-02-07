@@ -60,6 +60,7 @@
             this.btnDone.TabIndex = 13;
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = true;
+            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
             // btnRevealAnswer
             // 
@@ -92,6 +93,7 @@
             this.btnPrevious.TabIndex = 16;
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnNext
             // 
