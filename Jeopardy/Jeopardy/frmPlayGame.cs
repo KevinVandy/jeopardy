@@ -75,6 +75,7 @@ namespace Jeopardy
             Button button = sender as Button;
             Question currentQuestion = (Question)button.Tag;
             bool answeredCorrectly = false;
+            bool gameDone = true;
             DialogResult formResult = DialogResult.Cancel;
 
             if (currentQuestion.DailyDouble == true)
@@ -135,18 +136,24 @@ namespace Jeopardy
                 {
                     foreach (Question q in c.Questions)
                     {
-                        if (q.State != "Answered")
+                        if(gameDone == false)
                         {
                             break;
                         }
-                        else
+                        if (q.State != "Answered")
                         {
-                            //show the frmWrongQuestions for statistics
-
-                            //close the form
-                            this.Close();
+                            gameDone = false;
                         }
                     }
+                }
+
+                if(gameDone == true)
+                {
+                    //show the frmWrongQuestions for statistics
+                    frmReviewWrongQuestions frmRWQ = new frmReviewWrongQuestions(wrongQuestions, teams);
+                    frmRWQ.ShowDialog();
+                    //close the form
+                    this.Close();
                 }
             }
         }
