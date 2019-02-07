@@ -52,10 +52,10 @@ namespace Jeopardy
             using (var sr = new StreamReader(path))
             {
                 Game importedGame = (Game)xs.Deserialize(sr);
-
+                
                 importedGame.Id = null;
                 importedGame.GameName = fileName;
-
+                
                int? id = DB_Insert.InsertGame(importedGame);
 
             }

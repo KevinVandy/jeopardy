@@ -89,10 +89,10 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(687, 447);
+            this.btnSubmit.Location = new System.Drawing.Point(677, 445);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(234, 59);
+            this.btnSubmit.Size = new System.Drawing.Size(246, 59);
             this.btnSubmit.TabIndex = 5;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(32, 536);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(234, 59);
+            this.btnCancel.Size = new System.Drawing.Size(246, 59);
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -135,9 +135,9 @@
             // btnDone
             // 
             this.btnDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDone.Location = new System.Drawing.Point(687, 544);
+            this.btnDone.Location = new System.Drawing.Point(677, 542);
             this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(234, 59);
+            this.btnDone.Size = new System.Drawing.Size(246, 59);
             this.btnDone.TabIndex = 12;
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = true;
@@ -151,11 +151,11 @@
             // btnOverwrite
             // 
             this.btnOverwrite.Enabled = false;
-            this.btnOverwrite.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOverwrite.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOverwrite.Location = new System.Drawing.Point(32, 447);
             this.btnOverwrite.Margin = new System.Windows.Forms.Padding(2);
             this.btnOverwrite.Name = "btnOverwrite";
-            this.btnOverwrite.Size = new System.Drawing.Size(234, 59);
+            this.btnOverwrite.Size = new System.Drawing.Size(246, 59);
             this.btnOverwrite.TabIndex = 15;
             this.btnOverwrite.Text = "Toggle Correct";
             this.btnOverwrite.UseVisualStyleBackColor = true;
