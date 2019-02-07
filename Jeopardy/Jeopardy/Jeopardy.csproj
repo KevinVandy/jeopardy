@@ -131,6 +131,12 @@
     <Compile Include="frmPlayGame.Designer.cs">
       <DependentUpon>frmPlayGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReviewWrongQuestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReviewWrongQuestions.Designer.cs">
+      <DependentUpon>frmReviewWrongQuestions.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTeams.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPlayGame.resx">
       <DependentUpon>frmPlayGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReviewWrongQuestions.resx">
+      <DependentUpon>frmReviewWrongQuestions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTeams.resx">
       <DependentUpon>frmTeams.cs</DependentUpon>
