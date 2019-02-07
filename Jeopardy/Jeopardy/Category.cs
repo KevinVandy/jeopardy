@@ -44,7 +44,7 @@ namespace Jeopardy
             get => index;
             set
             {
-                if(ValidateData.ValidateCategoryIndex(value))
+                if (ValidateData.ValidateCategoryIndex(value))
                 {
                     index = value;
                 }
@@ -95,18 +95,17 @@ namespace Jeopardy
 
         public Category CreateBlankCategory(int? gameId, int numQuestionsPerCat, int index)
         {
-            this.GameId = (int)gameId;
-            this.Index = index;
-            this.Title = "Category " + (index + 1);
-            this.Subtitle = " ";
-            this.Id = DB_Insert.InsertCategory(this);
-            
+            GameId = (int)gameId;
+            Index = index;
+            ResetCategoryToDefaults();
+            Id = DB_Insert.InsertCategory(this);
+
             //insert blank questions
-            this.Questions = new List<Question>(new Question[numQuestionsPerCat]);
+            Questions = new List<Question>(new Question[numQuestionsPerCat]);
             for (int i = 0; i < numQuestionsPerCat; i++)
             {
-                this.Questions[i] = new Question();
-                this.Questions[i] = Questions[i].CreateBlankQuestion(this.Id, (i + 1) * 100);
+                Questions[i] = new Question();
+                Questions[i] = Questions[i].CreateBlankQuestion(id, (i + 1) * 100);
             }
 
             return this;
@@ -114,8 +113,8 @@ namespace Jeopardy
 
         public void ResetCategoryToDefaults()
         {
-            this.title = "Category " + (this.index + 1).ToString();
-            this.subtitle = " ";
+            Title = "Category " + (index + 1).ToString();
+            Subtitle = " ";
         }
     }
 }

@@ -165,21 +165,19 @@ namespace Jeopardy
 
         public Question CreateBlankQuestion(int? categoryId, int weight)
         {
-            categoryId = (int)categoryId;
-            type = "fb";
-            questionText = " ";
-            answer = " ";
-            this.weight = weight;
-            id = DB_Insert.InsertQuestion(this);
+            CategoryId = (int)categoryId;
+            ResetQuestionToDefaults();
+            Weight = weight;
+            Id = DB_Insert.InsertQuestion(this);
 
             return this;
         }
 
         public void ResetQuestionToDefaults()
         {
-            type = "fb";
-            questionText = " ";
-            answer = " ";
+            Type = "fb";
+            QuestionText = " ";
+            Answer = " ";
         }
     }
 }
