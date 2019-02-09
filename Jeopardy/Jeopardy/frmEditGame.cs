@@ -447,7 +447,6 @@ namespace Jeopardy
                     bwLoadGame.RunWorkerAsync();
                 }
             }
-
         }
 
         //MARK Methods for figuring out stats and Button Colors
@@ -540,7 +539,7 @@ namespace Jeopardy
 
         private void exportGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO
+            XML_IO.exportXML(game);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

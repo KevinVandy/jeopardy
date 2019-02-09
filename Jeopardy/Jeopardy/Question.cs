@@ -164,14 +164,10 @@ namespace Jeopardy
             }
         }
 
-        public Question CreateBlankQuestion(int? categoryId, int weight)
+        public void CreateBlankQuestion(int weight)
         {
-            CategoryId = (int)categoryId;
             ResetQuestionToDefaults();
             Weight = weight;
-            Id = DB_Insert.InsertQuestion(this);
-
-            return this;
         }
 
         public void ResetQuestionToDefaults()

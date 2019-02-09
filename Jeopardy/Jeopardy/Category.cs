@@ -93,22 +93,18 @@ namespace Jeopardy
             set => questions = value;
         }
 
-        public Category CreateBlankCategory(int? gameId, int numQuestionsPerCat, int index)
+        public void CreateBlankCategory(int numQuestionsPerCat, int index)
         {
-            GameId = (int)gameId;
             Index = index;
             ResetCategoryToDefaults();
-            Id = DB_Insert.InsertCategory(this);
 
-            //insert blank questions
+            //create blank questions
             Questions = new List<Question>(new Question[numQuestionsPerCat]);
             for (int i = 0; i < numQuestionsPerCat; i++)
             {
                 Questions[i] = new Question();
-                Questions[i] = Questions[i].CreateBlankQuestion(id, (i + 1) * 100);
+                Questions[i].CreateBlankQuestion((i + 1) * 100);
             }
-
-            return this;
         }
 
         public void ResetCategoryToDefaults()

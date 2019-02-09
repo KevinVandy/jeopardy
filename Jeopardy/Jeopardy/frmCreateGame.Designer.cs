@@ -42,7 +42,7 @@
             this.lblHint = new System.Windows.Forms.Label();
             this.lblDefault1 = new System.Windows.Forms.Label();
             this.lblDefault2 = new System.Windows.Forms.Label();
-            this.bwCreateGame = new System.ComponentModel.BackgroundWorker();
+            this.bwInsertGame = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumQuestionCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumCategories)).BeginInit();
             this.SuspendLayout();
@@ -223,10 +223,10 @@
             this.lblDefault2.TabIndex = 6;
             this.lblDefault2.Text = "(Default)";
             // 
-            // bwCreateGame
+            // bwInsertGame
             // 
-            this.bwCreateGame.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwCreateGame_DoWork);
-            this.bwCreateGame.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwCreateGame_RunWorkerCompleted);
+            this.bwInsertGame.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwInsertGame_DoWork);
+            this.bwInsertGame.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwInsertGame_RunWorkerCompleted);
             // 
             // frmCreateGame
             // 
@@ -275,6 +275,6 @@
         private System.Windows.Forms.Label lblHint;
         private System.Windows.Forms.Label lblDefault1;
         private System.Windows.Forms.Label lblDefault2;
-        private System.ComponentModel.BackgroundWorker bwCreateGame;
+        private System.ComponentModel.BackgroundWorker bwInsertGame;
     }
 }

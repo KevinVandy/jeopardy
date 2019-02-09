@@ -13,7 +13,7 @@ namespace Jeopardy
     public partial class frmCreateGame : Form
     {
         Game newGame = new Game();
-        int selectedIndex = 1;
+        int selectedQuestionTimeLimitIndex = 1;
 
         public frmCreateGame()
         {
@@ -22,13 +22,13 @@ namespace Jeopardy
 
         private void frmCreateGameStart_Load(object sender, EventArgs e)
         {
-            cboQuestionTimeLimit.SelectedIndex = selectedIndex;
+            cboQuestionTimeLimit.SelectedIndex = selectedQuestionTimeLimitIndex;
         }
 
         //MARK Value & Index Change Event Handlers
         private void cboQuestionTimeLimit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedIndex = cboQuestionTimeLimit.SelectedIndex;
+            selectedQuestionTimeLimitIndex = cboQuestionTimeLimit.SelectedIndex;
         }
 
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace Jeopardy
         //MARK Button Event Handlers
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (!bwCreateGame.IsBusy) //prevents closing window when game is only half made
+            if (!bwInsertGame.IsBusy) //prevents closing window when game is only half made
             {
                 this.Close();
             }
@@ -76,8 +76,9 @@ namespace Jeopardy
                 btnCreateGame.Enabled = false;
 
                 newGame = new Game(null, gameName, new TimeSpan(0,1,0), numCategories, numQuestionsPerCat, null); //timespan gets overwritten
+                newGame.CreateBlankGame(newGame.GameName, newGame.NumCategories, newGame.NumQuestionsPerCategory, selectedQuestionTimeLimitIndex);
 
-                bwCreateGame.RunWorkerAsync(); //create the game in a background thread to prevent the form from freezing
+                bwInsertGame.RunWorkerAsync(); //insert the game in a background thread to prevent the form from freezing
             }
             else
             {
@@ -86,13 +87,13 @@ namespace Jeopardy
         }
         
         //creating the new blank game in the db can take a few seconds, so do it in a background thread
-        private void bwCreateGame_DoWork(object sender, DoWorkEventArgs e)
+        private void bwInsertGame_DoWork(object sender, DoWorkEventArgs e)
         {
-            newGame = newGame.CreateBlankGame(newGame.GameName, newGame.NumCategories, newGame.NumQuestionsPerCategory, selectedIndex);
+            DB_Insert.InsertGame(newGame);
         }
 
         //after creating the game, open the game to edit it
-        private void bwCreateGame_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void bwInsertGame_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             frmEditGame createGameForm = new frmEditGame(newGame);
             this.Hide();

@@ -105,7 +105,7 @@ namespace Jeopardy
         }
 
         //MARK: Public Methods
-        public Game CreateBlankGame(string gameName, int numCategories, int numQuestionsPerCat, int questionTimeLimitIndex)
+        public void CreateBlankGame(string gameName, int numCategories, int numQuestionsPerCat, int questionTimeLimitIndex)
         {
             TimeSpan questionTimeLimit = new TimeSpan();
             if (questionTimeLimitIndex == 0)
@@ -133,26 +133,14 @@ namespace Jeopardy
             NumCategories = numCategories;
             NumQuestionsPerCategory = numQuestionsPerCat;
             QuestionTimeLimit = questionTimeLimit;
-
-            //insert the game
-            if (ValidateData.ValidateGameName(gameName))
-            {
-                Id = DB_Insert.InsertGame(this);
-            }
-            else
-            {
-                MessageBox.Show("Invalid Game Name");
-            }
-
-            //insert blank categories, also will insert blank questions for each category
+            
+            //create blank categories, also will create blank questions for each category
             Categories = new List<Category>(new Category[NumCategories]);
             for (int i = 0; i < NumCategories; i++)
             {
                 Categories[i] = new Category();
-                Categories[i] = Categories[i].CreateBlankCategory(Id, NumQuestionsPerCategory, i);
+                Categories[i].CreateBlankCategory(NumQuestionsPerCategory, i);
             }
-
-            return this;
         }
 
         public void ResetGameToDefaults()
