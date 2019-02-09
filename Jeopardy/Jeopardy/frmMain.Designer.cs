@@ -32,7 +32,6 @@
             this.btnCreateGame = new System.Windows.Forms.Button();
             this.btnPlayGame = new System.Windows.Forms.Button();
             this.lstGamesFromDB = new System.Windows.Forms.ListBox();
-            this.lblGames = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,16 +50,20 @@
             this.bwLoadGames = new System.ComponentModel.BackgroundWorker();
             this.btnExportGame = new System.Windows.Forms.Button();
             this.btnImportGame = new System.Windows.Forms.Button();
+            this.bwLoadGameToPlay = new System.ComponentModel.BackgroundWorker();
+            this.bwLoadGameToEdit = new System.ComponentModel.BackgroundWorker();
+            this.bwLoadGameToExport = new System.ComponentModel.BackgroundWorker();
+            this.bwDeleteGame = new System.ComponentModel.BackgroundWorker();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCreateGame
             // 
             this.btnCreateGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateGame.Location = new System.Drawing.Point(479, 118);
-            this.btnCreateGame.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreateGame.Location = new System.Drawing.Point(359, 62);
             this.btnCreateGame.Name = "btnCreateGame";
-            this.btnCreateGame.Size = new System.Drawing.Size(383, 69);
+            this.btnCreateGame.Size = new System.Drawing.Size(287, 56);
             this.btnCreateGame.TabIndex = 0;
             this.btnCreateGame.Text = "New Game";
             this.btnCreateGame.UseVisualStyleBackColor = true;
@@ -68,11 +71,10 @@
             // 
             // btnPlayGame
             // 
-            this.btnPlayGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlayGame.Location = new System.Drawing.Point(64, 406);
-            this.btnPlayGame.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPlayGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlayGame.Location = new System.Drawing.Point(48, 296);
             this.btnPlayGame.Name = "btnPlayGame";
-            this.btnPlayGame.Size = new System.Drawing.Size(383, 165);
+            this.btnPlayGame.Size = new System.Drawing.Size(287, 134);
             this.btnPlayGame.TabIndex = 1;
             this.btnPlayGame.Text = "Play Game";
             this.btnPlayGame.UseVisualStyleBackColor = true;
@@ -82,24 +84,12 @@
             // 
             this.lstGamesFromDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstGamesFromDB.FormattingEnabled = true;
-            this.lstGamesFromDB.ItemHeight = 29;
-            this.lstGamesFromDB.Location = new System.Drawing.Point(64, 118);
-            this.lstGamesFromDB.Margin = new System.Windows.Forms.Padding(4);
+            this.lstGamesFromDB.ItemHeight = 24;
+            this.lstGamesFromDB.Location = new System.Drawing.Point(48, 62);
             this.lstGamesFromDB.Name = "lstGamesFromDB";
-            this.lstGamesFromDB.Size = new System.Drawing.Size(381, 265);
+            this.lstGamesFromDB.Size = new System.Drawing.Size(287, 172);
             this.lstGamesFromDB.TabIndex = 2;
             this.lstGamesFromDB.SelectedIndexChanged += new System.EventHandler(this.lstGamesFromDB_SelectedIndexChanged);
-            // 
-            // lblGames
-            // 
-            this.lblGames.AutoSize = true;
-            this.lblGames.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGames.Location = new System.Drawing.Point(161, 68);
-            this.lblGames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblGames.Name = "lblGames";
-            this.lblGames.Size = new System.Drawing.Size(171, 29);
-            this.lblGames.TabIndex = 3;
-            this.lblGames.Text = "Select a Game";
             // 
             // menuStrip1
             // 
@@ -110,8 +100,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(911, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(683, 27);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -127,58 +116,58 @@
             this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(47, 27);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(41, 23);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(262, 28);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
             this.newGameToolStripMenuItem.Text = "New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
             // editGameToolStripMenuItem
             // 
             this.editGameToolStripMenuItem.Name = "editGameToolStripMenuItem";
-            this.editGameToolStripMenuItem.Size = new System.Drawing.Size(262, 28);
+            this.editGameToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
             this.editGameToolStripMenuItem.Text = "Edit Game";
             this.editGameToolStripMenuItem.Click += new System.EventHandler(this.editGameToolStripMenuItem_Click);
             // 
             // deleteGameToolStripMenuItem
             // 
             this.deleteGameToolStripMenuItem.Name = "deleteGameToolStripMenuItem";
-            this.deleteGameToolStripMenuItem.Size = new System.Drawing.Size(262, 28);
+            this.deleteGameToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
             this.deleteGameToolStripMenuItem.Text = "Delete Game";
             this.deleteGameToolStripMenuItem.Click += new System.EventHandler(this.deleteGameToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(259, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(217, 6);
             // 
             // importGameFromFileToolStripMenuItem
             // 
             this.importGameFromFileToolStripMenuItem.Name = "importGameFromFileToolStripMenuItem";
-            this.importGameFromFileToolStripMenuItem.Size = new System.Drawing.Size(262, 28);
+            this.importGameFromFileToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
             this.importGameFromFileToolStripMenuItem.Text = "Import Game From File";
             this.importGameFromFileToolStripMenuItem.Click += new System.EventHandler(this.importGameFromFileToolStripMenuItem_Click);
             // 
             // exportGameToFileToolStripMenuItem
             // 
             this.exportGameToFileToolStripMenuItem.Name = "exportGameToFileToolStripMenuItem";
-            this.exportGameToFileToolStripMenuItem.Size = new System.Drawing.Size(262, 28);
+            this.exportGameToFileToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
             this.exportGameToFileToolStripMenuItem.Text = "Export Game To File";
             this.exportGameToFileToolStripMenuItem.Click += new System.EventHandler(this.exportGameToFileToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(259, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(217, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(262, 28);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -188,30 +177,29 @@
             this.helpToolStripMenuItem1,
             this.helpToolStripMenuItem2});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(57, 27);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(49, 23);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(133, 28);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(116, 24);
             this.helpToolStripMenuItem1.Text = "About";
             this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
             // 
             // helpToolStripMenuItem2
             // 
             this.helpToolStripMenuItem2.Name = "helpToolStripMenuItem2";
-            this.helpToolStripMenuItem2.Size = new System.Drawing.Size(133, 28);
+            this.helpToolStripMenuItem2.Size = new System.Drawing.Size(116, 24);
             this.helpToolStripMenuItem2.Text = "Help";
             this.helpToolStripMenuItem2.Click += new System.EventHandler(this.helpToolStripMenuItem2_Click);
             // 
             // btnEditGame
             // 
             this.btnEditGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditGame.Location = new System.Drawing.Point(479, 214);
-            this.btnEditGame.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditGame.Location = new System.Drawing.Point(359, 140);
             this.btnEditGame.Name = "btnEditGame";
-            this.btnEditGame.Size = new System.Drawing.Size(383, 69);
+            this.btnEditGame.Size = new System.Drawing.Size(287, 56);
             this.btnEditGame.TabIndex = 5;
             this.btnEditGame.Text = "Edit Game";
             this.btnEditGame.UseVisualStyleBackColor = true;
@@ -220,10 +208,9 @@
             // btnDeleteGame
             // 
             this.btnDeleteGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteGame.Location = new System.Drawing.Point(479, 310);
-            this.btnDeleteGame.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteGame.Location = new System.Drawing.Point(359, 218);
             this.btnDeleteGame.Name = "btnDeleteGame";
-            this.btnDeleteGame.Size = new System.Drawing.Size(383, 69);
+            this.btnDeleteGame.Size = new System.Drawing.Size(287, 56);
             this.btnDeleteGame.TabIndex = 6;
             this.btnDeleteGame.Text = "Delete Game";
             this.btnDeleteGame.UseVisualStyleBackColor = true;
@@ -238,10 +225,9 @@
             // btnExportGame
             // 
             this.btnExportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportGame.Location = new System.Drawing.Point(479, 502);
-            this.btnExportGame.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExportGame.Location = new System.Drawing.Point(359, 374);
             this.btnExportGame.Name = "btnExportGame";
-            this.btnExportGame.Size = new System.Drawing.Size(383, 69);
+            this.btnExportGame.Size = new System.Drawing.Size(287, 56);
             this.btnExportGame.TabIndex = 7;
             this.btnExportGame.Text = "Export to File";
             this.btnExportGame.UseVisualStyleBackColor = true;
@@ -250,32 +236,60 @@
             // btnImportGame
             // 
             this.btnImportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImportGame.Location = new System.Drawing.Point(479, 406);
-            this.btnImportGame.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImportGame.Location = new System.Drawing.Point(359, 296);
             this.btnImportGame.Name = "btnImportGame";
-            this.btnImportGame.Size = new System.Drawing.Size(383, 69);
+            this.btnImportGame.Size = new System.Drawing.Size(287, 56);
             this.btnImportGame.TabIndex = 8;
             this.btnImportGame.Text = "Import From File";
             this.btnImportGame.UseVisualStyleBackColor = true;
             this.btnImportGame.Click += new System.EventHandler(this.btnImportGame_Click);
             // 
+            // bwLoadGameToPlay
+            // 
+            this.bwLoadGameToPlay.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLoadGameToPlay_DoWork);
+            this.bwLoadGameToPlay.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwLoadGameToPlay_RunWorkerCompleted);
+            // 
+            // bwLoadGameToEdit
+            // 
+            this.bwLoadGameToEdit.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLoadGameToEdit_DoWork);
+            this.bwLoadGameToEdit.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwLoadGameToEdit_RunWorkerCompleted);
+            // 
+            // bwLoadGameToExport
+            // 
+            this.bwLoadGameToExport.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLoadGameToExport_DoWork);
+            this.bwLoadGameToExport.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwLoadGameToExport_RunWorkerCompleted);
+            // 
+            // bwDeleteGame
+            // 
+            this.bwDeleteGame.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwDeleteGame_DoWork);
+            this.bwDeleteGame.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwDeleteGame_RunWorkerCompleted);
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(48, 237);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(287, 56);
+            this.lblStatus.TabIndex = 9;
+            this.lblStatus.Text = "Select a Game";
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 623);
+            this.ClientSize = new System.Drawing.Size(683, 467);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnImportGame);
             this.Controls.Add(this.btnExportGame);
             this.Controls.Add(this.btnDeleteGame);
             this.Controls.Add(this.btnEditGame);
-            this.Controls.Add(this.lblGames);
             this.Controls.Add(this.lstGamesFromDB);
             this.Controls.Add(this.btnPlayGame);
             this.Controls.Add(this.btnCreateGame);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -293,7 +307,6 @@
         private System.Windows.Forms.Button btnCreateGame;
         private System.Windows.Forms.Button btnPlayGame;
         private System.Windows.Forms.ListBox lstGamesFromDB;
-        private System.Windows.Forms.Label lblGames;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importGameFromFileToolStripMenuItem;
@@ -312,6 +325,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exportGameToFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.ComponentModel.BackgroundWorker bwLoadGameToPlay;
+        private System.ComponentModel.BackgroundWorker bwLoadGameToEdit;
+        private System.ComponentModel.BackgroundWorker bwLoadGameToExport;
+        private System.ComponentModel.BackgroundWorker bwDeleteGame;
+        private System.Windows.Forms.Label lblStatus;
     }
 }
 

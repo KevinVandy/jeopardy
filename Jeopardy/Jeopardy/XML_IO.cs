@@ -36,7 +36,7 @@ namespace Jeopardy
                     TextWriter tw = new StreamWriter(downloadPath);
                     xs.Serialize(tw, selectedGame);
 
-                    MessageBox.Show($"File was saved at {fbd.SelectedPath} ");
+                    MessageBox.Show($"File was saved at {fbd.SelectedPath} ", "Successful Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }
@@ -45,20 +45,27 @@ namespace Jeopardy
 
         public static void importXML(String path, string fileName)
         {
-            //TODO Validate if file is xml
-
-
-            XmlSerializer xs = new XmlSerializer(typeof(Game));
-            using (var sr = new StreamReader(path))
+            try
             {
-                Game importedGame = (Game)xs.Deserialize(sr);
-                
-                importedGame.Id = null;
-                importedGame.GameName = fileName;
-                
-               int? id = DB_Insert.InsertGame(importedGame);
+                XmlSerializer xs = new XmlSerializer(typeof(Game));
+                using (var sr = new StreamReader(path))
+                {
+                    Game importedGame = (Game)xs.Deserialize(sr);
 
+                    importedGame.Id = null;
+                    importedGame.GameName = fileName;
+
+                    int? id = DB_Insert.InsertGame(importedGame);
+
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("This file is not in the correct format for this game. The game cannot be imported", "Import Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                Console.WriteLine(ex.ToString());
+            }
+            
         }
 
        
