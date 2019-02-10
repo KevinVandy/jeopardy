@@ -33,7 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Syroot.KnownFolders, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -235,15 +236,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="icon.ico" />
-    <Content Include="j-logo.ico" />
-    <None Include="Resources\Question_16x.png" />
-    <None Include="Resources\Export_16x.png" />
-    <None Include="Resources\Import_16x.png" />
-    <None Include="Resources\SaveAs_16x.png" />
-    <None Include="Resources\OpenfileDialog_16x.png" />
-    <None Include="Resources\NewTable_16x.png" />
-    <None Include="Resources\Save_16x.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
