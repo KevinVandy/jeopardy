@@ -99,6 +99,15 @@ namespace Jeopardy
             }
         }
 
+        private void frmEditGame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (txtGameName.Text != game.GameName)
+            {
+                game.GameName = txtGameName.Text;
+                bwUpdateGameName.RunWorkerAsync();
+            }
+        }
+
         private void bwUpdateGameName_DoWork(object sender, DoWorkEventArgs e)
         {
             if (!DB_Update.UpdateGameName(game.GameName, game.Id)) //updating the database happens here
@@ -227,16 +236,13 @@ namespace Jeopardy
                 nudNumQuestionCategory.Enabled = false;
                 game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
                 bwAddQuestions.RunWorkerAsync();
-                
             }
             else if ((int)nudNumQuestionCategory.Value < game.NumQuestionsPerCategory) //if down was clicked
             {
                 nudNumQuestionCategory.Enabled = false;
                 game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
                 bwRemoveQuestions.RunWorkerAsync();
-                
             }
-
             DisplayNumberQuestions();
         }
 
@@ -258,7 +264,6 @@ namespace Jeopardy
             for (int i = 0; i < game.NumCategories; i++)
             {
                 Question newQuestion = new Question();
-
                 newQuestion.CategoryId = (int)game.Categories[i].Id;
                 newQuestion.ResetQuestionToDefaults(); //default data
                 newQuestion.Weight = (game.NumQuestionsPerCategory) * 100;
@@ -570,34 +575,45 @@ namespace Jeopardy
         
         private void tsmiDeleteCategory_Click(object sender, EventArgs e) //updates a category to be blank and default
         {
-            ToolStripItem menuItem = sender as ToolStripItem;
-            if (menuItem != null)
-            {
-                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
-                if (owner != null)
-                {
-                    Button clickedButton = (Button)owner.SourceControl;
+            DialogResult dialogResult = MessageBox.Show("Are you sure that you want to Delete this Category and all of the Questions in this Category?", "Confirm Delete", MessageBoxButtons.YesNo);
 
-                    //detect position in button grid
-                    int x = -1;
-                    for (int i = 0; i < game.NumCategories && x < 0; ++i)
+            if(dialogResult == DialogResult.Yes)
+            {
+                ToolStripItem menuItem = sender as ToolStripItem;
+                if (menuItem != null)
+                {
+                    ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                    if (owner != null)
                     {
-                        if (categoryButtons[i] == clickedButton)
+                        //detect position in button grid
+                        int x = -1;
+                        for (int i = 0; i < game.NumCategories && x < 0; ++i)
                         {
-                            x = i;
-                            break;
+                            if (categoryButtons[i] == (Button)owner.SourceControl)
+                            {
+                                x = i;
+                                break;
+                            }
                         }
+                        game.Categories[x].ResetCategoryToDefaults(); //deletes info, restores default values
+                        currentCategory = game.Categories[x];
+                        bwUpdateCategory.RunWorkerAsync(argument: x); //passes category index so questions can be deleted
                     }
-                    game.Categories[x].ResetCategoryToDefaults(); //deletes info, restores default values
-                    currentCategory = game.Categories[x];
-                    bwUpdateCategory.RunWorkerAsync();
                 }
             }
         }
 
-        private void bwUpdateCategory_DoWork(object sender, DoWorkEventArgs e)
+        private void bwUpdateCategory_DoWork(object sender, DoWorkEventArgs e) //also updates questions
         {
+            int i = (int)e.Argument; // i is category index
+
             DB_Update.UpdateCategory(currentCategory);
+
+            for(int j = 0; j < game.NumQuestionsPerCategory; j++) // j is question index
+            {
+                game.Categories[i].Questions[j].ResetQuestionToDefaults();
+                DB_Update.UpdateQuestion(game.Categories[i].Questions[j]);
+            }
         }
 
         private void bwUpdateCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -624,37 +640,40 @@ namespace Jeopardy
 
         private void tsmiDeleteQuestion_Click(object sender, EventArgs e)
         {
-            ToolStripItem menuItem = sender as ToolStripItem;
-            if (menuItem != null)
-            {
-                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
-                if (owner != null)
-                {
-                    Button clickedButton = (Button)owner.SourceControl;
+            DialogResult dialogResult = MessageBox.Show("Are you sure that you want to Delete this question?", "Confirm Delete", MessageBoxButtons.YesNo);
 
-                    //detect position in button grid
-                    int x = -1;
-                    int y = -1;
-                    for (int i = 0; i < game.NumCategories && x < 0; ++i)
+            if(dialogResult == DialogResult.Yes)
+            {
+                ToolStripItem menuItem = sender as ToolStripItem;
+                if (menuItem != null)
+                {
+                    ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                    if (owner != null)
                     {
-                        for (int j = 0; j < game.NumQuestionsPerCategory; ++j)
+                        //detect position in button grid
+                        int x = -1;
+                        int y = -1;
+                        for (int i = 0; i < game.NumCategories && x < 0; ++i)
                         {
-                            if (questionButtons[i, j] == clickedButton)
+                            for (int j = 0; j < game.NumQuestionsPerCategory; ++j)
                             {
-                                x = i;
-                                y = j;
-                                break;
+                                if (questionButtons[i, j] == (Button)owner.SourceControl)
+                                {
+                                    x = i;
+                                    y = j;
+                                    break;
+                                }
                             }
                         }
+                        currentQuestion = game.Categories[x].Questions[y]; //needs to be here for the first bw to use
+                        if (game.Categories[x].Questions[y].Type == "mc")
+                        {
+                            bwDeleteChoices.RunWorkerAsync();
+                        }
+                        game.Categories[x].Questions[y].ResetQuestionToDefaults(); //reset with default blank data
+                        currentQuestion = game.Categories[x].Questions[y]; //needs to be here again with default data for the 2nd bw to use
+                        bwUpdateQuestion.RunWorkerAsync();
                     }
-                    currentQuestion = game.Categories[x].Questions[y]; //needs to be here for the first bw to use
-                    if (game.Categories[x].Questions[y].Type == "mc")
-                    {
-                        bwDeleteChoices.RunWorkerAsync();
-                    }
-                    game.Categories[x].Questions[y].ResetQuestionToDefaults(); //reset with default blank data
-                    currentQuestion = game.Categories[x].Questions[y]; //needs to be here again with default data for the 2nd bw to use
-                    bwUpdateQuestion.RunWorkerAsync();
                 }
             }
         }
@@ -699,14 +718,13 @@ namespace Jeopardy
         private void ModifyGroupBoxHeights()
         {
             gbxGameInfo.Top = 50;
-            gbxGameInfo.Height = 163;
+            gbxGameInfo.Height = 128;
 
             gbxCategories.Top = gbxGameInfo.Top + gbxGameInfo.Height + 30;
-            gbxCategories.Height = 127;
+            gbxCategories.Height = 128;
 
             gbxQuestions.Top = gbxCategories.Top + gbxCategories.Height + 30;
             gbxQuestions.Height = Height - gbxCategories.Height - gbxGameInfo.Height - gbxCategories.Top + 30;
-
         }
 
         private void frmCreateGame_ResizeEnd(object sender, EventArgs e)
@@ -729,7 +747,5 @@ namespace Jeopardy
                 }
             }
         }
-
-        
     }
 }

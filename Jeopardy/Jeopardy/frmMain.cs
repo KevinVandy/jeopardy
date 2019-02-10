@@ -25,21 +25,7 @@ namespace Jeopardy
         private void frmMain_Load(object sender, EventArgs e)
         {
             lblStatus.Text = "Loading Games";
-
             bwLoadGames.RunWorkerAsync(); //start background thread to load games
-            
-            newGameToolStripMenuItem.Enabled = true;
-            editGameToolStripMenuItem.Enabled = false;
-            deleteGameToolStripMenuItem.Enabled = false;
-            importGameFromFileToolStripMenuItem.Enabled = true;
-            exportGameToFileToolStripMenuItem.Enabled = false;
-
-            btnPlayGame.Enabled = false;
-            btnCreateGame.Enabled = true;
-            btnEditGame.Enabled = false;
-            btnDeleteGame.Enabled = false;
-            btnImportGame.Enabled = true;
-            btnExportGame.Enabled = false;
         }
 
         //Load the game list in a background thread so it does not freeze the form
@@ -57,7 +43,7 @@ namespace Jeopardy
         //MARK: Selected Index Change Event Handler
         private void lstGamesFromDB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EnableOrDisableControls();
+            EnableAllControls();
         }
 
         //MARK Button Event Handlers
@@ -122,10 +108,15 @@ namespace Jeopardy
 
         private void btnDeleteGame_Click(object sender, EventArgs e) //Delete Game button
         {
-            UseWaitCursor = true;
-            lblStatus.Text = "Deleting the Game";
-            DisableAllControls();
-            bwDeleteGame.RunWorkerAsync();
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this game? All questions in this game will also be deleted.", "Confirm Delete",MessageBoxButtons.YesNo);
+
+            if(dialogResult == DialogResult.Yes)
+            {
+                UseWaitCursor = true;
+                lblStatus.Text = "Deleting the Game";
+                DisableAllControls();
+                bwDeleteGame.RunWorkerAsync();
+            }
         }
 
         private void bwDeleteGame_DoWork(object sender, DoWorkEventArgs e)
@@ -247,7 +238,7 @@ namespace Jeopardy
             {
                 lstGamesFromDB.Items.Add(g.GameName);
             }
-            EnableOrDisableControls();
+            EnableAllControls();
         }
 
         private void DisableAllControls()
@@ -270,27 +261,7 @@ namespace Jeopardy
 
         private void EnableAllControls()
         {
-            lstGamesFromDB.Enabled = true;
-
-            newGameToolStripMenuItem.Enabled = true;
-            editGameToolStripMenuItem.Enabled = true;
-            deleteGameToolStripMenuItem.Enabled = true;
-            importGameFromFileToolStripMenuItem.Enabled = true;
-            exportGameToFileToolStripMenuItem.Enabled = true;
-
-            btnPlayGame.Enabled = true;
-            btnCreateGame.Enabled = true;
-            btnEditGame.Enabled = true;
-            btnDeleteGame.Enabled = true;
-            btnImportGame.Enabled = true;
-            btnExportGame.Enabled = true;
-
-            EnableOrDisableControls(); //disable buttons that need a game to be selected to work if no game is selected
-        }
-
-        private void EnableOrDisableControls()
-        {
-            lblStatus.Text = "Game Selected";
+            lblStatus.Text = "";
 
             if (lstGamesFromDB.Enabled == false)
             {

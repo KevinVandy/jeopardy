@@ -89,9 +89,9 @@
             // gbxQuestions
             // 
             this.gbxQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxQuestions.Location = new System.Drawing.Point(23, 375);
+            this.gbxQuestions.Location = new System.Drawing.Point(23, 341);
             this.gbxQuestions.Name = "gbxQuestions";
-            this.gbxQuestions.Size = new System.Drawing.Size(1005, 496);
+            this.gbxQuestions.Size = new System.Drawing.Size(1005, 516);
             this.gbxQuestions.TabIndex = 30;
             this.gbxQuestions.TabStop = false;
             this.gbxQuestions.Text = "Questions";
@@ -99,9 +99,9 @@
             // gbxCategories
             // 
             this.gbxCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxCategories.Location = new System.Drawing.Point(23, 233);
+            this.gbxCategories.Location = new System.Drawing.Point(23, 198);
             this.gbxCategories.Name = "gbxCategories";
-            this.gbxCategories.Size = new System.Drawing.Size(1005, 127);
+            this.gbxCategories.Size = new System.Drawing.Size(1005, 128);
             this.gbxCategories.TabIndex = 30;
             this.gbxCategories.TabStop = false;
             this.gbxCategories.Text = "Categories";
@@ -110,7 +110,7 @@
             // 
             this.lblGameName.AutoSize = true;
             this.lblGameName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameName.Location = new System.Drawing.Point(15, 44);
+            this.lblGameName.Location = new System.Drawing.Point(15, 34);
             this.lblGameName.Name = "lblGameName";
             this.lblGameName.Size = new System.Drawing.Size(103, 20);
             this.lblGameName.TabIndex = 31;
@@ -119,7 +119,7 @@
             // txtGameName
             // 
             this.txtGameName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGameName.Location = new System.Drawing.Point(124, 41);
+            this.txtGameName.Location = new System.Drawing.Point(124, 31);
             this.txtGameName.Name = "txtGameName";
             this.txtGameName.Size = new System.Drawing.Size(188, 26);
             this.txtGameName.TabIndex = 32;
@@ -207,7 +207,7 @@
             // 
             this.lblQuestionTimeLimit.AutoSize = true;
             this.lblQuestionTimeLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestionTimeLimit.Location = new System.Drawing.Point(15, 96);
+            this.lblQuestionTimeLimit.Location = new System.Drawing.Point(15, 86);
             this.lblQuestionTimeLimit.Name = "lblQuestionTimeLimit";
             this.lblQuestionTimeLimit.Size = new System.Drawing.Size(152, 20);
             this.lblQuestionTimeLimit.TabIndex = 34;
@@ -224,7 +224,7 @@
             "90 seconds",
             "2 minutes",
             "3 minutes"});
-            this.cboQuestionTimeLimit.Location = new System.Drawing.Point(173, 93);
+            this.cboQuestionTimeLimit.Location = new System.Drawing.Point(173, 83);
             this.cboQuestionTimeLimit.Name = "cboQuestionTimeLimit";
             this.cboQuestionTimeLimit.Size = new System.Drawing.Size(139, 28);
             this.cboQuestionTimeLimit.TabIndex = 35;
@@ -250,7 +250,7 @@
             this.gbxGameInfo.Location = new System.Drawing.Point(23, 55);
             this.gbxGameInfo.MinimumSize = new System.Drawing.Size(1000, 0);
             this.gbxGameInfo.Name = "gbxGameInfo";
-            this.gbxGameInfo.Size = new System.Drawing.Size(1005, 163);
+            this.gbxGameInfo.Size = new System.Drawing.Size(1005, 128);
             this.gbxGameInfo.TabIndex = 36;
             this.gbxGameInfo.TabStop = false;
             this.gbxGameInfo.Text = "Game Information";
@@ -259,7 +259,7 @@
             // 
             this.lblNumberEmptyQuestions.AutoSize = true;
             this.lblNumberEmptyQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberEmptyQuestions.Location = new System.Drawing.Point(954, 96);
+            this.lblNumberEmptyQuestions.Location = new System.Drawing.Point(954, 86);
             this.lblNumberEmptyQuestions.Name = "lblNumberEmptyQuestions";
             this.lblNumberEmptyQuestions.Size = new System.Drawing.Size(18, 20);
             this.lblNumberEmptyQuestions.TabIndex = 45;
@@ -269,7 +269,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(783, 96);
+            this.label6.Location = new System.Drawing.Point(783, 86);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(165, 20);
             this.label6.TabIndex = 44;
@@ -279,7 +279,7 @@
             // 
             this.lblNumberFinishedQuestions.AutoSize = true;
             this.lblNumberFinishedQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberFinishedQuestions.Location = new System.Drawing.Point(738, 96);
+            this.lblNumberFinishedQuestions.Location = new System.Drawing.Point(738, 86);
             this.lblNumberFinishedQuestions.Name = "lblNumberFinishedQuestions";
             this.lblNumberFinishedQuestions.Size = new System.Drawing.Size(18, 20);
             this.lblNumberFinishedQuestions.TabIndex = 43;
@@ -289,7 +289,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(583, 96);
+            this.label4.Location = new System.Drawing.Point(583, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(149, 20);
             this.label4.TabIndex = 42;
@@ -299,7 +299,7 @@
             // 
             this.lblNumberQuestions.AutoSize = true;
             this.lblNumberQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberQuestions.Location = new System.Drawing.Point(517, 96);
+            this.lblNumberQuestions.Location = new System.Drawing.Point(517, 86);
             this.lblNumberQuestions.Name = "lblNumberQuestions";
             this.lblNumberQuestions.Size = new System.Drawing.Size(27, 20);
             this.lblNumberQuestions.TabIndex = 41;
@@ -309,7 +309,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(347, 96);
+            this.label1.Location = new System.Drawing.Point(347, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(167, 20);
             this.label1.TabIndex = 40;
@@ -319,7 +319,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(583, 44);
+            this.label2.Location = new System.Drawing.Point(583, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(259, 20);
             this.label2.TabIndex = 39;
@@ -329,7 +329,7 @@
             // 
             this.lblNumberCategories.AutoSize = true;
             this.lblNumberCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberCategories.Location = new System.Drawing.Point(347, 44);
+            this.lblNumberCategories.Location = new System.Drawing.Point(347, 34);
             this.lblNumberCategories.Name = "lblNumberCategories";
             this.lblNumberCategories.Size = new System.Drawing.Size(168, 20);
             this.lblNumberCategories.TabIndex = 38;
@@ -339,7 +339,7 @@
             // 
             this.nudNumQuestionCategory.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.nudNumQuestionCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudNumQuestionCategory.Location = new System.Drawing.Point(848, 39);
+            this.nudNumQuestionCategory.Location = new System.Drawing.Point(848, 29);
             this.nudNumQuestionCategory.Maximum = new decimal(new int[] {
             8,
             0,
@@ -366,7 +366,7 @@
             // 
             this.nudNumCategories.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.nudNumCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudNumCategories.Location = new System.Drawing.Point(521, 39);
+            this.nudNumCategories.Location = new System.Drawing.Point(521, 29);
             this.nudNumCategories.Maximum = new decimal(new int[] {
             8,
             0,
@@ -531,6 +531,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCreateGame";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditGame_FormClosing);
             this.Load += new System.EventHandler(this.frmCreateGame_Load);
             this.ResizeEnd += new System.EventHandler(this.frmCreateGame_ResizeEnd);
             this.Resize += new System.EventHandler(this.frmCreateGame_Resize);
