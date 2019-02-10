@@ -166,12 +166,26 @@ namespace Jeopardy
             }
             else if ((int)nudNumCategories.Value < game.NumCategories) //if down was clicked
             {
-                nudNumCategories.Enabled = false;
-                game.NumCategories = (int)nudNumCategories.Value;
-                bwRemoveCategory.RunWorkerAsync();
+                DialogResult dialogResult = DialogResult.Yes;
+                foreach(Question q in game.Categories[game.Categories.Count - 1].Questions)
+                {
+                    if(q.State != "no question")
+                    {
+                        dialogResult = MessageBox.Show("Warning. Removing the last category will also permenently delete all of the questions in that Category. Do you still wish to procede removing the last Category?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        break;
+                    }
+                }
+                if(dialogResult == DialogResult.Yes)
+                {
+                    nudNumCategories.Enabled = false;
+                    game.NumCategories = (int)nudNumCategories.Value;
+                    bwRemoveCategory.RunWorkerAsync();
+                }
+                else
+                {
+                    nudNumCategories.Value++; //go back to original value before clicked if canceled
+                }
             }
-
-            DisplayNumberQuestions();
         }
 
         private void bwUpdateNumCategories_DoWork(object sender, DoWorkEventArgs e)
@@ -185,6 +199,7 @@ namespace Jeopardy
         private void bwUpdateNumCategories_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             nudNumCategories.Enabled = true;
+            DisplayNumberQuestions();
         }
 
         private void bwAddCategory_DoWork(object sender, DoWorkEventArgs e)
@@ -239,11 +254,28 @@ namespace Jeopardy
             }
             else if ((int)nudNumQuestionCategory.Value < game.NumQuestionsPerCategory) //if down was clicked
             {
-                nudNumQuestionCategory.Enabled = false;
-                game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
-                bwRemoveQuestions.RunWorkerAsync();
+                DialogResult dialogResult = DialogResult.Yes;
+
+                for(int i = 0; i < game.Categories.Count; i++)
+                {
+                    if(game.Categories[i].Questions[game.NumQuestionsPerCategory - 1].State != "no question")
+                    {
+                        dialogResult = MessageBox.Show("Warning. This will remove all of the questions in the bottom row of this game? Do you still wish to procede?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        break;
+                    }
+                }
+
+                if(dialogResult == DialogResult.Yes)
+                {
+                    nudNumQuestionCategory.Enabled = false;
+                    game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
+                    bwRemoveQuestions.RunWorkerAsync();
+                }
+                else
+                {
+                    nudNumQuestionCategory.Value++; //go back to original value before clicked if canceled
+                }
             }
-            DisplayNumberQuestions();
         }
 
         private void bwUpdateNumQuestionsPerCategory_DoWork(object sender, DoWorkEventArgs e)
@@ -257,6 +289,7 @@ namespace Jeopardy
         private void bwUpdateNumQuestionsPerCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             nudNumQuestionCategory.Enabled = true; //re-enable once thread safe
+            DisplayNumberQuestions();
         }
 
         private void bwAddQuestions_DoWork(object sender, DoWorkEventArgs e)
