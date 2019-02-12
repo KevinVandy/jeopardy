@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lblQuestionText.Text" xml:space="preserve">
+    <value>This a question. Here is a lot of text that might be in a question. Questions can be very long. We let them be up to 1000 characters so we need to have enough room for a long question. I am running out of things to say. Actually we might need to lower the limit to whatever fits here.</value>
+  </data>
 </root>

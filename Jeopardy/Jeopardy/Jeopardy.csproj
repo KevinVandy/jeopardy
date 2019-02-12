@@ -33,7 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Syroot.KnownFolders, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -53,106 +54,106 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Category.cs" />
-    <Compile Include="Choice.cs" />
-    <Compile Include="CustomExceptions.cs" />
-    <Compile Include="DB_Delete.cs" />
-    <Compile Include="DB_Find.cs" />
-    <Compile Include="DB_Update.cs" />
-    <Compile Include="frmAbout.cs">
+    <Compile Include="Models\Classes\Category.cs" />
+    <Compile Include="Models\Classes\Choice.cs" />
+    <Compile Include="Models\Validation\CustomExceptions.cs" />
+    <Compile Include="Models\DA\DB_Delete.cs" />
+    <Compile Include="Models\DA\DB_Find.cs" />
+    <Compile Include="Models\DA\DB_Update.cs" />
+    <Compile Include="Forms\frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAbout.Designer.cs">
+    <Compile Include="Forms\frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCreateGame.cs">
+    <Compile Include="Forms\Admin\frmCreateGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCreateGame.Designer.cs">
+    <Compile Include="Forms\Admin\frmCreateGame.Designer.cs">
       <DependentUpon>frmCreateGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDoubleJeopardy.cs">
+    <Compile Include="Forms\Play\frmDoubleJeopardy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDoubleJeopardy.Designer.cs">
+    <Compile Include="Forms\Play\frmDoubleJeopardy.Designer.cs">
       <DependentUpon>frmDoubleJeopardy.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditCategory.cs">
+    <Compile Include="Forms\Admin\frmEditCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditCategory.Designer.cs">
+    <Compile Include="Forms\Admin\frmEditCategory.Designer.cs">
       <DependentUpon>frmEditCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditQuestion.cs">
+    <Compile Include="Forms\Admin\frmEditQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditQuestion.Designer.cs">
+    <Compile Include="Forms\Admin\frmEditQuestion.Designer.cs">
       <DependentUpon>frmEditQuestion.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmFillInTheBlank.cs">
+    <Compile Include="Forms\Play\frmFillInTheBlank.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFillInTheBlank.Designer.cs">
+    <Compile Include="Forms\Play\frmFillInTheBlank.Designer.cs">
       <DependentUpon>frmFillInTheBlank.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmImportCategory.cs">
+    <Compile Include="Forms\Admin\frmImportCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmImportCategory.Designer.cs">
+    <Compile Include="Forms\Admin\frmImportCategory.Designer.cs">
       <DependentUpon>frmImportCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmImportQuestion.cs">
+    <Compile Include="Forms\Admin\frmImportQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmImportQuestion.Designer.cs">
+    <Compile Include="Forms\Admin\frmImportQuestion.Designer.cs">
       <DependentUpon>frmImportQuestion.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="Forms\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditGame.cs">
+    <Compile Include="Forms\Admin\frmEditGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditGame.Designer.cs">
+    <Compile Include="Forms\Admin\frmEditGame.Designer.cs">
       <DependentUpon>frmEditGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMultipleChoice.cs">
+    <Compile Include="Forms\Play\frmMultipleChoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMultipleChoice.Designer.cs">
+    <Compile Include="Forms\Play\frmMultipleChoice.Designer.cs">
       <DependentUpon>frmMultipleChoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPlayGame.cs">
+    <Compile Include="Forms\Play\frmPlayGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPlayGame.Designer.cs">
+    <Compile Include="Forms\Play\frmPlayGame.Designer.cs">
       <DependentUpon>frmPlayGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReviewWrongQuestions.cs">
+    <Compile Include="Forms\Play\frmReviewWrongQuestions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReviewWrongQuestions.Designer.cs">
+    <Compile Include="Forms\Play\frmReviewWrongQuestions.Designer.cs">
       <DependentUpon>frmReviewWrongQuestions.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTeams.cs">
+    <Compile Include="Forms\Play\frmTeams.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTeams.Designer.cs">
+    <Compile Include="Forms\Play\frmTeams.Designer.cs">
       <DependentUpon>frmTeams.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTrueFalse.cs">
+    <Compile Include="Forms\Play\frmTrueFalse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTrueFalse.Designer.cs">
+    <Compile Include="Forms\Play\frmTrueFalse.Designer.cs">
       <DependentUpon>frmTrueFalse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game.cs" />
-    <Compile Include="DB_Conn.cs" />
-    <Compile Include="DB_Select.cs" />
-    <Compile Include="DB_Insert.cs" />
+    <Compile Include="Models\Classes\Game.cs" />
+    <Compile Include="Models\DA\DB_Conn.cs" />
+    <Compile Include="Models\DA\DB_Select.cs" />
+    <Compile Include="Models\DA\DB_Insert.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -160,54 +161,54 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Question.cs" />
-    <Compile Include="Team.cs" />
-    <Compile Include="ValidateData.cs" />
-    <Compile Include="ValidateTypes.cs" />
-    <Compile Include="XML_IO.cs" />
-    <EmbeddedResource Include="frmAbout.resx">
+    <Compile Include="Models\Classes\Question.cs" />
+    <Compile Include="Models\Classes\Team.cs" />
+    <Compile Include="Models\Validation\ValidateData.cs" />
+    <Compile Include="Models\Validation\ValidateTypes.cs" />
+    <Compile Include="Models\DA\XML_IO.cs" />
+    <EmbeddedResource Include="Forms\frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCreateGame.resx">
+    <EmbeddedResource Include="Forms\Admin\frmCreateGame.resx">
       <DependentUpon>frmCreateGame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDoubleJeopardy.resx">
+    <EmbeddedResource Include="Forms\Play\frmDoubleJeopardy.resx">
       <DependentUpon>frmDoubleJeopardy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditCategory.resx">
+    <EmbeddedResource Include="Forms\Admin\frmEditCategory.resx">
       <DependentUpon>frmEditCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditQuestion.resx">
+    <EmbeddedResource Include="Forms\Admin\frmEditQuestion.resx">
       <DependentUpon>frmEditQuestion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFillInTheBlank.resx">
+    <EmbeddedResource Include="Forms\Play\frmFillInTheBlank.resx">
       <DependentUpon>frmFillInTheBlank.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmImportCategory.resx">
+    <EmbeddedResource Include="Forms\Admin\frmImportCategory.resx">
       <DependentUpon>frmImportCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmImportQuestion.resx">
+    <EmbeddedResource Include="Forms\Admin\frmImportQuestion.resx">
       <DependentUpon>frmImportQuestion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
+    <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditGame.resx">
+    <EmbeddedResource Include="Forms\Admin\frmEditGame.resx">
       <DependentUpon>frmEditGame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMultipleChoice.resx">
+    <EmbeddedResource Include="Forms\Play\frmMultipleChoice.resx">
       <DependentUpon>frmMultipleChoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPlayGame.resx">
+    <EmbeddedResource Include="Forms\Play\frmPlayGame.resx">
       <DependentUpon>frmPlayGame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReviewWrongQuestions.resx">
+    <EmbeddedResource Include="Forms\Play\frmReviewWrongQuestions.resx">
       <DependentUpon>frmReviewWrongQuestions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTeams.resx">
+    <EmbeddedResource Include="Forms\Play\frmTeams.resx">
       <DependentUpon>frmTeams.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTrueFalse.resx">
+    <EmbeddedResource Include="Forms\Play\frmTrueFalse.resx">
       <DependentUpon>frmTrueFalse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -216,6 +217,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="help.chm" />
+    <None Include="jeopardyhelp.chm" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -235,14 +237,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="icon.ico" />
-    <Content Include="j-logo.ico" />
-    <None Include="Resources\Question_16x.png" />
-    <None Include="Resources\Export_16x.png" />
-    <None Include="Resources\Import_16x.png" />
-    <None Include="Resources\SaveAs_16x.png" />
-    <None Include="Resources\OpenfileDialog_16x.png" />
-    <None Include="Resources\NewTable_16x.png" />
-    <None Include="Resources\Save_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
