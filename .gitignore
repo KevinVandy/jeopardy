@@ -262,3 +262,4 @@ __pycache__/
 
 # ignore acces temp files
 *.laccdb
+/Jeopardy/Jeopardy.UnitTests/XML_IO.cs
