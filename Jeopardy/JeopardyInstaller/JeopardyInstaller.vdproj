@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_30FC3930FE64473AA72899F37E4C9066"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_FB580281C0634218A59AB0EC1B7CFAE6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -44,6 +50,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -68,6 +82,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -90,6 +112,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_30FC3930FE64473AA72899F37E4C9066"
+            {
+            "SourcePath" = "8:..\\Jeopardy\\Jeopardy Help Files\\jeopardyhelp.chm"
+            "TargetName" = "8:jeopardyhelp.chm"
+            "Tag" = "8:"
+            "Folder" = "8:_1266A77A9E2D411181D5431E4D5305F3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FB580281C0634218A59AB0EC1B7CFAE6"
             {
             "SourcePath" = "8:..\\Jeopardy\\games.accdb"
@@ -176,9 +218,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:JeopardyInstaller"
+        "ProductName" = "8:Setup1"
         "ProductCode" = "8:{EFF72787-B8D4-4429-BFCE-096ADC81CEB0}"
-        "PackageCode" = "8:{B89BD248-C4DE-495A-83CF-A034F76AF3B5}"
+        "PackageCode" = "8:{00373FE5-F7AB-47FB-9342-2883280AF190}"
         "UpgradeCode" = "8:{16149BEE-76CC-4AFF-A1D4-76FF7CF89B34}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -191,7 +233,7 @@
         "ARPHELPLINK" = "8:"
         "Title" = "8:JeopardyInstaller"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Default Company Name"
+        "ARPCONTACT" = "8:SCC Game"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"

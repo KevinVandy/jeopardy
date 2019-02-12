@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:Setup1"
+"ProjectName" = "8:JeopardyGame"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0D8F4F6EF4C5477E91043D84E00F978C"
+        "MsmKey" = "8:_118750A8ED6040BE8DC8D2C452E77DF2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -39,7 +39,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4E3DD3F173E2450CA4217AE125432195"
+        "MsmKey" = "8:_93585482355443E5B51A88FF46BDAD94"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -124,6 +124,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -154,10 +162,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0D8F4F6EF4C5477E91043D84E00F978C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_118750A8ED6040BE8DC8D2C452E77DF2"
             {
-            "SourcePath" = "8:..\\Jeopardy\\j-logo.ico"
-            "TargetName" = "8:J-logo.ico"
+            "SourcePath" = "8:..\\Jeopardy\\icon.ico"
+            "TargetName" = "8:icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_FBA34195F307418B882B4778266196A3"
             "Condition" = "8:"
@@ -236,12 +244,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4E3DD3F173E2450CA4217AE125432195"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_93585482355443E5B51A88FF46BDAD94"
             {
-            "SourcePath" = "8:games.accdb"
-            "TargetName" = "8:Games.accdb"
+            "SourcePath" = "8:jeopardyhelp.chm"
+            "TargetName" = "8:jeopardyhelp.chm"
             "Tag" = "8:"
-            "Folder" = "8:_BD391D9F72BE44A9A0B4917995A0B335"
+            "Folder" = "8:_FBA34195F307418B882B4778266196A3"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -315,17 +323,6 @@
                 {
                 }
             }
-            "{1525181F-901A-416C-8A58-119130FE478E}:_BDD2A92E1DE0428EA2A7C83D1BB742C2"
-            {
-            "Name" = "8:#1921"
-            "AlwaysCreate" = "11:FALSE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Property" = "8:StartMenuFolder"
-                "Folders"
-                {
-                }
-            }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_FBA34195F307418B882B4778266196A3"
             {
             "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
@@ -353,9 +350,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Setup1"
+        "ProductName" = "8:JeopardyGame"
         "ProductCode" = "8:{E4C3E8BD-F7A1-4B49-915F-FAD9438B9E85}"
-        "PackageCode" = "8:{791C2D8E-D42D-458C-8F97-D7E34C8A74C8}"
+        "PackageCode" = "8:{80FBBF28-D191-4E11-ABC1-D1288BA53D1D}"
         "UpgradeCode" = "8:{2BEBCF08-80D3-4098-ADC9-717B2E6FD846}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -363,16 +360,16 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "Manufacturer" = "8:SCC Game"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Setup1"
+        "Title" = "8:JeopardyGame"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Default Company Name"
+        "ARPCONTACT" = "8:SCC Game"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_0D8F4F6EF4C5477E91043D84E00F978C"
+        "ARPPRODUCTICON" = "8:_118750A8ED6040BE8DC8D2C452E77DF2"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -475,34 +472,6 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_11A45E793B2F4E0DAE5AA9A9E90CBA77"
-            {
-            "Name" = "8:Jeopardy!"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_304E39BCFD66465DBB819572A6F8C27B"
-            "Folder" = "8:_3C3CC02E1EC9494AB0DDC8A85808E5DC"
-            "WorkingFolder" = "8:_FBA34195F307418B882B4778266196A3"
-            "Icon" = "8:_0D8F4F6EF4C5477E91043D84E00F978C"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_61C04C88B3714AAABA22CE1F7C40E190"
-            {
-            "Name" = "8:Jeopardy!"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_304E39BCFD66465DBB819572A6F8C27B"
-            "Folder" = "8:_3FDAB97B31054309847EF4C7C3F702FC"
-            "WorkingFolder" = "8:_FBA34195F307418B882B4778266196A3"
-            "Icon" = "8:_0D8F4F6EF4C5477E91043D84E00F978C"
-            "Feature" = "8:"
-            }
         }
         "UserInterface"
         {

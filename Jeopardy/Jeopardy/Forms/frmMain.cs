@@ -216,7 +216,7 @@ namespace Jeopardy
             try
             {
                 System.Diagnostics.Process process = new Process();
-                process.StartInfo.FileName = @"C:\\Windows\\System32\\appverif.chm";
+                process.StartInfo.FileName = @"C:\\Program Files (x86)\\Default Company Name\\Setup1\\jeopardyhelp.chm";
                 process.Start();
                 //C:\\Windows\\System32\\appverif.chm
                 //
@@ -304,6 +304,11 @@ namespace Jeopardy
                 btnImportGame.Enabled = true;
                 btnExportGame.Enabled = false;
             }
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }
