@@ -305,5 +305,10 @@ namespace Jeopardy
                 btnExportGame.Enabled = false;
             }
         }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
     }
 }
