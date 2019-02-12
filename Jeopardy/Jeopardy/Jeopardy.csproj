@@ -216,8 +216,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="help.chm" />
-    <None Include="jeopardyhelp.chm" />
+    <None Include="Jeopardy Help Files\Index.hhk" />
+    <None Include="Jeopardy Help Files\jeopardyhelp.chm" />
+    <None Include="Jeopardy Help Files\jeopardyhelp.chw" />
+    <None Include="Jeopardy Help Files\jeopardyhelp.hhp" />
+    <None Include="Jeopardy Help Files\TableOfContents.hhc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -237,6 +240,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="icon.ico" />
+    <Content Include="Jeopardy Help Files\deletegame.htm" />
+    <Content Include="Jeopardy Help Files\editgame.htm" />
+    <Content Include="Jeopardy Help Files\exportgame.htm" />
+    <Content Include="Jeopardy Help Files\importgame.htm" />
+    <Content Include="Jeopardy Help Files\mainpage.htm" />
+    <Content Include="Jeopardy Help Files\newgame.htm" />
+    <Content Include="Jeopardy Help Files\playgame.htm" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
