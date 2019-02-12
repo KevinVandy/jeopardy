@@ -108,9 +108,9 @@ namespace Jeopardy
 
         private void btnDeleteGame_Click(object sender, EventArgs e) //Delete Game button
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this game? All questions in this game will also be deleted.", "Confirm Delete",MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this game? All questions in this game will also be deleted.", "Confirm Delete", MessageBoxButtons.YesNo);
 
-            if(dialogResult == DialogResult.Yes)
+            if (dialogResult == DialogResult.Yes)
             {
                 UseWaitCursor = true;
                 lblStatus.Text = "Deleting the Game";
@@ -308,7 +308,16 @@ namespace Jeopardy
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            try
+            {
+                Microsoft.Office.Interop.Access.Application app = new Microsoft.Office.Interop.Access.Application();
+                DB_Conn.CompactAndRepair("games.accdb", app);
+                Console.WriteLine("Database successfully Repaired and Compacted");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Database failed to Repair and Compact\n" + ex.ToString());
+            }
         }
     }
 }

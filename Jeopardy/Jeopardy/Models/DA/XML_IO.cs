@@ -37,10 +37,8 @@ namespace Jeopardy
                     xs.Serialize(tw, selectedGame);
 
                     MessageBox.Show($"File was saved at {fbd.SelectedPath} ", "Successful Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
             }
-
         }
 
         public static void importXML(String path, string fileName)
@@ -59,16 +57,16 @@ namespace Jeopardy
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("This file is not in the correct format for this game. The game cannot be imported", "Import Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Console.WriteLine(ex.ToString());
             }
-            
+
         }
 
-       
+
 
     }
 }

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
-using System.IO;
 
 namespace Jeopardy
 {
@@ -28,8 +28,7 @@ namespace Jeopardy
 
         public static void CompactAndRepair(string accessFile, Microsoft.Office.Interop.Access.Application app)
         {
-            string tempFile = Path.Combine(Path.GetDirectoryName(accessFile),
-                              Path.GetRandomFileName() + Path.GetExtension(accessFile));
+            string tempFile = Path.Combine(Path.GetDirectoryName(accessFile), Path.GetRandomFileName() + Path.GetExtension(accessFile));
 
             app.CompactRepair(accessFile, tempFile, false);
             app.Visible = false;
