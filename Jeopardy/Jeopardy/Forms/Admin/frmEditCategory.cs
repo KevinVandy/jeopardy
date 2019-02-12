@@ -89,6 +89,10 @@ namespace Jeopardy
                     MessageBox.Show("Warning. The Category that you are importing has more Questions in it than the Number of Questions Per Category in the Current Game. If you want to import all of the Questions from this category, you will need to increase the number of Questions Per Category from " + category.Questions.Count.ToString() + " to " + importCategoryForm.selectedCategory.Questions.Count.ToString() + ". The Questions that fit will still be imported.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
+            else
+            {
+                EnableAllControls();
+            }
         }
 
         private void importCategoryFromOtherGameToolStripMenuItem_Click(object sender, EventArgs e)
