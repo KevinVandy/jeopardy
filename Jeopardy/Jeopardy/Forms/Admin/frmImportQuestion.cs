@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
     public partial class frmImportQuestion : Form
     {
-        List<Game> allGames;
+        private List<Game> allGames;
         public Question selectedQuestion; //This will get returned to the main edit question form because it is a public property
 
         public frmImportQuestion()

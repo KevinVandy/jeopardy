@@ -1,20 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
     public partial class frmReviewWrongQuestions : Form
     {
-        List<Question> WrongQuestions;
-        Team[] Teams;
-        int questionIndex = -1;
+        private List<Question> WrongQuestions;
+        private Team[] Teams;
+        private int questionIndex = -1;
 
         public frmReviewWrongQuestions(List<Question> wrongQuestions, Team[] teams)
         {
@@ -66,7 +60,7 @@ namespace Jeopardy
                 ShowQuestion(questionIndex);
             }
 
-            if((questionIndex + 1) == WrongQuestions.Count)
+            if ((questionIndex + 1) == WrongQuestions.Count)
             {
                 btnNext.Enabled = false;
             }
@@ -80,7 +74,7 @@ namespace Jeopardy
                 questionIndex--;
                 ShowQuestion(questionIndex);
             }
-            if(questionIndex == 0)
+            if (questionIndex == 0)
             {
                 btnPrevious.Enabled = false;
             }

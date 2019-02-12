@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
     public partial class frmMain : Form
     {
-        List<Game> allGames;
-        Game selectedGame;
+        private List<Game> allGames;
+        private Game selectedGame;
 
         public frmMain()
         {
@@ -308,16 +303,7 @@ namespace Jeopardy
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
-            {
-                Microsoft.Office.Interop.Access.Application app = new Microsoft.Office.Interop.Access.Application();
-                DB_Conn.CompactAndRepair("games.accdb", app);
-                Console.WriteLine("Database successfully Repaired and Compacted");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Database failed to Repair and Compact\n" + ex.ToString());
-            }
+            DB_Conn.CompactAndRepair();
         }
     }
 }

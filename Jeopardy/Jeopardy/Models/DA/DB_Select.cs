@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
     public class DB_Select
     {
-        readonly static OleDbConnection conn = DB_Conn.GetGamesConnection();
+        private static readonly OleDbConnection conn = DB_Conn.GetGamesConnection();
 
         public static List<Game> SelectAllGameInfo()
         {
@@ -88,12 +85,12 @@ namespace Jeopardy
                     game.QuestionTimeLimit = TimeSpan.FromSeconds(Convert.ToInt32(reader["QuestionTimeLimit"]));
                     game.NumCategories = Convert.ToInt32(reader["NumCategories"]);
                     game.NumQuestionsPerCategory = Convert.ToInt32(reader["NumQuestionsPerCategory"]);
-                    
+
                     games.Add(game);
                 }
                 reader.Close();
 
-                foreach(Game game in games)
+                foreach (Game game in games)
                 {
                     game.Categories = SelectCategories_ByGameId(game.Id);
                 }
@@ -259,7 +256,7 @@ namespace Jeopardy
                 }
                 reader.Close();
 
-                foreach(Category category in categories)
+                foreach (Category category in categories)
                 {
                     category.Questions = SelectQuestions_ByCategoryId(category.Id);
                 }
@@ -369,12 +366,12 @@ namespace Jeopardy
                     question.QuestionText = Convert.ToString(reader["QuestionText"]);
                     question.Answer = Convert.ToString(reader["Answer"]);
                     question.Weight = Convert.ToInt32(reader["Weight"]);
-                    
+
                     questions.Add(question);
                 }
                 reader.Close();
 
-                foreach(Question question in questions)
+                foreach (Question question in questions)
                 {
                     if (question.Type == "mc")
                     {

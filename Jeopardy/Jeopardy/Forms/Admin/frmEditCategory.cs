@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
     public partial class frmEditCategory : Form
     {
-        frmImportCategory importCategoryForm;
-        Category category;
+        private frmImportCategory importCategoryForm;
+        private Category category;
 
         public frmEditCategory(Category theCategory)
         {
@@ -34,10 +29,10 @@ namespace Jeopardy
         //MARK: Button Event Handlers
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if(ValidateData.ValidateCategoryTitle(txtTitle.Text) && ValidateData.ValidateCategorySubtitle(txtSubtitle.Text))
+            if (ValidateData.ValidateCategoryTitle(txtTitle.Text) && ValidateData.ValidateCategorySubtitle(txtSubtitle.Text))
             {
-                category.Title = txtTitle.Text;         
-                category.Subtitle = txtSubtitle.Text;   
+                category.Title = txtTitle.Text;
+                category.Subtitle = txtSubtitle.Text;
 
                 if (!DB_Update.UpdateCategory(category))
                 {
@@ -45,8 +40,8 @@ namespace Jeopardy
                 }
                 else
                 {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    DialogResult = DialogResult.OK;
+                    Close();
                 }
             }
         }
@@ -58,16 +53,16 @@ namespace Jeopardy
 
             DisableAllControls();
 
-            foreach(Question q in category.Questions)
+            foreach (Question q in category.Questions)
             {
-                if(q.State != "no question")
+                if (q.State != "no question")
                 {
                     dialogResult1 = MessageBox.Show("Warning. You already have Questions in this category. Importing questions from another game may overwrite the Questions in this Category that you already have. Do you still wish to procede?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     break;
                 }
             }
 
-            if(dialogResult1 == DialogResult.Yes)
+            if (dialogResult1 == DialogResult.Yes)
             {
                 importCategoryForm = new frmImportCategory();
                 dialogResult2 = importCategoryForm.ShowDialog();
@@ -76,12 +71,12 @@ namespace Jeopardy
             {
                 EnableAllControls();
             }
-            
+
             if (dialogResult1 == DialogResult.Yes && dialogResult2 == DialogResult.OK)
             {
                 category.Title = importCategoryForm.selectedCategory.Title;       //can't go in bw because accessing stuff from form thread
                 category.Subtitle = importCategoryForm.selectedCategory.Subtitle; //can't go in bw because accessing stuff from form thread
-                
+
                 bwImportCategory.RunWorkerAsync(); //import the questions from the category in background thread
 
                 if (importCategoryForm.selectedCategory.Questions.Count > category.Questions.Count)
@@ -99,7 +94,7 @@ namespace Jeopardy
         {
             btnImport_Click(sender, e); //just simulates clicking the import button
         }
-        
+
         private void bwImportCategory_DoWork(object sender, DoWorkEventArgs e)
         {
             if (importCategoryForm.selectedCategory.Questions.Count > 0) //only import questions if there are any
@@ -158,8 +153,8 @@ namespace Jeopardy
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         //MARK: Other Private Methods

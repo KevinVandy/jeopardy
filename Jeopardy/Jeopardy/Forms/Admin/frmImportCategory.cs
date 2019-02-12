@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
     public partial class frmImportCategory : Form
     {
-        List<Game> allGames;
+        private List<Game> allGames;
         public Category selectedCategory;
 
         public frmImportCategory()
@@ -102,16 +97,16 @@ namespace Jeopardy
                     selectedCategory.Questions = new List<Question>(); //clear questions so that they do not get imported
                 }
 
-                this.DialogResult = DialogResult.OK;
+                DialogResult = DialogResult.OK;
             }
-                
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             selectedCategory = null;
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }

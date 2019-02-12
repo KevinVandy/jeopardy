@@ -2,11 +2,7 @@
 //Install-Package Syroot.Windows.IO.KnownFolders -Version 1.2.1//
 //using Syroot.Windows.IO;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
@@ -14,7 +10,7 @@ using System.Xml.Serialization;
 
 namespace Jeopardy
 {
-    class XML_IO
+    internal class XML_IO
     {
         public static void exportXML(Game selectedGame)
         {

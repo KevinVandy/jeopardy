@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
     public partial class frmDoubleJeopardy : Form
     {
-        Question currentQuestion = new Question();
-        Team currentTeam = new Team();
+        private Question currentQuestion = new Question();
+        private Team currentTeam = new Team();
 
         public frmDoubleJeopardy(Question theQuestion, Team theTeam)
         {

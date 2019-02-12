@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
     public partial class frmPlayGame : Form
     {
-        int rows = 1;
-        int columns = 1;
-        Button[,] questionButtons;
+        private int rows = 1;
+        private int columns = 1;
+        private Button[,] questionButtons;
         private List<Label> LabelList = new List<Label>();
         private Team[] teams = new Team[4];
         private Game currentGame = new Game();
@@ -136,7 +132,7 @@ namespace Jeopardy
                 {
                     foreach (Question q in c.Questions)
                     {
-                        if(gameDone == false)
+                        if (gameDone == false)
                         {
                             break;
                         }
@@ -147,13 +143,13 @@ namespace Jeopardy
                     }
                 }
 
-                if(gameDone == true)
+                if (gameDone == true)
                 {
                     //show the frmWrongQuestions for statistics
                     frmReviewWrongQuestions frmRWQ = new frmReviewWrongQuestions(wrongQuestions, teams);
                     frmRWQ.ShowDialog();
                     //close the form
-                    this.Close();
+                    Close();
                 }
             }
         }
@@ -466,7 +462,7 @@ namespace Jeopardy
         }
 
         //code to make maximizing and restoring the window act the same as resizing
-        FormWindowState LastWindowState = FormWindowState.Minimized;
+        private FormWindowState LastWindowState = FormWindowState.Minimized;
         private void frmPlayGame_Resize(object sender, EventArgs e) //just comment this out if it is causing problems
         {
             if (WindowState != LastWindowState)
