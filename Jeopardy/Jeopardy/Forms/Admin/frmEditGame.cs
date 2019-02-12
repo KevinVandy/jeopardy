@@ -167,15 +167,15 @@ namespace Jeopardy
             else if ((int)nudNumCategories.Value < game.NumCategories) //if down was clicked
             {
                 DialogResult dialogResult = DialogResult.Yes;
-                foreach(Question q in game.Categories[game.Categories.Count - 1].Questions)
+                foreach (Question q in game.Categories[game.Categories.Count - 1].Questions)
                 {
-                    if(q.State != "no question")
+                    if (q.State != "no question")
                     {
                         dialogResult = MessageBox.Show("Warning. Removing the last category will also permenently delete all of the questions in that Category. Do you still wish to procede removing the last Category?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         break;
                     }
                 }
-                if(dialogResult == DialogResult.Yes)
+                if (dialogResult == DialogResult.Yes)
                 {
                     nudNumCategories.Enabled = false;
                     game.NumCategories = (int)nudNumCategories.Value;
@@ -256,16 +256,16 @@ namespace Jeopardy
             {
                 DialogResult dialogResult = DialogResult.Yes;
 
-                for(int i = 0; i < game.Categories.Count; i++)
+                for (int i = 0; i < game.Categories.Count; i++)
                 {
-                    if(game.Categories[i].Questions[game.NumQuestionsPerCategory - 1].State != "no question")
+                    if (game.Categories[i].Questions[game.NumQuestionsPerCategory - 1].State != "no question")
                     {
                         dialogResult = MessageBox.Show("Warning. This will remove all of the questions in the bottom row of this game? Do you still wish to procede?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         break;
                     }
                 }
 
-                if(dialogResult == DialogResult.Yes)
+                if (dialogResult == DialogResult.Yes)
                 {
                     nudNumQuestionCategory.Enabled = false;
                     game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
@@ -370,10 +370,11 @@ namespace Jeopardy
                 categoryButtons[x].Height = buttonHeight;
                 categoryButtons[x].Text = game.Categories[x].Title + "\n" + game.Categories[x].Subtitle;
                 categoryButtons[x].Font = new Font("Microsoft Sans Serif", 14);
+                categoryButtons[x].Cursor = Cursors.Hand;
                 categoryButtons[x].ContextMenuStrip = cmsCategories;
                 categoryButtons[x].Click += CategoryButton_Click;
             }
-            
+
             foreach (Button b in categoryButtons) //adds them with less stuttering when in its own foreach loop
             {
                 gbxCategories.Controls.Add(b);
@@ -432,6 +433,7 @@ namespace Jeopardy
                     questionButtons[x, y].Height = buttonHeight;
                     questionButtons[x, y].Text = game.Categories[x].Questions[y].Weight.ToString() + "\n" + game.Categories[x].Questions[y].QuestionText.Trim();
                     questionButtons[x, y].Font = new Font("Microsoft Sans Serif", 12);
+                    questionButtons[x, y].Cursor = Cursors.Hand;
                     questionButtons[x, y].ContextMenuStrip = cmsQuestions;
                     questionButtons[x, y].Click += QuestionButton_Click;
                     questionButtons[x, y].MouseEnter += questionButton_MouseHover;
@@ -442,7 +444,7 @@ namespace Jeopardy
             ColorCodeButtons();
             DisplayNumFinishedQuestions();
             DisplayNumUnfinishedQuestions();
-
+              
             foreach (Button b in questionButtons)
             {
                 gbxQuestions.Controls.Add(b);
@@ -605,12 +607,12 @@ namespace Jeopardy
                 }
             }
         }
-        
+
         private void tsmiDeleteCategory_Click(object sender, EventArgs e) //updates a category to be blank and default
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure that you want to Delete this Category and all of the Questions in this Category?", "Confirm Delete", MessageBoxButtons.YesNo);
 
-            if(dialogResult == DialogResult.Yes)
+            if (dialogResult == DialogResult.Yes)
             {
                 ToolStripItem menuItem = sender as ToolStripItem;
                 if (menuItem != null)
@@ -642,7 +644,7 @@ namespace Jeopardy
 
             DB_Update.UpdateCategory(currentCategory);
 
-            for(int j = 0; j < game.NumQuestionsPerCategory; j++) // j is question index
+            for (int j = 0; j < game.NumQuestionsPerCategory; j++) // j is question index
             {
                 game.Categories[i].Questions[j].ResetQuestionToDefaults();
                 DB_Update.UpdateQuestion(game.Categories[i].Questions[j]);
@@ -675,7 +677,7 @@ namespace Jeopardy
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure that you want to Delete this question?", "Confirm Delete", MessageBoxButtons.YesNo);
 
-            if(dialogResult == DialogResult.Yes)
+            if (dialogResult == DialogResult.Yes)
             {
                 ToolStripItem menuItem = sender as ToolStripItem;
                 if (menuItem != null)
@@ -726,7 +728,7 @@ namespace Jeopardy
 
         private void bwDeleteChoices_DoWork(object sender, DoWorkEventArgs e)
         {
-            for(int i = 0; i < currentQuestion.Choices.Count; i++)
+            for (int i = 0; i < currentQuestion.Choices.Count; i++)
             {
                 DB_Delete.DeleteChoice(currentQuestion.Choices[i].Id);
             }

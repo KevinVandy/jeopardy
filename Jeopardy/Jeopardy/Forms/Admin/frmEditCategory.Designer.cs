@@ -42,6 +42,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnImport = new System.Windows.Forms.Button();
+            this.bwImportCategory = new System.ComponentModel.BackgroundWorker();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -163,6 +164,11 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // bwImportCategory
+            // 
+            this.bwImportCategory.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwImportCategory_DoWork);
+            this.bwImportCategory.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwImportCategory_RunWorkerCompleted);
+            // 
             // frmEditCategory
             // 
             this.AcceptButton = this.btnOK;
@@ -212,5 +218,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
         private System.Windows.Forms.Button btnImport;
+        private System.ComponentModel.BackgroundWorker bwImportCategory;
     }
 }
