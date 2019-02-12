@@ -72,9 +72,10 @@
             // 
             this.lblCategoryTitle.AutoSize = true;
             this.lblCategoryTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryTitle.Location = new System.Drawing.Point(24, 53);
+            this.lblCategoryTitle.Location = new System.Drawing.Point(32, 65);
+            this.lblCategoryTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategoryTitle.Name = "lblCategoryTitle";
-            this.lblCategoryTitle.Size = new System.Drawing.Size(215, 37);
+            this.lblCategoryTitle.Size = new System.Drawing.Size(268, 46);
             this.lblCategoryTitle.TabIndex = 0;
             this.lblCategoryTitle.Text = "Category Title";
             // 
@@ -82,9 +83,10 @@
             // 
             this.lblWeight.AutoSize = true;
             this.lblWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWeight.Location = new System.Drawing.Point(835, 50);
+            this.lblWeight.Location = new System.Drawing.Point(1113, 62);
+            this.lblWeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(69, 37);
+            this.lblWeight.Size = new System.Drawing.Size(86, 46);
             this.lblWeight.TabIndex = 1;
             this.lblWeight.Text = "100";
             // 
@@ -92,28 +94,31 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 223);
+            this.label1.Location = new System.Drawing.Point(33, 274);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 29);
+            this.label1.Size = new System.Drawing.Size(142, 36);
             this.label1.TabIndex = 2;
             this.label1.Text = "Question:";
             // 
             // txtQuestionText
             // 
             this.txtQuestionText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuestionText.Location = new System.Drawing.Point(147, 183);
+            this.txtQuestionText.Location = new System.Drawing.Point(196, 225);
+            this.txtQuestionText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtQuestionText.Multiline = true;
             this.txtQuestionText.Name = "txtQuestionText";
-            this.txtQuestionText.Size = new System.Drawing.Size(763, 127);
+            this.txtQuestionText.Size = new System.Drawing.Size(1016, 155);
             this.txtQuestionText.TabIndex = 0;
             // 
             // rdoFillInTheBlank
             // 
             this.rdoFillInTheBlank.AutoSize = true;
             this.rdoFillInTheBlank.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoFillInTheBlank.Location = new System.Drawing.Point(13, 17);
+            this.rdoFillInTheBlank.Location = new System.Drawing.Point(17, 21);
+            this.rdoFillInTheBlank.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdoFillInTheBlank.Name = "rdoFillInTheBlank";
-            this.rdoFillInTheBlank.Size = new System.Drawing.Size(194, 33);
+            this.rdoFillInTheBlank.Size = new System.Drawing.Size(240, 40);
             this.rdoFillInTheBlank.TabIndex = 0;
             this.rdoFillInTheBlank.TabStop = true;
             this.rdoFillInTheBlank.Text = "Fill In the Blank";
@@ -124,9 +129,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(67, 127);
+            this.label2.Location = new System.Drawing.Point(89, 156);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 29);
+            this.label2.Size = new System.Drawing.Size(89, 36);
             this.label2.TabIndex = 5;
             this.label2.Text = "Type:";
             // 
@@ -134,9 +140,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(42, 577);
+            this.label3.Location = new System.Drawing.Point(56, 710);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 29);
+            this.label3.Size = new System.Drawing.Size(124, 36);
             this.label3.TabIndex = 6;
             this.label3.Text = "Answer:";
             // 
@@ -145,18 +152,20 @@
             this.pnlTypes.Controls.Add(this.rdoTrueFalse);
             this.pnlTypes.Controls.Add(this.rdoMultipleChoice);
             this.pnlTypes.Controls.Add(this.rdoFillInTheBlank);
-            this.pnlTypes.Location = new System.Drawing.Point(147, 110);
+            this.pnlTypes.Location = new System.Drawing.Point(196, 135);
+            this.pnlTypes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlTypes.Name = "pnlTypes";
-            this.pnlTypes.Size = new System.Drawing.Size(775, 67);
+            this.pnlTypes.Size = new System.Drawing.Size(1033, 82);
             this.pnlTypes.TabIndex = 7;
             // 
             // rdoTrueFalse
             // 
             this.rdoTrueFalse.AutoSize = true;
             this.rdoTrueFalse.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoTrueFalse.Location = new System.Drawing.Point(595, 17);
+            this.rdoTrueFalse.Location = new System.Drawing.Point(793, 21);
+            this.rdoTrueFalse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdoTrueFalse.Name = "rdoTrueFalse";
-            this.rdoTrueFalse.Size = new System.Drawing.Size(161, 33);
+            this.rdoTrueFalse.Size = new System.Drawing.Size(193, 40);
             this.rdoTrueFalse.TabIndex = 2;
             this.rdoTrueFalse.TabStop = true;
             this.rdoTrueFalse.Text = "True / False";
@@ -167,9 +176,10 @@
             // 
             this.rdoMultipleChoice.AutoSize = true;
             this.rdoMultipleChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoMultipleChoice.Location = new System.Drawing.Point(289, 17);
+            this.rdoMultipleChoice.Location = new System.Drawing.Point(385, 21);
+            this.rdoMultipleChoice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdoMultipleChoice.Name = "rdoMultipleChoice";
-            this.rdoMultipleChoice.Size = new System.Drawing.Size(198, 33);
+            this.rdoMultipleChoice.Size = new System.Drawing.Size(241, 40);
             this.rdoMultipleChoice.TabIndex = 1;
             this.rdoMultipleChoice.TabStop = true;
             this.rdoMultipleChoice.Text = "Multiple Choice";
@@ -180,9 +190,10 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(147, 643);
+            this.btnCancel.Location = new System.Drawing.Point(196, 791);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(170, 51);
+            this.btnCancel.Size = new System.Drawing.Size(227, 63);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -191,9 +202,10 @@
             // btnOK
             // 
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(739, 643);
+            this.btnOK.Location = new System.Drawing.Point(985, 791);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(170, 51);
+            this.btnOK.Size = new System.Drawing.Size(227, 63);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -202,40 +214,44 @@
             // txtChoiceA
             // 
             this.txtChoiceA.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChoiceA.Location = new System.Drawing.Point(84, 18);
+            this.txtChoiceA.Location = new System.Drawing.Point(112, 22);
+            this.txtChoiceA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtChoiceA.Multiline = true;
             this.txtChoiceA.Name = "txtChoiceA";
-            this.txtChoiceA.Size = new System.Drawing.Size(296, 101);
+            this.txtChoiceA.Size = new System.Drawing.Size(393, 123);
             this.txtChoiceA.TabIndex = 0;
             this.txtChoiceA.TextChanged += new System.EventHandler(this.txtChoiceA_TextChanged);
             // 
             // txtChoiceC
             // 
             this.txtChoiceC.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChoiceC.Location = new System.Drawing.Point(84, 132);
+            this.txtChoiceC.Location = new System.Drawing.Point(112, 162);
+            this.txtChoiceC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtChoiceC.Multiline = true;
             this.txtChoiceC.Name = "txtChoiceC";
-            this.txtChoiceC.Size = new System.Drawing.Size(296, 101);
+            this.txtChoiceC.Size = new System.Drawing.Size(393, 123);
             this.txtChoiceC.TabIndex = 2;
             this.txtChoiceC.TextChanged += new System.EventHandler(this.txtChoiceC_TextChanged);
             // 
             // txtChoiceD
             // 
             this.txtChoiceD.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChoiceD.Location = new System.Drawing.Point(468, 132);
+            this.txtChoiceD.Location = new System.Drawing.Point(624, 162);
+            this.txtChoiceD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtChoiceD.Multiline = true;
             this.txtChoiceD.Name = "txtChoiceD";
-            this.txtChoiceD.Size = new System.Drawing.Size(296, 101);
+            this.txtChoiceD.Size = new System.Drawing.Size(393, 123);
             this.txtChoiceD.TabIndex = 3;
             this.txtChoiceD.TextChanged += new System.EventHandler(this.txtChoiceD_TextChanged);
             // 
             // txtChoiceB
             // 
             this.txtChoiceB.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChoiceB.Location = new System.Drawing.Point(467, 18);
+            this.txtChoiceB.Location = new System.Drawing.Point(623, 22);
+            this.txtChoiceB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtChoiceB.Multiline = true;
             this.txtChoiceB.Name = "txtChoiceB";
-            this.txtChoiceB.Size = new System.Drawing.Size(296, 101);
+            this.txtChoiceB.Size = new System.Drawing.Size(393, 123);
             this.txtChoiceB.TabIndex = 1;
             this.txtChoiceB.TextChanged += new System.EventHandler(this.txtChoiceB_TextChanged);
             // 
@@ -243,9 +259,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(42, 428);
+            this.label4.Location = new System.Drawing.Point(56, 527);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 29);
+            this.label4.Size = new System.Drawing.Size(131, 36);
             this.label4.TabIndex = 18;
             this.label4.Text = "Choices:";
             // 
@@ -259,18 +276,20 @@
             this.panel1.Controls.Add(this.txtChoiceD);
             this.panel1.Controls.Add(this.txtChoiceB);
             this.panel1.Controls.Add(this.txtChoiceC);
-            this.panel1.Location = new System.Drawing.Point(147, 316);
+            this.panel1.Location = new System.Drawing.Point(196, 389);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(775, 240);
+            this.panel1.Size = new System.Drawing.Size(1033, 295);
             this.panel1.TabIndex = 1;
             // 
             // rdoChoiceD
             // 
             this.rdoChoiceD.AutoSize = true;
             this.rdoChoiceD.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoChoiceD.Location = new System.Drawing.Point(417, 158);
+            this.rdoChoiceD.Location = new System.Drawing.Point(556, 194);
+            this.rdoChoiceD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdoChoiceD.Name = "rdoChoiceD";
-            this.rdoChoiceD.Size = new System.Drawing.Size(45, 33);
+            this.rdoChoiceD.Size = new System.Drawing.Size(53, 40);
             this.rdoChoiceD.TabIndex = 6;
             this.rdoChoiceD.TabStop = true;
             this.rdoChoiceD.Text = "d";
@@ -281,9 +300,10 @@
             // 
             this.rdoChoiceB.AutoSize = true;
             this.rdoChoiceB.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoChoiceB.Location = new System.Drawing.Point(417, 53);
+            this.rdoChoiceB.Location = new System.Drawing.Point(556, 65);
+            this.rdoChoiceB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdoChoiceB.Name = "rdoChoiceB";
-            this.rdoChoiceB.Size = new System.Drawing.Size(45, 33);
+            this.rdoChoiceB.Size = new System.Drawing.Size(53, 40);
             this.rdoChoiceB.TabIndex = 2;
             this.rdoChoiceB.TabStop = true;
             this.rdoChoiceB.Text = "b";
@@ -294,9 +314,10 @@
             // 
             this.rdoChoiceC.AutoSize = true;
             this.rdoChoiceC.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoChoiceC.Location = new System.Drawing.Point(35, 158);
+            this.rdoChoiceC.Location = new System.Drawing.Point(47, 194);
+            this.rdoChoiceC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdoChoiceC.Name = "rdoChoiceC";
-            this.rdoChoiceC.Size = new System.Drawing.Size(43, 33);
+            this.rdoChoiceC.Size = new System.Drawing.Size(51, 40);
             this.rdoChoiceC.TabIndex = 4;
             this.rdoChoiceC.TabStop = true;
             this.rdoChoiceC.Text = "c";
@@ -307,9 +328,10 @@
             // 
             this.rdoChoiceA.AutoSize = true;
             this.rdoChoiceA.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoChoiceA.Location = new System.Drawing.Point(34, 53);
+            this.rdoChoiceA.Location = new System.Drawing.Point(45, 65);
+            this.rdoChoiceA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdoChoiceA.Name = "rdoChoiceA";
-            this.rdoChoiceA.Size = new System.Drawing.Size(44, 33);
+            this.rdoChoiceA.Size = new System.Drawing.Size(52, 40);
             this.rdoChoiceA.TabIndex = 0;
             this.rdoChoiceA.TabStop = true;
             this.rdoChoiceA.Text = "a";
@@ -319,20 +341,23 @@
             // txtAnswer
             // 
             this.txtAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnswer.Location = new System.Drawing.Point(147, 574);
+            this.txtAnswer.Location = new System.Drawing.Point(196, 706);
+            this.txtAnswer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAnswer.Name = "txtAnswer";
-            this.txtAnswer.Size = new System.Drawing.Size(763, 35);
+            this.txtAnswer.Size = new System.Drawing.Size(1016, 41);
             this.txtAnswer.TabIndex = 1;
             // 
             // menuStrip
             // 
             this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(955, 29);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(1273, 36);
             this.menuStrip.TabIndex = 21;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -343,25 +368,25 @@
             this.toolStripSeparator1,
             this.saveAndExitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 25);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 32);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // importQuestionFromOtherGameToolStripMenuItem
             // 
             this.importQuestionFromOtherGameToolStripMenuItem.Name = "importQuestionFromOtherGameToolStripMenuItem";
-            this.importQuestionFromOtherGameToolStripMenuItem.Size = new System.Drawing.Size(324, 26);
+            this.importQuestionFromOtherGameToolStripMenuItem.Size = new System.Drawing.Size(396, 32);
             this.importQuestionFromOtherGameToolStripMenuItem.Text = "Import Question From Other Game";
             this.importQuestionFromOtherGameToolStripMenuItem.Click += new System.EventHandler(this.importQuestionFromOtherGameToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(321, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(393, 6);
             // 
             // saveAndExitToolStripMenuItem
             // 
             this.saveAndExitToolStripMenuItem.Name = "saveAndExitToolStripMenuItem";
-            this.saveAndExitToolStripMenuItem.Size = new System.Drawing.Size(324, 26);
+            this.saveAndExitToolStripMenuItem.Size = new System.Drawing.Size(396, 32);
             this.saveAndExitToolStripMenuItem.Text = "Save and Exit";
             this.saveAndExitToolStripMenuItem.Click += new System.EventHandler(this.saveAndExitToolStripMenuItem_Click);
             // 
@@ -371,20 +396,21 @@
             this.helpToolStripMenuItem1,
             this.tutorialToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 32);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(133, 26);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(216, 32);
             this.helpToolStripMenuItem1.Text = "Help";
             // 
             // tutorialToolStripMenuItem
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
-            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
+            this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.tutorialToolStripMenuItem_Click);
             // 
             // bwCreateChoices
             // 
@@ -399,9 +425,10 @@
             // btnImport
             // 
             this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.Location = new System.Drawing.Point(443, 643);
+            this.btnImport.Location = new System.Drawing.Point(591, 791);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(170, 51);
+            this.btnImport.Size = new System.Drawing.Size(227, 63);
             this.btnImport.TabIndex = 22;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -410,11 +437,11 @@
             // frmEditQuestion
             // 
             this.AcceptButton = this.btnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(955, 729);
+            this.ClientSize = new System.Drawing.Size(1273, 897);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.panel1);
@@ -431,9 +458,10 @@
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(900, 700);
+            this.MinimumSize = new System.Drawing.Size(1194, 851);
             this.Name = "frmEditQuestion";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

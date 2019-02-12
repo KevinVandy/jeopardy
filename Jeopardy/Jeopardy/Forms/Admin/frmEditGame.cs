@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -780,6 +781,21 @@ namespace Jeopardy
                 {
                     frmCreateGame_ResizeEnd(sender, e);
                 }
+            }
+        }
+
+        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process process = new Process();
+                process.StartInfo.FileName = @"C:\\Program Files (x86)\\SCC Game\\JeopardyGame\\jeopardyhelp.chm";
+                process.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("This feature is not working yet");
+                Console.WriteLine(ex.ToString());
             }
         }
     }
