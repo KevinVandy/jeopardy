@@ -398,7 +398,7 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslblSaveState});
-            this.statusStrip.Location = new System.Drawing.Point(0, 889);
+            this.statusStrip.Location = new System.Drawing.Point(0, 859);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.ShowItemToolTips = true;
             this.statusStrip.Size = new System.Drawing.Size(1079, 22);
@@ -516,7 +516,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 911);
+            this.ClientSize = new System.Drawing.Size(1079, 881);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.gbxGameInfo);
             this.Controls.Add(this.gbxCategories);
@@ -529,7 +529,7 @@
             this.Name = "frmEditGame";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmCreateGame";
+            this.Text = "Modify Game";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditGame_FormClosing);
             this.Load += new System.EventHandler(this.frmCreateGame_Load);
