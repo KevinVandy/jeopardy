@@ -48,12 +48,17 @@ namespace Jeopardy
             {
                 Correct = CheckAnswer();
                 ColorChoices();
+                timer.Stop();
+                btnSubmit.Enabled = false;
+                btnDone.Enabled = true;
+                btnCancel.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("You must choose an answer.", "ERROR");
             }
 
-            timer.Stop();
-            btnSubmit.Enabled = false;
-            btnDone.Enabled = true;
-            btnCancel.Enabled = false;
+
         }
 
         private bool ValidateChecked()
@@ -142,6 +147,7 @@ namespace Jeopardy
                     ColorChoices();
                 }
                 btnDone.Enabled = true;
+                btnSubmit.Enabled = false;
             }
             else
             {
