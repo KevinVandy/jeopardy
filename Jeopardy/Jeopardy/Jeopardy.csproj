@@ -249,7 +249,12 @@
     <Content Include="Jeopardy Help Files\HelpImgs\EditMultipleChoice.PNG" />
     <Content Include="Jeopardy Help Files\HelpImgs\EditTrueFalse.PNG" />
     <Content Include="Jeopardy Help Files\HelpImgs\FillInTheBlankQuestion.PNG" />
-    <Content Include="Jeopardy Help Files\HelpImgs\mainForm.PNG" />
+    <Content Include="Jeopardy Help Files\HelpImgs\mainFormEdit.PNG" />
+    <Content Include="Jeopardy Help Files\HelpImgs\mainFormDelete.PNG" />
+    <Content Include="Jeopardy Help Files\HelpImgs\mainFormImport.PNG" />
+    <Content Include="Jeopardy Help Files\HelpImgs\mainFormExport.PNG" />
+    <Content Include="Jeopardy Help Files\HelpImgs\mainFormPlay.PNG" />
+    <Content Include="Jeopardy Help Files\HelpImgs\mainFormNew.PNG" />
     <Content Include="Jeopardy Help Files\HelpImgs\MultipleChoiceQuestion.PNG" />
     <Content Include="Jeopardy Help Files\HelpImgs\newGameForm.PNG" />
     <Content Include="Jeopardy Help Files\HelpImgs\PlayGame.PNG" />
