@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using JRO;
+using System;
 using System.Data.OleDb;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Jeopardy
 {
-    class DB_Conn
+    internal class DB_Conn
     {
+        private static readonly string currentdirectory = Directory.GetCurrentDirectory();
+
         public static OleDbConnection GetGamesConnection()
         {
             try
             {
-                string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=../../games.accdb";
+                string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=games.accdb";
                 OleDbConnection conn = new OleDbConnection(connectionString);
                 return conn;
             }
@@ -26,17 +25,26 @@ namespace Jeopardy
             }
         }
 
-        public static void CompactAndRepair(string accessFile, Microsoft.Office.Interop.Access.Application app)
+        public static void CompactAndRepair()
         {
-            string tempFile = Path.Combine(Path.GetDirectoryName(accessFile),
-                              Path.GetRandomFileName() + Path.GetExtension(accessFile));
+            string oldmdbfile = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + currentdirectory + "\\games.accdb;";
+            string newmdbfile = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + currentdirectory + "\\games-temp.accdb;";
+            string oldmdbfilepath = currentdirectory + "\\games.accdb";
+            string newmdbfilepath = currentdirectory + "\\games-temp.accdb";
 
-            app.CompactRepair(accessFile, tempFile, false);
-            app.Visible = false;
+            try
+            {
+                JetEngine engine = new JetEngine();
+                engine.CompactDatabase(oldmdbfile, newmdbfile);
+                File.Delete(oldmdbfilepath);
+                File.Move(newmdbfilepath, oldmdbfilepath);
 
-            FileInfo temp = new FileInfo(tempFile);
-            temp.CopyTo(accessFile, true);
-            temp.Delete();
+                Console.WriteLine("Database successfully Repaired and Compacted\n");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Database failed to Repair and Compact\n" + ex.ToString());
+            }
         }
     }
 }

@@ -176,7 +176,7 @@
             this.MinimizeBox = false;
             this.Name = "frmImportCategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmImportCategory";
+            this.Text = "Import Category";
             this.Load += new System.EventHandler(this.frmImportCategory_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

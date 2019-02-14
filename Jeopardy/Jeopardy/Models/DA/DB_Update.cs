@@ -1,24 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
     public class DB_Update
     {
-        readonly static OleDbConnection conn = DB_Conn.GetGamesConnection();
+        private static readonly OleDbConnection conn = DB_Conn.GetGamesConnection();
 
         public static bool UpdateGame(Game game)
         {
             string updateStatement =
-                "UPDATE games " + 
-                "SET GameName = @newGameName, QuestionTimeLimit = @newTimeLimit, " + 
-                "NumCategories = @newNumCategories, NumQuestionsPerCategory = @newNumQuestionsPerCategory " + 
+                "UPDATE games " +
+                "SET GameName = @newGameName, QuestionTimeLimit = @newTimeLimit, " +
+                "NumCategories = @newNumCategories, NumQuestionsPerCategory = @newNumQuestionsPerCategory " +
                 "Where Id = @gameId";
 
             OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
@@ -70,7 +66,7 @@ namespace Jeopardy
                 "Where Id = @categoryId";
 
             OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
-            
+
             updateCommand.Parameters.AddWithValue("@newIndex", category.Index);
             updateCommand.Parameters.AddWithValue("@newTitle", category.Title);
             updateCommand.Parameters.AddWithValue("@newSubtitle", category.Subtitle);
@@ -120,7 +116,7 @@ namespace Jeopardy
                 "Where Id = @questionId";
 
             OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
-            
+
             updateCommand.Parameters.AddWithValue("@newType", question.Type);
             updateCommand.Parameters.AddWithValue("@newQuestionText", question.QuestionText);
             updateCommand.Parameters.AddWithValue("@newAnswer", question.Answer);
@@ -170,7 +166,7 @@ namespace Jeopardy
                 "Where Id = @choiceId";
 
             OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
-            
+
             updateCommand.Parameters.AddWithValue("@newChoiceText", choice.Text);
             updateCommand.Parameters.AddWithValue("@choiceId", choice.Id);
 
@@ -230,7 +226,7 @@ namespace Jeopardy
 
                 int numRows = updateCommand.ExecuteNonQuery();
 
-                if(numRows > 0)
+                if (numRows > 0)
                 {
                     return true;
                 }
@@ -497,7 +493,7 @@ namespace Jeopardy
                 "Where Id = @questionId";
 
             OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
-            
+
             updateCommand.Parameters.AddWithValue("@newType", newQuestionType);
             updateCommand.Parameters.AddWithValue("@questionId", questionId);
 
@@ -544,7 +540,7 @@ namespace Jeopardy
                 "Where Id = @questionId";
 
             OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
-            
+
             updateCommand.Parameters.AddWithValue("@newQuestionText", newQuestionText);
             updateCommand.Parameters.AddWithValue("@questionId", questionId);
 
@@ -591,7 +587,7 @@ namespace Jeopardy
                 "Where Id = @questionId";
 
             OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
-            
+
             updateCommand.Parameters.AddWithValue("@newAnswer", newAnswer);
             updateCommand.Parameters.AddWithValue("@questionId", questionId);
 
@@ -638,7 +634,7 @@ namespace Jeopardy
                 "Where Id = @questionId";
 
             OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
-            
+
             updateCommand.Parameters.AddWithValue("@newWeight", newWeight);
             updateCommand.Parameters.AddWithValue("@questionId", questionId);
 
@@ -685,7 +681,7 @@ namespace Jeopardy
                 "Where Id = @choiceId";
 
             OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
-            
+
             updateCommand.Parameters.AddWithValue("@newChoiceText", newChoiceText);
             updateCommand.Parameters.AddWithValue("@choiceId", choiceId);
 

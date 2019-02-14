@@ -1,24 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
     public partial class frmEditGame : Form
     {
-        Game game;
-        Button[] categoryButtons;
-        Button[,] questionButtons;
-
-        Category currentCategory;
-        Question currentQuestion;
+        private Game game;
+        private Button[] categoryButtons;
+        private Button[,] questionButtons;
+        private Category currentCategory;
+        private Question currentQuestion;
 
         public frmEditGame(Game theGame)
         {
@@ -445,7 +439,7 @@ namespace Jeopardy
             ColorCodeButtons();
             DisplayNumFinishedQuestions();
             DisplayNumUnfinishedQuestions();
-              
+
             foreach (Button b in questionButtons)
             {
                 gbxQuestions.Controls.Add(b);
@@ -771,7 +765,7 @@ namespace Jeopardy
         }
 
         //code to make maximizing and restoring the window act the same as resizing
-        FormWindowState LastWindowState = FormWindowState.Minimized;
+        private FormWindowState LastWindowState = FormWindowState.Minimized;
         private void frmCreateGame_Resize(object sender, EventArgs e)
         {
             if (WindowState != LastWindowState)
@@ -781,21 +775,6 @@ namespace Jeopardy
                 {
                     frmCreateGame_ResizeEnd(sender, e);
                 }
-            }
-        }
-
-        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process process = new Process();
-                process.StartInfo.FileName = @"C:\\Program Files (x86)\\SCC Game\\JeopardyGame\\jeopardyhelp.chm";
-                process.Start();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("This feature is not working yet");
-                Console.WriteLine(ex.ToString());
             }
         }
     }

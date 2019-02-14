@@ -129,7 +129,7 @@
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.lblQuestionText);
             this.Name = "frmReviewWrongQuestions";
-            this.Text = "frmReviewWrongQuestions";
+            this.Text = "Review!";
             this.Load += new System.EventHandler(this.frmReviewWrongQuestions_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,22 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
     public partial class frmFillInTheBlank : Form
-    {      
+    {
         public bool Correct { get; set; }
 
         private Question currentQuestion = new Question();
-        TimeSpan timeLimit;
+        private TimeSpan timeLimit;
 
         public frmFillInTheBlank(Question theQuestion, TimeSpan timeLimit)
         {
@@ -37,7 +31,7 @@ namespace Jeopardy
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if(ValidateData.ValidateQuestionAnswer(txtUserAnswer.Text) == true && txtUserAnswer.Text.Trim() != "")
+            if (ValidateData.ValidateQuestionAnswer(txtUserAnswer.Text) == true && txtUserAnswer.Text.Trim() != "")
             {
                 timer.Stop();
 
@@ -46,23 +40,23 @@ namespace Jeopardy
 
                 txtCorrectAnswer.Text = currentQuestion.Answer;
 
-                if(userAnswer == correctAnswer)
+                if (userAnswer == correctAnswer)
                 {
                     txtUserAnswer.ForeColor = Color.ForestGreen;
                     txtCorrectAnswer.BackColor = txtCorrectAnswer.BackColor;
                     txtCorrectAnswer.ForeColor = Color.ForestGreen;
                     lblCorrectIncorrect.ForeColor = Color.ForestGreen;
                     lblCorrectIncorrect.Text = "Correct";
-                    this.Correct = true;              
+                    Correct = true;
                 }
-                else if(userAnswer != correctAnswer)
+                else if (userAnswer != correctAnswer)
                 {
                     txtUserAnswer.ForeColor = Color.Red;
                     txtCorrectAnswer.BackColor = txtCorrectAnswer.BackColor;
                     txtCorrectAnswer.ForeColor = Color.ForestGreen;
                     lblCorrectIncorrect.ForeColor = Color.Red;
                     lblCorrectIncorrect.Text = "Incorrect";
-                    this.Correct = false;
+                    Correct = false;
                 }
                 lblCorrectIncorrect.Visible = true;
                 btnSubmit.Enabled = false;
@@ -78,15 +72,15 @@ namespace Jeopardy
 
         private void btnDone_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             timer.Stop();
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -123,7 +117,7 @@ namespace Jeopardy
 
         private void btnOverwrite_Click(object sender, EventArgs e)
         {
-            if(Correct == false)
+            if (Correct == false)
             {
                 Correct = true;
                 lblCorrectIncorrect.ForeColor = Color.ForestGreen;

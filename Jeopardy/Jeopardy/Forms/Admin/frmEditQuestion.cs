@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
     public partial class frmEditQuestion : Form
     {
-        int gameId;
-        string categoryName;
-        Question question;
+        private int gameId;
+        private string categoryName;
+        private Question question;
 
 
         public frmEditQuestion(Question selectedQuestion, int theGameId, string theCategoryName)
@@ -328,12 +323,12 @@ namespace Jeopardy
             DialogResult dialogResult = DialogResult.OK;
 
             //error / warning checking
-            if(txtQuestionText.Text.Length > 1 && (txtAnswer.Text == "" || txtAnswer.Text == " "))
+            if (txtQuestionText.Text.Length > 1 && (txtAnswer.Text == "" || txtAnswer.Text == " "))
             {
                 dialogResult = MessageBox.Show("Warning. This question does not have an answer. This question will be marked as incomplete and colored RED until you give it an answer", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
 
-            if(dialogResult == DialogResult.OK)
+            if (dialogResult == DialogResult.OK)
             {
                 if (rdoFillInTheBlank.Checked)
                 {
@@ -373,7 +368,7 @@ namespace Jeopardy
                 }
             }
 
-            
+
         }
 
         private void btnImport_Click(object sender, EventArgs e)
@@ -440,21 +435,6 @@ namespace Jeopardy
         private void saveAndExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnOK_Click(sender, e);
-        }
-
-        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process process = new Process();
-                process.StartInfo.FileName = @"C:\\Program Files (x86)\\SCC Game\\JeopardyGame\\jeopardyhelp.chm";
-                process.Start();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("This feature is not working yet");
-                Console.WriteLine(ex.ToString());
-            }
         }
     }
 }

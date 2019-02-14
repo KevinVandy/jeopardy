@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
@@ -17,7 +13,7 @@ namespace Jeopardy
                 Boolean.TryParse(Value.ToString(), out flag);
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
                 return false;
@@ -30,7 +26,7 @@ namespace Jeopardy
                 int n = int.Parse(Value);
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "Convert to Integer Failure");
                 return false;
@@ -40,13 +36,13 @@ namespace Jeopardy
         {
             try
             {
-                if(Value == null)
+                if (Value == null)
                 {
                     throw new CustomExceptions.ArgumentNullException();
                 }
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "No data present");
                 return false;
@@ -54,8 +50,8 @@ namespace Jeopardy
 
         }
 
-        
 
-        
+
+
     }
 }

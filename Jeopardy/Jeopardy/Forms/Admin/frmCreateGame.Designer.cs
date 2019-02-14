@@ -251,7 +251,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCreateGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmCreateGameStart";
+            this.Text = "Create a Game!";
             this.Load += new System.EventHandler(this.frmCreateGameStart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudNumQuestionCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumCategories)).EndInit();
