@@ -2,11 +2,7 @@
 //Install-Package Syroot.Windows.IO.KnownFolders -Version 1.2.1//
 //using Syroot.Windows.IO;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
@@ -14,7 +10,7 @@ using System.Xml.Serialization;
 
 namespace Jeopardy
 {
-    class XML_IO
+    internal class XML_IO
     {
         public static void exportXML(Game selectedGame)
         {
@@ -37,10 +33,8 @@ namespace Jeopardy
                     xs.Serialize(tw, selectedGame);
 
                     MessageBox.Show($"File was saved at {fbd.SelectedPath} ", "Successful Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
             }
-
         }
 
         public static void importXML(String path, string fileName)
@@ -59,16 +53,16 @@ namespace Jeopardy
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("This file is not in the correct format for this game. The game cannot be imported", "Import Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Console.WriteLine(ex.ToString());
             }
-            
+
         }
 
-       
+
 
     }
 }

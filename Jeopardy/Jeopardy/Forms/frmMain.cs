@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
     public partial class frmMain : Form
     {
-        List<Game> allGames;
-        Game selectedGame;
+        private List<Game> allGames;
+        private Game selectedGame;
 
         public frmMain()
         {
@@ -108,9 +103,9 @@ namespace Jeopardy
 
         private void btnDeleteGame_Click(object sender, EventArgs e) //Delete Game button
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this game? All questions in this game will also be deleted.", "Confirm Delete",MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this game? All questions in this game will also be deleted.", "Confirm Delete", MessageBoxButtons.YesNo);
 
-            if(dialogResult == DialogResult.Yes)
+            if (dialogResult == DialogResult.Yes)
             {
                 UseWaitCursor = true;
                 lblStatus.Text = "Deleting the Game";
@@ -308,7 +303,7 @@ namespace Jeopardy
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            DB_Conn.CompactAndRepair();
         }
     }
 }

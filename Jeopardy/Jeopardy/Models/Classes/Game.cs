@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Jeopardy
 {
@@ -133,7 +129,7 @@ namespace Jeopardy
             NumCategories = numCategories;
             NumQuestionsPerCategory = numQuestionsPerCat;
             QuestionTimeLimit = questionTimeLimit;
-            
+
             //create blank categories, also will create blank questions for each category
             Categories = new List<Category>(new Category[NumCategories]);
             for (int i = 0; i < NumCategories; i++)

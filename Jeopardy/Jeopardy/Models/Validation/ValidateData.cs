@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
 {
-    class ValidateData
+    internal class ValidateData
     {
         public static bool AreFourChoices(List<Choice> Value)
         {
@@ -55,7 +53,7 @@ namespace Jeopardy
 
         public static bool ValidateNumCategories(int numCategories)
         {
-            if(numCategories >= 3 && numCategories <= 8)
+            if (numCategories >= 3 && numCategories <= 8)
             {
                 return true;
             }
@@ -67,7 +65,7 @@ namespace Jeopardy
 
         public static bool ValidateNumQuestionsPerCategory(int numQuestions)
         {
-            if(numQuestions >= 3 && numQuestions <= 8)
+            if (numQuestions >= 3 && numQuestions <= 8)
             {
                 return true;
             }
@@ -80,7 +78,7 @@ namespace Jeopardy
         //MARK: Validate Category properties
         public static bool ValidateCategoryIndex(int index)
         {
-            if(index >= 0 && index <= 7)
+            if (index >= 0 && index <= 7)
             {
                 return true;
             }
@@ -123,7 +121,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; 
+            return false;
         }
 
         public static bool ValidateQuestionText(string questionText)
@@ -132,7 +130,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; 
+            return false;
         }
 
         public static bool ValidateQuestionAnswer(string answer)
@@ -141,7 +139,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; 
+            return false;
         }
 
         public static bool ValidateQuestionWeight(int weight)
@@ -155,7 +153,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; 
+            return false;
         }
 
         //MARK: Validate Choice properties
@@ -170,7 +168,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; 
+            return false;
         }
 
         //MARK: Validate Team properties
@@ -180,7 +178,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; 
+            return false;
         }
 
         public static bool ValidateTeamScore(int teamScore)
@@ -189,7 +187,7 @@ namespace Jeopardy
             {
                 return true;
             }
-            return false; 
+            return false;
         }
 
     }

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
@@ -15,8 +9,8 @@ namespace Jeopardy
     {
         public bool Correct { get; set; }
 
-        Question currentQuestion = new Question();
-        TimeSpan timeLimit;
+        private Question currentQuestion = new Question();
+        private TimeSpan timeLimit;
 
         public frmMultipleChoice(Question theQuestion, TimeSpan timeLimit)
         {

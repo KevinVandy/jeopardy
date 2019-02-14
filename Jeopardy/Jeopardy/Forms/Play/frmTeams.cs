@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Jeopardy
@@ -14,8 +7,8 @@ namespace Jeopardy
     {
         //The design on this form could probably use some tidying up
         //But for what we need it works
-        Game currentGame = new Game();
-        Team[] theTeams = new Team[4];
+        private Game currentGame = new Game();
+        private Team[] theTeams = new Team[4];
 
         public frmTeams(Game theGame)
         {
@@ -36,21 +29,21 @@ namespace Jeopardy
 
         private void DisplayPanels(int numTeams)
         {
-            if(numTeams == 2)
+            if (numTeams == 2)
             {
                 pnlFirstTeam.Visible = true;
                 pnlSecondTeam.Visible = true;
                 pnlThirdTeam.Visible = false;
                 pnlFourthTeam.Visible = false;
             }
-            else if(numTeams == 3)
+            else if (numTeams == 3)
             {
                 pnlFirstTeam.Visible = true;
                 pnlSecondTeam.Visible = true;
                 pnlThirdTeam.Visible = true;
                 pnlFourthTeam.Visible = false;
             }
-            else if(numTeams >= 4)
+            else if (numTeams >= 4)
             {
                 pnlFirstTeam.Visible = true;
                 pnlSecondTeam.Visible = true;
@@ -61,7 +54,7 @@ namespace Jeopardy
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -78,7 +71,7 @@ namespace Jeopardy
                     theTeams[0] = firstTeam;
                     theTeams[1] = secondTeam;
 
-                    this.Hide();
+                    Hide();
 
                     frmPlayGame playGameForm = new frmPlayGame(currentGame, theTeams);
                     playGameForm.ShowDialog();
@@ -90,7 +83,7 @@ namespace Jeopardy
             }
             else if (numberTeams == 3)
             {
-                if (ValidateData.ValidateTeamName(txtFirstTeam.Text) && ValidateData.ValidateTeamName(txtSecondTeam.Text) 
+                if (ValidateData.ValidateTeamName(txtFirstTeam.Text) && ValidateData.ValidateTeamName(txtSecondTeam.Text)
                     && ValidateData.ValidateTeamName(txtThirdTeam.Text))
                 {
                     Team firstTeam = new Team(1, txtFirstTeam.Text, 0);
@@ -101,7 +94,7 @@ namespace Jeopardy
                     theTeams[1] = secondTeam;
                     theTeams[2] = thirdTeam;
 
-                    this.Hide();
+                    Hide();
 
                     frmPlayGame playGameForm = new frmPlayGame(currentGame, theTeams);
                     playGameForm.ShowDialog();
@@ -113,7 +106,7 @@ namespace Jeopardy
             }
             else if (numberTeams >= 4)
             {
-                if (ValidateData.ValidateTeamName(txtFirstTeam.Text) && ValidateData.ValidateTeamName(txtSecondTeam.Text) 
+                if (ValidateData.ValidateTeamName(txtFirstTeam.Text) && ValidateData.ValidateTeamName(txtSecondTeam.Text)
                     && ValidateData.ValidateTeamName(txtThirdTeam.Text) && ValidateData.ValidateTeamName(txtFourthTeam.Text))
                 {
                     Team firstTeam = new Team(1, txtFirstTeam.Text, 0);
@@ -126,7 +119,7 @@ namespace Jeopardy
                     theTeams[2] = thirdTeam;
                     theTeams[3] = fourthTeam;
 
-                    this.Hide();
+                    Hide();
 
                     frmPlayGame playGameForm = new frmPlayGame(currentGame, theTeams);
                     playGameForm.ShowDialog();
