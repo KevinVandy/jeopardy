@@ -210,9 +210,14 @@ namespace Jeopardy
         {
             try
             {
+                string helpFilePath = Directory.GetCurrentDirectory() + @"\JeopardyHelpFiles\jeopardyhelp.chm";
+
+
                 System.Diagnostics.Process process = new Process();
-                process.StartInfo.FileName = @"C:\\Program Files (x86)\\SCC Game\\JeopardyGame\\jeopardyhelp.chm";
+                process.StartInfo.FileName = helpFilePath;
                 process.Start();
+
+
                 //C:\\Windows\\System32\\appverif.chm
                 //
                 //ystem.Windows.Forms.Help.ShowHelp(this, "help.chm");
