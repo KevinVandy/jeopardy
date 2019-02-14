@@ -211,7 +211,7 @@ namespace Jeopardy
             try
             {
                 System.Diagnostics.Process process = new Process();
-                process.StartInfo.FileName = @"C:\\Program Files (x86)\\Default Company Name\\Setup1\\jeopardyhelp.chm";
+                process.StartInfo.FileName = @"C:\\Program Files (x86)\\SCC Game\\JeopardyGame\\jeopardyhelp.chm";
                 process.Start();
                 //C:\\Windows\\System32\\appverif.chm
                 //
