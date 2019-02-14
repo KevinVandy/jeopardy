@@ -8,11 +8,13 @@ namespace Jeopardy
 {
     internal class DB_Conn
     {
+        private static readonly string currentdirectory = Directory.GetCurrentDirectory();
+
         public static OleDbConnection GetGamesConnection()
         {
             try
             {
-                string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=games.accdb"; //next to exe
+                string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + currentdirectory + "\\games.accdb";
                 OleDbConnection conn = new OleDbConnection(connectionString);
                 return conn;
             }
@@ -25,24 +27,23 @@ namespace Jeopardy
 
         public static void CompactAndRepair()
         {
-            string currentdirectory = Directory.GetCurrentDirectory();
-            string oldmdbfile = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=games.accdb";
-            string newmdbfile = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=gamesTemp.accdb";
+            string oldmdbfile = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + currentdirectory + "\\games.accdb;";
+            string newmdbfile = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + currentdirectory + "\\games-temp.accdb;";
             string oldmdbfilepath = currentdirectory + "\\games.accdb";
-            string newmdbfilepath = currentdirectory + "\\gamesTemp.accdb";
-            
+            string newmdbfilepath = currentdirectory + "\\games-temp.accdb";
+
             try
             {
-                JRO.JetEngine engine = new JetEngine();
+                JetEngine engine = new JetEngine();
                 engine.CompactDatabase(oldmdbfile, newmdbfile);
                 File.Delete(oldmdbfilepath);
                 File.Move(newmdbfilepath, oldmdbfilepath);
 
-                Console.WriteLine("\nDatabase successfully Repaired and Compacted\n");
+                Console.WriteLine("Database successfully Repaired and Compacted\n");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("\nDatabase failed to Repair and Compact\n" + ex.ToString());
+                Console.WriteLine("Database failed to Repair and Compact\n" + ex.ToString());
             }
         }
     }
