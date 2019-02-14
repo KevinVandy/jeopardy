@@ -215,11 +215,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Jeopardy Help Files\Index.hhk" />
-    <None Include="Jeopardy Help Files\jeopardyhelp.chm" />
-    <None Include="Jeopardy Help Files\jeopardyhelp.chw" />
-    <None Include="Jeopardy Help Files\jeopardyhelp.hhp" />
-    <None Include="Jeopardy Help Files\TableOfContents.hhc" />
+    <None Include="JeopardyHelpFiles\Index.hhk" />
+    <None Include="JeopardyHelpFiles\jeopardyhelp.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="JeopardyHelpFiles\jeopardyhelp.chw" />
+    <None Include="JeopardyHelpFiles\jeopardyhelp.hhp" />
+    <None Include="JeopardyHelpFiles\TableOfContents.hhc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -239,26 +241,26 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="icon.ico" />
-    <Content Include="Jeopardy Help Files\deletegame.htm" />
-    <Content Include="Jeopardy Help Files\editgame.htm" />
-    <Content Include="Jeopardy Help Files\exportgame.htm" />
-    <Content Include="Jeopardy Help Files\HelpImgs\CreateGame.PNG" />
-    <Content Include="Jeopardy Help Files\HelpImgs\DailyDouble.PNG" />
-    <Content Include="Jeopardy Help Files\HelpImgs\EditCategory.PNG" />
-    <Content Include="Jeopardy Help Files\HelpImgs\EditFillInTheBlank.PNG" />
-    <Content Include="Jeopardy Help Files\HelpImgs\EditMultipleChoice.PNG" />
-    <Content Include="Jeopardy Help Files\HelpImgs\EditTrueFalse.PNG" />
-    <Content Include="Jeopardy Help Files\HelpImgs\FillInTheBlankQuestion.PNG" />
-    <Content Include="Jeopardy Help Files\HelpImgs\mainForm.PNG" />
-    <Content Include="Jeopardy Help Files\HelpImgs\MultipleChoiceQuestion.PNG" />
-    <Content Include="Jeopardy Help Files\HelpImgs\newGameForm.PNG" />
-    <Content Include="Jeopardy Help Files\HelpImgs\PlayGame.PNG" />
-    <Content Include="Jeopardy Help Files\HelpImgs\TeamInfo.PNG" />
-    <Content Include="Jeopardy Help Files\HelpImgs\TrueFalseQuestion.PNG" />
-    <Content Include="Jeopardy Help Files\importgame.htm" />
-    <Content Include="Jeopardy Help Files\mainpage.htm" />
-    <Content Include="Jeopardy Help Files\newgame.htm" />
-    <Content Include="Jeopardy Help Files\playgame.htm" />
+    <Content Include="JeopardyHelpFiles\deletegame.htm" />
+    <Content Include="JeopardyHelpFiles\editgame.htm" />
+    <Content Include="JeopardyHelpFiles\exportgame.htm" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\CreateGame.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\DailyDouble.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\EditCategory.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\EditFillInTheBlank.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\EditMultipleChoice.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\EditTrueFalse.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\FillInTheBlankQuestion.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\mainForm.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\MultipleChoiceQuestion.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\newGameForm.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\PlayGame.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\TeamInfo.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\TrueFalseQuestion.PNG" />
+    <Content Include="JeopardyHelpFiles\importgame.htm" />
+    <Content Include="JeopardyHelpFiles\mainpage.htm" />
+    <Content Include="JeopardyHelpFiles\newgame.htm" />
+    <Content Include="JeopardyHelpFiles\playgame.htm" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
