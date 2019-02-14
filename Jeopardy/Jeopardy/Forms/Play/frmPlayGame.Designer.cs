@@ -120,6 +120,7 @@
             this.lblTeamOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeamOne.Location = new System.Drawing.Point(2, 7);
             this.lblTeamOne.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTeamOne.MaximumSize = new System.Drawing.Size(250, 0);
             this.lblTeamOne.Name = "lblTeamOne";
             this.lblTeamOne.Size = new System.Drawing.Size(91, 26);
             this.lblTeamOne.TabIndex = 0;
@@ -170,6 +171,7 @@
             this.lblTeamTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeamTwo.Location = new System.Drawing.Point(2, 7);
             this.lblTeamTwo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTeamTwo.MaximumSize = new System.Drawing.Size(250, 0);
             this.lblTeamTwo.Name = "lblTeamTwo";
             this.lblTeamTwo.Size = new System.Drawing.Size(91, 26);
             this.lblTeamTwo.TabIndex = 0;
@@ -220,6 +222,7 @@
             this.lblTeamThree.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeamThree.Location = new System.Drawing.Point(2, 7);
             this.lblTeamThree.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTeamThree.MaximumSize = new System.Drawing.Size(250, 0);
             this.lblTeamThree.Name = "lblTeamThree";
             this.lblTeamThree.Size = new System.Drawing.Size(91, 26);
             this.lblTeamThree.TabIndex = 0;
@@ -270,6 +273,7 @@
             this.lblTeamFour.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeamFour.Location = new System.Drawing.Point(2, 7);
             this.lblTeamFour.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTeamFour.MaximumSize = new System.Drawing.Size(250, 0);
             this.lblTeamFour.Name = "lblTeamFour";
             this.lblTeamFour.Size = new System.Drawing.Size(91, 26);
             this.lblTeamFour.TabIndex = 0;
