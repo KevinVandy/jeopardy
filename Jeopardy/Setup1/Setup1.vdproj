@@ -352,7 +352,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:JeopardyGame"
         "ProductCode" = "8:{E4C3E8BD-F7A1-4B49-915F-FAD9438B9E85}"
-        "PackageCode" = "8:{80FBBF28-D191-4E11-ABC1-D1288BA53D1D}"
+        "PackageCode" = "8:{FA9E273E-DD1B-49E5-8519-7D16D2BDB8D7}"
         "UpgradeCode" = "8:{2BEBCF08-80D3-4098-ADC9-717B2E6FD846}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -472,6 +472,34 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_243E15D988C64AA8AE27DDBF1D110839"
+            {
+            "Name" = "8:Jeopardy"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_304E39BCFD66465DBB819572A6F8C27B"
+            "Folder" = "8:_3C3CC02E1EC9494AB0DDC8A85808E5DC"
+            "WorkingFolder" = "8:_FBA34195F307418B882B4778266196A3"
+            "Icon" = "8:_118750A8ED6040BE8DC8D2C452E77DF2"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_AC7BC54122424BB99DB870C4DE0E3603"
+            {
+            "Name" = "8:Jeopardy"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_304E39BCFD66465DBB819572A6F8C27B"
+            "Folder" = "8:_3FDAB97B31054309847EF4C7C3F702FC"
+            "WorkingFolder" = "8:_FBA34195F307418B882B4778266196A3"
+            "Icon" = "8:_118750A8ED6040BE8DC8D2C452E77DF2"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {

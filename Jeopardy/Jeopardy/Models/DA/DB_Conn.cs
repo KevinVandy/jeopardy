@@ -14,7 +14,7 @@ namespace Jeopardy
         {
             try
             {
-                string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=../../games.accdb";
+                string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=games.accdb";
                 OleDbConnection conn = new OleDbConnection(connectionString);
                 return conn;
             }
