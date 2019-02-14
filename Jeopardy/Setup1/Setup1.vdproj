@@ -58,13 +58,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_49F413FB56E4B59599CA6F749F89525B"
+        "OwnerKey" = "8:_3339DF463871195FEE3C407D3348544D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3339DF463871195FEE3C407D3348544D"
+        "OwnerKey" = "8:_49F413FB56E4B59599CA6F749F89525B"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -189,11 +189,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_3339DF463871195FEE3C407D3348544D"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -220,11 +215,6 @@
             "AssemblyAsmDisplayName" = "8:Syroot.KnownFolders, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_49F413FB56E4B59599CA6F749F89525B"
-                    {
-                    "Name" = "8:Syroot.KnownFolders.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Syroot.KnownFolders.dll"
             "TargetName" = "8:"
@@ -472,6 +462,34 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_243E15D988C64AA8AE27DDBF1D110839"
+            {
+            "Name" = "8:Jeopardy"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_304E39BCFD66465DBB819572A6F8C27B"
+            "Folder" = "8:_3C3CC02E1EC9494AB0DDC8A85808E5DC"
+            "WorkingFolder" = "8:_FBA34195F307418B882B4778266196A3"
+            "Icon" = "8:_118750A8ED6040BE8DC8D2C452E77DF2"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_AC7BC54122424BB99DB870C4DE0E3603"
+            {
+            "Name" = "8:Jeopardy"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_304E39BCFD66465DBB819572A6F8C27B"
+            "Folder" = "8:_3FDAB97B31054309847EF4C7C3F702FC"
+            "WorkingFolder" = "8:_FBA34195F307418B882B4778266196A3"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
