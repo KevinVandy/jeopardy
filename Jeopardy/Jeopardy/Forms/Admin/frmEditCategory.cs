@@ -29,7 +29,15 @@ namespace Jeopardy
         //MARK: Button Event Handlers
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (ValidateData.ValidateCategoryTitle(txtTitle.Text) && ValidateData.ValidateCategorySubtitle(txtSubtitle.Text))
+            string subtitle = txtSubtitle.Text;
+
+            // allows user to enter in a blank subtitle
+            if(subtitle == "" || subtitle == null)
+            {
+                subtitle = " ";
+            }
+
+            if (ValidateData.ValidateCategoryTitle(txtTitle.Text) && ValidateData.ValidateCategorySubtitle(subtitle))
             {
                 category.Title = txtTitle.Text;
                 category.Subtitle = txtSubtitle.Text;
