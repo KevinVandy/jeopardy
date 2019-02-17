@@ -8,6 +8,7 @@ namespace Jeopardy
 {
     public partial class frmPlayGame : Form
     {
+        //Variables
         private int rows = 1;
         private int columns = 1;
         private Button[,] questionButtons;
@@ -36,6 +37,7 @@ namespace Jeopardy
             DrawGameGrid();
             currentGame.GenerateDailyDouble();
 
+            //grabs the time limit from the game and sets it as the default on the form
             if (currentGame.QuestionTimeLimit == new TimeSpan(0, 0, 30))
             {
                 cboQuestionTimeLimit.SelectedIndex = 0;
@@ -60,6 +62,7 @@ namespace Jeopardy
 
         private void frmPlayGame_ResizeEnd(object sender, EventArgs e)
         {
+            //every time the game is resized, modify the team panels and redraw the game grid
             ModifyPanelWidths();
             ModifyPanelHeights();
             DrawCategories();
@@ -68,12 +71,24 @@ namespace Jeopardy
 
         private void button_Click(object sender, EventArgs e)
         {
+            //Encompasses every button on the game grid
+
+            //Grab whichever button is clicked
             Button button = sender as Button;
+
+            //Grab the Question assigned to that button (assigned to the button's tag [done in the creation of the grid])
             Question currentQuestion = (Question)button.Tag;
+
+            //Used to determine if user answered the question correctly
             bool answeredCorrectly = false;
+
+            //Used later to determine if every question has been answered
             bool gameDone = true;
+
+            //Used to determine if the user canceled a question form or answered.
             DialogResult formResult = DialogResult.Cancel;
 
+            //If the question is a daily double, pull up the daily double form
             if (currentQuestion.DailyDouble == true)
             {
                 frmDoubleJeopardy frmDJ = new frmDoubleJeopardy(currentQuestion, currentTeam);
@@ -81,6 +96,7 @@ namespace Jeopardy
                 currentQuestion = (Question)frmDJ.Tag;
             }
 
+            //Based on the question's type, pull up the correct form
             switch (currentQuestion.Type)
             {
                 case "tf":
@@ -108,15 +124,18 @@ namespace Jeopardy
                     break;
             }
 
+            //If the user answered the question
             if (formResult == DialogResult.OK)
             {
-                //Insert question if it was answered wrong into a list for later
+                //Put the question into the wrongQuestions list if it was answered wrong, used for review later
                 if (answeredCorrectly == false)
                 {
                     wrongQuestions.Add(currentQuestion);
                 }
 
                 //hide the clicked button
+                //Only hides if the question was answered
+                //This was done intentionally as requested
                 button.Visible = false;
                 currentQuestion.State = "Answered";
 
@@ -143,6 +162,7 @@ namespace Jeopardy
                     }
                 }
 
+                //If the game is done, then pull up the review form
                 if (gameDone == true)
                 {
                     //show the frmWrongQuestions for statistics
@@ -156,8 +176,10 @@ namespace Jeopardy
 
         private void DrawCategories()
         {
+            //Have to clear the controls because we dynamically resize the labels when the form resizes
             pnlCategories.Controls.Clear();
 
+            //Temporary storage for our labels
             if (LabelList != null)
             {
                 LabelList.Clear();
@@ -172,10 +194,13 @@ namespace Jeopardy
             int start_x = 10;
             int start_y = 10;
 
+            //For one row..
             for (int x = 0; x < 1; x++)
             {
+                //Create as many labels as there are categories
                 for (int y = 0; y < currentGame.NumCategories; y++)
                 {
+                    //Dynamically create a label with all the needed properties
                     Label tmpLabel = new Label();
                     tmpLabel.Top = start_x + (x * labelHeight);
                     tmpLabel.Left = start_y + ((y * labelWidth) + (y * 5));
@@ -189,6 +214,7 @@ namespace Jeopardy
                 }
             }
 
+            //Re-add the labels to the panels
             foreach (Label l in LabelList)
             {
                 pnlCategories.Controls.Add(l);
@@ -197,6 +223,7 @@ namespace Jeopardy
 
         private void DrawGameGrid()
         {
+            //Have to clear the controls because we dynamically resize the buttons when the form resizes
             pnlGameboard.Controls.Clear();
 
             int gbxWidth = pnlGameboard.Width;
@@ -207,7 +234,7 @@ namespace Jeopardy
 
             int start_x = 30;
             int start_y = 30;
-
+            
             questionButtons = new Button[currentGame.NumCategories, currentGame.NumQuestionsPerCategory];
 
             //draw blank buttons
@@ -215,8 +242,10 @@ namespace Jeopardy
             {
                 for (int y = 0; y < currentGame.NumQuestionsPerCategory; y++)
                 {
+                    //If the question has already been answered, don't make the button
                     if (currentGame.Categories[x].Questions[y].State != "Answered")
                     {
+                        //Dynamically create each button with all the needed properties
                         Button tmpButton = new Button();
                         tmpButton.Tag = currentGame.Categories[x].Questions[y]; //send the entire question through the tag
                         tmpButton.Top = start_x + ((y * buttonHeight) + (y * 0));
@@ -241,6 +270,7 @@ namespace Jeopardy
             {
                 for (int j = 0; j < currentGame.NumQuestionsPerCategory && j < currentGame.Categories[i].Questions.Count; j++)
                 {
+                    //If the question has already been answered, then it doesn't have a button to assign to the .Text property
                     if (currentGame.Categories[i].Questions[j].State != "Answered")
                     {
                         questionButtons[i, j].Text = currentGame.Categories[i].Questions[j].Weight.ToString();
@@ -248,6 +278,7 @@ namespace Jeopardy
                 }
             }
 
+            //Re-add the buttons to the game grid
             foreach (Button b in questionButtons)
             {
                 pnlGameboard.Controls.Add(b);
@@ -257,6 +288,7 @@ namespace Jeopardy
 
         private void TmpButton_MouseEnter(object sender, EventArgs e)
         {
+            //Highlights the button if you hover over it
             Button hoveredButton = (Button)sender;
             hoveredButton.Focus();
             hoveredButton.BackColor = Color.Blue;
@@ -264,6 +296,7 @@ namespace Jeopardy
 
         private void TmpButton_MouseLeave(object sender, EventArgs e)
         {
+            //Reset the color if you're not hovering over the button anymore
             Button hoveredButton = (Button)sender;
             hoveredButton.BackColor = Color.DarkBlue;
         }
@@ -294,6 +327,7 @@ namespace Jeopardy
 
         private void LoadTeams()
         {
+            //If the team isn't null, then set up the team name, and make it visible
             if (teams[0] != null)
             {
                 pnlTeamOne.BackColor = Color.LightBlue;
@@ -338,12 +372,14 @@ namespace Jeopardy
 
         private void MoveToNextTeam()
         {
+            //We assume there will always be at least two teams, so automatically move onto team two (team[1])
             if (currentTeam == teams[0])
             {
                 currentTeam = teams[1];
                 pnlTeamOne.BackColor = SystemColors.Control;
                 pnlTeamTwo.BackColor = Color.LightBlue;
             }
+            //The rest of these else ifs make sure the next team isn't null, and if they are, go back to team one (team[0])
             else if (currentTeam == teams[1])
             {
                 if (teams[2] != null)
@@ -384,8 +420,10 @@ namespace Jeopardy
 
         private void AssignPoints(bool answeredCorrectly, Question theQuestion)
         {
+            //Checks if the question has been answered correctly or incorrectly
             if (answeredCorrectly == true)
             {
+                //Checks which team is the currentTeam, and gives them the points for answering it correctly
                 if (currentTeam == teams[0])
                 {
                     nudTeamOne.Value += theQuestion.Weight;
@@ -405,6 +443,7 @@ namespace Jeopardy
             }
             else if (answeredCorrectly == false)
             {
+                //Checks which team is the currentTeam, and takes away the points for answering it wrong
                 if (currentTeam == teams[0])
                 {
                     nudTeamOne.Value -= theQuestion.Weight;
@@ -438,6 +477,7 @@ namespace Jeopardy
 
         private void cboQuestionTimeLimit_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Changes the time limit to whatever the user selected on the form
             if (cboQuestionTimeLimit.SelectedIndex == 0)
             {
                 currentGame.QuestionTimeLimit = new TimeSpan(0, 0, 30);
@@ -463,6 +503,7 @@ namespace Jeopardy
 
         private void bwUpdateTimeLimit_DoWork(object sender, DoWorkEventArgs e) //also update in db for future games
         {
+            //Updates the database whenever the user changes the question time limit
             if (!DB_Update.UpdateGameQuestionTimeLimit(currentGame.QuestionTimeLimit, currentGame.Id))
             {
                 MessageBox.Show("Error updating Game name");
@@ -485,24 +526,28 @@ namespace Jeopardy
 
         private void nudTeamOne_ValueChanged(object sender, EventArgs e)
         {
+            //Assigns the team score to the value of the numeric up down on the form
             teams[0].Score = (int)nudTeamOne.Value;
             pnlGameboard.Focus();
         }
 
         private void nudTeamTwo_ValueChanged(object sender, EventArgs e)
         {
+            //Assigns the team score to the value of the numeric up down on the form
             teams[1].Score = (int)nudTeamTwo.Value;
             pnlGameboard.Focus();
         }
 
         private void nudTeamThree_ValueChanged(object sender, EventArgs e)
         {
+            //Assigns the team score to the value of the numeric up down on the form
             teams[2].Score = (int)nudTeamThree.Value;
             pnlGameboard.Focus();
         }
 
         private void nudTeamFour_ValueChanged(object sender, EventArgs e)
         {
+            //Assigns the team score to the value of the numeric up down on the form
             teams[3].Score = (int)nudTeamFour.Value;
             pnlGameboard.Focus();
         }
