@@ -9,13 +9,15 @@ namespace Jeopardy
     internal class DB_Conn
     {
         private static readonly string currentdirectory = Directory.GetCurrentDirectory();
+        private static string connectionString;
 
         public static OleDbConnection GetGamesConnection()
         {
             try
             {
-                //string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=games.accdb";
-                string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=%AllUsersProfile%\\JeopardyDatabase\\games.accdb";
+                //connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=../../games.accdb";
+                connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019\\games.accdb";
+
                 OleDbConnection conn = new OleDbConnection(connectionString);
                 return conn;
             }
