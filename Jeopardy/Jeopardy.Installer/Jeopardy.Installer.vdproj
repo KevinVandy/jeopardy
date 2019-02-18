@@ -21,7 +21,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_055E78AB2B5849C485CC9CB6D9BBE478"
+        "MsmKey" = "8:_0C80D579CD9248DF87D174DBF3417F62"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -45,7 +45,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_899C2D161AFD4E678BFD7B1144734DE9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B98ACDE2B6D9420BB507DB1DC78A0CAC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BE83F86FA3474CEB9DACFD7D604C1B5A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -141,6 +153,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -205,10 +225,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_055E78AB2B5849C485CC9CB6D9BBE478"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0C80D579CD9248DF87D174DBF3417F62"
             {
-            "SourcePath" = "8:D:\\Desktop\\Barb's Midterm Review.xml"
-            "TargetName" = "8:Barb's Midterm Review.xml"
+            "SourcePath" = "8:..\\..\\Final Review.xml"
+            "TargetName" = "8:Final Review.xml"
             "Tag" = "8:"
             "Folder" = "8:_423F4000E5BE44ABB77F0BC282D7D50C"
             "Condition" = "8:"
@@ -233,7 +253,7 @@
             "Folder" = "8:_3E07EAF2CD9E4E099F223A2641001B9F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
+            "Vital" = "11:FALSE"
             "ReadOnly" = "11:FALSE"
             "Hidden" = "11:FALSE"
             "System" = "11:FALSE"
@@ -276,12 +296,52 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_899C2D161AFD4E678BFD7B1144734DE9"
+            {
+            "SourcePath" = "8:..\\..\\Midterm Review.xml"
+            "TargetName" = "8:Midterm Review.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_423F4000E5BE44ABB77F0BC282D7D50C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B98ACDE2B6D9420BB507DB1DC78A0CAC"
             {
             "SourcePath" = "8:..\\Jeopardy\\bin\\Debug\\JeopardyHelpFiles\\jeopardyhelp.chm"
             "TargetName" = "8:jeopardyhelp.chm"
             "Tag" = "8:"
             "Folder" = "8:_3E07EAF2CD9E4E099F223A2641001B9F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BE83F86FA3474CEB9DACFD7D604C1B5A"
+            {
+            "SourcePath" = "8:..\\Jeopardy\\games.accdb"
+            "TargetName" = "8:games.accdb"
+            "Tag" = "8:"
+            "Folder" = "8:_423F4000E5BE44ABB77F0BC282D7D50C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -396,7 +456,7 @@
                         {
                             "{9EF0B969-E518-4E46-987F-47570745A589}:_423F4000E5BE44ABB77F0BC282D7D50C"
                             {
-                            "Name" = "8:JeopardyBackups"
+                            "Name" = "8:backups"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
@@ -437,7 +497,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Jeopardy 2019"
         "ProductCode" = "8:{F8C766EF-47F8-47C5-BD00-668E7321106E}"
-        "PackageCode" = "8:{80104021-B902-4220-B86B-B0D8D0D67DFD}"
+        "PackageCode" = "8:{9EA9B325-4A02-4D6A-AEC5-966692D0BC96}"
         "UpgradeCode" = "8:{08688619-09D6-4209-B828-4DD80AF5E2A4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

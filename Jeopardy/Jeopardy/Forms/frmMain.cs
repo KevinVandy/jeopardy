@@ -304,7 +304,7 @@ namespace Jeopardy
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DB_Conn.CompactAndRepair();
+            //DB_Conn.CompactAndRepair();
         }
     }
 }

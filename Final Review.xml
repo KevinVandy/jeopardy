@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>111</Id>
+  <GameName>Barbs Final Review</GameName>
+  <QuestionTimeLimit />
+  <NumCategories>5</NumCategories>
+  <NumQuestionsPerCategory>6</NumQuestionsPerCategory>
+  <Categories>
+    <Category>
+      <Id>410</Id>
+      <GameId>111</GameId>
+      <Index>0</Index>
+      <Title>Chapter 5</Title>
+      <Subtitle> </Subtitle>
+      <Questions>
+        <Question>
+          <Id>1967</Id>
+          <CategoryId>410</CategoryId>
+          <QuestionText>A __ is a potentially damaging program that affects the computer negatively by altering the way a computer works without the user's knowledge.</QuestionText>
+          <Type>mc</Type>
+          <Answer>Virus</Answer>
+          <Weight>100</Weight>
+          <Choices>
+            <Choice>
+              <Id>1081</Id>
+              <QuestionId>1967</QuestionId>
+              <Index>0</Index>
+              <Text>Virus</Text>
+            </Choice>
+            <Choice>
+              <Id>1082</Id>
+              <QuestionId>1967</QuestionId>
+              <Index>1</Index>
+              <Text>user</Text>
+            </Choice>
+            <Choice>
+              <Id>1083</Id>
+              <QuestionId>1967</QuestionId>
+              <Index>2</Index>
+              <Text>Barb</Text>
+            </Choice>
+            <Choice>
+              <Id>1084</Id>
+              <QuestionId>1967</QuestionId>
+              <Index>3</Index>
+              <Text>GUI interface</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1968</Id>
+          <CategoryId>410</CategoryId>
+          <QuestionText>Which of the following is an example of a biometric device?</QuestionText>
+          <Type>mc</Type>
+          <Answer>All Of The Above</Answer>
+          <Weight>200</Weight>
+          <Choices>
+            <Choice>
+              <Id>1088</Id>
+              <QuestionId>1968</QuestionId>
+              <Index>0</Index>
+              <Text>voice verification</Text>
+            </Choice>
+            <Choice>
+              <Id>1089</Id>
+              <QuestionId>1968</QuestionId>
+              <Index>1</Index>
+              <Text>fingerprint reader</Text>
+            </Choice>
+            <Choice>
+              <Id>1090</Id>
+              <QuestionId>1968</QuestionId>
+              <Index>2</Index>
+              <Text>face recognition</Text>
+            </Choice>
+            <Choice>
+              <Id>1091</Id>
+              <QuestionId>1968</QuestionId>
+              <Index>3</Index>
+              <Text>All Of The Above</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1969</Id>
+          <CategoryId>410</CategoryId>
+          <QuestionText>Which of these is NOT a step to protect your computer from viruses?</QuestionText>
+          <Type>mc</Type>
+          <Answer>Update your antivirus definitions yearly</Answer>
+          <Weight>300</Weight>
+          <Choices>
+            <Choice>
+              <Id>1092</Id>
+              <QuestionId>1969</QuestionId>
+              <Index>0</Index>
+              <Text>Install the latest OS updates</Text>
+            </Choice>
+            <Choice>
+              <Id>1093</Id>
+              <QuestionId>1969</QuestionId>
+              <Index>1</Index>
+              <Text>Update your antivirus definitions yearly</Text>
+            </Choice>
+            <Choice>
+              <Id>1094</Id>
+              <QuestionId>1969</QuestionId>
+              <Index>2</Index>
+              <Text>Stay informed about viruses and virus hoa</Text>
+            </Choice>
+            <Choice>
+              <Id>1095</Id>
+              <QuestionId>1969</QuestionId>
+              <Index>3</Index>
+              <Text>Install a personal firewall program</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1970</Id>
+          <CategoryId>410</CategoryId>
+          <QuestionText>Which type of virus disguises itself as a real program such as a screen saver?</QuestionText>
+          <Type>mc</Type>
+          <Answer>trojan horse</Answer>
+          <Weight>400</Weight>
+          <Choices>
+            <Choice>
+              <Id>1096</Id>
+              <QuestionId>1970</QuestionId>
+              <Index>0</Index>
+              <Text>worm</Text>
+            </Choice>
+            <Choice>
+              <Id>1097</Id>
+              <QuestionId>1970</QuestionId>
+              <Index>1</Index>
+              <Text>root kit</Text>
+            </Choice>
+            <Choice>
+              <Id>1098</Id>
+              <QuestionId>1970</QuestionId>
+              <Index>2</Index>
+              <Text>trojan horse</Text>
+            </Choice>
+            <Choice>
+              <Id>1099</Id>
+              <QuestionId>1970</QuestionId>
+              <Index>3</Index>
+              <Text>root canal</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1971</Id>
+          <CategoryId>410</CategoryId>
+          <QuestionText>What type of virus replicates itself over a network to infect machines, using up system resources and possibly shutting down the system?</QuestionText>
+          <Type>mc</Type>
+          <Answer>Worm</Answer>
+          <Weight>500</Weight>
+          <Choices>
+            <Choice>
+              <Id>1100</Id>
+              <QuestionId>1971</QuestionId>
+              <Index>0</Index>
+              <Text>Worm</Text>
+            </Choice>
+            <Choice>
+              <Id>1101</Id>
+              <QuestionId>1971</QuestionId>
+              <Index>1</Index>
+              <Text>Trojan Horse</Text>
+            </Choice>
+            <Choice>
+              <Id>1102</Id>
+              <QuestionId>1971</QuestionId>
+              <Index>2</Index>
+              <Text>Access Controls</Text>
+            </Choice>
+            <Choice>
+              <Id>1103</Id>
+              <QuestionId>1971</QuestionId>
+              <Index>3</Index>
+              <Text>Rootkit</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1972</Id>
+          <CategoryId>410</CategoryId>
+          <QuestionText>A program that can easily hide and allow someone to take full control of your computer from a remote location is a __</QuestionText>
+          <Type>fb</Type>
+          <Answer>rootkit</Answer>
+          <Weight>600</Weight>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+      </Questions>
+    </Category>
+    <Category>
+      <Id>411</Id>
+      <GameId>111</GameId>
+      <Index>1</Index>
+      <Title>Chapter 7</Title>
+      <Subtitle> </Subtitle>
+      <Questions>
+        <Question>
+          <Id>1973</Id>
+          <CategoryId>411</CategoryId>
+          <QuestionText>The main purpose of an ergonomically-designed keyboard is to help the user gain typing speed.</QuestionText>
+          <Type>tf</Type>
+          <Answer>False</Answer>
+          <Weight>100</Weight>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1974</Id>
+          <CategoryId>411</CategoryId>
+          <QuestionText>Which of the following optical readers reads marks such as small circles or rectangles on a questionnaire or test answer sheet?</QuestionText>
+          <Type>mc</Type>
+          <Answer>OMR</Answer>
+          <Weight>200</Weight>
+          <Choices>
+            <Choice>
+              <Id>1108</Id>
+              <QuestionId>1974</QuestionId>
+              <Index>0</Index>
+              <Text>OMR</Text>
+            </Choice>
+            <Choice>
+              <Id>1109</Id>
+              <QuestionId>1974</QuestionId>
+              <Index>1</Index>
+              <Text>OCR</Text>
+            </Choice>
+            <Choice>
+              <Id>1110</Id>
+              <QuestionId>1974</QuestionId>
+              <Index>2</Index>
+              <Text>MICR</Text>
+            </Choice>
+            <Choice>
+              <Id>1111</Id>
+              <QuestionId>1974</QuestionId>
+              <Index>3</Index>
+              <Text>QR Code</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1975</Id>
+          <CategoryId>411</CategoryId>
+          <QuestionText>What technology uses radio signals to communicate with a tag placed in an object such as an electronic key that communicates with a security system?</QuestionText>
+          <Type>mc</Type>
+          <Answer>RFID</Answer>
+          <Weight>300</Weight>
+          <Choices>
+            <Choice>
+              <Id>1112</Id>
+              <QuestionId>1975</QuestionId>
+              <Index>0</Index>
+              <Text>MICR Reader</Text>
+            </Choice>
+            <Choice>
+              <Id>1113</Id>
+              <QuestionId>1975</QuestionId>
+              <Index>1</Index>
+              <Text>Optical scanner</Text>
+            </Choice>
+            <Choice>
+              <Id>1114</Id>
+              <QuestionId>1975</QuestionId>
+              <Index>2</Index>
+              <Text>RFID</Text>
+            </Choice>
+            <Choice>
+              <Id>1115</Id>
+              <QuestionId>1975</QuestionId>
+              <Index>3</Index>
+              <Text>QR Code</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1976</Id>
+          <CategoryId>411</CategoryId>
+          <QuestionText>What measures the brightness of a display monitor?</QuestionText>
+          <Type>mc</Type>
+          <Answer>NIT</Answer>
+          <Weight>400</Weight>
+          <Choices>
+            <Choice>
+              <Id>1116</Id>
+              <QuestionId>1976</QuestionId>
+              <Index>0</Index>
+              <Text>Dot pitch</Text>
+            </Choice>
+            <Choice>
+              <Id>1117</Id>
+              <QuestionId>1976</QuestionId>
+              <Index>1</Index>
+              <Text>NIT</Text>
+            </Choice>
+            <Choice>
+              <Id>1118</Id>
+              <QuestionId>1976</QuestionId>
+              <Index>2</Index>
+              <Text>Resolution</Text>
+            </Choice>
+            <Choice>
+              <Id>1119</Id>
+              <QuestionId>1976</QuestionId>
+              <Index>3</Index>
+              <Text>Response time</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1977</Id>
+          <CategoryId>411</CategoryId>
+          <QuestionText>Printer quality is measured in __</QuestionText>
+          <Type>fb</Type>
+          <Answer>DPI (dots per inch)</Answer>
+          <Weight>500</Weight>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1978</Id>
+          <CategoryId>411</CategoryId>
+          <QuestionText>TFT (Thin-film transistor), also called __, uses a separate transistor for each liquid crystal cell on an LCD display.&lt;/</QuestionText>
+          <Type>fb</Type>
+          <Answer>active-matrix</Answer>
+          <Weight>600</Weight>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+      </Questions>
+    </Category>
+    <Category>
+      <Id>412</Id>
+      <GameId>111</GameId>
+      <Index>2</Index>
+      <Title>Chapter 8</Title>
+      <Subtitle> </Subtitle>
+      <Questions>
+        <Question>
+          <Id>1979</Id>
+          <CategoryId>412</CategoryId>
+          <QuestionText>Which of these terms refers to a billion bytes of storage data?</QuestionText>
+          <Type>mc</Type>
+          <Answer>GB</Answer>
+          <Weight>100</Weight>
+          <Choices>
+            <Choice>
+              <Id>1120</Id>
+              <QuestionId>1979</QuestionId>
+              <Index>0</Index>
+              <Text>KB</Text>
+            </Choice>
+            <Choice>
+              <Id>1121</Id>
+              <QuestionId>1979</QuestionId>
+              <Index>1</Index>
+              <Text>GB</Text>
+            </Choice>
+            <Choice>
+              <Id>1122</Id>
+              <QuestionId>1979</QuestionId>
+              <Index>2</Index>
+              <Text>MB</Text>
+            </Choice>
+            <Choice>
+              <Id>1123</Id>
+              <QuestionId>1979</QuestionId>
+              <Index>3</Index>
+              <Text>TB</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1980</Id>
+          <CategoryId>412</CategoryId>
+          <QuestionText>Disk cache, sometimes called a buffer, consists of memory chips on a hard disk that stores frequently accessed data, instructions, and information.</QuestionText>
+          <Type>tf</Type>
+          <Answer>True</Answer>
+          <Weight>200</Weight>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1981</Id>
+          <CategoryId>412</CategoryId>
+          <QuestionText>A hard disk configuration that connects multiple smaller disks to act like a single hard disk is called a</QuestionText>
+          <Type>fb</Type>
+          <Answer>RAID</Answer>
+          <Weight>300</Weight>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1982</Id>
+          <CategoryId>412</CategoryId>
+          <QuestionText>Which of the following is NOT an example of a memory card?</QuestionText>
+          <Type>mc</Type>
+          <Answer>XCFx</Answer>
+          <Weight>400</Weight>
+          <Choices>
+            <Choice>
+              <Id>1128</Id>
+              <QuestionId>1982</QuestionId>
+              <Index>0</Index>
+              <Text>microSD</Text>
+            </Choice>
+            <Choice>
+              <Id>1129</Id>
+              <QuestionId>1982</QuestionId>
+              <Index>1</Index>
+              <Text>miniSD</Text>
+            </Choice>
+            <Choice>
+              <Id>1130</Id>
+              <QuestionId>1982</QuestionId>
+              <Index>2</Index>
+              <Text>XCFx</Text>
+            </Choice>
+            <Choice>
+              <Id>1131</Id>
+              <QuestionId>1982</QuestionId>
+              <Index>3</Index>
+              <Text>CF</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1983</Id>
+          <CategoryId>412</CategoryId>
+          <QuestionText>SATA, EIDE, SCSI are all examples of __.</QuestionText>
+          <Type>mc</Type>
+          <Answer>Disk Controllers</Answer>
+          <Weight>500</Weight>
+          <Choices>
+            <Choice>
+              <Id>1132</Id>
+              <QuestionId>1983</QuestionId>
+              <Index>0</Index>
+              <Text>Disk Controllers</Text>
+            </Choice>
+            <Choice>
+              <Id>1133</Id>
+              <QuestionId>1983</QuestionId>
+              <Index>1</Index>
+              <Text>Miniature storage media</Text>
+            </Choice>
+            <Choice>
+              <Id>1134</Id>
+              <QuestionId>1983</QuestionId>
+              <Index>2</Index>
+              <Text>External disk drives</Text>
+            </Choice>
+            <Choice>
+              <Id>1135</Id>
+              <QuestionId>1983</QuestionId>
+              <Index>3</Index>
+              <Text>Network attached storage devices</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1984</Id>
+          <CategoryId>412</CategoryId>
+          <QuestionText>Optical disks (CDs and DVDs) store data by using microscopic pits (indentations representing 1) and lands (flat areas representing 0).</QuestionText>
+          <Type>tf</Type>
+          <Answer>False</Answer>
+          <Weight>600</Weight>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+      </Questions>
+    </Category>
+    <Category>
+      <Id>413</Id>
+      <GameId>111</GameId>
+      <Index>3</Index>
+      <Title>Chapter 9</Title>
+      <Subtitle> </Subtitle>
+      <Questions>
+        <Question>
+          <Id>1985</Id>
+          <CategoryId>413</CategoryId>
+          <QuestionText>The process of starting up a device after it has been powered off completely is called a warm boot.</QuestionText>
+          <Type>tf</Type>
+          <Answer>False</Answer>
+          <Weight>100</Weight>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1986</Id>
+          <CategoryId>413</CategoryId>
+          <QuestionText>Which of the following is a popular open source OS that runs on a variety of computers and devices?</QuestionText>
+          <Type>mc</Type>
+          <Answer>Linux</Answer>
+          <Weight>200</Weight>
+          <Choices>
+            <Choice>
+              <Id>1140</Id>
+              <QuestionId>1986</QuestionId>
+              <Index>0</Index>
+              <Text>Linux</Text>
+            </Choice>
+            <Choice>
+              <Id>1141</Id>
+              <QuestionId>1986</QuestionId>
+              <Index>1</Index>
+              <Text>Windows 8</Text>
+            </Choice>
+            <Choice>
+              <Id>1142</Id>
+              <QuestionId>1986</QuestionId>
+              <Index>2</Index>
+              <Text>MAC OS</Text>
+            </Choice>
+            <Choice>
+              <Id>1143</Id>
+              <QuestionId>1986</QuestionId>
+              <Index>3</Index>
+              <Text>Windows Server</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1987</Id>
+          <CategoryId>413</CategoryId>
+          <QuestionText>__ is when the OS allocates a portion of a storage medium to function as additional RAM.</QuestionText>
+          <Type>mc</Type>
+          <Answer>Virtual memory</Answer>
+          <Weight>300</Weight>
+          <Choices>
+            <Choice>
+              <Id>1144</Id>
+              <QuestionId>1987</QuestionId>
+              <Index>0</Index>
+              <Text>Virtual memory</Text>
+            </Choice>
+            <Choice>
+              <Id>1145</Id>
+              <QuestionId>1987</QuestionId>
+              <Index>1</Index>
+              <Text>Memory Cache</Text>
+            </Choice>
+            <Choice>
+              <Id>1146</Id>
+              <QuestionId>1987</QuestionId>
+              <Index>2</Index>
+              <Text>Memory resident</Text>
+            </Choice>
+            <Choice>
+              <Id>1147</Id>
+              <QuestionId>1987</QuestionId>
+              <Index>3</Index>
+              <Text>Random Memory</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1988</Id>
+          <CategoryId>413</CategoryId>
+          <QuestionText>The core program of the OS is called the</QuestionText>
+          <Type>mc</Type>
+          <Answer>Kernal</Answer>
+          <Weight>400</Weight>
+          <Choices>
+            <Choice>
+              <Id>1148</Id>
+              <QuestionId>1988</QuestionId>
+              <Index>0</Index>
+              <Text>Kernal</Text>
+            </Choice>
+            <Choice>
+              <Id>1149</Id>
+              <QuestionId>1988</QuestionId>
+              <Index>1</Index>
+              <Text>GUI</Text>
+            </Choice>
+            <Choice>
+              <Id>1150</Id>
+              <QuestionId>1988</QuestionId>
+              <Index>2</Index>
+              <Text>RAM</Text>
+            </Choice>
+            <Choice>
+              <Id>1151</Id>
+              <QuestionId>1988</QuestionId>
+              <Index>3</Index>
+              <Text>Boot Drive</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1989</Id>
+          <CategoryId>413</CategoryId>
+          <QuestionText>The OS on a desktop computer is stored on the hard drive. The OS on a mobile device is stored ___.</QuestionText>
+          <Type>fb</Type>
+          <Answer>The firmware (ROM chips)</Answer>
+          <Weight>500</Weight>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1990</Id>
+          <CategoryId>413</CategoryId>
+          <QuestionText>An OS (Operating System)is also referred to as a __.</QuestionText>
+          <Type>fb</Type>
+          <Answer>Platform</Answer>
+          <Weight>600</Weight>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+      </Questions>
+    </Category>
+    <Category>
+      <Id>414</Id>
+      <GameId>111</GameId>
+      <Index>4</Index>
+      <Title>Chapter 10</Title>
+      <Subtitle> </Subtitle>
+      <Questions>
+        <Question>
+          <Id>1991</Id>
+          <CategoryId>414</CategoryId>
+          <QuestionText>LAN refers to a network of devices in a limited geographical area such as a home, school, or office building.</QuestionText>
+          <Type>tf</Type>
+          <Answer>True</Answer>
+          <Weight>100</Weight>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1992</Id>
+          <CategoryId>414</CategoryId>
+          <QuestionText>Which of the following is the type of network architecture to use for a network connecting more than 10 computers?</QuestionText>
+          <Type>mc</Type>
+          <Answer>Client-server</Answer>
+          <Weight>200</Weight>
+          <Choices>
+            <Choice>
+              <Id>1156</Id>
+              <QuestionId>1992</QuestionId>
+              <Index>0</Index>
+              <Text>Client-server</Text>
+            </Choice>
+            <Choice>
+              <Id>1157</Id>
+              <QuestionId>1992</QuestionId>
+              <Index>1</Index>
+              <Text>Peer-to-peer</Text>
+            </Choice>
+            <Choice>
+              <Id>1158</Id>
+              <QuestionId>1992</QuestionId>
+              <Index>2</Index>
+              <Text>Ring</Text>
+            </Choice>
+            <Choice>
+              <Id>1159</Id>
+              <QuestionId>1992</QuestionId>
+              <Index>3</Index>
+              <Text>TCP-IP</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1993</Id>
+          <CategoryId>414</CategoryId>
+          <QuestionText>Which allows a computer that does not have built-in networking capability to access a network?</QuestionText>
+          <Type>mc</Type>
+          <Answer>NIC</Answer>
+          <Weight>300</Weight>
+          <Choices>
+            <Choice>
+              <Id>1164</Id>
+              <QuestionId>1993</QuestionId>
+              <Index>0</Index>
+              <Text>Router</Text>
+            </Choice>
+            <Choice>
+              <Id>1165</Id>
+              <QuestionId>1993</QuestionId>
+              <Index>1</Index>
+              <Text>Packet</Text>
+            </Choice>
+            <Choice>
+              <Id>1166</Id>
+              <QuestionId>1993</QuestionId>
+              <Index>2</Index>
+              <Text>NIC</Text>
+            </Choice>
+            <Choice>
+              <Id>1167</Id>
+              <QuestionId>1993</QuestionId>
+              <Index>3</Index>
+              <Text>Hub</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1994</Id>
+          <CategoryId>414</CategoryId>
+          <QuestionText>A __ is a communications device that connects multiple devices together and transmits data to its correct destination on a network.</QuestionText>
+          <Type>mc</Type>
+          <Answer>router</Answer>
+          <Weight>400</Weight>
+          <Choices>
+            <Choice>
+              <Id>1168</Id>
+              <QuestionId>1994</QuestionId>
+              <Index>0</Index>
+              <Text>router</Text>
+            </Choice>
+            <Choice>
+              <Id>1169</Id>
+              <QuestionId>1994</QuestionId>
+              <Index>1</Index>
+              <Text>server</Text>
+            </Choice>
+            <Choice>
+              <Id>1170</Id>
+              <QuestionId>1994</QuestionId>
+              <Index>2</Index>
+              <Text>switch</Text>
+            </Choice>
+            <Choice>
+              <Id>1171</Id>
+              <QuestionId>1994</QuestionId>
+              <Index>3</Index>
+              <Text>hub</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1995</Id>
+          <CategoryId>414</CategoryId>
+          <QuestionText>Which of the following network standards (protocols) allows any node to send whenever it wants sometimes resulting in a collision.</QuestionText>
+          <Type>mc</Type>
+          <Answer>Ethernet</Answer>
+          <Weight>500</Weight>
+          <Choices>
+            <Choice>
+              <Id>1172</Id>
+              <QuestionId>1995</QuestionId>
+              <Index>0</Index>
+              <Text>TCP/IP</Text>
+            </Choice>
+            <Choice>
+              <Id>1173</Id>
+              <QuestionId>1995</QuestionId>
+              <Index>1</Index>
+              <Text>802.11</Text>
+            </Choice>
+            <Choice>
+              <Id>1174</Id>
+              <QuestionId>1995</QuestionId>
+              <Index>2</Index>
+              <Text>WiFi</Text>
+            </Choice>
+            <Choice>
+              <Id>1175</Id>
+              <QuestionId>1995</QuestionId>
+              <Index>3</Index>
+              <Text>Ethernet</Text>
+            </Choice>
+          </Choices>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+        <Question>
+          <Id>1996</Id>
+          <CategoryId>414</CategoryId>
+          <QuestionText>A __ is an internal network that uses Internet technologies.</QuestionText>
+          <Type>fb</Type>
+          <Answer>intranet</Answer>
+          <Weight>600</Weight>
+          <DailyDouble>false</DailyDouble>
+        </Question>
+      </Questions>
+    </Category>
+  </Categories>
+</Game>
