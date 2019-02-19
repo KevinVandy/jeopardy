@@ -8,6 +8,8 @@ namespace Jeopardy
 {
     internal class DB_Conn
     {
+        private static readonly string DBPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019\\games.accdb";
+        private static readonly string BackupDBPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019\\backups\\games.accdb";
         private static readonly string currentdirectory = Directory.GetCurrentDirectory();
         private static string connectionString;
 
@@ -48,6 +50,12 @@ namespace Jeopardy
             {
                 Console.WriteLine("Database failed to Repair and Compact\n" + ex.ToString());
             }
+        }
+
+        public static void RestoreDBFromBackup()
+        {
+            File.Delete(DBPath);
+            File.Copy(BackupDBPath, DBPath);
         }
     }
 }

@@ -55,6 +55,7 @@
             this.bwLoadGameToExport = new System.ComponentModel.BackgroundWorker();
             this.bwDeleteGame = new System.ComponentModel.BackgroundWorker();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.troubleshootToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             // 
             this.btnCreateGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateGame.Location = new System.Drawing.Point(479, 76);
-            this.btnCreateGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateGame.Name = "btnCreateGame";
             this.btnCreateGame.Size = new System.Drawing.Size(383, 69);
             this.btnCreateGame.TabIndex = 0;
@@ -74,7 +75,7 @@
             // 
             this.btnPlayGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlayGame.Location = new System.Drawing.Point(64, 364);
-            this.btnPlayGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPlayGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnPlayGame.Name = "btnPlayGame";
             this.btnPlayGame.Size = new System.Drawing.Size(383, 165);
             this.btnPlayGame.TabIndex = 1;
@@ -88,7 +89,7 @@
             this.lstGamesFromDB.FormattingEnabled = true;
             this.lstGamesFromDB.ItemHeight = 29;
             this.lstGamesFromDB.Location = new System.Drawing.Point(64, 76);
-            this.lstGamesFromDB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstGamesFromDB.Margin = new System.Windows.Forms.Padding(4);
             this.lstGamesFromDB.Name = "lstGamesFromDB";
             this.lstGamesFromDB.Size = new System.Drawing.Size(381, 207);
             this.lstGamesFromDB.TabIndex = 2;
@@ -179,7 +180,8 @@
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.helpToolStripMenuItem1,
-            this.helpToolStripMenuItem2});
+            this.helpToolStripMenuItem2,
+            this.troubleshootToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(57, 27);
             this.helpToolStripMenuItem.Text = "Help";
@@ -203,7 +205,7 @@
             // 
             this.btnEditGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditGame.Location = new System.Drawing.Point(479, 172);
-            this.btnEditGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditGame.Name = "btnEditGame";
             this.btnEditGame.Size = new System.Drawing.Size(383, 69);
             this.btnEditGame.TabIndex = 5;
@@ -215,7 +217,7 @@
             // 
             this.btnDeleteGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteGame.Location = new System.Drawing.Point(479, 268);
-            this.btnDeleteGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteGame.Name = "btnDeleteGame";
             this.btnDeleteGame.Size = new System.Drawing.Size(383, 69);
             this.btnDeleteGame.TabIndex = 6;
@@ -233,7 +235,7 @@
             // 
             this.btnExportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportGame.Location = new System.Drawing.Point(479, 460);
-            this.btnExportGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExportGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnExportGame.Name = "btnExportGame";
             this.btnExportGame.Size = new System.Drawing.Size(383, 69);
             this.btnExportGame.TabIndex = 7;
@@ -245,7 +247,7 @@
             // 
             this.btnImportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportGame.Location = new System.Drawing.Point(479, 364);
-            this.btnImportGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImportGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnImportGame.Name = "btnImportGame";
             this.btnImportGame.Size = new System.Drawing.Size(383, 69);
             this.btnImportGame.TabIndex = 8;
@@ -284,6 +286,13 @@
             this.lblStatus.Text = "Select a Game";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // troubleshootToolStripMenuItem
+            // 
+            this.troubleshootToolStripMenuItem.Name = "troubleshootToolStripMenuItem";
+            this.troubleshootToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
+            this.troubleshootToolStripMenuItem.Text = "Troubleshoot";
+            this.troubleshootToolStripMenuItem.Click += new System.EventHandler(this.troubleshootToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -300,7 +309,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -342,6 +351,7 @@
         private System.ComponentModel.BackgroundWorker bwLoadGameToExport;
         private System.ComponentModel.BackgroundWorker bwDeleteGame;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.ToolStripMenuItem troubleshootToolStripMenuItem;
     }
 }
 
