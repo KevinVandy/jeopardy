@@ -21,6 +21,7 @@ namespace Jeopardy
         {
             lblQuestionText.Text = "";
 
+            //On form load, display each team and their scores
             foreach (Team t in Teams)
             {
                 if (t != null)
@@ -40,7 +41,7 @@ namespace Jeopardy
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-
+            //Displays the next question in the wrong questions list
             if (btnNext.Text == "Review")
             {
                 questionIndex++;
@@ -53,6 +54,7 @@ namespace Jeopardy
                 btnRevealAnswer.Show();
                 ShowQuestion(questionIndex);
             }
+            //If there a previous question that can be shown, enable the previous button
             else if (questionIndex < WrongQuestions.Count - 1)
             {
                 btnPrevious.Enabled = true;
@@ -60,6 +62,7 @@ namespace Jeopardy
                 ShowQuestion(questionIndex);
             }
 
+            //If you are at the end of the question list, disable the next button
             if ((questionIndex + 1) == WrongQuestions.Count)
             {
                 btnNext.Enabled = false;
@@ -68,12 +71,15 @@ namespace Jeopardy
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
+            //Enables the next button, decreases the question index counter
             if (questionIndex > 0)
             {
                 btnNext.Enabled = true;
                 questionIndex--;
                 ShowQuestion(questionIndex);
             }
+            //If there are no previous questions/if you are are the start of your list of questions then...
+            //Disable the previous button
             if (questionIndex == 0)
             {
                 btnPrevious.Enabled = false;
@@ -82,11 +88,13 @@ namespace Jeopardy
 
         private void btnRevealAnswer_Click(object sender, EventArgs e)
         {
+            //Method to display the answer
             ShowAnswer(questionIndex);
         }
 
         private void ShowQuestion(int i)
         {
+            //Shows the current question's text, updates the index count, and resets the answer textbox
             lblQuestionText.Text = WrongQuestions[i].QuestionText;
             lblIndex.Text = (questionIndex + 1).ToString() + " of " + WrongQuestions.Count.ToString();
             txtCorrectAnswer.Text = "";
@@ -94,6 +102,7 @@ namespace Jeopardy
 
         private void ShowAnswer(int i)
         {
+            //Displays the current questions answer
             txtCorrectAnswer.Text = WrongQuestions[i].Answer;
         }
 

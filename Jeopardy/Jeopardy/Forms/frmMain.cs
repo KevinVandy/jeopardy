@@ -211,12 +211,12 @@ namespace Jeopardy
             try
             {
                 string helpFilePath = Directory.GetCurrentDirectory() + @"\JeopardyHelpFiles\jeopardyhelp.chm";
-                
+
 
                 System.Diagnostics.Process process = new Process();
                 process.StartInfo.FileName = helpFilePath;
                 process.Start();
-                
+
             }
             catch (Exception ex)
             {
@@ -309,6 +309,15 @@ namespace Jeopardy
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void troubleshootToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Forms.Admin.frmTroubleshooter TroubleshooterForm = new Forms.Admin.frmTroubleshooter();
+            TroubleshooterForm.ShowDialog();
+            bwLoadGames.RunWorkerAsync();
 
         }
     }
