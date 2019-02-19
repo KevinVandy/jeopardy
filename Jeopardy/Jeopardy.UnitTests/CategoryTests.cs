@@ -119,5 +119,20 @@ namespace Jeopardy.UnitTests
 
             Assert.AreEqual(category.Subtitle, " ");
         }
+
+        [TestMethod]
+        public void SetBlankCategory_ReturnBlank()
+        {
+            Category category = new Category();
+
+            category.CreateBlankCategory(1, 0);
+
+            Assert.AreEqual(category.Subtitle, "");
+            Assert.AreEqual(category.Title, "Category 1");
+        }
+
+
+
+
     }
 }
