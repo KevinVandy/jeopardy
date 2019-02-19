@@ -23,6 +23,8 @@ namespace Jeopardy
             lblMin.Text = nudPoints.Minimum.ToString();
 
             //set max
+            //If they have more than 1000 points, set the max to the teams score...
+            //Otherwise set the max to 1000
             if (currentTeam.Score > 1000)
             {
                 tbPoints.Maximum = currentTeam.Score / 100;
@@ -33,6 +35,8 @@ namespace Jeopardy
                 tbPoints.Maximum = 1000 / 100;
                 nudPoints.Maximum = 1000;
             }
+
+            //Update the max text on the form
             lblMax.Text = nudPoints.Maximum.ToString();
 
             //set value
@@ -55,12 +59,14 @@ namespace Jeopardy
         //MARK: Button Event Handlers
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            //Pass the current question through the form's tag
             Tag = currentQuestion;
             Close();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            //Update the current questions weight based on what they selected for points
             currentQuestion.Weight = (int)nudPoints.Value;
             Tag = currentQuestion;
             Close();
