@@ -31,11 +31,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to delete game.", "Deletion Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to delete game.", "Deletion Error");
             }
             finally
             {
@@ -69,11 +71,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to delete category.", "Deletion Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to delete category.", "Deletion Error");
             }
             finally
             {
@@ -107,11 +111,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to delete questions.", "Deletion Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to delete questions.", "Deletion Error");
             }
             finally
             {
@@ -145,11 +151,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to delete choices.", "Deletion Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to delete choices.", "Deletion Error");
             }
             finally
             {

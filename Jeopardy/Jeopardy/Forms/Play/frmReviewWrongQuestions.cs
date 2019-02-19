@@ -21,6 +21,7 @@ namespace Jeopardy
         {
             lblQuestionText.Text = "";
 
+            //On form load, display each team and their scores
             foreach (Team t in Teams)
             {
                 if (t != null)
@@ -40,7 +41,7 @@ namespace Jeopardy
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-
+            //Displays the next question in the wrong questions list
             if (btnNext.Text == "Review")
             {
                 questionIndex++;
