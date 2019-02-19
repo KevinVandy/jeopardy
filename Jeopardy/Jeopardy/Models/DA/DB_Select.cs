@@ -43,11 +43,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select game information.", "Selection Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select game information.", "Selection Error");
             }
             finally
             {
@@ -99,11 +101,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select game information.", "Selection Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select game information.", "Selection Error");
             }
             finally
             {
@@ -154,11 +158,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select game information by game id.", "Selection Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select game information by game id.", "Selection Error");
             }
             finally
             {
@@ -208,11 +214,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select category information by category id.", "Selection Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select category information by category id.", "Selection Error");
             }
             finally
             {
@@ -264,11 +272,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select category information by game id.", "Selection Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select category information by game id.", "Selection Error");
             }
             finally
             {
@@ -322,11 +332,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select question information by question id.", "Selection Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select question information by question id.", "Selection Error");
             }
             finally
             {
@@ -382,11 +394,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select question information by category id.", "Selection Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select question information by category id.", "Selection Error");
             }
             finally
             {
@@ -432,11 +446,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select choice information by choice id.", "Selection Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select choice information by choice id.", "Selection Error");
             }
             finally
             {
@@ -481,11 +497,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select choice information by question id.", "Selection Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to select choice information by choice id.", "Selection Error");
             }
             finally
             {

@@ -23,12 +23,15 @@ namespace Jeopardy
 
         private void nudNumberOfTeams_ValueChanged(object sender, EventArgs e)
         {
+            //Grab the number from the numeric up down
+            //And display the team textboxes based on that number
             int numberTeams = (int)nudNumberOfTeams.Value;
             DisplayPanels(numberTeams);
         }
 
         private void DisplayPanels(int numTeams)
         {
+            //Display the teams
             if (numTeams == 2)
             {
                 pnlFirstTeam.Visible = true;
@@ -61,6 +64,8 @@ namespace Jeopardy
         {
             int numberTeams = (int)nudNumberOfTeams.Value;
 
+            //Creates teams based on the number in the numeric up down
+            //Puts the teams into an array, and then passes it to the play game form
             if (numberTeams == 2)
             {
                 if (ValidateData.ValidateTeamName(txtFirstTeam.Text) && ValidateData.ValidateTeamName(txtSecondTeam.Text))
