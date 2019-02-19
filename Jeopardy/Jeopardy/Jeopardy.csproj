@@ -234,7 +234,7 @@
     </EmbeddedResource>
     <None Include="JeopardyHelpFiles\Index.hhk" />
     <None Include="JeopardyHelpFiles\jeopardyhelp.chm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="JeopardyHelpFiles\jeopardyhelp.chw" />
     <None Include="JeopardyHelpFiles\jeopardyhelp.hhp" />
@@ -261,6 +261,9 @@
     <Content Include="JeopardyHelpFiles\deletegame.htm" />
     <Content Include="JeopardyHelpFiles\editgame.htm" />
     <Content Include="JeopardyHelpFiles\exportgame.htm" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\CreateGameQuestions.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\CreateGameCategories.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\CreateGameGameInfo.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\CreateGame.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\DailyDouble.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\EditCategory.PNG" />
@@ -268,7 +271,6 @@
     <Content Include="JeopardyHelpFiles\HelpImgs\EditMultipleChoice.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\EditTrueFalse.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\FillInTheBlankQuestion.PNG" />
-    <Content Include="JeopardyHelpFiles\HelpImgs\mainForm.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\MultipleChoiceQuestion.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\newGameForm.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\PlayGame.PNG" />
