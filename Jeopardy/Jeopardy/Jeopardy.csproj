@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Admin\frmTroubleshooter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmTroubleshooter.Designer.cs">
+      <DependentUpon>frmTroubleshooter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Classes\Category.cs" />
     <Compile Include="Models\Classes\Choice.cs" />
     <Compile Include="Models\Validation\CustomExceptions.cs" />
@@ -182,6 +188,9 @@
     <Compile Include="Models\Validation\ValidateData.cs" />
     <Compile Include="Models\Validation\ValidateTypes.cs" />
     <Compile Include="Models\DA\XML_IO.cs" />
+    <EmbeddedResource Include="Forms\Admin\frmTroubleshooter.resx">
+      <DependentUpon>frmTroubleshooter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,7 +243,7 @@
     </EmbeddedResource>
     <None Include="JeopardyHelpFiles\Index.hhk" />
     <None Include="JeopardyHelpFiles\jeopardyhelp.chm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="JeopardyHelpFiles\jeopardyhelp.chw" />
     <None Include="JeopardyHelpFiles\jeopardyhelp.hhp" />
@@ -261,14 +270,24 @@
     <Content Include="JeopardyHelpFiles\deletegame.htm" />
     <Content Include="JeopardyHelpFiles\editgame.htm" />
     <Content Include="JeopardyHelpFiles\exportgame.htm" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\CreateGameQuestions.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\CreateGameCategories.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\CreateGameGameInfo.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\CreateGame.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\DailyDouble.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\DeleteMessage.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\EditCategory.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\EditFillInTheBlank.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\EditMultipleChoice.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\EditTrueFalse.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\FillInTheBlankQuestion.PNG" />
-    <Content Include="JeopardyHelpFiles\HelpImgs\mainForm.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\MainPageExport.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\MainPageImport.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\MainPageDelete.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\MainPageEdit.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\MainPageNew.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\MainPagePlay.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\MainPage.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\MultipleChoiceQuestion.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\newGameForm.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\PlayGame.PNG" />
