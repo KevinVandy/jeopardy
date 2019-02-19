@@ -211,12 +211,12 @@ namespace Jeopardy
             try
             {
                 string helpFilePath = Directory.GetCurrentDirectory() + @"\JeopardyHelpFiles\jeopardyhelp.chm";
-                
+
 
                 System.Diagnostics.Process process = new Process();
                 process.StartInfo.FileName = helpFilePath;
                 process.Start();
-                
+
             }
             catch (Exception ex)
             {
