@@ -17,8 +17,8 @@ namespace Jeopardy
         {
             try
             {
-                connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=../../games.accdb";
-                //connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019\\games.accdb";
+                //connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=../../games.accdb";
+                connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019\\games.accdb";
 
                 OleDbConnection conn = new OleDbConnection(connectionString);
                 return conn;
@@ -52,10 +52,19 @@ namespace Jeopardy
             }
         }
 
-        public static void RestoreDBFromBackup()
+        public static bool RestoreDBFromBackup()
         {
-            File.Delete(DBPath);
-            File.Copy(BackupDBPath, DBPath);
+            try
+            {
+                File.Delete(DBPath);
+                File.Copy(BackupDBPath, DBPath);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n Please reinstall to restore functionality", "Failed to Restore");
+            }
+            return false;
         }
     }
 }

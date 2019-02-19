@@ -41,11 +41,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update game information.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update game information.", "Update Error");
             }
             finally
             {
@@ -90,11 +92,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update category information.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update game information.", "Update Error");
             }
             finally
             {
@@ -140,11 +144,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update question information.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update question information.", "Update Error");
             }
             finally
             {
@@ -187,11 +193,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update choice.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update choice.", "Update Error");
             }
             finally
             {
@@ -234,11 +242,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update game name.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update game name.", "Update Error");
             }
             finally
             {
@@ -280,11 +290,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update game question time limit.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update game question time limit.", "Update Error");
             }
             finally
             {
@@ -327,11 +339,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update number of categories.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update number of categories.", "Update Error");
             }
             finally
             {
@@ -374,11 +388,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update number of questions per category.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update number of questions per category.", "Update Error");
             }
             finally
             {
@@ -421,11 +437,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update category title.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update category title.", "Update Error");
             }
             finally
             {
@@ -514,11 +532,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update question type.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update question type.", "Update Error");
             }
             finally
             {
@@ -561,11 +581,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update question text.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update question text.", "Update Error");
             }
             finally
             {
@@ -608,11 +630,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update question answer.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update question answer.", "Update Error");
             }
             finally
             {
@@ -655,11 +679,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update question weight.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update question weight.", "Update Error");
             }
             finally
             {
@@ -702,11 +728,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update choice text.", "Update Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to update choice text.", "Update Error");
             }
             finally
             {

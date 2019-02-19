@@ -52,11 +52,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to insert game.", "Insertion error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to insert game.", "Insertion error");
             }
             finally
             {
@@ -111,11 +113,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to insert category.", "Insertion Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to insert category.", "Insertion Error");
             }
             finally
             {
@@ -171,11 +175,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to insert question.", "Insertion Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to insert question.", "Insertion Error");
             }
             finally
             {
@@ -215,11 +221,13 @@ namespace Jeopardy
             }
             catch (OleDbException ex)
             {
-                MessageBox.Show("Database exception\n\n" + ex.ToString());
+                Console.WriteLine("Database exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to insert choice.", "Insertion Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("General exception\n\n" + ex.ToString());
+                Console.WriteLine("General exception\n\n" + ex.ToString());
+                MessageBox.Show("Failed to insert choice.", "Insertion Error");
             }
             finally
             {

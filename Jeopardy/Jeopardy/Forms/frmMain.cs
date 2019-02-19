@@ -314,8 +314,11 @@ namespace Jeopardy
 
         private void troubleshootToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             Forms.Admin.frmTroubleshooter TroubleshooterForm = new Forms.Admin.frmTroubleshooter();
             TroubleshooterForm.ShowDialog();
+            bwLoadGames.RunWorkerAsync();
+
         }
     }
 }
