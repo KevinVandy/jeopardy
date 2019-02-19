@@ -19,12 +19,18 @@ namespace Jeopardy.Forms.Admin
 
         private void btnRestore_Click(object sender, EventArgs e)
         {
-
+            if(DB_Conn.RestoreDBFromBackup())
+            {
+                btnRestore.Enabled = false;
+                MessageBox.Show("Database restore successfully", "Success");
+            }
+           
+            
         }
 
         private void btnRepair_Click(object sender, EventArgs e)
         {
-            DB_Conn.CompactAndRepair();
+                DB_Conn.CompactAndRepair();
         }
     }
 }
