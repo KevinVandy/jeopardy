@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Jeopardy
@@ -435,6 +437,25 @@ namespace Jeopardy
         private void saveAndExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnOK_Click(sender, e);
+        }
+
+        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string helpFilePath = Directory.GetCurrentDirectory() + @"\JeopardyHelpFiles\jeopardyhelp.chm";
+
+
+                System.Diagnostics.Process process = new Process();
+                process.StartInfo.FileName = helpFilePath;
+                process.Start();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("This feature is not working yet");
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

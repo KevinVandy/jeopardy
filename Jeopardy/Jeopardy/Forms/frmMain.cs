@@ -210,8 +210,8 @@ namespace Jeopardy
         {
             try
             {
-                //string helpFilePath = Directory.GetCurrentDirectory() + @"\JeopardyHelpFiles\jeopardyhelp.chm";
-                string helpFilePath = Directory.GetCurrentDirectory() + @"jeopardyhelp.chm";
+                string helpFilePath = Directory.GetCurrentDirectory() + @"\JeopardyHelpFiles\jeopardyhelp.chm";
+                
 
                 System.Diagnostics.Process process = new Process();
                 process.StartInfo.FileName = helpFilePath;
@@ -305,6 +305,17 @@ namespace Jeopardy
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             //DB_Conn.CompactAndRepair();
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void troubleshootToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Admin.frmTroubleshooter TroubleshooterForm = new Forms.Admin.frmTroubleshooter();
+            TroubleshooterForm.ShowDialog();
         }
     }
 }
