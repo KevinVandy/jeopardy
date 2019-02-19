@@ -234,7 +234,7 @@
     </EmbeddedResource>
     <None Include="JeopardyHelpFiles\Index.hhk" />
     <None Include="JeopardyHelpFiles\jeopardyhelp.chm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="JeopardyHelpFiles\jeopardyhelp.chw" />
     <None Include="JeopardyHelpFiles\jeopardyhelp.hhp" />
