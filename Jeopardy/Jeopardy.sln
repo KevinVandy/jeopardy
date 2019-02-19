@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeopardy", "Jeopardy\Jeopar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeopardy.UnitTests", "Jeopardy.UnitTests\Jeopardy.UnitTests.csproj", "{409001A1-8A68-4098-B56F-9EA1704008B2}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "JeopardyGame", "Setup1\Setup1.vdproj", "{66B951BA-AB11-4CB8-9E81-BDB72CF5578C}"
-EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Jeopardy.Installer", "Jeopardy.Installer\Jeopardy.Installer.vdproj", "{D1C30E46-D767-4E95-B199-4EC7B9DEFEE1}"
 EndProject
 Global
@@ -24,9 +22,6 @@ Global
 		{409001A1-8A68-4098-B56F-9EA1704008B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{409001A1-8A68-4098-B56F-9EA1704008B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{409001A1-8A68-4098-B56F-9EA1704008B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{66B951BA-AB11-4CB8-9E81-BDB72CF5578C}.Debug|Any CPU.ActiveCfg = Debug
-		{66B951BA-AB11-4CB8-9E81-BDB72CF5578C}.Release|Any CPU.ActiveCfg = Release
-		{66B951BA-AB11-4CB8-9E81-BDB72CF5578C}.Release|Any CPU.Build.0 = Release
 		{D1C30E46-D767-4E95-B199-4EC7B9DEFEE1}.Debug|Any CPU.ActiveCfg = Debug
 		{D1C30E46-D767-4E95-B199-4EC7B9DEFEE1}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
