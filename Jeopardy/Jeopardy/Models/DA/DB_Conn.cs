@@ -11,7 +11,7 @@ namespace Jeopardy
         //private static string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=../../games.accdb";
         private static string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019\\games.accdb";
 
-        private static string tempConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019\\backups\\games.accdb";
+        private static string tempConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019\\gamesTemp.accdb";
 
         private static readonly string DBPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019\\games.accdb";
         private static readonly string BackupDBPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019\\backups\\games.accdb";
@@ -32,26 +32,23 @@ namespace Jeopardy
             }
         }
 
-        public static void CompactAndRepair()
+        public static bool CompactAndRepair()
         {
-            string oldmdbfile = connectionString;
-            string newmdbfile = tempConnectionString;
-            string oldmdbfilepath = DBPath;
-            string newmdbfilepath = BackupDBPath;
-
             try
             {
                 JetEngine engine = new JetEngine();
-                engine.CompactDatabase(oldmdbfile, newmdbfile);
-                File.Delete(oldmdbfilepath);
-                File.Move(newmdbfilepath, oldmdbfilepath);
+                engine.CompactDatabase(connectionString, tempConnectionString);
+                File.Delete(DBPath);
+                File.Move(DBPath, DBPath);
 
                 Console.WriteLine("Database successfully Repaired and Compacted\n");
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Database failed to Repair and Compact\n" + ex.ToString());
             }
+            return false;
         }
 
         public static bool RestoreDBFromBackup()

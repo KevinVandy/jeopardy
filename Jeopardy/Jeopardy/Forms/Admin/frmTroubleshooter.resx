@@ -117,4 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>If the program is running slowly then use the below option to Compact and Repair the Access database that this program uses. Alternatively, if you have Microsoft Access installed, you could open up the database in Access and Compact and Repair from there.</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>If your current games database is corrupt and giving errors during runtime, consider restoring it to default. Warning. This means that you will lose any games that you made, but the games that came pre-installed with this game will be restored. This is like a factory reset!</value>
+  </data>
 </root>
