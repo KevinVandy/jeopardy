@@ -51,16 +51,7 @@ namespace Jeopardy.Forms.Admin
 
         private void btnInstall_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                ProcessStartInfo start = new ProcessStartInfo();
-                start.FileName = "AccessDatabaseEngine.exe";
-                Process.Start(start);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("You canceled the installation of Access Runtime 2010", "Attention");
-            }
+            DB_Conn.InstallAccessRuntime();
 
         }
 
