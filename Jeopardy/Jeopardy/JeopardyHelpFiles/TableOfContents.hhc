@@ -36,5 +36,9 @@
 		<param name="Name" value="Export From File">
 		<param name="Local" value="exportgame.htm">
 		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Troubleshooting">
+		<param name="Local" value="troubleshoot.htm">
+		</OBJECT>
 </UL>
 </BODY></HTML>

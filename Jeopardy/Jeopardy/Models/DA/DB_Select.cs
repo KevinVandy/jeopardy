@@ -51,7 +51,7 @@ namespace Jeopardy
                 Forms.Admin.frmTroubleshooter troubleshooterForm = new Forms.Admin.frmTroubleshooter();
                 troubleshooterForm.ShowDialog();
 
-                return null;
+                return games;
             }
             finally
             {

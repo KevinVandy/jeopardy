@@ -292,6 +292,7 @@
     <Content Include="JeopardyHelpFiles\HelpImgs\newGameForm.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\PlayGame.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\TeamInfo.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\Troubleshoot.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\TrueFalseQuestion.PNG" />
     <Content Include="JeopardyHelpFiles\importgame.htm" />
     <Content Include="JeopardyHelpFiles\mainpage.htm" />
