@@ -123,4 +123,7 @@
   <data name="label2.Text" xml:space="preserve">
     <value>If your current games database is corrupt and giving errors during runtime, consider restoring it to default. Warning. This means that you will lose any games that you made, but the games that came pre-installed with this game will be restored. This is like a factory reset!</value>
   </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>The Access Database Engine is a required component for Jeopardy to run corectly. If you are getting database errors when opening the program or attempting to perform simple actions then please click the button below to launch the Access installer.</value>
+  </data>
 </root>
