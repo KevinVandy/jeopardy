@@ -137,6 +137,7 @@ namespace Jeopardy
 
         }
 
+        //Quality of Life stuff/methods
         private void txtFirstTeam_Enter(object sender, EventArgs e)
         {
             txtFirstTeam.SelectAll();
