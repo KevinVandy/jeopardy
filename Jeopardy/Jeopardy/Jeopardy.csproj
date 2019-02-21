@@ -70,10 +70,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Admin\frmTroubleshooter.cs">
+    <Compile Include="Forms\frmTroubleshooter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\frmTroubleshooter.Designer.cs">
+    <Compile Include="Forms\frmTroubleshooter.Designer.cs">
       <DependentUpon>frmTroubleshooter.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Classes\Category.cs" />
@@ -188,7 +188,7 @@
     <Compile Include="Models\Validation\ValidateData.cs" />
     <Compile Include="Models\Validation\ValidateTypes.cs" />
     <Compile Include="Models\DA\XML_IO.cs" />
-    <EmbeddedResource Include="Forms\Admin\frmTroubleshooter.resx">
+    <EmbeddedResource Include="Forms\frmTroubleshooter.resx">
       <DependentUpon>frmTroubleshooter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAbout.resx">
