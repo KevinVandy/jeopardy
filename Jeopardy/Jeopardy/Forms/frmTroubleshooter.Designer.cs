@@ -104,7 +104,7 @@
             this.btnInstall.Name = "btnInstall";
             this.btnInstall.Size = new System.Drawing.Size(365, 70);
             this.btnInstall.TabIndex = 6;
-            this.btnInstall.Text = "Install Acess Runtime";
+            this.btnInstall.Text = "Install Access Runtime";
             this.btnInstall.UseVisualStyleBackColor = true;
             this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click_1);
             // 
