@@ -1,6 +1,7 @@
 ﻿using JRO;
 using System;
 using System.Data.OleDb;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
@@ -64,6 +65,29 @@ namespace Jeopardy
                 MessageBox.Show(ex.Message + "\n Please reinstall to restore functionality", "Failed to Restore");
             }
             return false;
+        }
+
+        public static bool InstallAccessRuntime()
+        {
+            try
+            {
+                ProcessStartInfo start = new ProcessStartInfo();
+                start.FileName = "AccessDatabaseEngine.exe";
+                Process.Start(start);
+            }
+            catch(System.ComponentModel.Win32Exception ex)
+            {
+                if(MessageBox.Show("The Acess Database Engine Installer 2010 was not found. Would you like to download and install it from the internet? \n the 32 bit install is recommended.", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start("https://www.microsoft.com/en-us/download/details.aspx?id=13255");
+                }
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.GetType().ToString() + "You canceled the installation of Access Runtime 2010", "Attention");
+            }
+            return true;
         }
     }
 }
