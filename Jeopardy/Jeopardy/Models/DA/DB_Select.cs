@@ -41,15 +41,17 @@ namespace Jeopardy
                 reader.Close();
                 //don't select categories or questions or choices, just top level info, SelectAllGames will select everything
             }
-            catch (OleDbException ex)
-            {
-                Console.WriteLine("Database exception\n\n" + ex.ToString());
-                MessageBox.Show("Failed to select game information.", "Selection Error");
-            }
             catch (Exception ex)
             {
-                Console.WriteLine("General exception\n\n" + ex.ToString());
-                MessageBox.Show("Failed to select game information.", "Selection Error");
+                Console.WriteLine("Exception\n\n" + ex.ToString());
+
+                //tell the user to install Access Runtime
+                DialogResult dialog = MessageBox.Show("Error trying to load games. Access Database Engine needs to be installed click OK to install for this to work.\n\nTry clicking the first button on the Dialog that is about to popup. If that does not work, you may need to do a Factory Reset.", "Access Database Error");
+
+                Forms.Admin.frmTroubleshooter troubleshooterForm = new Forms.Admin.frmTroubleshooter();
+                troubleshooterForm.ShowDialog();
+
+                return null;
             }
             finally
             {
