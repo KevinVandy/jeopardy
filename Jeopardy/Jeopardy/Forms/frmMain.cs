@@ -307,11 +307,6 @@ namespace Jeopardy
             //DB_Conn.CompactAndRepair();
         }
 
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void troubleshootToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
