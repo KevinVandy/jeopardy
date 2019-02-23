@@ -590,6 +590,11 @@ namespace Jeopardy
             about.ShowDialog();
         }
 
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DB_Conn.OpenHelpFile();
+        }
+
         //MARK: Context Menu Item Click Event Handlers
         private void tsmiEditCategory_Click(object sender, EventArgs e) //just simulates a click of the button
         {
@@ -780,23 +785,6 @@ namespace Jeopardy
             }
         }
 
-        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string helpFilePath = Directory.GetCurrentDirectory() + @"\JeopardyHelpFiles\jeopardyhelp.chm";
-
-
-                System.Diagnostics.Process process = new Process();
-                process.StartInfo.FileName = helpFilePath;
-                process.Start();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("This feature is not working yet");
-                Console.WriteLine(ex.ToString());
-            }
-        }
+        
     }
 }

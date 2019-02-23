@@ -5,16 +5,6 @@ namespace Jeopardy
 {
     public class CustomExceptions
     {
-        //public static Exception ArgumentNullException(string v)
-        //{
-        //    throw new ArgumentNullException();
-        //}
-
-        //public static Exception WrongCountException(string v)
-        //{
-        //    throw new Exception("Wrong number of choices");
-        //}
-
         //MARK: Data Exceptions
 
         [Serializable]

@@ -41,10 +41,10 @@
             // btnRepair
             // 
             this.btnRepair.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRepair.Location = new System.Drawing.Point(9, 420);
-            this.btnRepair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRepair.Location = new System.Drawing.Point(7, 341);
+            this.btnRepair.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRepair.Name = "btnRepair";
-            this.btnRepair.Size = new System.Drawing.Size(365, 70);
+            this.btnRepair.Size = new System.Drawing.Size(318, 57);
             this.btnRepair.TabIndex = 0;
             this.btnRepair.Text = "Compact and Repair";
             this.btnRepair.UseVisualStyleBackColor = true;
@@ -53,12 +53,12 @@
             // btnRestore
             // 
             this.btnRestore.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestore.Location = new System.Drawing.Point(11, 691);
-            this.btnRestore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRestore.Location = new System.Drawing.Point(8, 561);
+            this.btnRestore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(365, 70);
+            this.btnRestore.Size = new System.Drawing.Size(318, 57);
             this.btnRestore.TabIndex = 1;
-            this.btnRestore.Text = "Restore To Default";
+            this.btnRestore.Text = "Factory Reset";
             this.btnRestore.UseVisualStyleBackColor = true;
             this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
@@ -66,10 +66,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 268);
-            this.label1.MaximumSize = new System.Drawing.Size(933, 0);
+            this.label1.Location = new System.Drawing.Point(4, 218);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.MaximumSize = new System.Drawing.Size(700, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(924, 124);
+            this.label1.Size = new System.Drawing.Size(700, 104);
             this.label1.TabIndex = 2;
             this.label1.Text = resources.GetString("label1.Text");
             // 
@@ -77,20 +78,22 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 527);
-            this.label2.MaximumSize = new System.Drawing.Size(933, 0);
+            this.label2.Location = new System.Drawing.Point(4, 428);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.MaximumSize = new System.Drawing.Size(700, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(927, 124);
+            this.label2.Size = new System.Drawing.Size(690, 104);
             this.label2.TabIndex = 3;
             this.label2.Text = resources.GetString("label2.Text");
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(611, 691);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancel.Location = new System.Drawing.Point(458, 561);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(365, 70);
+            this.btnCancel.Size = new System.Drawing.Size(274, 57);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -99,10 +102,10 @@
             // btnInstall
             // 
             this.btnInstall.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInstall.Location = new System.Drawing.Point(12, 176);
-            this.btnInstall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnInstall.Location = new System.Drawing.Point(9, 143);
+            this.btnInstall.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInstall.Name = "btnInstall";
-            this.btnInstall.Size = new System.Drawing.Size(365, 70);
+            this.btnInstall.Size = new System.Drawing.Size(318, 57);
             this.btnInstall.TabIndex = 6;
             this.btnInstall.Text = "Install Access Runtime";
             this.btnInstall.UseVisualStyleBackColor = true;
@@ -112,18 +115,20 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(15, 28);
-            this.label3.MaximumSize = new System.Drawing.Size(933, 0);
+            this.label3.Location = new System.Drawing.Point(11, 23);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.MaximumSize = new System.Drawing.Size(700, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(909, 124);
+            this.label3.Size = new System.Drawing.Size(693, 104);
             this.label3.TabIndex = 7;
             this.label3.Text = resources.GetString("label3.Text");
             // 
             // frmTroubleshooter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1043, 774);
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(772, 645);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnInstall);
             this.Controls.Add(this.btnCancel);
@@ -132,10 +137,15 @@
             this.Controls.Add(this.btnRestore);
             this.Controls.Add(this.btnRepair);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "frmTroubleshooter";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Troubleshooting";
+            this.Load += new System.EventHandler(this.frmTroubleshooter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

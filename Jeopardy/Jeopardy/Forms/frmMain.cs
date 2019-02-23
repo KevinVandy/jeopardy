@@ -208,22 +208,14 @@ namespace Jeopardy
 
         private void helpToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string helpFilePath = Directory.GetCurrentDirectory() + @"\JeopardyHelpFiles\jeopardyhelp.chm";
+            DB_Conn.OpenHelpFile();
+        }
 
-
-                System.Diagnostics.Process process = new Process();
-                process.StartInfo.FileName = helpFilePath;
-                process.Start();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("This feature is not working yet");
-                Console.WriteLine(ex.ToString());
-            }
-
+        private void troubleshootToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Admin.frmTroubleshooter TroubleshooterForm = new Forms.Admin.frmTroubleshooter();
+            TroubleshooterForm.ShowDialog();
+            bwLoadGames.RunWorkerAsync();
         }
 
         //MARK: Other Private Utility Methods
@@ -305,15 +297,6 @@ namespace Jeopardy
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             //DB_Conn.CompactAndRepair();
-        }
-
-        private void troubleshootToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            Forms.Admin.frmTroubleshooter TroubleshooterForm = new Forms.Admin.frmTroubleshooter();
-            TroubleshooterForm.ShowDialog();
-            bwLoadGames.RunWorkerAsync();
-
         }
     }
 }

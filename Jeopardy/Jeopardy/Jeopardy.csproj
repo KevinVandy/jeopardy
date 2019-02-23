@@ -186,7 +186,6 @@
     <Compile Include="Models\Classes\Question.cs" />
     <Compile Include="Models\Classes\Team.cs" />
     <Compile Include="Models\Validation\ValidateData.cs" />
-    <Compile Include="Models\Validation\ValidateTypes.cs" />
     <Compile Include="Models\DA\XML_IO.cs" />
     <EmbeddedResource Include="Forms\frmTroubleshooter.resx">
       <DependentUpon>frmTroubleshooter.cs</DependentUpon>

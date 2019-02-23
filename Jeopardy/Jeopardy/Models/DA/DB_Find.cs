@@ -4,7 +4,7 @@ namespace Jeopardy
 {
     public class DB_Find
     {
-        private static readonly OleDbConnection conn = DB_Conn.GetGamesConnection();
+        private static readonly OleDbConnection conn = DB_Conn.GetConnection();
 
         public static bool FindGameName(string gameName)
         {
