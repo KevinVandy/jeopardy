@@ -367,6 +367,18 @@ namespace Jeopardy
             }
         }
 
+        private void txtQuestionText_TextChanged(object sender, EventArgs e)
+        {
+            if (txtQuestionText.TextLength > 298)
+            {
+                lblLimitWarning.Show();
+            }
+            else
+            {
+                lblLimitWarning.Hide();
+            }
+        }
+
         private void btnImport_Click(object sender, EventArgs e)
         {
             frmImportQuestion importQuestionForm = new frmImportQuestion();

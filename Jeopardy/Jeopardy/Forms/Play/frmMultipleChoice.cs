@@ -57,7 +57,18 @@ namespace Jeopardy
             {
                 //If they have selected something, check the answer
                 Correct = CheckAnswer();
-                
+
+                if (Correct)
+                {
+                    lblTimer.Text = "Correct";
+                    lblTimer.ForeColor = Color.DarkGreen;
+                }
+                else
+                {
+                    lblTimer.Text = "Incorrect";
+                    lblTimer.ForeColor = Color.Red;
+                }
+
                 //Method that colors the choice text based on whether the choice is the answer or not
                 ColorChoices();
 
@@ -192,11 +203,6 @@ namespace Jeopardy
                 System.Media.SystemSounds.Hand.Play(); //warning sound
                 lblTimer.ForeColor = Color.DarkRed;
             }
-        }
-
-        private void lblTimer_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

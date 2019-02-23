@@ -58,11 +58,12 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveAndExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bwCreateChoices = new System.ComponentModel.BackgroundWorker();
             this.bwRemoveChoices = new System.ComponentModel.BackgroundWorker();
             this.btnImport = new System.Windows.Forms.Button();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblLimitWarning = new System.Windows.Forms.Label();
             this.pnlTypes.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -102,10 +103,12 @@
             // 
             this.txtQuestionText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuestionText.Location = new System.Drawing.Point(147, 183);
+            this.txtQuestionText.MaxLength = 300;
             this.txtQuestionText.Multiline = true;
             this.txtQuestionText.Name = "txtQuestionText";
             this.txtQuestionText.Size = new System.Drawing.Size(763, 127);
             this.txtQuestionText.TabIndex = 0;
+            this.txtQuestionText.TextChanged += new System.EventHandler(this.txtQuestionText_TextChanged);
             // 
             // rdoFillInTheBlank
             // 
@@ -147,14 +150,14 @@
             this.pnlTypes.Controls.Add(this.rdoFillInTheBlank);
             this.pnlTypes.Location = new System.Drawing.Point(147, 110);
             this.pnlTypes.Name = "pnlTypes";
-            this.pnlTypes.Size = new System.Drawing.Size(775, 67);
+            this.pnlTypes.Size = new System.Drawing.Size(764, 67);
             this.pnlTypes.TabIndex = 7;
             // 
             // rdoTrueFalse
             // 
             this.rdoTrueFalse.AutoSize = true;
             this.rdoTrueFalse.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoTrueFalse.Location = new System.Drawing.Point(595, 17);
+            this.rdoTrueFalse.Location = new System.Drawing.Point(551, 17);
             this.rdoTrueFalse.Name = "rdoTrueFalse";
             this.rdoTrueFalse.Size = new System.Drawing.Size(161, 33);
             this.rdoTrueFalse.TabIndex = 2;
@@ -167,7 +170,7 @@
             // 
             this.rdoMultipleChoice.AutoSize = true;
             this.rdoMultipleChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoMultipleChoice.Location = new System.Drawing.Point(289, 17);
+            this.rdoMultipleChoice.Location = new System.Drawing.Point(280, 17);
             this.rdoMultipleChoice.Name = "rdoMultipleChoice";
             this.rdoMultipleChoice.Size = new System.Drawing.Size(198, 33);
             this.rdoMultipleChoice.TabIndex = 1;
@@ -182,7 +185,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(147, 643);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(170, 51);
+            this.btnCancel.Size = new System.Drawing.Size(212, 51);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -191,9 +194,9 @@
             // btnOK
             // 
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(739, 643);
+            this.btnOK.Location = new System.Drawing.Point(699, 643);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(170, 51);
+            this.btnOK.Size = new System.Drawing.Size(212, 51);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -375,10 +378,17 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
             this.helpToolStripMenuItem.Text = "Help";
             // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // tutorialToolStripMenuItem
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
-            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
             this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.tutorialToolStripMenuItem_Click);
             // 
@@ -395,20 +405,26 @@
             // btnImport
             // 
             this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.Location = new System.Drawing.Point(443, 643);
+            this.btnImport.Location = new System.Drawing.Point(423, 643);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(170, 51);
+            this.btnImport.Size = new System.Drawing.Size(212, 51);
             this.btnImport.TabIndex = 22;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
-            // aboutToolStripMenuItem
+            // lblLimitWarning
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.lblLimitWarning.AutoSize = true;
+            this.lblLimitWarning.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblLimitWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLimitWarning.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblLimitWarning.Location = new System.Drawing.Point(679, 278);
+            this.lblLimitWarning.Name = "lblLimitWarning";
+            this.lblLimitWarning.Size = new System.Drawing.Size(224, 29);
+            this.lblLimitWarning.TabIndex = 23;
+            this.lblLimitWarning.Text = "Max 300 Characters";
+            this.lblLimitWarning.Visible = false;
             // 
             // frmEditQuestion
             // 
@@ -418,6 +434,7 @@
             this.AutoScroll = true;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(955, 729);
+            this.Controls.Add(this.lblLimitWarning);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.panel1);
@@ -489,5 +506,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem saveAndExitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Label lblLimitWarning;
     }
 }

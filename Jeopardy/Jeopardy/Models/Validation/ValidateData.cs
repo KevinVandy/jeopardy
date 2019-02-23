@@ -126,7 +126,7 @@ namespace Jeopardy
 
         public static bool ValidateQuestionText(string questionText)
         {
-            if (questionText.Length > 0 && questionText.Length < 1000)
+            if (questionText.Length > 0 && questionText.Length < 300)
             {
                 return true;
             }
