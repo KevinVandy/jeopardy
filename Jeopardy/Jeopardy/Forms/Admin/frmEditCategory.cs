@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.IO;
-using System.Diagnostics;
 
 namespace Jeopardy
 {
@@ -15,7 +13,6 @@ namespace Jeopardy
         public frmEditCategory(Category theCategory)
         {
             category = theCategory;
-
             InitializeComponent();
         }
 
@@ -34,7 +31,7 @@ namespace Jeopardy
             string subtitle = txtSubtitle.Text;
 
             // allows user to enter in a blank subtitle
-            if(subtitle == "" || subtitle == null)
+            if (subtitle == "" || subtitle == null)
             {
                 subtitle = " ";
             }
@@ -100,11 +97,6 @@ namespace Jeopardy
             }
         }
 
-        private void importCategoryFromOtherGameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            btnImport_Click(sender, e); //just simulates clicking the import button
-        }
-
         private void bwImportCategory_DoWork(object sender, DoWorkEventArgs e)
         {
             if (importCategoryForm.selectedCategory.Questions.Count > 0) //only import questions if there are any
@@ -167,6 +159,28 @@ namespace Jeopardy
             Close();
         }
 
+        //MARK Menu Bar Item Event Handlers
+        private void importCategoryFromOtherGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnImport_Click(sender, e); //just simulates clicking the import button
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DB_Conn.OpenHelpFile();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout aboutForm = new frmAbout();
+            aboutForm.ShowDialog();
+        }
+
         //MARK: Other Private Methods
         private void DisableAllControls()
         {
@@ -185,25 +199,6 @@ namespace Jeopardy
             btnImport.Enabled = true;
             btnOK.Enabled = true;
             importCategoryFromOtherGameToolStripMenuItem.Enabled = true;
-        }
-
-        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string helpFilePath = Directory.GetCurrentDirectory() + @"\JeopardyHelpFiles\jeopardyhelp.chm";
-
-
-                System.Diagnostics.Process process = new Process();
-                process.StartInfo.FileName = helpFilePath;
-                process.Start();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("This feature is not working yet");
-                Console.WriteLine(ex.ToString());
-            }
         }
     }
 }

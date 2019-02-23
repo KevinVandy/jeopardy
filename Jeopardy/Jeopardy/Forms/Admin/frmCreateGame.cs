@@ -125,6 +125,24 @@ namespace Jeopardy
             Close();
         }
 
+        //MARK: Menu Bar Item Event Handlers
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout aboutForm = new frmAbout();
+            aboutForm.ShowDialog();
+        }
+
+        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DB_Conn.OpenHelpFile();
+        }
+
+        //MARK: Other Private Methods
         private void DisplayNumQuestions()
         {
             lblNumQuestions.Text = CalcNumQuestions().ToString() + " Questions";
@@ -158,7 +176,7 @@ namespace Jeopardy
                     top += (questionBox.Height + 12);
                 }
                 top = 7;
-                left += (pnlPreview.Width / (int)nudNumCategories.Value);                
+                left += (pnlPreview.Width / (int)nudNumCategories.Value);
             }
         }
     }

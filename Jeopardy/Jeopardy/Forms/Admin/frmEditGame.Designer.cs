@@ -202,8 +202,8 @@
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
             this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.tutorialToolStripMenuItem.Text = "Help";
-            this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            this.tutorialToolStripMenuItem.Text = "Tutorial";
+            this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.tutorialToolStripMenuItem_Click);
             // 
             // lblQuestionTimeLimit
             // 
@@ -529,7 +529,7 @@
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(360, 239);
             this.Name = "frmEditGame";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

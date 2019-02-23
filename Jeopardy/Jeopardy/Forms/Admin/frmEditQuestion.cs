@@ -13,8 +13,7 @@ namespace Jeopardy
         private int gameId;
         private string categoryName;
         private Question question;
-
-
+        
         public frmEditQuestion(Question selectedQuestion, int theGameId, string theCategoryName)
         {
             question = selectedQuestion;
@@ -74,9 +73,7 @@ namespace Jeopardy
             txtQuestionText.SelectAll();
 
         }
-
-
-
+        
         private void bwCreateChoices_DoWork(object sender, DoWorkEventArgs e)
         {
             if (question.Choices == null || question.Choices.Count == 0)
@@ -349,7 +346,6 @@ namespace Jeopardy
                     {
                         DB_Update.UpdateChoiceText(question.Choices[i].Text, question.Choices[i].Id);
                     }
-
                 }
                 else if (rdoTrueFalse.Checked)
                 {
@@ -369,8 +365,6 @@ namespace Jeopardy
                     Close();
                 }
             }
-
-
         }
 
         private void btnImport_Click(object sender, EventArgs e)
@@ -415,17 +409,9 @@ namespace Jeopardy
                 question.Type = importQuestionForm.selectedQuestion.Type;
                 question.QuestionText = importQuestionForm.selectedQuestion.QuestionText;
                 question.Answer = importQuestionForm.selectedQuestion.Answer;
-
-
-
+                
                 frmEditQuestion_Load(sender, e); //reload this form with the info
             }
-
-        }
-
-        private void importQuestionFromOtherGameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            btnImport_Click(sender, e);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -434,28 +420,26 @@ namespace Jeopardy
             Close();
         }
 
+        //MARK: Menu Bar Item Event Handlers
+        private void importQuestionFromOtherGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnImport_Click(sender, e);
+        }
+
         private void saveAndExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnOK_Click(sender, e);
         }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout about = new frmAbout();
+            about.ShowDialog();
+        }
+
         private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string helpFilePath = Directory.GetCurrentDirectory() + @"\JeopardyHelpFiles\jeopardyhelp.chm";
-
-
-                System.Diagnostics.Process process = new Process();
-                process.StartInfo.FileName = helpFilePath;
-                process.Start();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("This feature is not working yet");
-                Console.WriteLine(ex.ToString());
-            }
+            DB_Conn.OpenHelpFile();
         }
     }
 }

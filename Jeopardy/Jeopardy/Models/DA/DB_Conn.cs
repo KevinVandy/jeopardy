@@ -10,10 +10,10 @@ namespace Jeopardy
     internal class DB_Conn
     {
         //development connection string
-        private static string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=../../games.accdb";
+        //private static string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=../../games.accdb";
 
         //installed version connection string
-        //private static readonly string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019\\games.accdb";
+        private static readonly string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019\\games.accdb";
 
         //connection string used temporarily during compact and repair
         private static readonly string tempConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019\\gamesTemp.accdb";
@@ -97,12 +97,11 @@ namespace Jeopardy
         {
             try
             {
-                string helpFilePath = Directory.GetCurrentDirectory() + @"\JeopardyHelpFiles\jeopardyhelp.chm";
+                string helpFilePath = "jeopardyhelp.chm";
 
                 System.Diagnostics.Process process = new Process();
                 process.StartInfo.FileName = helpFilePath;
                 process.Start();
-
             }
             catch (Exception ex)
             {

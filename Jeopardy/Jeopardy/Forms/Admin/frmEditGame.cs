@@ -586,11 +586,11 @@ namespace Jeopardy
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form about = new frmAbout();
+            frmAbout about = new frmAbout();
             about.ShowDialog();
         }
 
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DB_Conn.OpenHelpFile();
         }
