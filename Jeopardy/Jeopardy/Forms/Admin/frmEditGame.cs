@@ -72,6 +72,7 @@ namespace Jeopardy
         private void bwLoadGame_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             DrawGrids();
+            EnableAllControls();
         }
 
         //MARK: Value & Index Change Event Handlers (Mostly for stuff in the Game Info group box)
