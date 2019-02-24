@@ -112,7 +112,7 @@
             this.pnlRadioButtons.Controls.Add(this.rdoSecondChoice);
             this.pnlRadioButtons.Controls.Add(this.rdoFirstChoice);
             this.pnlRadioButtons.Location = new System.Drawing.Point(34, 206);
-            this.pnlRadioButtons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlRadioButtons.Margin = new System.Windows.Forms.Padding(2);
             this.pnlRadioButtons.Name = "pnlRadioButtons";
             this.pnlRadioButtons.Size = new System.Drawing.Size(940, 279);
             this.pnlRadioButtons.TabIndex = 12;
@@ -120,8 +120,9 @@
             // rdoFourthChoice
             // 
             this.rdoFourthChoice.AutoSize = true;
-            this.rdoFourthChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoFourthChoice.Location = new System.Drawing.Point(2, 222);
+            this.rdoFourthChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoFourthChoice.Location = new System.Drawing.Point(3, 240);
+            this.rdoFourthChoice.MaximumSize = new System.Drawing.Size(1000, 90);
             this.rdoFourthChoice.Name = "rdoFourthChoice";
             this.rdoFourthChoice.Size = new System.Drawing.Size(139, 35);
             this.rdoFourthChoice.TabIndex = 10;
@@ -132,8 +133,9 @@
             // rdoThirdChoice
             // 
             this.rdoThirdChoice.AutoSize = true;
-            this.rdoThirdChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoThirdChoice.Location = new System.Drawing.Point(3, 149);
+            this.rdoThirdChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoThirdChoice.Location = new System.Drawing.Point(3, 161);
+            this.rdoThirdChoice.MaximumSize = new System.Drawing.Size(1000, 90);
             this.rdoThirdChoice.Name = "rdoThirdChoice";
             this.rdoThirdChoice.Size = new System.Drawing.Size(139, 35);
             this.rdoThirdChoice.TabIndex = 9;
@@ -144,8 +146,9 @@
             // rdoSecondChoice
             // 
             this.rdoSecondChoice.AutoSize = true;
-            this.rdoSecondChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoSecondChoice.Location = new System.Drawing.Point(3, 76);
+            this.rdoSecondChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoSecondChoice.Location = new System.Drawing.Point(3, 82);
+            this.rdoSecondChoice.MaximumSize = new System.Drawing.Size(1000, 90);
             this.rdoSecondChoice.Name = "rdoSecondChoice";
             this.rdoSecondChoice.Size = new System.Drawing.Size(139, 35);
             this.rdoSecondChoice.TabIndex = 8;
@@ -156,8 +159,9 @@
             // rdoFirstChoice
             // 
             this.rdoFirstChoice.AutoSize = true;
-            this.rdoFirstChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoFirstChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoFirstChoice.Location = new System.Drawing.Point(3, 3);
+            this.rdoFirstChoice.MaximumSize = new System.Drawing.Size(1000, 90);
             this.rdoFirstChoice.Name = "rdoFirstChoice";
             this.rdoFirstChoice.Size = new System.Drawing.Size(139, 35);
             this.rdoFirstChoice.TabIndex = 7;
