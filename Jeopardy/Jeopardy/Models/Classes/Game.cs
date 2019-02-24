@@ -16,12 +16,12 @@ namespace Jeopardy
 
         public Game(int? id, string gameName, TimeSpan questionTimeLimit, int numCategories, int numQuestionsPerCategory, List<Category> categories = null)
         {
-            this.id = id;
-            this.gameName = gameName;
-            this.questionTimeLimit = questionTimeLimit;
-            this.numCategories = numCategories;
-            this.numQuestionsPerCategory = numQuestionsPerCategory;
-            this.categories = categories;
+            Id = id;
+            GameName = gameName;
+            QuestionTimeLimit = questionTimeLimit;
+            NumCategories = numCategories;
+            NumQuestionsPerCategory = numQuestionsPerCategory;
+            Categories = categories;
         }
 
         public int? Id
@@ -35,7 +35,7 @@ namespace Jeopardy
             get => gameName;
             set
             {
-                if (ValidateData.ValidateGameName(value))
+                if (Validation.ValidateGameName(value))
                 {
                     gameName = value.Trim();
                 }
@@ -51,7 +51,7 @@ namespace Jeopardy
             get => questionTimeLimit;
             set
             {
-                if (ValidateData.ValidateGameTimeLimit(value))
+                if (Validation.ValidateGameTimeLimit(value))
                 {
                     questionTimeLimit = value;
                 }
@@ -67,7 +67,7 @@ namespace Jeopardy
             get => numCategories;
             set
             {
-                if (ValidateData.ValidateNumCategories(value))
+                if (Validation.ValidateNumCategories(value))
                 {
                     numCategories = value;
                 }
@@ -83,7 +83,7 @@ namespace Jeopardy
             get => numQuestionsPerCategory;
             set
             {
-                if (ValidateData.ValidateNumQuestionsPerCategory(value))
+                if (Validation.ValidateNumQuestionsPerCategory(value))
                 {
                     numQuestionsPerCategory = value;
                 }

@@ -11,10 +11,10 @@
 
         public Choice(int? id, int questionId, int index, string text)
         {
-            this.id = id;
-            this.questionId = questionId;
-            this.index = index;
-            this.text = text;
+            Id = id;
+            QuestionId = questionId;
+            Index = index;
+            Text = text;
         }
 
         public int? Id
@@ -34,7 +34,7 @@
             get => index;
             set
             {
-                if (ValidateData.ValidateChoiceIndex(value))
+                if (Validation.ValidateChoiceIndex(value))
                 {
                     index = value;
                 }
@@ -45,7 +45,7 @@
         {
             get
             {
-                if (ValidateData.ValidateChoiceText(text))
+                if (Validation.ValidateChoiceText(text))
                 {
                     return text;
                 }
@@ -56,7 +56,7 @@
             }
             set
             {
-                if (ValidateData.ValidateChoiceText(value))
+                if (Validation.ValidateChoiceText(value))
                 {
                     text = value.Trim();
                 }

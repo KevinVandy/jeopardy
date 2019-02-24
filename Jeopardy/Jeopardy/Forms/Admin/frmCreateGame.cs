@@ -94,7 +94,7 @@ namespace Jeopardy
             int numCategories = (int)nudNumCategories.Value;
             int numQuestionsPerCat = (int)nudNumQuestionCategory.Value;
 
-            if (ValidateData.ValidateGameName(gameName))
+            if (Validation.ValidateGameName(gameName))
             {
                 btnCreateGame.Text = "Creating Game";
                 btnCreateGame.Enabled = false;

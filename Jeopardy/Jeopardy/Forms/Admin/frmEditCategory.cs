@@ -36,7 +36,7 @@ namespace Jeopardy
                 subtitle = " ";
             }
 
-            if (ValidateData.ValidateCategoryTitle(txtTitle.Text) && ValidateData.ValidateCategorySubtitle(subtitle))
+            if (Validation.ValidateCategoryTitle(txtTitle.Text) && Validation.ValidateCategorySubtitle(subtitle))
             {
                 category.Title = txtTitle.Text;
                 category.Subtitle = txtSubtitle.Text;

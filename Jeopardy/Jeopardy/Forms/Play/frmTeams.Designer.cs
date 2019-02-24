@@ -100,6 +100,7 @@
             // 
             this.txtFirstTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstTeam.Location = new System.Drawing.Point(161, 20);
+            this.txtFirstTeam.MaxLength = 50;
             this.txtFirstTeam.Name = "txtFirstTeam";
             this.txtFirstTeam.Size = new System.Drawing.Size(240, 35);
             this.txtFirstTeam.TabIndex = 0;
@@ -130,6 +131,7 @@
             // 
             this.txtSecondTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSecondTeam.Location = new System.Drawing.Point(161, 20);
+            this.txtSecondTeam.MaxLength = 50;
             this.txtSecondTeam.Name = "txtSecondTeam";
             this.txtSecondTeam.Size = new System.Drawing.Size(240, 35);
             this.txtSecondTeam.TabIndex = 0;
@@ -161,6 +163,7 @@
             // 
             this.txtThirdTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThirdTeam.Location = new System.Drawing.Point(161, 20);
+            this.txtThirdTeam.MaxLength = 50;
             this.txtThirdTeam.Name = "txtThirdTeam";
             this.txtThirdTeam.Size = new System.Drawing.Size(240, 35);
             this.txtThirdTeam.TabIndex = 0;
@@ -192,6 +195,7 @@
             // 
             this.txtFourthTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFourthTeam.Location = new System.Drawing.Point(161, 20);
+            this.txtFourthTeam.MaxLength = 50;
             this.txtFourthTeam.Name = "txtFourthTeam";
             this.txtFourthTeam.Size = new System.Drawing.Size(240, 35);
             this.txtFourthTeam.TabIndex = 0;
