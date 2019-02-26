@@ -41,13 +41,17 @@
             this.rdoThirdChoice = new System.Windows.Forms.RadioButton();
             this.rdoSecondChoice = new System.Windows.Forms.RadioButton();
             this.rdoFirstChoice = new System.Windows.Forms.RadioButton();
+            this.lblA = new System.Windows.Forms.Label();
+            this.lblB = new System.Windows.Forms.Label();
+            this.lblC = new System.Windows.Forms.Label();
+            this.lblD = new System.Windows.Forms.Label();
             this.pnlRadioButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTimer
             // 
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(274, 505);
+            this.lblTimer.Location = new System.Drawing.Point(274, 526);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(211, 53);
             this.lblTimer.TabIndex = 9;
@@ -57,7 +61,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(34, 504);
+            this.btnCancel.Location = new System.Drawing.Point(34, 525);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(234, 54);
             this.btnCancel.TabIndex = 8;
@@ -68,7 +72,7 @@
             // btnDone
             // 
             this.btnDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDone.Location = new System.Drawing.Point(786, 504);
+            this.btnDone.Location = new System.Drawing.Point(786, 525);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(234, 54);
             this.btnDone.TabIndex = 7;
@@ -97,7 +101,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(491, 504);
+            this.btnSubmit.Location = new System.Drawing.Point(491, 525);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(234, 54);
             this.btnSubmit.TabIndex = 11;
@@ -107,21 +111,25 @@
             // 
             // pnlRadioButtons
             // 
+            this.pnlRadioButtons.Controls.Add(this.lblD);
+            this.pnlRadioButtons.Controls.Add(this.lblC);
+            this.pnlRadioButtons.Controls.Add(this.lblB);
+            this.pnlRadioButtons.Controls.Add(this.lblA);
             this.pnlRadioButtons.Controls.Add(this.rdoFourthChoice);
             this.pnlRadioButtons.Controls.Add(this.rdoThirdChoice);
             this.pnlRadioButtons.Controls.Add(this.rdoSecondChoice);
             this.pnlRadioButtons.Controls.Add(this.rdoFirstChoice);
-            this.pnlRadioButtons.Location = new System.Drawing.Point(34, 206);
+            this.pnlRadioButtons.Location = new System.Drawing.Point(11, 206);
             this.pnlRadioButtons.Margin = new System.Windows.Forms.Padding(2);
             this.pnlRadioButtons.Name = "pnlRadioButtons";
-            this.pnlRadioButtons.Size = new System.Drawing.Size(940, 279);
+            this.pnlRadioButtons.Size = new System.Drawing.Size(1029, 304);
             this.pnlRadioButtons.TabIndex = 12;
             // 
             // rdoFourthChoice
             // 
             this.rdoFourthChoice.AutoSize = true;
             this.rdoFourthChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoFourthChoice.Location = new System.Drawing.Point(3, 240);
+            this.rdoFourthChoice.Location = new System.Drawing.Point(59, 222);
             this.rdoFourthChoice.MaximumSize = new System.Drawing.Size(1000, 90);
             this.rdoFourthChoice.Name = "rdoFourthChoice";
             this.rdoFourthChoice.Size = new System.Drawing.Size(139, 35);
@@ -134,7 +142,7 @@
             // 
             this.rdoThirdChoice.AutoSize = true;
             this.rdoThirdChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoThirdChoice.Location = new System.Drawing.Point(3, 161);
+            this.rdoThirdChoice.Location = new System.Drawing.Point(59, 149);
             this.rdoThirdChoice.MaximumSize = new System.Drawing.Size(1000, 90);
             this.rdoThirdChoice.Name = "rdoThirdChoice";
             this.rdoThirdChoice.Size = new System.Drawing.Size(139, 35);
@@ -147,7 +155,7 @@
             // 
             this.rdoSecondChoice.AutoSize = true;
             this.rdoSecondChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoSecondChoice.Location = new System.Drawing.Point(3, 82);
+            this.rdoSecondChoice.Location = new System.Drawing.Point(59, 76);
             this.rdoSecondChoice.MaximumSize = new System.Drawing.Size(1000, 90);
             this.rdoSecondChoice.Name = "rdoSecondChoice";
             this.rdoSecondChoice.Size = new System.Drawing.Size(139, 35);
@@ -160,7 +168,7 @@
             // 
             this.rdoFirstChoice.AutoSize = true;
             this.rdoFirstChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoFirstChoice.Location = new System.Drawing.Point(3, 3);
+            this.rdoFirstChoice.Location = new System.Drawing.Point(59, 3);
             this.rdoFirstChoice.MaximumSize = new System.Drawing.Size(1000, 90);
             this.rdoFirstChoice.Name = "rdoFirstChoice";
             this.rdoFirstChoice.Size = new System.Drawing.Size(139, 35);
@@ -169,11 +177,51 @@
             this.rdoFirstChoice.Text = "Choice 1";
             this.rdoFirstChoice.UseVisualStyleBackColor = true;
             // 
+            // lblA
+            // 
+            this.lblA.AutoSize = true;
+            this.lblA.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblA.Location = new System.Drawing.Point(3, 5);
+            this.lblA.Name = "lblA";
+            this.lblA.Size = new System.Drawing.Size(32, 31);
+            this.lblA.TabIndex = 11;
+            this.lblA.Text = "A";
+            // 
+            // lblB
+            // 
+            this.lblB.AutoSize = true;
+            this.lblB.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblB.Location = new System.Drawing.Point(4, 78);
+            this.lblB.Name = "lblB";
+            this.lblB.Size = new System.Drawing.Size(32, 31);
+            this.lblB.TabIndex = 12;
+            this.lblB.Text = "B";
+            // 
+            // lblC
+            // 
+            this.lblC.AutoSize = true;
+            this.lblC.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC.Location = new System.Drawing.Point(4, 151);
+            this.lblC.Name = "lblC";
+            this.lblC.Size = new System.Drawing.Size(34, 31);
+            this.lblC.TabIndex = 13;
+            this.lblC.Text = "C";
+            // 
+            // lblD
+            // 
+            this.lblD.AutoSize = true;
+            this.lblD.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblD.Location = new System.Drawing.Point(3, 224);
+            this.lblD.Name = "lblD";
+            this.lblD.Size = new System.Drawing.Size(34, 31);
+            this.lblD.TabIndex = 14;
+            this.lblD.Text = "D";
+            // 
             // frmMultipleChoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 590);
+            this.ClientSize = new System.Drawing.Size(1051, 610);
             this.Controls.Add(this.pnlRadioButtons);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblQuestionText);
@@ -210,5 +258,9 @@
         private System.Windows.Forms.RadioButton rdoThirdChoice;
         private System.Windows.Forms.RadioButton rdoSecondChoice;
         private System.Windows.Forms.RadioButton rdoFirstChoice;
+        private System.Windows.Forms.Label lblD;
+        private System.Windows.Forms.Label lblC;
+        private System.Windows.Forms.Label lblB;
+        private System.Windows.Forms.Label lblA;
     }
 }

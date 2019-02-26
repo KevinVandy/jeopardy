@@ -84,8 +84,6 @@ namespace Jeopardy
             {
                 MessageBox.Show("You must choose an answer.", "ERROR");
             }
-
-
         }
 
         private bool ValidateChecked()
@@ -167,7 +165,7 @@ namespace Jeopardy
             if (lblTimer.Text == "0:00")
             {
                 //If the timer hits zero, stop the timer
-                timer.Stop(); //todo
+                timer.Stop();
 
                 //If the user has selected any radio button, check it to see if it's correct
                 if (ValidateChecked())
