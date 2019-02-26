@@ -5,26 +5,8 @@ using System.Windows.Forms;
 
 namespace Jeopardy
 {
-    internal class ValidateData
+    internal class Validation
     {
-        public static bool AreFourChoices(List<Choice> Value)
-        {
-            try
-            {
-                if (Value.Count != 4)
-                {
-                    throw new CustomExceptions.WrongCountException();
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error");
-                return false;
-            }
-
-        }
-
         //MARK: Validate Game properties
         public static bool ValidateGameName(string gameName)
         {
@@ -126,7 +108,7 @@ namespace Jeopardy
 
         public static bool ValidateQuestionText(string questionText)
         {
-            if (questionText.Length > 0 && questionText.Length < 1000)
+            if (questionText.Length > 0 && questionText.Length < 300)
             {
                 return true;
             }
@@ -149,7 +131,7 @@ namespace Jeopardy
             //{
             //    return true;
             //}
-            if (weight > -100000 && weight < 100000)
+            if (weight > 0 && weight < 100000)
             {
                 return true;
             }
@@ -174,7 +156,7 @@ namespace Jeopardy
         //MARK: Validate Team properties
         public static bool ValidateTeamName(string teamName)
         {
-            if (teamName.Length > 0 && teamName.Length < 255)
+            if (teamName.Length > 0 && teamName.Length < 50)
             {
                 return true;
             }
@@ -183,7 +165,7 @@ namespace Jeopardy
 
         public static bool ValidateTeamScore(int teamScore)
         {
-            if (teamScore > -100000 && teamScore < 1000000) //TODO
+            if (teamScore > -100000 && teamScore < 1000000)
             {
                 return true;
             }

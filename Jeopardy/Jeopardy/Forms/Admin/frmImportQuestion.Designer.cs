@@ -41,12 +41,19 @@
             this.lstGames = new System.Windows.Forms.ListBox();
             this.bwLoadGames = new System.ComponentModel.BackgroundWorker();
             this.label3 = new System.Windows.Forms.Label();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAndExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(40, 516);
+            this.btnCancel.Location = new System.Drawing.Point(40, 530);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(204, 49);
             this.btnCancel.TabIndex = 15;
@@ -57,7 +64,7 @@
             // btnImport
             // 
             this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.Location = new System.Drawing.Point(512, 516);
+            this.btnImport.Location = new System.Drawing.Point(512, 530);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(204, 49);
             this.btnImport.TabIndex = 14;
@@ -69,7 +76,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(490, 28);
+            this.label2.Location = new System.Drawing.Point(490, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 24);
             this.label2.TabIndex = 13;
@@ -83,7 +90,7 @@
             this.chAnswer});
             this.lsvQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvQuestions.FullRowSelect = true;
-            this.lsvQuestions.Location = new System.Drawing.Point(40, 307);
+            this.lsvQuestions.Location = new System.Drawing.Point(40, 321);
             this.lsvQuestions.MultiSelect = false;
             this.lsvQuestions.Name = "lsvQuestions";
             this.lsvQuestions.Size = new System.Drawing.Size(676, 188);
@@ -112,7 +119,7 @@
             this.lstCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstCategories.FormattingEnabled = true;
             this.lstCategories.ItemHeight = 20;
-            this.lstCategories.Location = new System.Drawing.Point(407, 67);
+            this.lstCategories.Location = new System.Drawing.Point(407, 81);
             this.lstCategories.Name = "lstCategories";
             this.lstCategories.Size = new System.Drawing.Size(309, 164);
             this.lstCategories.TabIndex = 11;
@@ -122,7 +129,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(135, 28);
+            this.label1.Location = new System.Drawing.Point(135, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 24);
             this.label1.TabIndex = 10;
@@ -133,7 +140,7 @@
             this.lstGames.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstGames.FormattingEnabled = true;
             this.lstGames.ItemHeight = 20;
-            this.lstGames.Location = new System.Drawing.Point(40, 67);
+            this.lstGames.Location = new System.Drawing.Point(40, 81);
             this.lstGames.Name = "lstGames";
             this.lstGames.Size = new System.Drawing.Size(309, 164);
             this.lstGames.TabIndex = 8;
@@ -148,17 +155,69 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(304, 266);
+            this.label3.Location = new System.Drawing.Point(304, 280);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(143, 24);
             this.label3.TabIndex = 16;
             this.label3.Text = "Select Question";
             // 
+            // menuStrip
+            // 
+            this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(763, 29);
+            this.menuStrip.TabIndex = 23;
+            this.menuStrip.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveAndExitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 25);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveAndExitToolStripMenuItem
+            // 
+            this.saveAndExitToolStripMenuItem.Name = "saveAndExitToolStripMenuItem";
+            this.saveAndExitToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.saveAndExitToolStripMenuItem.Text = "Exit";
+            this.saveAndExitToolStripMenuItem.Click += new System.EventHandler(this.saveAndExitToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem,
+            this.tutorialToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // tutorialToolStripMenuItem
+            // 
+            this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.tutorialToolStripMenuItem.Text = "Tutorial";
+            this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.tutorialToolStripMenuItem_Click);
+            // 
             // frmImportQuestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 593);
+            this.ClientSize = new System.Drawing.Size(763, 604);
+            this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnImport);
@@ -176,6 +235,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Jeopardy - Import Question";
             this.Load += new System.EventHandler(this.frmImportQuestion_Load);
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +256,11 @@
         private System.ComponentModel.BackgroundWorker bwLoadGames;
         private System.Windows.Forms.ColumnHeader chType;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAndExitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
     }
 }

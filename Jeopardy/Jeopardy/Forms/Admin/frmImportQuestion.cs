@@ -118,5 +118,22 @@ namespace Jeopardy
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+        //MARK: Menu Bar Item Event Handlers
+        private void saveAndExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout about = new frmAbout();
+            about.ShowDialog();
+        }
+
+        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DB_Conn.OpenHelpFile();
+        }
     }
 }

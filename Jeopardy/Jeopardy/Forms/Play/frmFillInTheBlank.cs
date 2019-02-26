@@ -38,7 +38,7 @@ namespace Jeopardy
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             //Make sure the user entered at least something before attempting to determine if it's correct or not
-            if (ValidateData.ValidateQuestionAnswer(txtUserAnswer.Text) == true && txtUserAnswer.Text.Trim() != "")
+            if (Validation.ValidateQuestionAnswer(txtUserAnswer.Text) == true && txtUserAnswer.Text.Trim() != "")
             {
                 //Stop the timer
                 timer.Stop();
@@ -104,7 +104,7 @@ namespace Jeopardy
                 timer.Stop(); //todo
 
                 //If the user has anything in the the textbox, check to see if it's correct
-                if (ValidateData.ValidateQuestionAnswer(txtUserAnswer.Text))
+                if (Validation.ValidateQuestionAnswer(txtUserAnswer.Text))
                 {
                     btnSubmit_Click(sender, e);
                 }

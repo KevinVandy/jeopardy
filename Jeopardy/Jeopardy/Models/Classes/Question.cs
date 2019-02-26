@@ -18,15 +18,15 @@ namespace Jeopardy
 
         public Question(int? id, int categoryId, string questionText, string type, string answer, int weight, string state, List<Choice> choices = null, bool dailyDouble = false)
         {
-            this.id = id;
-            this.categoryId = categoryId;
-            this.questionText = questionText;
-            this.type = type;
-            this.answer = answer;
-            this.weight = weight;
-            this.state = state;
-            this.choices = choices;
-            this.dailyDouble = dailyDouble;
+            Id = id;
+            CategoryId = categoryId;
+            QuestionText = questionText;
+            Type = type;
+            Answer = answer;
+            Weight = weight;
+            State = state;
+            Choices = choices;
+            DailyDouble = dailyDouble;
         }
 
         public int? Id
@@ -46,7 +46,7 @@ namespace Jeopardy
             get => questionText;
             set
             {
-                if (ValidateData.ValidateQuestionText(value))
+                if (Validation.ValidateQuestionText(value))
                 {
                     questionText = value.Trim();
                 }
@@ -62,7 +62,7 @@ namespace Jeopardy
             get => type;
             set
             {
-                if (ValidateData.ValidateQuestionType(value))
+                if (Validation.ValidateQuestionType(value))
                 {
                     type = value.Trim();
                 }
@@ -78,7 +78,7 @@ namespace Jeopardy
             get => answer;
             set
             {
-                if (ValidateData.ValidateQuestionAnswer(value))
+                if (Validation.ValidateQuestionAnswer(value))
                 {
                     answer = value.Trim();
                 }
@@ -94,7 +94,7 @@ namespace Jeopardy
             get => weight;
             set
             {
-                if (ValidateData.ValidateQuestionWeight(value))
+                if (Validation.ValidateQuestionWeight(value))
                 {
                     weight = value;
                 }

@@ -185,8 +185,7 @@
     </Compile>
     <Compile Include="Models\Classes\Question.cs" />
     <Compile Include="Models\Classes\Team.cs" />
-    <Compile Include="Models\Validation\ValidateData.cs" />
-    <Compile Include="Models\Validation\ValidateTypes.cs" />
+    <Compile Include="Models\Validation\Validation.cs" />
     <Compile Include="Models\DA\XML_IO.cs" />
     <EmbeddedResource Include="Forms\frmTroubleshooter.resx">
       <DependentUpon>frmTroubleshooter.cs</DependentUpon>
@@ -298,6 +297,7 @@
     <Content Include="JeopardyHelpFiles\mainpage.htm" />
     <Content Include="JeopardyHelpFiles\newgame.htm" />
     <Content Include="JeopardyHelpFiles\playgame.htm" />
+    <Content Include="JeopardyHelpFiles\troubleshoot.htm" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

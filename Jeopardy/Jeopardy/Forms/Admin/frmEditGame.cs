@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 namespace Jeopardy
@@ -74,20 +72,12 @@ namespace Jeopardy
         private void bwLoadGame_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             DrawGrids();
+            EnableAllControls();
         }
 
         //MARK: Value & Index Change Event Handlers (Mostly for stuff in the Game Info group box)
 
         private void txtGameName_Leave(object sender, EventArgs e)
-        {
-            if (txtGameName.Text != game.GameName)
-            {
-                game.GameName = txtGameName.Text;
-                bwUpdateGameName.RunWorkerAsync();
-            }
-        }
-
-        private void txtGameName_DoubleClick(object sender, EventArgs e)
         {
             if (txtGameName.Text != game.GameName)
             {
@@ -136,7 +126,7 @@ namespace Jeopardy
                 game.QuestionTimeLimit = new TimeSpan(0, 3, 0); //3 minutes
             }
 
-            cboQuestionTimeLimit.Enabled = false; //disable while other thread running
+            DisableAllControls(); //disable while other thread running
             bwUpdateTimeLimit.RunWorkerAsync(); //update in backgroud thread
         }
 
@@ -150,14 +140,14 @@ namespace Jeopardy
 
         private void bwUpdateTimeLimit_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            cboQuestionTimeLimit.Enabled = true; //re-enable once safe
+            EnableAllControls(); //re-enable once safe
         }
 
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
         {
             if ((int)nudNumCategories.Value > game.NumCategories) //if up was clicked
             {
-                nudNumCategories.Enabled = false;
+                DisableAllControls(); //disable controls to prevent user from making simultaneous db calls
                 game.NumCategories = (int)nudNumCategories.Value;
                 bwAddCategory.RunWorkerAsync();
             }
@@ -174,7 +164,7 @@ namespace Jeopardy
                 }
                 if (dialogResult == DialogResult.Yes)
                 {
-                    nudNumCategories.Enabled = false;
+                    DisableAllControls(); //disable controls to prevent user from making simultaneous db calls
                     game.NumCategories = (int)nudNumCategories.Value;
                     bwRemoveCategory.RunWorkerAsync();
                 }
@@ -183,20 +173,6 @@ namespace Jeopardy
                     nudNumCategories.Value++; //go back to original value before clicked if canceled
                 }
             }
-        }
-
-        private void bwUpdateNumCategories_DoWork(object sender, DoWorkEventArgs e)
-        {
-            if (!DB_Update.UpdateGameNumCategories(game.NumCategories, game.Id))
-            {
-                MessageBox.Show("Failed to update NumCategories");
-            }
-        }
-
-        private void bwUpdateNumCategories_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            nudNumCategories.Enabled = true;
-            DisplayNumberQuestions();
         }
 
         private void bwAddCategory_DoWork(object sender, DoWorkEventArgs e)
@@ -235,17 +211,29 @@ namespace Jeopardy
 
         private void bwRemoveCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-
             bwUpdateNumCategories.RunWorkerAsync();
             DrawGrids();
-            nudNumCategories.Enabled = true;
+        }
+
+        private void bwUpdateNumCategories_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (!DB_Update.UpdateGameNumCategories(game.NumCategories, game.Id))
+            {
+                MessageBox.Show("Failed to update NumCategories");
+            }
+        }
+
+        private void bwUpdateNumCategories_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            EnableAllControls();
+            DisplayNumberQuestions();
         }
 
         private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
         {
             if ((int)nudNumQuestionCategory.Value > game.NumQuestionsPerCategory) //if up was clicked
             {
-                nudNumQuestionCategory.Enabled = false;
+                DisableAllControls();
                 game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
                 bwAddQuestions.RunWorkerAsync();
             }
@@ -264,7 +252,7 @@ namespace Jeopardy
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    nudNumQuestionCategory.Enabled = false;
+                    DisableAllControls();
                     game.NumQuestionsPerCategory = (int)nudNumQuestionCategory.Value;
                     bwRemoveQuestions.RunWorkerAsync();
                 }
@@ -273,20 +261,6 @@ namespace Jeopardy
                     nudNumQuestionCategory.Value++; //go back to original value before clicked if canceled
                 }
             }
-        }
-
-        private void bwUpdateNumQuestionsPerCategory_DoWork(object sender, DoWorkEventArgs e)
-        {
-            if (!DB_Update.UpdateGameNumQuestionsPerCategory(game.NumQuestionsPerCategory, game.Id)) //updating db happens here
-            {
-                MessageBox.Show("Failed to update NumQuestionsPerCategory");
-            }
-        }
-
-        private void bwUpdateNumQuestionsPerCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            nudNumQuestionCategory.Enabled = true; //re-enable once thread safe
-            DisplayNumberQuestions();
         }
 
         private void bwAddQuestions_DoWork(object sender, DoWorkEventArgs e)
@@ -318,7 +292,7 @@ namespace Jeopardy
             {
                 if (DB_Delete.DeleteQuestion(game.Categories[i].Questions[game.NumQuestionsPerCategory].Id) > 0) //deleting question happens here
                 {
-                    game.Categories[i].Questions.RemoveAt(game.NumQuestionsPerCategory); //if deleting from db was successful, also remove from game
+                    game.Categories[i].Questions.RemoveAt(game.NumQuestionsPerCategory); //if deleting from db was successful, also remove from game object
                 }
                 else
                 {
@@ -331,7 +305,20 @@ namespace Jeopardy
         {
             bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
             CreateQuestionGrid();
-            nudNumQuestionCategory.Enabled = true;
+        }
+
+        private void bwUpdateNumQuestionsPerCategory_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (!DB_Update.UpdateGameNumQuestionsPerCategory(game.NumQuestionsPerCategory, game.Id)) //updating db happens here
+            {
+                MessageBox.Show("Failed to update NumQuestionsPerCategory");
+            }
+        }
+
+        private void bwUpdateNumQuestionsPerCategory_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            EnableAllControls(); //re-enable once thread safe
+            DisplayNumberQuestions();
         }
 
         //MARK: Methods for Drawing the Buttons in the Group Boxes
@@ -380,6 +367,8 @@ namespace Jeopardy
 
         private void CategoryButton_Click(object sender, EventArgs e)
         {
+            DisableAllControls();
+
             //detect position in button grid
             int x = -1;
             for (int i = 0; i < game.NumCategories && x < 0; ++i)
@@ -400,6 +389,14 @@ namespace Jeopardy
                 {
                     bwLoadGame.RunWorkerAsync();
                 }
+                else
+                {
+                    EnableAllControls();
+                }
+            }
+            else
+            {
+                EnableAllControls();
             }
         }
 
@@ -456,6 +453,8 @@ namespace Jeopardy
 
         private void QuestionButton_Click(object sender, EventArgs e)
         {
+            DisableAllControls();
+
             //detect position in button grid of sender
             int x = -1;
             int y = -1;
@@ -483,6 +482,14 @@ namespace Jeopardy
                 {
                     bwLoadGame.RunWorkerAsync();
                 }
+                else
+                {
+                    EnableAllControls();
+                }
+            }
+            else
+            {
+                EnableAllControls();
             }
         }
 
@@ -576,7 +583,9 @@ namespace Jeopardy
 
         private void exportGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DisableAllControls();
             XML_IO.exportXML(game);
+            EnableAllControls();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -586,13 +595,20 @@ namespace Jeopardy
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form about = new frmAbout();
+            frmAbout about = new frmAbout();
             about.ShowDialog();
+        }
+
+        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DB_Conn.OpenHelpFile();
         }
 
         //MARK: Context Menu Item Click Event Handlers
         private void tsmiEditCategory_Click(object sender, EventArgs e) //just simulates a click of the button
         {
+            DisableAllControls();
+
             ToolStripItem menuItem = sender as ToolStripItem;
             if (menuItem != null)
             {
@@ -603,10 +619,14 @@ namespace Jeopardy
                     CategoryButton_Click(clickedButton, null);
                 }
             }
+
+            EnableAllControls();
         }
 
         private void tsmiDeleteCategory_Click(object sender, EventArgs e) //updates a category to be blank and default
         {
+            DisableAllControls();
+
             DialogResult dialogResult = MessageBox.Show("Are you sure that you want to Delete this Category and all of the Questions in this Category?", "Confirm Delete", MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
@@ -633,6 +653,10 @@ namespace Jeopardy
                     }
                 }
             }
+            else
+            {
+                EnableAllControls();
+            }
         }
 
         private void bwUpdateCategory_DoWork(object sender, DoWorkEventArgs e) //also updates questions
@@ -654,6 +678,7 @@ namespace Jeopardy
             {
                 bwLoadGame.RunWorkerAsync();
             }
+            EnableAllControls();
         }
 
         private void tsmiEditQuestion_Click(object sender, EventArgs e) //just simulates a click of the button
@@ -672,6 +697,8 @@ namespace Jeopardy
 
         private void tsmiDeleteQuestion_Click(object sender, EventArgs e)
         {
+            DisableAllControls();
+
             DialogResult dialogResult = MessageBox.Show("Are you sure that you want to Delete this question?", "Confirm Delete", MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
@@ -708,6 +735,10 @@ namespace Jeopardy
                     }
                 }
             }
+            else
+            {
+                EnableAllControls();
+            }
         }
 
         private void bwUpdateQuestion_DoWork(object sender, DoWorkEventArgs e)
@@ -721,6 +752,7 @@ namespace Jeopardy
             {
                 bwLoadGame.RunWorkerAsync();
             }
+            EnableAllControls();
         }
 
         private void bwDeleteChoices_DoWork(object sender, DoWorkEventArgs e)
@@ -737,6 +769,7 @@ namespace Jeopardy
             {
                 bwLoadGame.RunWorkerAsync();
             }
+            EnableAllControls();
         }
 
         //MARK: Resizing the Window Event Handler stuff
@@ -780,23 +813,132 @@ namespace Jeopardy
             }
         }
 
-        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DisableAllControls()
         {
-            try
+            //disable game info controls
+            if (txtGameName.Enabled == true)
             {
-                string helpFilePath = Directory.GetCurrentDirectory() + @"\JeopardyHelpFiles\jeopardyhelp.chm";
-
-
-                System.Diagnostics.Process process = new Process();
-                process.StartInfo.FileName = helpFilePath;
-                process.Start();
-
+                txtGameName.Enabled = false;
             }
-            catch (Exception ex)
+            if (cboQuestionTimeLimit.Enabled == true)
             {
-                MessageBox.Show("This feature is not working yet");
-                Console.WriteLine(ex.ToString());
+                cboQuestionTimeLimit.Enabled = false;
             }
+            if (nudNumCategories.Enabled == true)
+            {
+                nudNumCategories.Enabled = false;
+            }
+            if (nudNumQuestionCategory.Enabled == true)
+            {
+                nudNumQuestionCategory.Enabled = false;
+            }
+
+            //disable grid buttons
+            if (gbxCategories.Controls.Count > 0 && categoryButtons != null && categoryButtons.Length > 0)
+            {
+                foreach (Button b in categoryButtons)
+                {
+                    if (b != null && b.Enabled == true)
+                    {
+                        b.Enabled = false;
+                    }
+                }
+            }
+            if (gbxQuestions.Controls.Count > 0 && questionButtons != null && questionButtons.Length > 0)
+            {
+                foreach (Button b in questionButtons)
+                {
+                    if (b != null && b.Enabled == true)
+                    {
+                        b.Enabled = false;
+                    }
+                }
+            }
+
+            //disable right click menus
+            foreach (ToolStripItem tsi in cmsCategories.Items)
+            {
+                if (tsi != null && tsi.Enabled == true)
+                {
+                    tsi.Enabled = false;
+                }
+            }
+            foreach (ToolStripItem tsi in cmsQuestions.Items)
+            {
+                if (tsi != null && tsi.Enabled == true)
+                {
+                    tsi.Enabled = false;
+                }
+            }
+
+            //disable some menu bar items
+            newGameToolStripMenuItem.Enabled = false;
+            exportGameToolStripMenuItem.Enabled = false;
+            exitToolStripMenuItem.Enabled = false;
+        }
+
+        private void EnableAllControls()
+        {
+            //enable game info controls
+            if (txtGameName.Enabled == false)
+            {
+                txtGameName.Enabled = true;
+            }
+            if (cboQuestionTimeLimit.Enabled == false)
+            {
+                cboQuestionTimeLimit.Enabled = true;
+            }
+            if (nudNumCategories.Enabled == false)
+            {
+                nudNumCategories.Enabled = true;
+            }
+            if (nudNumQuestionCategory.Enabled == false)
+            {
+                nudNumQuestionCategory.Enabled = true;
+            }
+
+            //enable grid buttons
+            if (gbxCategories.Controls.Count > 0 && categoryButtons != null && categoryButtons.Length > 0)
+            {
+                foreach (Button b in categoryButtons)
+                {
+                    if (b != null && b.Enabled == false)
+                    {
+                        b.Enabled = true;
+                    }
+                }
+            }
+            if (gbxQuestions.Controls.Count > 0 && questionButtons != null && questionButtons.Length > 0)
+            {
+                foreach (Button b in questionButtons)
+                {
+                    if (b != null && b.Enabled == false)
+                    {
+                        b.Enabled = true;
+                    }
+                }
+            }
+
+            //enable right click menus
+            foreach (ToolStripItem tsi in cmsCategories.Items)
+            {
+                if (tsi != null && tsi.Enabled == false)
+                {
+                    tsi.Enabled = true;
+                }
+            }
+            foreach (ToolStripItem tsi in cmsQuestions.Items)
+            {
+                if (tsi != null && tsi.Enabled == false)
+                {
+                    tsi.Enabled = true;
+                }
+            }
+
+            //enable some menu bar items
+            newGameToolStripMenuItem.Enabled = true;
+            exportGameToolStripMenuItem.Enabled = true;
+            exitToolStripMenuItem.Enabled = true;
         }
     }
 }

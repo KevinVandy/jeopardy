@@ -68,7 +68,7 @@ namespace Jeopardy
             //Puts the teams into an array, and then passes it to the play game form
             if (numberTeams == 2)
             {
-                if (ValidateData.ValidateTeamName(txtFirstTeam.Text) && ValidateData.ValidateTeamName(txtSecondTeam.Text))
+                if (Validation.ValidateTeamName(txtFirstTeam.Text) && Validation.ValidateTeamName(txtSecondTeam.Text))
                 {
                     Team firstTeam = new Team(1, txtFirstTeam.Text, 0);
                     Team secondTeam = new Team(2, txtSecondTeam.Text, 0);
@@ -88,8 +88,8 @@ namespace Jeopardy
             }
             else if (numberTeams == 3)
             {
-                if (ValidateData.ValidateTeamName(txtFirstTeam.Text) && ValidateData.ValidateTeamName(txtSecondTeam.Text)
-                    && ValidateData.ValidateTeamName(txtThirdTeam.Text))
+                if (Validation.ValidateTeamName(txtFirstTeam.Text) && Validation.ValidateTeamName(txtSecondTeam.Text)
+                    && Validation.ValidateTeamName(txtThirdTeam.Text))
                 {
                     Team firstTeam = new Team(1, txtFirstTeam.Text, 0);
                     Team secondTeam = new Team(2, txtSecondTeam.Text, 0);
@@ -111,8 +111,8 @@ namespace Jeopardy
             }
             else if (numberTeams >= 4)
             {
-                if (ValidateData.ValidateTeamName(txtFirstTeam.Text) && ValidateData.ValidateTeamName(txtSecondTeam.Text)
-                    && ValidateData.ValidateTeamName(txtThirdTeam.Text) && ValidateData.ValidateTeamName(txtFourthTeam.Text))
+                if (Validation.ValidateTeamName(txtFirstTeam.Text) && Validation.ValidateTeamName(txtSecondTeam.Text)
+                    && Validation.ValidateTeamName(txtThirdTeam.Text) && Validation.ValidateTeamName(txtFourthTeam.Text))
                 {
                     Team firstTeam = new Team(1, txtFirstTeam.Text, 0);
                     Team secondTeam = new Team(2, txtSecondTeam.Text, 0);

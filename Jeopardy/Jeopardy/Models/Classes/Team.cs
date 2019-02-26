@@ -10,9 +10,9 @@
 
         public Team(int? id, string teamName, int score = 0)
         {
-            this.id = id;
-            this.teamName = teamName;
-            this.score = score;
+            Id = id;
+            TeamName = teamName;
+            Score = score;
         }
 
         public int? Id
@@ -26,7 +26,7 @@
             get => teamName;
             set
             {
-                if (ValidateData.ValidateTeamName(value))
+                if (Validation.ValidateTeamName(value))
                 {
                     teamName = value.Trim();
                 }
@@ -42,7 +42,7 @@
             get => score;
             set
             {
-                if (ValidateData.ValidateTeamScore(value))
+                if (Validation.ValidateTeamScore(value))
                 {
                     score = value;
                 }

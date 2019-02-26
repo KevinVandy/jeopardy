@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Jeopardy
@@ -7,7 +8,7 @@ namespace Jeopardy
     public partial class frmCreateGame : Form
     {
         private Game newGame = new Game();
-        private int selectedQuestionTimeLimitIndex = 1;
+        private int selectedQuestionTimeLimitIndex = 1; //start at default of 1 minute
 
         public frmCreateGame()
         {
@@ -17,6 +18,7 @@ namespace Jeopardy
         private void frmCreateGameStart_Load(object sender, EventArgs e)
         {
             cboQuestionTimeLimit.SelectedIndex = selectedQuestionTimeLimitIndex;
+            DrawPreview();
         }
 
         //MARK Value & Index Change Event Handlers
@@ -27,26 +29,54 @@ namespace Jeopardy
 
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
         {
-            if (nudNumCategories.Value == 6)
+            if (nudNumCategories.Value == 3)
             {
+                lblDefault1.Text = "(Minimum)";
+                lblDefault1.Visible = true;
+            }
+            else if (nudNumCategories.Value == 6)
+            {
+                lblDefault1.Text = "(Default)";
+                lblDefault1.Visible = true;
+            }
+            else if (nudNumCategories.Value == 8)
+            {
+                lblDefault1.Text = "(Maximum)";
                 lblDefault1.Visible = true;
             }
             else
             {
                 lblDefault1.Visible = false;
             }
+
+            DrawPreview();
+            DisplayNumQuestions();
         }
 
         private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
         {
-            if (nudNumQuestionCategory.Value == 5)
+            if (nudNumQuestionCategory.Value == 3)
             {
+                lblDefault2.Text = "(Minimum)";
+                lblDefault2.Visible = true;
+            }
+            else if (nudNumQuestionCategory.Value == 5)
+            {
+                lblDefault2.Text = "(Default)";
+                lblDefault2.Visible = true;
+            }
+            else if (nudNumQuestionCategory.Value == 8)
+            {
+                lblDefault2.Text = "(Maximum)";
                 lblDefault2.Visible = true;
             }
             else
             {
                 lblDefault2.Visible = false;
             }
+
+            DrawPreview();
+            DisplayNumQuestions();
         }
 
         //MARK Button Event Handlers
@@ -64,7 +94,7 @@ namespace Jeopardy
             int numCategories = (int)nudNumCategories.Value;
             int numQuestionsPerCat = (int)nudNumQuestionCategory.Value;
 
-            if (ValidateData.ValidateGameName(gameName))
+            if (Validation.ValidateGameName(gameName))
             {
                 btnCreateGame.Text = "Creating Game";
                 btnCreateGame.Enabled = false;
@@ -93,6 +123,61 @@ namespace Jeopardy
             Hide();
             createGameForm.ShowDialog();
             Close();
+        }
+
+        //MARK: Menu Bar Item Event Handlers
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout aboutForm = new frmAbout();
+            aboutForm.ShowDialog();
+        }
+
+        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DB_Conn.OpenHelpFile();
+        }
+
+        //MARK: Other Private Methods
+        private void DisplayNumQuestions()
+        {
+            lblNumQuestions.Text = CalcNumQuestions().ToString() + " Questions";
+        }
+
+        private int CalcNumQuestions()
+        {
+            return (int)nudNumCategories.Value * (int)nudNumQuestionCategory.Value;
+        }
+
+        private void DrawPreview()
+        {
+            pnlPreview.Controls.Clear();
+
+            int top = 7;
+            int left = 7;
+
+            for (int c = 0; c < nudNumCategories.Value; c++)
+            {
+                for (int q = 0; q < nudNumQuestionCategory.Value; q++)
+                {
+                    PictureBox questionBox = new PictureBox();
+                    questionBox.BackColor = Color.Yellow;
+                    questionBox.Width = (pnlPreview.Width / (int)nudNumCategories.Value) - 12;
+                    questionBox.Height = (pnlPreview.Height / (int)nudNumQuestionCategory.Value) - 12;
+                    questionBox.Top = top;
+                    questionBox.Left = left;
+
+                    pnlPreview.Controls.Add(questionBox);
+
+                    top += (questionBox.Height + 12);
+                }
+                top = 7;
+                left += (pnlPreview.Width / (int)nudNumCategories.Value);
+            }
         }
     }
 }

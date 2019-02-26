@@ -11,16 +11,45 @@ namespace Jeopardy.Forms.Admin
             InitializeComponent();
         }
 
+        private void frmTroubleshooter_Load(object sender, EventArgs e)
+        {
+            EnableAllControls();
+        }
+
+        private void btnInstall_Click_1(object sender, EventArgs e)
+        {
+            DisableAllControls();
+            DB_Conn.InstallAccessRuntime();
+            EnableAllControls();
+        }
+
+        private void btnRepair_Click(object sender, EventArgs e)
+        {
+            DisableAllControls();
+            if (DB_Conn.CompactAndRepair())
+            {
+                MessageBox.Show("Successfully Compacted and Repaired the games database file.", "Success");
+            }
+            else
+            {
+                MessageBox.Show("The database could not be Compacted and Repaired. You will need to open up the games.accdb file in access if you want to still compact and repair. Refer to the Help manual for more instructions.", "Failure to Optimize", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            EnableAllControls();
+            btnRepair.Enabled = false;
+        }
+
         private void btnRestore_Click(object sender, EventArgs e)
         {
+            DisableAllControls();
+
             DialogResult dialogResult = MessageBox.Show("Are you sure that you want to reset the database to just the default games that came pre-installed? You may lose progress on any games that you created or edited. Consider Exporting any games that you want to save to an XML file.", "Factory Reset Confirm", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
 
             if(dialogResult == DialogResult.Yes)
             {
                 if (DB_Conn.RestoreDBFromBackup())
                 {
-                    btnRestore.Enabled = false;
-                    btnRepair.Enabled = false;
+                    
                     MessageBox.Show("Database restore successfully", "Success");
                 }
                 else
@@ -28,33 +57,48 @@ namespace Jeopardy.Forms.Admin
                     MessageBox.Show("Database could not be restored. You may need to re-install this program.", "Failure to Restore");
                 }
             }
+
+            EnableAllControls();
+            btnRestore.Enabled = false;
         }
-
-        private void btnRepair_Click(object sender, EventArgs e)
-        {
-
-            if (DB_Conn.CompactAndRepair())
-            {
-                btnRepair.Enabled = false;
-            }
-            else
-            {
-                MessageBox.Show("The database could not be Compacted and Repaired. You will need to open up the games.accdb file in access if you want to still compact and repair. Refer to the Help manual for more instructions.", "Failure to Optimize", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
+        
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnInstall_Click_1(object sender, EventArgs e)
+        //MARK: Menu Bar Item Event Handlers
+        private void saveAndExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DB_Conn.InstallAccessRuntime();
-
+            Close();
         }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout about = new frmAbout();
+            about.ShowDialog();
+        }
 
+        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DB_Conn.OpenHelpFile();
+        }
+
+        //MARK: Other Private Functions
+        private void DisableAllControls()
+        {
+            btnInstall.Enabled = false;
+            btnRepair.Enabled = false;
+            btnRestore.Enabled = false;
+            btnCancel.Enabled = false;
+        }
+
+        private void EnableAllControls()
+        {
+            btnInstall.Enabled = true;
+            btnRepair.Enabled = true;
+            btnRestore.Enabled = true;
+            btnCancel.Enabled = true;
+        }
     }
 }

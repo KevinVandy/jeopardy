@@ -8,7 +8,7 @@ namespace Jeopardy
 {
     public class DB_Select
     {
-        private static readonly OleDbConnection conn = DB_Conn.GetGamesConnection();
+        private static readonly OleDbConnection conn = DB_Conn.GetConnection();
 
         public static List<Game> SelectAllGameInfo()
         {

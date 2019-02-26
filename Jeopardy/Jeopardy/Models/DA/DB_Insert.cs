@@ -7,7 +7,7 @@ namespace Jeopardy
 {
     public class DB_Insert
     {
-        private static readonly OleDbConnection conn = DB_Conn.GetGamesConnection();
+        private static readonly OleDbConnection conn = DB_Conn.GetConnection();
 
         public static int? InsertGame(Game newGame)
         {

@@ -319,10 +319,10 @@ namespace Jeopardy
             gbxScoreBoard.Height = 120;
 
             pnlCategories.Top = gbxScoreBoard.Top + gbxScoreBoard.Height;
-            pnlCategories.Height = 100;
+            pnlCategories.Height = 80;
 
             pnlGameboard.Top = pnlCategories.Top + pnlCategories.Height;
-            pnlGameboard.Height = Height - pnlGameboard.Top - 50;
+            pnlGameboard.Height = Height - pnlGameboard.Top - 10;
         }
 
         private void LoadTeams()

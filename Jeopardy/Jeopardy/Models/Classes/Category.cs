@@ -15,12 +15,12 @@ namespace Jeopardy
 
         public Category(int? id, int gameId, int index, string title, string subtitle, List<Question> questions)
         {
-            this.id = id;
-            this.gameId = gameId;
-            this.index = index;
-            this.title = title;
-            this.subtitle = subtitle;
-            this.questions = questions;
+            Id = id;
+            GameId = gameId;
+            Index = index;
+            Title = title;
+            Subtitle = subtitle;
+            Questions = questions;
         }
 
         public int? Id
@@ -40,7 +40,7 @@ namespace Jeopardy
             get => index;
             set
             {
-                if (ValidateData.ValidateCategoryIndex(value))
+                if (Validation.ValidateCategoryIndex(value))
                 {
                     index = value;
                 }
@@ -56,7 +56,7 @@ namespace Jeopardy
             get => title;
             set
             {
-                if (ValidateData.ValidateCategoryTitle(value))
+                if (Validation.ValidateCategoryTitle(value))
                 {
                     title = value.Trim();
                 }
@@ -72,7 +72,7 @@ namespace Jeopardy
             get => subtitle;
             set
             {
-                if (ValidateData.ValidateCategorySubtitle(value))
+                if (Validation.ValidateCategorySubtitle(value))
                 {
                     subtitle = value.Trim();
                 }

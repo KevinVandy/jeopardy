@@ -43,6 +43,8 @@
             this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnImport = new System.Windows.Forms.Button();
             this.bwImportCategory = new System.ComponentModel.BackgroundWorker();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,49 +52,44 @@
             // 
             this.lblCategoryTitle.AutoSize = true;
             this.lblCategoryTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryTitle.Location = new System.Drawing.Point(80, 91);
-            this.lblCategoryTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategoryTitle.Location = new System.Drawing.Point(60, 74);
             this.lblCategoryTitle.Name = "lblCategoryTitle";
-            this.lblCategoryTitle.Size = new System.Drawing.Size(207, 36);
+            this.lblCategoryTitle.Size = new System.Drawing.Size(170, 29);
             this.lblCategoryTitle.TabIndex = 0;
             this.lblCategoryTitle.Text = "Category Title:";
             // 
             // txtTitle
             // 
             this.txtTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitle.Location = new System.Drawing.Point(331, 87);
-            this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTitle.Location = new System.Drawing.Point(248, 71);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(525, 41);
+            this.txtTitle.Size = new System.Drawing.Size(395, 35);
             this.txtTitle.TabIndex = 1;
             // 
             // txtSubtitle
             // 
             this.txtSubtitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubtitle.Location = new System.Drawing.Point(331, 166);
-            this.txtSubtitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSubtitle.Location = new System.Drawing.Point(248, 135);
             this.txtSubtitle.Name = "txtSubtitle";
-            this.txtSubtitle.Size = new System.Drawing.Size(525, 41);
+            this.txtSubtitle.Size = new System.Drawing.Size(395, 35);
             this.txtSubtitle.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 170);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(27, 138);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 36);
+            this.label1.Size = new System.Drawing.Size(203, 29);
             this.label1.TabIndex = 2;
             this.label1.Text = "Category Subtitle:";
             // 
             // btnOK
             // 
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(631, 245);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOK.Location = new System.Drawing.Point(473, 199);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(227, 58);
+            this.btnOK.Size = new System.Drawing.Size(170, 47);
             this.btnOK.TabIndex = 4;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -102,10 +99,9 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(43, 245);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(32, 199);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(227, 58);
+            this.btnCancel.Size = new System.Drawing.Size(170, 47);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -120,23 +116,24 @@
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(900, 36);
+            this.menuStrip.Size = new System.Drawing.Size(675, 29);
             this.menuStrip.TabIndex = 6;
             this.menuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importCategoryFromOtherGameToolStripMenuItem});
+            this.importCategoryFromOtherGameToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 32);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 25);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // importCategoryFromOtherGameToolStripMenuItem
             // 
             this.importCategoryFromOtherGameToolStripMenuItem.Name = "importCategoryFromOtherGameToolStripMenuItem";
-            this.importCategoryFromOtherGameToolStripMenuItem.Size = new System.Drawing.Size(397, 32);
+            this.importCategoryFromOtherGameToolStripMenuItem.Size = new System.Drawing.Size(324, 26);
             this.importCategoryFromOtherGameToolStripMenuItem.Text = "Import Category From Other Game";
             this.importCategoryFromOtherGameToolStripMenuItem.Click += new System.EventHandler(this.importCategoryFromOtherGameToolStripMenuItem_Click);
             // 
@@ -146,29 +143,29 @@
             this.aboutToolStripMenuItem,
             this.tutorialToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 32);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // tutorialToolStripMenuItem
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
-            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
             this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.tutorialToolStripMenuItem_Click);
             // 
             // btnImport
             // 
             this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.Location = new System.Drawing.Point(331, 245);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImport.Location = new System.Drawing.Point(248, 199);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(227, 58);
+            this.btnImport.Size = new System.Drawing.Size(170, 47);
             this.btnImport.TabIndex = 7;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -179,13 +176,25 @@
             this.bwImportCategory.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwImportCategory_DoWork);
             this.bwImportCategory.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwImportCategory_RunWorkerCompleted);
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(324, 26);
+            this.exitToolStripMenuItem.Text = "Save and Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(321, 6);
+            // 
             // frmEditCategory
             // 
             this.AcceptButton = this.btnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(900, 338);
+            this.ClientSize = new System.Drawing.Size(675, 275);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -197,7 +206,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEditCategory";
@@ -230,5 +238,7 @@
         private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
         private System.Windows.Forms.Button btnImport;
         private System.ComponentModel.BackgroundWorker bwImportCategory;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }

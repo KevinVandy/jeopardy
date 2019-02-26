@@ -46,23 +46,20 @@
             // 
             // lblTimer
             // 
-            this.lblTimer.AutoSize = true;
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(439, 622);
-            this.lblTimer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTimer.Location = new System.Drawing.Point(274, 505);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(127, 58);
+            this.lblTimer.Size = new System.Drawing.Size(211, 53);
             this.lblTimer.TabIndex = 9;
             this.lblTimer.Text = "1:00";
-            this.lblTimer.Click += new System.EventHandler(this.lblTimer_Click);
+            this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(45, 620);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(34, 504);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(312, 66);
+            this.btnCancel.Size = new System.Drawing.Size(234, 54);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -71,10 +68,9 @@
             // btnDone
             // 
             this.btnDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDone.Location = new System.Drawing.Point(1048, 620);
-            this.btnDone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDone.Location = new System.Drawing.Point(786, 504);
             this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(312, 66);
+            this.btnDone.Size = new System.Drawing.Size(234, 54);
             this.btnDone.TabIndex = 7;
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = true;
@@ -85,11 +81,10 @@
             this.lblQuestionText.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblQuestionText.AutoSize = true;
             this.lblQuestionText.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestionText.Location = new System.Drawing.Point(37, 11);
-            this.lblQuestionText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblQuestionText.MaximumSize = new System.Drawing.Size(1333, 246);
+            this.lblQuestionText.Location = new System.Drawing.Point(28, 9);
+            this.lblQuestionText.MaximumSize = new System.Drawing.Size(1000, 200);
             this.lblQuestionText.Name = "lblQuestionText";
-            this.lblQuestionText.Size = new System.Drawing.Size(1327, 240);
+            this.lblQuestionText.Size = new System.Drawing.Size(997, 190);
             this.lblQuestionText.TabIndex = 10;
             this.lblQuestionText.Text = resources.GetString("lblQuestionText.Text");
             this.lblQuestionText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -102,10 +97,9 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(655, 620);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmit.Location = new System.Drawing.Point(491, 504);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(312, 66);
+            this.btnSubmit.Size = new System.Drawing.Size(234, 54);
             this.btnSubmit.TabIndex = 11;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -117,19 +111,20 @@
             this.pnlRadioButtons.Controls.Add(this.rdoThirdChoice);
             this.pnlRadioButtons.Controls.Add(this.rdoSecondChoice);
             this.pnlRadioButtons.Controls.Add(this.rdoFirstChoice);
-            this.pnlRadioButtons.Location = new System.Drawing.Point(45, 254);
+            this.pnlRadioButtons.Location = new System.Drawing.Point(34, 206);
+            this.pnlRadioButtons.Margin = new System.Windows.Forms.Padding(2);
             this.pnlRadioButtons.Name = "pnlRadioButtons";
-            this.pnlRadioButtons.Size = new System.Drawing.Size(1253, 343);
+            this.pnlRadioButtons.Size = new System.Drawing.Size(940, 279);
             this.pnlRadioButtons.TabIndex = 12;
             // 
             // rdoFourthChoice
             // 
             this.rdoFourthChoice.AutoSize = true;
-            this.rdoFourthChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoFourthChoice.Location = new System.Drawing.Point(2, 273);
-            this.rdoFourthChoice.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoFourthChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoFourthChoice.Location = new System.Drawing.Point(3, 240);
+            this.rdoFourthChoice.MaximumSize = new System.Drawing.Size(1000, 90);
             this.rdoFourthChoice.Name = "rdoFourthChoice";
-            this.rdoFourthChoice.Size = new System.Drawing.Size(173, 43);
+            this.rdoFourthChoice.Size = new System.Drawing.Size(139, 35);
             this.rdoFourthChoice.TabIndex = 10;
             this.rdoFourthChoice.TabStop = true;
             this.rdoFourthChoice.Text = "Choice 4";
@@ -138,11 +133,11 @@
             // rdoThirdChoice
             // 
             this.rdoThirdChoice.AutoSize = true;
-            this.rdoThirdChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoThirdChoice.Location = new System.Drawing.Point(4, 183);
-            this.rdoThirdChoice.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoThirdChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoThirdChoice.Location = new System.Drawing.Point(3, 161);
+            this.rdoThirdChoice.MaximumSize = new System.Drawing.Size(1000, 90);
             this.rdoThirdChoice.Name = "rdoThirdChoice";
-            this.rdoThirdChoice.Size = new System.Drawing.Size(173, 43);
+            this.rdoThirdChoice.Size = new System.Drawing.Size(139, 35);
             this.rdoThirdChoice.TabIndex = 9;
             this.rdoThirdChoice.TabStop = true;
             this.rdoThirdChoice.Text = "Choice 3";
@@ -151,11 +146,11 @@
             // rdoSecondChoice
             // 
             this.rdoSecondChoice.AutoSize = true;
-            this.rdoSecondChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoSecondChoice.Location = new System.Drawing.Point(4, 93);
-            this.rdoSecondChoice.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoSecondChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoSecondChoice.Location = new System.Drawing.Point(3, 82);
+            this.rdoSecondChoice.MaximumSize = new System.Drawing.Size(1000, 90);
             this.rdoSecondChoice.Name = "rdoSecondChoice";
-            this.rdoSecondChoice.Size = new System.Drawing.Size(173, 43);
+            this.rdoSecondChoice.Size = new System.Drawing.Size(139, 35);
             this.rdoSecondChoice.TabIndex = 8;
             this.rdoSecondChoice.TabStop = true;
             this.rdoSecondChoice.Text = "Choice 2";
@@ -164,11 +159,11 @@
             // rdoFirstChoice
             // 
             this.rdoFirstChoice.AutoSize = true;
-            this.rdoFirstChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoFirstChoice.Location = new System.Drawing.Point(4, 4);
-            this.rdoFirstChoice.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoFirstChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoFirstChoice.Location = new System.Drawing.Point(3, 3);
+            this.rdoFirstChoice.MaximumSize = new System.Drawing.Size(1000, 90);
             this.rdoFirstChoice.Name = "rdoFirstChoice";
-            this.rdoFirstChoice.Size = new System.Drawing.Size(173, 43);
+            this.rdoFirstChoice.Size = new System.Drawing.Size(139, 35);
             this.rdoFirstChoice.TabIndex = 7;
             this.rdoFirstChoice.TabStop = true;
             this.rdoFirstChoice.Text = "Choice 1";
@@ -176,9 +171,9 @@
             // 
             // frmMultipleChoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1401, 726);
+            this.ClientSize = new System.Drawing.Size(1051, 590);
             this.Controls.Add(this.pnlRadioButtons);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblQuestionText);
@@ -187,7 +182,6 @@
             this.Controls.Add(this.btnDone);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMultipleChoice";
             this.Opacity = 0.99D;
             this.ShowIcon = false;
