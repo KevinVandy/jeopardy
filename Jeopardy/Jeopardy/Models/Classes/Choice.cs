@@ -66,5 +66,12 @@
                 }
             }
         }
+
+        public void CreateBlankChoice(int questionId, int index)
+        {
+            QuestionId = questionId;
+            Index = index;
+            Text = " ";
+        }
     }
 }

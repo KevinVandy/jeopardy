@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 namespace Jeopardy
@@ -13,7 +11,9 @@ namespace Jeopardy
         private int gameId;
         private string categoryName;
         private Question question;
-        
+
+        private bool shouldRemoveChoices = false;
+
         public frmEditQuestion(Question selectedQuestion, int theGameId, string theCategoryName)
         {
             question = selectedQuestion;
@@ -39,33 +39,19 @@ namespace Jeopardy
             {
                 rdoMultipleChoice.Checked = true;
 
-                if(question.Choices.Count >= 4)
+                if (question.Choices.Count >= 4)
                 {
                     txtChoiceA.Text = question.Choices[0].Text;
                     txtChoiceB.Text = question.Choices[1].Text;
                     txtChoiceC.Text = question.Choices[2].Text;
                     txtChoiceD.Text = question.Choices[3].Text;
+
+                    SelectMCAnswer();
                 }
                 else
                 {
-                    MessageBox.Show("No Choices");
-                }
-                
-                if (question.Choices[0].Text == question.Answer)
-                {
-                    rdoChoiceA.Checked = true;
-                }
-                else if (question.Choices[1].Text == question.Answer)
-                {
-                    rdoChoiceB.Checked = true;
-                }
-                else if (question.Choices[2].Text == question.Answer)
-                {
-                    rdoChoiceC.Checked = true;
-                }
-                else if (question.Choices[3].Text == question.Answer)
-                {
-                    rdoChoiceD.Checked = true;
+                    bwCreateChoices.RunWorkerAsync();
+                    MessageBox.Show("This multiple choice question has no choices. Creating now. Your database may be corrupt.", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (question.Type == "tf")
@@ -76,12 +62,12 @@ namespace Jeopardy
             {
                 MessageBox.Show("Warning. This question does not have a valid type. Database may be corrupt", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
             txtQuestionText.Focus();
             txtQuestionText.SelectAll();
-
         }
+
         
+
         private void bwCreateChoices_DoWork(object sender, DoWorkEventArgs e)
         {
             if (question.Choices == null || question.Choices.Count == 0)
@@ -91,9 +77,7 @@ namespace Jeopardy
                 for (int i = 0; i < 4; i++) //make 4 blank choices
                 {
                     question.Choices[i] = new Choice();
-                    question.Choices[i].QuestionId = (int)question.Id;
-                    question.Choices[i].Index = i;
-                    question.Choices[i].Text = " ";
+                    question.Choices[i].CreateBlankChoice((int)question.Id, i);
                     question.Choices[i].Id = DB_Insert.InsertChoice(question.Choices[i]);
                 }
             }
@@ -101,12 +85,11 @@ namespace Jeopardy
 
         private void bwCreateChoices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            rdoFillInTheBlank.Enabled = true;
-            rdoMultipleChoice.Enabled = true;
-            rdoTrueFalse.Enabled = true;
+            EnableTypeRadioButtons();
+            EnableMCControls();
         }
 
-        private void bwRemoveChoices_DoWork(object sender, DoWorkEventArgs e)
+        private void bwRemoveChoices_DoWork(object sender, DoWorkEventArgs e) //now only runs on form close
         {
             if (question.Choices != null && question.Choices.Count > 0)
             {
@@ -117,192 +100,124 @@ namespace Jeopardy
             }
         }
 
-        private void bwRemoveChoices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void bwRemoveChoices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) //depriciated since only runs on form close
         {
-            question.Choices = new List<Choice>(); //reset to null
-            rdoFillInTheBlank.Enabled = true;
-            rdoMultipleChoice.Enabled = true;
-            rdoTrueFalse.Enabled = true;
+            //question.Choices = new List<Choice>(); //reset to null
+            //EnableTypeRadioButtons();
         }
 
         private void rdoType_CheckChanged(object sender, EventArgs e)
         {
-            if (rdoFillInTheBlank.Checked)
+            DisableTypeRadioButtons(); //they will be re-enabled again once safe
+
+            if (!bwCreateChoices.IsBusy && !bwRemoveChoices.IsBusy)
             {
-                rdoChoiceA.Checked = false;
-                rdoChoiceB.Checked = false;
-                rdoChoiceC.Checked = false;
-                rdoChoiceD.Checked = false;
-
-                rdoChoiceA.Text = "";
-                rdoChoiceB.Text = "";
-                rdoChoiceC.Text = "";
-                rdoChoiceD.Text = "";
-
-                rdoChoiceA.Enabled = false;
-                rdoChoiceB.Enabled = false;
-                rdoChoiceC.Enabled = false;
-                rdoChoiceD.Enabled = false;
-
-                txtChoiceA.Text = "";
-                txtChoiceB.Text = "";
-                txtChoiceC.Text = "";
-                txtChoiceD.Text = "";
-
-                txtChoiceA.Enabled = false;
-                txtChoiceB.Enabled = false;
-                txtChoiceC.Enabled = false;
-                txtChoiceD.Enabled = false;
-
-                txtAnswer.ReadOnly = false;
-
-                btnCancel.Enabled = false;
-
-                if (!bwRemoveChoices.IsBusy)
+                if (rdoFillInTheBlank.Checked && question.Type != "fb")
                 {
-                    rdoFillInTheBlank.Enabled = false;
-                    rdoMultipleChoice.Enabled = false;
-                    rdoTrueFalse.Enabled = false;
-                    
-                    if(question.Type == "mc") //if was multiple choice
+                    if (question.Type == "mc") //if was multiple choice
                     {
-                        question.DetermineState("edit");
+                        question.DetermineState();
 
-                        if(question.State == "no choices") //ok to delete choices because they are blank
+                        if (question.State == "no choices") //ok to delete choices because they are blank
                         {
-                            bwRemoveChoices.RunWorkerAsync();
                             question.Type = "fb";
+                            EnableFBControls();
+                            shouldRemoveChoices = true;
                             btnCancel.Enabled = false;
                         }
                         else //if choices are not blank, warn that they will be deleted
                         {
-                            DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete the choices for this question?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
-                            
-                            if(dialogResult == DialogResult.Yes)
+                            DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete the choices for this question?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                            if (dialogResult == DialogResult.Yes)
                             {
-                                bwRemoveChoices.RunWorkerAsync();
                                 question.Type = "fb";
+                                EnableFBControls();
+                                shouldRemoveChoices = true;
                                 btnCancel.Enabled = false; //after changing a question's type, you can no longer cancel
                             }
                             else
                             {
                                 frmEditQuestion_Load(null, null);
+                                EnableTypeRadioButtons();
+                                EnableMCControls();
                             }
                         }
                     }
-                    else
+                    else //from tf to fb
                     {
-                        rdoFillInTheBlank.Enabled = true;
-                        rdoMultipleChoice.Enabled = true;
-                        rdoTrueFalse.Enabled = true;
+                        EnableFBControls();
+                        EnableTypeRadioButtons();
                     }
                 }
-            }
-            else if (rdoMultipleChoice.Checked)
-            {
-                if (!bwCreateChoices.IsBusy)
+                else if (rdoFillInTheBlank.Checked && question.Type == "fb")
                 {
-                    rdoFillInTheBlank.Enabled = false;
-                    rdoMultipleChoice.Enabled = false;
-                    rdoTrueFalse.Enabled = false;
+                    EnableFBControls();
+                    EnableTypeRadioButtons();
+                }
+                else if (rdoMultipleChoice.Checked && question.Type != "mc")
+                {
+                    question.Type = "mc";
+                    shouldRemoveChoices = false;
                     bwCreateChoices.RunWorkerAsync();
                 }
-
-                rdoChoiceA.Checked = false;
-                rdoChoiceB.Checked = false;
-                rdoChoiceC.Checked = false;
-                rdoChoiceD.Checked = false;
-
-                rdoChoiceA.Text = "a";
-                rdoChoiceB.Text = "b";
-                rdoChoiceC.Text = "c";
-                rdoChoiceD.Text = "d";
-
-                rdoChoiceA.Enabled = true;
-                rdoChoiceB.Enabled = true;
-                rdoChoiceC.Enabled = true;
-                rdoChoiceD.Enabled = true;
-
-                txtChoiceA.Text = "";
-                txtChoiceB.Text = "";
-                txtChoiceC.Text = "";
-                txtChoiceD.Text = "";
-
-                txtChoiceA.Enabled = true;
-                txtChoiceB.Enabled = true;
-                txtChoiceC.Enabled = true;
-                txtChoiceD.Enabled = true;
-
-                txtAnswer.ReadOnly = true;
-            }
-            else if (rdoTrueFalse.Checked)
-            {
-                rdoChoiceA.Checked = false;
-                rdoChoiceB.Checked = false;
-                rdoChoiceC.Checked = false;
-                rdoChoiceD.Checked = false;
-
-                rdoChoiceA.Text = "T";
-                rdoChoiceB.Text = "";
-                rdoChoiceC.Text = "F";
-                rdoChoiceD.Text = "";
-
-                rdoChoiceA.Enabled = true;
-                rdoChoiceB.Enabled = false;
-                rdoChoiceC.Enabled = true;
-                rdoChoiceD.Enabled = false;
-
-                txtChoiceA.Text = "True";
-                txtChoiceB.Text = "";
-                txtChoiceC.Text = "False";
-                txtChoiceD.Text = "";
-
-                txtChoiceA.Enabled = false;
-                txtChoiceB.Enabled = false;
-                txtChoiceC.Enabled = false;
-                txtChoiceD.Enabled = false;
-
-                txtAnswer.ReadOnly = true;
-
-                if (!bwRemoveChoices.IsBusy)
+                else if (rdoMultipleChoice.Checked && question.Type == "mc")
                 {
-                    rdoFillInTheBlank.Enabled = false;
-                    rdoMultipleChoice.Enabled = false;
-                    rdoTrueFalse.Enabled = false;
-
+                    shouldRemoveChoices = false;
+                    EnableMCControls();
+                    EnableTypeRadioButtons();
+                }
+                else if (rdoTrueFalse.Checked && question.Type != "tf")
+                {
                     if (question.Type == "mc") //if was multiple choice
                     {
-                        question.DetermineState("edit");
+                        question.DetermineState();
 
                         if (question.State == "no choices") //ok to delete choices because they are blank
                         {
-                            bwRemoveChoices.RunWorkerAsync();
                             question.Type = "tf";
+                            EnableTFControls();
+                            shouldRemoveChoices = true;
                             btnCancel.Enabled = false;
                         }
                         else //if choices are not blank, warn that they will be deleted
                         {
-                            DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete the choices for this question?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
+                            DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete the choices for this question?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                             if (dialogResult == DialogResult.Yes)
                             {
-                                bwRemoveChoices.RunWorkerAsync();
                                 question.Type = "tf";
+                                EnableTFControls();
+                                shouldRemoveChoices = true;
                                 btnCancel.Enabled = false;
                             }
                             else
                             {
                                 frmEditQuestion_Load(null, null); //reload the form to simulate a cancel of radio change
+                                EnableTypeRadioButtons();
+                                EnableMCControls();
                             }
                         }
                     }
-                    else
+                    else //from fb to tf
                     {
-                        rdoFillInTheBlank.Enabled = true;
-                        rdoMultipleChoice.Enabled = true;
-                        rdoTrueFalse.Enabled = true;
+                        EnableTFControls();
+                        EnableTypeRadioButtons();
                     }
                 }
+                else if (rdoTrueFalse.Checked && question.Type == "tf")
+                {
+                    EnableTFControls();
+                    EnableTypeRadioButtons();
+                }
+                else
+                {
+                    //EnableTypeRadioButtons();
+                }
+            }
+            else //if it gets here then it was not safe to re-enable the buttons yet
+            {
+                DisableTypeRadioButtons(); 
             }
         }
 
@@ -492,7 +407,7 @@ namespace Jeopardy
                 question.Type = importQuestionForm.selectedQuestion.Type;
                 question.QuestionText = importQuestionForm.selectedQuestion.QuestionText;
                 question.Answer = importQuestionForm.selectedQuestion.Answer;
-                
+
                 frmEditQuestion_Load(sender, e); //reload this form with the info
             }
         }
@@ -523,6 +438,188 @@ namespace Jeopardy
         private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DB_Conn.OpenHelpFile();
+        }
+
+        //MARK: Other Private Methods
+        private void EnableTypeRadioButtons()
+        {
+            rdoFillInTheBlank.Enabled = true;
+            rdoMultipleChoice.Enabled = true;
+            rdoTrueFalse.Enabled = true;
+        }
+
+        private void DisableTypeRadioButtons()
+        {
+            rdoFillInTheBlank.Enabled = false;
+            rdoMultipleChoice.Enabled = false;
+            rdoTrueFalse.Enabled = false;
+        }
+
+        private void EnableFBControls()
+        {
+            rdoChoiceA.Checked = false;
+            rdoChoiceB.Checked = false;
+            rdoChoiceC.Checked = false;
+            rdoChoiceD.Checked = false;
+
+            rdoChoiceA.Text = "";
+            rdoChoiceB.Text = "";
+            rdoChoiceC.Text = "";
+            rdoChoiceD.Text = "";
+
+            rdoChoiceA.Enabled = false;
+            rdoChoiceB.Enabled = false;
+            rdoChoiceC.Enabled = false;
+            rdoChoiceD.Enabled = false;
+
+            txtChoiceA.Text = "";
+            txtChoiceB.Text = "";
+            txtChoiceC.Text = "";
+            txtChoiceD.Text = "";
+
+            txtChoiceA.Enabled = false;
+            txtChoiceB.Enabled = false;
+            txtChoiceC.Enabled = false;
+            txtChoiceD.Enabled = false;
+
+            txtAnswer.ReadOnly = false;
+        }
+
+        private void EnableMCControls()
+        {
+            rdoChoiceA.Checked = false;
+            rdoChoiceB.Checked = false;
+            rdoChoiceC.Checked = false;
+            rdoChoiceD.Checked = false;
+
+            rdoChoiceA.Text = "a";
+            rdoChoiceB.Text = "b";
+            rdoChoiceC.Text = "c";
+            rdoChoiceD.Text = "d";
+
+            rdoChoiceA.Enabled = true;
+            rdoChoiceB.Enabled = true;
+            rdoChoiceC.Enabled = true;
+            rdoChoiceD.Enabled = true;
+
+            if (question.Choices.Count > 0 && question.Choices[0].Text.Length > 1)
+            {
+                txtChoiceA.Text = question.Choices[0].Text;
+            }
+            else
+            {
+                txtChoiceA.Text = "";
+            }
+
+            if (question.Choices.Count > 1 && question.Choices[1].Text.Length > 1)
+            {
+                txtChoiceB.Text = question.Choices[1].Text;
+            }
+            else
+            {
+                txtChoiceB.Text = "";
+            }
+
+            if (question.Choices.Count > 2 && question.Choices[2].Text.Length > 1)
+            {
+                txtChoiceC.Text = question.Choices[2].Text;
+            }
+            else
+            {
+                txtChoiceC.Text = "";
+            }
+
+            if (question.Choices.Count > 3 && question.Choices[3].Text.Length > 1)
+            {
+                txtChoiceD.Text = question.Choices[3].Text;
+            }
+            else
+            {
+                txtChoiceD.Text = "";
+            }
+
+            
+
+            txtChoiceA.Enabled = true;
+            txtChoiceB.Enabled = true;
+            txtChoiceC.Enabled = true;
+            txtChoiceD.Enabled = true;
+
+            txtAnswer.ReadOnly = true;
+            txtAnswer.Text = " ";
+
+            SelectMCAnswer();
+        }
+
+        private void EnableTFControls()
+        {
+            rdoChoiceA.Checked = false;
+            rdoChoiceB.Checked = false;
+            rdoChoiceC.Checked = false;
+            rdoChoiceD.Checked = false;
+
+            rdoChoiceA.Text = "T";
+            rdoChoiceB.Text = "";
+            rdoChoiceC.Text = "F";
+            rdoChoiceD.Text = "";
+
+            rdoChoiceA.Enabled = true;
+            rdoChoiceB.Enabled = false;
+            rdoChoiceC.Enabled = true;
+            rdoChoiceD.Enabled = false;
+
+            txtChoiceA.Text = "True";
+            txtChoiceB.Text = "";
+            txtChoiceC.Text = "False";
+            txtChoiceD.Text = "";
+
+            txtChoiceA.Enabled = false;
+            txtChoiceB.Enabled = false;
+            txtChoiceC.Enabled = false;
+            txtChoiceD.Enabled = false;
+
+            txtAnswer.ReadOnly = true;
+            txtAnswer.Text = " ";
+        }
+
+        private void SelectMCAnswer()
+        {
+            if (question.Choices[0].Text == question.Answer || question.Answer == txtChoiceA.Text)
+            {
+                if (rdoChoiceA.Checked == false)
+                {
+                    rdoChoiceA.Checked = true;
+                }
+            }
+            else if (question.Choices[1].Text == question.Answer || question.Answer == txtChoiceB.Text)
+            {
+                if (rdoChoiceB.Checked == false)
+                {
+                    rdoChoiceB.Checked = true;
+                }
+            }
+            else if (question.Choices[2].Text == question.Answer || question.Answer == txtChoiceC.Text)
+            {
+                if (rdoChoiceC.Checked == false)
+                {
+                    rdoChoiceC.Checked = true;
+                }
+            }
+            else if (question.Choices[3].Text == question.Answer || question.Answer == txtChoiceD.Text)
+            {
+                if (rdoChoiceD.Checked == false)
+                {
+                    rdoChoiceD.Checked = true;
+                }
+            }
+        }
+
+        private void frmEditQuestion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (shouldRemoveChoices)
+            {
+                bwRemoveChoices.RunWorkerAsync();
+            }
         }
     }
 }

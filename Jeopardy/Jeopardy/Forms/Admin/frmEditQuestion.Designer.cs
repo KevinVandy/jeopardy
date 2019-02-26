@@ -458,6 +458,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit Question";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditQuestion_FormClosing);
             this.Load += new System.EventHandler(this.frmEditQuestion_Load);
             this.pnlTypes.ResumeLayout(false);
             this.pnlTypes.PerformLayout();

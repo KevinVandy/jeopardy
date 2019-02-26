@@ -500,7 +500,7 @@ namespace Jeopardy
             {
                 foreach (Question q in c.Questions)
                 {
-                    q.DetermineState("edit");
+                    q.DetermineState();
                 }
             }
         }

@@ -123,40 +123,32 @@ namespace Jeopardy
             set => state = value;
         }
 
-        public void DetermineState(string mode)
+        public void DetermineState()
         {
-            if (mode == "edit")
+            if (QuestionText == "" || QuestionText == " ")
             {
-                if (QuestionText == "" || QuestionText == " ")
+                State = "no question";
+            }
+            else if (QuestionText.Length > 1 && (Answer == "" || Answer == " "))
+            {
+                State = "no answer";
+            }
+            else if (QuestionText.Length > 1 && Type == "mc") //if is multiple choice
+            {
+                if (Choices ==  null || Choices.Count < 4 
+                 || Choices[0].Text == " " || Choices[1].Text == " " || Choices[2].Text == " " || Choices[3].Text == " "
+                 || Choices[0].Text == "" || Choices[1].Text == "" || Choices[2].Text == "" || Choices[3].Text == "")
                 {
-                    State = "no question";
-                }
-                else if (QuestionText.Length > 1 && (Answer == "" || Answer == " "))
-                {
-                    State = "no answer";
-                }
-                else if (QuestionText.Length > 1 && Type == "mc") //if is multiple choice
-                {
-                    if (Choices[0].Text == " " || Choices[1].Text == " " || Choices[2].Text == " " || Choices[3].Text == " "
-                        || Choices[0].Text == "" || Choices[1].Text == "" || Choices[2].Text == "" || Choices[3].Text == "")
-                    {
-                        State = "no choices";
-                    }
-                    else
-                    {
-                        State = "done";
-                    }
+                    State = "no choices";
                 }
                 else
                 {
                     State = "done";
                 }
             }
-            else if (mode == "play")
+            else
             {
-                //TODO - Ryan, you can add your own code here
-                //Added this code to return a value for testing feel free to delete
-                State = "pass";
+                State = "done";
             }
         }
 
