@@ -44,7 +44,7 @@
             this.lblQuestionText.AutoSize = true;
             this.lblQuestionText.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuestionText.Location = new System.Drawing.Point(33, 23);
-            this.lblQuestionText.MaximumSize = new System.Drawing.Size(900, 250);
+            this.lblQuestionText.MaximumSize = new System.Drawing.Size(900, 300);
             this.lblQuestionText.Name = "lblQuestionText";
             this.lblQuestionText.Size = new System.Drawing.Size(900, 228);
             this.lblQuestionText.TabIndex = 12;

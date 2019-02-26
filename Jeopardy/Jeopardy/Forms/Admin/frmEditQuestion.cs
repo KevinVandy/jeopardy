@@ -38,11 +38,19 @@ namespace Jeopardy
             else if (question.Type == "mc")
             {
                 rdoMultipleChoice.Checked = true;
-                txtChoiceA.Text = question.Choices[0].Text;
-                txtChoiceB.Text = question.Choices[1].Text;
-                txtChoiceC.Text = question.Choices[2].Text;
-                txtChoiceD.Text = question.Choices[3].Text;
 
+                if(question.Choices.Count >= 4)
+                {
+                    txtChoiceA.Text = question.Choices[0].Text;
+                    txtChoiceB.Text = question.Choices[1].Text;
+                    txtChoiceC.Text = question.Choices[2].Text;
+                    txtChoiceD.Text = question.Choices[3].Text;
+                }
+                else
+                {
+                    MessageBox.Show("No Choices");
+                }
+                
                 if (question.Choices[0].Text == question.Answer)
                 {
                     rdoChoiceA.Checked = true;
@@ -121,14 +129,6 @@ namespace Jeopardy
         {
             if (rdoFillInTheBlank.Checked)
             {
-                if (!bwRemoveChoices.IsBusy)
-                {
-                    rdoFillInTheBlank.Enabled = false;
-                    rdoMultipleChoice.Enabled = false;
-                    rdoTrueFalse.Enabled = false;
-                    bwRemoveChoices.RunWorkerAsync();
-                }
-
                 rdoChoiceA.Checked = false;
                 rdoChoiceB.Checked = false;
                 rdoChoiceC.Checked = false;
@@ -156,7 +156,47 @@ namespace Jeopardy
 
                 txtAnswer.ReadOnly = false;
 
+                btnCancel.Enabled = false;
 
+                if (!bwRemoveChoices.IsBusy)
+                {
+                    rdoFillInTheBlank.Enabled = false;
+                    rdoMultipleChoice.Enabled = false;
+                    rdoTrueFalse.Enabled = false;
+                    
+                    if(question.Type == "mc") //if was multiple choice
+                    {
+                        question.DetermineState("edit");
+
+                        if(question.State == "no choices") //ok to delete choices because they are blank
+                        {
+                            bwRemoveChoices.RunWorkerAsync();
+                            question.Type = "fb";
+                            btnCancel.Enabled = false;
+                        }
+                        else //if choices are not blank, warn that they will be deleted
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete the choices for this question?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
+                            
+                            if(dialogResult == DialogResult.Yes)
+                            {
+                                bwRemoveChoices.RunWorkerAsync();
+                                question.Type = "fb";
+                                btnCancel.Enabled = false; //after changing a question's type, you can no longer cancel
+                            }
+                            else
+                            {
+                                frmEditQuestion_Load(null, null);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        rdoFillInTheBlank.Enabled = true;
+                        rdoMultipleChoice.Enabled = true;
+                        rdoTrueFalse.Enabled = true;
+                    }
+                }
             }
             else if (rdoMultipleChoice.Checked)
             {
@@ -197,14 +237,6 @@ namespace Jeopardy
             }
             else if (rdoTrueFalse.Checked)
             {
-                if (!bwRemoveChoices.IsBusy)
-                {
-                    rdoFillInTheBlank.Enabled = false;
-                    rdoMultipleChoice.Enabled = false;
-                    rdoTrueFalse.Enabled = false;
-                    bwRemoveChoices.RunWorkerAsync();
-                }
-
                 rdoChoiceA.Checked = false;
                 rdoChoiceB.Checked = false;
                 rdoChoiceC.Checked = false;
@@ -231,8 +263,47 @@ namespace Jeopardy
                 txtChoiceD.Enabled = false;
 
                 txtAnswer.ReadOnly = true;
-            }
 
+                if (!bwRemoveChoices.IsBusy)
+                {
+                    rdoFillInTheBlank.Enabled = false;
+                    rdoMultipleChoice.Enabled = false;
+                    rdoTrueFalse.Enabled = false;
+
+                    if (question.Type == "mc") //if was multiple choice
+                    {
+                        question.DetermineState("edit");
+
+                        if (question.State == "no choices") //ok to delete choices because they are blank
+                        {
+                            bwRemoveChoices.RunWorkerAsync();
+                            question.Type = "tf";
+                            btnCancel.Enabled = false;
+                        }
+                        else //if choices are not blank, warn that they will be deleted
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete the choices for this question?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
+
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                bwRemoveChoices.RunWorkerAsync();
+                                question.Type = "tf";
+                                btnCancel.Enabled = false;
+                            }
+                            else
+                            {
+                                frmEditQuestion_Load(null, null); //reload the form to simulate a cancel of radio change
+                            }
+                        }
+                    }
+                    else
+                    {
+                        rdoFillInTheBlank.Enabled = true;
+                        rdoMultipleChoice.Enabled = true;
+                        rdoTrueFalse.Enabled = true;
+                    }
+                }
+            }
         }
 
         private void rdoChoices_CheckedChanged(object sender, EventArgs e)
