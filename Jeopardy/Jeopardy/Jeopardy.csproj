@@ -297,6 +297,7 @@
     <Content Include="JeopardyHelpFiles\mainpage.htm" />
     <Content Include="JeopardyHelpFiles\newgame.htm" />
     <Content Include="JeopardyHelpFiles\playgame.htm" />
+    <Content Include="JeopardyHelpFiles\troubleshoot.htm" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
