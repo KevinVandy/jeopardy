@@ -537,9 +537,7 @@ namespace Jeopardy
             {
                 txtChoiceD.Text = "";
             }
-
             
-
             txtChoiceA.Enabled = true;
             txtChoiceB.Enabled = true;
             txtChoiceC.Enabled = true;
@@ -580,6 +578,19 @@ namespace Jeopardy
 
             txtAnswer.ReadOnly = true;
             txtAnswer.Text = " ";
+            SelectTFAnswer();
+        }
+
+        private void SelectTFAnswer()
+        {
+            if(question.Answer == "True")
+            {
+                rdoChoiceA.Checked = true;
+            }
+            else if(question.Answer == "False")
+            {
+                rdoChoiceC.Checked = true;
+            }
         }
 
         private void SelectMCAnswer()
