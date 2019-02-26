@@ -269,6 +269,7 @@
     <Content Include="JeopardyHelpFiles\deletegame.htm" />
     <Content Include="JeopardyHelpFiles\editgame.htm" />
     <Content Include="JeopardyHelpFiles\exportgame.htm" />
+    <Content Include="JeopardyHelpFiles\FAQ.htm" />
     <Content Include="JeopardyHelpFiles\HelpImgs\CreateGameQuestions.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\CreateGameCategories.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\CreateGameGameInfo.PNG" />

@@ -75,12 +75,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_DC3149BBAECA4C18A62FC62427C8928B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7844CD226C2C4CC6AEA0D2ECCBB432B3"
         "MsmSig" = "8:_UNDEFINED"
@@ -385,26 +379,6 @@
             "TargetName" = "8:games.accdb"
             "Tag" = "8:"
             "Folder" = "8:_3C0A079F049441E0A1CD7068089EA612"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DC3149BBAECA4C18A62FC62427C8928B"
-            {
-            "SourcePath" = "8:N:\\Jeopardy Installer.pdf"
-            "TargetName" = "8:Jeopardy Installer.pdf"
-            "Tag" = "8:"
-            "Folder" = "8:_3E07EAF2CD9E4E099F223A2641001B9F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
