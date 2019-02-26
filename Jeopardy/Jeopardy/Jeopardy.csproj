@@ -280,6 +280,8 @@
     <Content Include="JeopardyHelpFiles\HelpImgs\EditMultipleChoice.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\EditTrueFalse.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\FillInTheBlankQuestion.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\ImportCategory.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\ImportQuestion.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\MainPageExport.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\MainPageImport.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\MainPageDelete.PNG" />
@@ -288,8 +290,9 @@
     <Content Include="JeopardyHelpFiles\HelpImgs\MainPagePlay.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\MainPage.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\MultipleChoiceQuestion.PNG" />
-    <Content Include="JeopardyHelpFiles\HelpImgs\newGameForm.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\NewGameForm.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\PlayGame.PNG" />
+    <Content Include="JeopardyHelpFiles\HelpImgs\Review.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\TeamInfo.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\Troubleshoot.PNG" />
     <Content Include="JeopardyHelpFiles\HelpImgs\TrueFalseQuestion.PNG" />
