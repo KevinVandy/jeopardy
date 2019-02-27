@@ -125,7 +125,7 @@ namespace Jeopardy
             {
                 game.QuestionTimeLimit = new TimeSpan(0, 3, 0); //3 minutes
             }
-
+            
             DisableAllControls(); //disable while other thread running
             bwUpdateTimeLimit.RunWorkerAsync(); //update in backgroud thread
         }

@@ -128,8 +128,10 @@
             this.Controls.Add(this.btnRevealAnswer);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.lblQuestionText);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmReviewWrongQuestions";
-            this.Text = "Review!";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Jeopardy - Review";
             this.Load += new System.EventHandler(this.frmReviewWrongQuestions_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -8,12 +8,13 @@ namespace Jeopardy
     {
         private List<Question> WrongQuestions;
         private Team[] Teams;
-        private int questionIndex = -1;
+        private int questionIndex = -1; //start on team scores and instruction
 
         public frmReviewWrongQuestions(List<Question> wrongQuestions, Team[] teams)
         {
             WrongQuestions = wrongQuestions;
             Teams = teams;
+
             InitializeComponent();
         }
 
