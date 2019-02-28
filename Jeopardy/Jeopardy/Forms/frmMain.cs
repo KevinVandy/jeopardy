@@ -162,7 +162,7 @@ namespace Jeopardy
                     }
                     else
                     {
-                        MessageBox.Show("File Needs To Be .xml");
+                        MessageBox.Show("The file needs to be an xml");
                     }
                 }
                 bwLoadGames.RunWorkerAsync();

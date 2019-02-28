@@ -106,7 +106,7 @@ namespace Jeopardy
             }
             else
             {
-                MessageBox.Show("Invalid Game Name");
+                MessageBox.Show("Invalid Game Name, Name needs to be less than 50 characters");
             }
         }
 
