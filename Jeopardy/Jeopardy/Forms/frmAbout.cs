@@ -9,12 +9,12 @@ namespace Jeopardy
         public frmAbout()
         {
             InitializeComponent();
-            Text = String.Format("About {0}", AssemblyTitle);
-            labelProductName.Text = AssemblyProduct;
+            //Text = String.Format("About {0}", AssemblyTitle);
+            //labelProductName.Text = AssemblyProduct;
             labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
-            labelCopyright.Text = AssemblyCopyright;
-            labelCompanyName.Text = AssemblyCompany;
-            textBoxDescription.Text = AssemblyDescription;
+            //labelCopyright.Text = AssemblyCopyright;
+            //labelCompanyName.Text = AssemblyCompany;
+            //textBoxDescription.Text = AssemblyDescription;
         }
 
         #region Assembly Attribute Accessors
