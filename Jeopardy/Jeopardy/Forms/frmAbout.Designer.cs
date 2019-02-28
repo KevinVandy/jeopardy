@@ -53,7 +53,8 @@
             this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.okButton, 1, 5);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(9, 9);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(12, 11);
+            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 6;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -62,17 +63,18 @@
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(572, 301);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(763, 371);
             this.tableLayoutPanel.TabIndex = 0;
             // 
             // logoPictureBox
             // 
             this.logoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.logoPictureBox.Image = global::Jeopardy.Properties.Resources.j_logo;
-            this.logoPictureBox.Location = new System.Drawing.Point(3, 3);
+            this.logoPictureBox.Location = new System.Drawing.Point(4, 4);
+            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.logoPictureBox.Name = "logoPictureBox";
             this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);
-            this.logoPictureBox.Size = new System.Drawing.Size(280, 295);
+            this.logoPictureBox.Size = new System.Drawing.Size(373, 363);
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoPictureBox.TabIndex = 12;
             this.logoPictureBox.TabStop = false;
@@ -81,11 +83,11 @@
             // 
             this.labelProductName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.labelProductName.Location = new System.Drawing.Point(292, 0);
-            this.labelProductName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelProductName.MaximumSize = new System.Drawing.Size(0, 25);
+            this.labelProductName.Location = new System.Drawing.Point(389, 0);
+            this.labelProductName.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
+            this.labelProductName.MaximumSize = new System.Drawing.Size(0, 31);
             this.labelProductName.Name = "labelProductName";
-            this.labelProductName.Size = new System.Drawing.Size(277, 25);
+            this.labelProductName.Size = new System.Drawing.Size(370, 31);
             this.labelProductName.TabIndex = 19;
             this.labelProductName.Text = "Jeopardy 2019";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -94,11 +96,11 @@
             // 
             this.labelVersion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.labelVersion.Location = new System.Drawing.Point(292, 30);
-            this.labelVersion.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelVersion.MaximumSize = new System.Drawing.Size(0, 25);
+            this.labelVersion.Location = new System.Drawing.Point(389, 37);
+            this.labelVersion.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
+            this.labelVersion.MaximumSize = new System.Drawing.Size(0, 31);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(277, 25);
+            this.labelVersion.Size = new System.Drawing.Size(370, 31);
             this.labelVersion.TabIndex = 0;
             this.labelVersion.Text = "1.0";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -107,11 +109,11 @@
             // 
             this.labelCopyright.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.labelCopyright.Location = new System.Drawing.Point(292, 60);
-            this.labelCopyright.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 25);
+            this.labelCopyright.Location = new System.Drawing.Point(389, 74);
+            this.labelCopyright.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
+            this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 31);
             this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(277, 25);
+            this.labelCopyright.Size = new System.Drawing.Size(370, 31);
             this.labelCopyright.TabIndex = 21;
             this.labelCopyright.Text = "Open Source";
             this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -120,11 +122,11 @@
             // 
             this.labelCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelCompanyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.labelCompanyName.Location = new System.Drawing.Point(292, 90);
-            this.labelCompanyName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 25);
+            this.labelCompanyName.Location = new System.Drawing.Point(389, 111);
+            this.labelCompanyName.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
+            this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 31);
             this.labelCompanyName.Name = "labelCompanyName";
-            this.labelCompanyName.Size = new System.Drawing.Size(277, 25);
+            this.labelCompanyName.Size = new System.Drawing.Size(370, 31);
             this.labelCompanyName.TabIndex = 22;
             this.labelCompanyName.Text = "Groupardy SCC";
             this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -133,13 +135,13 @@
             // 
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.textBoxDescription.Location = new System.Drawing.Point(292, 123);
-            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.textBoxDescription.Location = new System.Drawing.Point(389, 152);
+            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(8, 4, 4, 4);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxDescription.Size = new System.Drawing.Size(277, 144);
+            this.textBoxDescription.Size = new System.Drawing.Size(370, 177);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
             this.textBoxDescription.Text = "Created by Ryan Harpham, Tyler Sweeney, Kevin Van Cott, Forrest Burroughs, Brando" +
@@ -149,9 +151,10 @@
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okButton.Location = new System.Drawing.Point(494, 276);
+            this.okButton.Location = new System.Drawing.Point(659, 340);
+            this.okButton.Margin = new System.Windows.Forms.Padding(4);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 22);
+            this.okButton.Size = new System.Drawing.Size(100, 27);
             this.okButton.TabIndex = 24;
             this.okButton.Text = "&OK";
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -159,16 +162,17 @@
             // frmAbout
             // 
             this.AcceptButton = this.okButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 319);
+            this.ClientSize = new System.Drawing.Size(787, 393);
             this.Controls.Add(this.tableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAbout";
-            this.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "About Jeopardy 2019";
