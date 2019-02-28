@@ -2,7 +2,7 @@
 Compatibility=1.1 or later
 Compiled file=jeopardyhelp.chm
 Contents file=TableOfContents.hhc
-Default topic=mainpage.htm
+Default topic=FAQ.htm
 Display compile progress=No
 Index file=Index.hhk
 Language=0x409 English (United States)
