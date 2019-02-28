@@ -692,9 +692,8 @@ namespace Jeopardy
 
             return false;
         }
-
-
-        public static bool UpdateQuestionAnswer(int newWeight, int? questionId)
+        
+        public static bool UpdateQuestionWeight(int newWeight, int? questionId)
         {
             string updateStatement =
                 "UPDATE questions " +

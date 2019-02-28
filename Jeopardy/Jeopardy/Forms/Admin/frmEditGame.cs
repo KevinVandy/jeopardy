@@ -618,12 +618,12 @@ namespace Jeopardy
                     break;
                 }
             }
-            if(x == 0)
+            if (x == 0)
             {
                 moveLeftToolStripMenuItem.Enabled = false;
                 moveRightToolStripMenuItem.Enabled = true;
             }
-            else if(x == game.NumCategories - 1)
+            else if (x == game.NumCategories - 1)
             {
                 moveLeftToolStripMenuItem.Enabled = true;
                 moveRightToolStripMenuItem.Enabled = false;
@@ -677,10 +677,25 @@ namespace Jeopardy
                                 break;
                             }
                         }
-                        game.Categories[x].ResetCategoryToDefaults(); //deletes info, restores default values
-                        currentCategory = game.Categories[x];
-                        bwUpdateCategory.RunWorkerAsync(argument: x); //passes category index so questions can be deleted
+                        if(x >= 0)
+                        {
+                            game.Categories[x].ResetCategoryToDefaults(); //deletes info, restores default values
+                            currentCategory = game.Categories[x];
+                            bwUpdateCategory.RunWorkerAsync(argument: x); //passes category index so questions can be deleted
+                        }
+                        else
+                        {
+                            EnableAllControls();
+                        }
                     }
+                    else
+                    {
+                        EnableAllControls();
+                    }
+                }
+                else
+                {
+                    EnableAllControls();
                 }
             }
             else
@@ -688,7 +703,7 @@ namespace Jeopardy
                 EnableAllControls();
             }
         }
-        
+
         private void moveLeftToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisableAllControls();
@@ -708,11 +723,25 @@ namespace Jeopardy
                             break;
                         }
                     }
-                    DB_Update.UpdateCategoryIndex(--game.Categories[x].Index, game.Categories[x].Id);
-                    DB_Update.UpdateCategoryIndex(++game.Categories[x - 1].Index, game.Categories[x - 1].Id);
-
-                    bwLoadGame.RunWorkerAsync();
+                    if(x >= 0)
+                    {
+                        DB_Update.UpdateCategoryIndex(--game.Categories[x].Index, game.Categories[x].Id);
+                        DB_Update.UpdateCategoryIndex(++game.Categories[x - 1].Index, game.Categories[x - 1].Id);
+                        bwLoadGame.RunWorkerAsync();
+                    }
+                    else
+                    {
+                        EnableAllControls();
+                    }
                 }
+                else
+                {
+                    EnableAllControls();
+                }
+            }
+            else
+            {
+                EnableAllControls();
             }
         }
 
@@ -735,13 +764,26 @@ namespace Jeopardy
                             break;
                         }
                     }
-                    DB_Update.UpdateCategoryIndex(++game.Categories[x].Index, game.Categories[x].Id);
-                    DB_Update.UpdateCategoryIndex(--game.Categories[x + 1].Index, game.Categories[x + 1].Id);
-
-                    bwLoadGame.RunWorkerAsync();
+                    if(x >= 0)
+                    {
+                        DB_Update.UpdateCategoryIndex(++game.Categories[x].Index, game.Categories[x].Id);
+                        DB_Update.UpdateCategoryIndex(--game.Categories[x + 1].Index, game.Categories[x + 1].Id);
+                        bwLoadGame.RunWorkerAsync();
+                    }
+                    else
+                    {
+                        EnableAllControls();
+                    }
+                }
+                else
+                {
+                    EnableAllControls();
                 }
             }
-
+            else
+            {
+                EnableAllControls();
+            }
         }
 
         private void bwUpdateCategory_DoWork(object sender, DoWorkEventArgs e) //also updates questions
@@ -804,6 +846,7 @@ namespace Jeopardy
 
         private void tsmiEditQuestion_Click(object sender, EventArgs e) //just simulates a click of the button
         {
+            DisableAllControls();
             ToolStripItem menuItem = sender as ToolStripItem;
             if (menuItem != null)
             {
@@ -814,6 +857,7 @@ namespace Jeopardy
                     QuestionButton_Click(clickedButton, null);
                 }
             }
+            EnableAllControls();
         }
 
         private void tsmiDeleteQuestion_Click(object sender, EventArgs e)
@@ -845,15 +889,30 @@ namespace Jeopardy
                                 }
                             }
                         }
-                        currentQuestion = game.Categories[x].Questions[y]; //needs to be here for the first bw to use
-                        if (game.Categories[x].Questions[y].Type == "mc")
+                        if(x >= 0 && y >= 0)
                         {
-                            bwDeleteChoices.RunWorkerAsync();
+                            currentQuestion = game.Categories[x].Questions[y]; //needs to be here for the first bw to use
+                            if (game.Categories[x].Questions[y].Type == "mc")
+                            {
+                                bwDeleteChoices.RunWorkerAsync();
+                            }
+                            game.Categories[x].Questions[y].ResetQuestionToDefaults(); //reset with default blank data
+                            currentQuestion = game.Categories[x].Questions[y]; //needs to be here again with default data for the 2nd bw to use
+                            bwUpdateQuestion.RunWorkerAsync();
                         }
-                        game.Categories[x].Questions[y].ResetQuestionToDefaults(); //reset with default blank data
-                        currentQuestion = game.Categories[x].Questions[y]; //needs to be here again with default data for the 2nd bw to use
-                        bwUpdateQuestion.RunWorkerAsync();
+                        else
+                        {
+                            EnableAllControls();
+                        }
                     }
+                    else
+                    {
+                        EnableAllControls();
+                    }
+                }
+                else
+                {
+                    EnableAllControls();
                 }
             }
             else
@@ -864,12 +923,96 @@ namespace Jeopardy
 
         private void moveUpToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DisableAllControls();
 
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    //detect position in button grid
+                    int x = -1;
+                    int y = -1;
+                    for (int i = 0; i < game.NumCategories && x < 0; ++i)
+                    {
+                        for (int j = 0; j < game.NumQuestionsPerCategory; ++j)
+                        {
+                            if (questionButtons[i, j] == (Button)owner.SourceControl)
+                            {
+                                x = i;
+                                y = j;
+                                break;
+                            }
+                        }
+                    }
+                    if(x >= 0 && y >= 0)
+                    {
+                        DB_Update.UpdateQuestionWeight(game.Categories[x].Questions[y].Weight -= 100, game.Categories[x].Questions[y].Id);
+                        DB_Update.UpdateQuestionWeight(game.Categories[x].Questions[y - 1].Weight += 100, game.Categories[x].Questions[y - 1].Id);
+                        bwLoadGame.RunWorkerAsync();
+                    }
+                    else
+                    {
+                        EnableAllControls();
+                    }
+                }
+                else
+                {
+                    EnableAllControls();
+                }
+            }
+            else
+            {
+                EnableAllControls();
+            }
         }
 
         private void moveDownToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DisableAllControls();
 
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    //detect position in button grid
+                    int x = -1;
+                    int y = -1;
+                    for (int i = 0; i < game.NumCategories && x < 0; ++i)
+                    {
+                        for (int j = 0; j < game.NumQuestionsPerCategory; ++j)
+                        {
+                            if (questionButtons[i, j] == (Button)owner.SourceControl)
+                            {
+                                x = i;
+                                y = j;
+                                break;
+                            }
+                        }
+                    }
+                    if(x >= 0 && y >= 0)
+                    {
+                        DB_Update.UpdateQuestionWeight(game.Categories[x].Questions[y].Weight += 100, game.Categories[x].Questions[y].Id);
+                        DB_Update.UpdateQuestionWeight(game.Categories[x].Questions[y + 1].Weight -= 100, game.Categories[x].Questions[y + 1].Id);
+                        bwLoadGame.RunWorkerAsync();
+                    }
+                    else
+                    {
+                        EnableAllControls();
+                    }
+                }
+                else
+                {
+                    EnableAllControls();
+                }
+            }
+            else
+            {
+                EnableAllControls();
+            }
         }
 
         private void bwUpdateQuestion_DoWork(object sender, DoWorkEventArgs e)
@@ -1072,6 +1215,6 @@ namespace Jeopardy
             exitToolStripMenuItem.Enabled = true;
         }
 
-        
+
     }
 }

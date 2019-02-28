@@ -302,10 +302,9 @@
     <Content Include="JeopardyHelpFiles\newgame.htm" />
     <Content Include="JeopardyHelpFiles\playgame.htm" />
     <Content Include="JeopardyHelpFiles\troubleshoot.htm" />
+    <None Include="Resources\j-logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <COMReference Include="ADODB">
       <Guid>{2A75196C-D9EB-4129-B803-931327F72D5C}</Guid>
