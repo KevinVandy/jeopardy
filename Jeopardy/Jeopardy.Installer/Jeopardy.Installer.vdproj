@@ -483,7 +483,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Jeopardy 2019"
         "ProductCode" = "8:{F8C766EF-47F8-47C5-BD00-668E7321106E}"
-        "PackageCode" = "8:{C6AA3702-3212-41EF-8F20-CCBB07679FCA}"
+        "PackageCode" = "8:{31DB3C5D-2336-4D4D-8BB9-45D409FCBDA9}"
         "UpgradeCode" = "8:{08688619-09D6-4209-B828-4DD80AF5E2A4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -605,7 +605,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2A9F6BECBF2549FD9D99C79FCE2206AA"
             {
-            "Name" = "8:Shortcut to Primary output from Jeopardy (Active)"
+            "Name" = "8:Jeopardy 2019 Shortcut"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
