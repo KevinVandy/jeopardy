@@ -17,8 +17,10 @@ namespace Jeopardy
 
         private void frmImportQuestion_Load(object sender, EventArgs e)
         {
+            btnCancel.Enabled = false;
             bwLoadGames.RunWorkerAsync(); //start thread to load games
             btnImport.Enabled = false;
+
         }
 
         //Load all of the games in the background
@@ -34,11 +36,13 @@ namespace Jeopardy
             {
                 lstGames.Items.Add(g.GameName);
             }
+            btnCancel.Enabled = true;
         }
 
         //After the user selects a game in the first list box, show the categories in that game
         private void lstGames_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             lstCategories.Items.Clear();
             if (lstGames.SelectedIndex != -1)
             {
