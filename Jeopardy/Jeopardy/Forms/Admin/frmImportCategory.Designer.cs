@@ -97,11 +97,11 @@
             // 
             // lsvQuestions
             // 
+            this.lsvQuestions.CheckBoxes = true;
             this.lsvQuestions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chType,
             this.Question,
             this.Answer});
-            this.lsvQuestions.Enabled = false;
             this.lsvQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvQuestions.FullRowSelect = true;
             this.lsvQuestions.Location = new System.Drawing.Point(42, 273);
@@ -188,7 +188,7 @@
             // saveAndExitToolStripMenuItem
             // 
             this.saveAndExitToolStripMenuItem.Name = "saveAndExitToolStripMenuItem";
-            this.saveAndExitToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.saveAndExitToolStripMenuItem.Size = new System.Drawing.Size(104, 26);
             this.saveAndExitToolStripMenuItem.Text = "Exit";
             this.saveAndExitToolStripMenuItem.Click += new System.EventHandler(this.saveAndExitToolStripMenuItem_Click);
             // 
@@ -204,14 +204,14 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // tutorialToolStripMenuItem
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
-            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
             this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.tutorialToolStripMenuItem_Click);
             // 

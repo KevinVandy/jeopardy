@@ -81,14 +81,14 @@ namespace Jeopardy
 
             if (dialogResult1 == DialogResult.Yes && dialogResult2 == DialogResult.OK)
             {
-                category.Title = importCategoryForm.selectedCategory.Title;       //can't go in bw because accessing stuff from form thread
-                category.Subtitle = importCategoryForm.selectedCategory.Subtitle; //can't go in bw because accessing stuff from form thread
+                category.Title = importCategoryForm.SelectedCategory.Title;       //can't go in bw because accessing stuff from form thread
+                category.Subtitle = importCategoryForm.SelectedCategory.Subtitle; //can't go in bw because accessing stuff from form thread
 
                 bwImportCategory.RunWorkerAsync(); //import the questions from the category in background thread
 
-                if (importCategoryForm.selectedCategory.Questions.Count > category.Questions.Count)
+                if (importCategoryForm.SelectedCategory.Questions.Count > category.Questions.Count)
                 {
-                    MessageBox.Show("Warning. The Category that you are importing has more Questions in it than the Number of Questions Per Category in the Current Game. If you want to import all of the Questions from this category, you will need to increase the number of Questions Per Category from " + category.Questions.Count.ToString() + " to " + importCategoryForm.selectedCategory.Questions.Count.ToString() + ". The Questions that fit will still be imported.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Warning. The Category that you are importing has more Questions in it than the Number of Questions Per Category in the Current Game. If you want to import all of the Questions from this category, you will need to increase the number of Questions Per Category from " + category.Questions.Count.ToString() + " to " + importCategoryForm.SelectedCategory.Questions.Count.ToString() + ". The Questions that fit will still be imported.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
             else
@@ -99,13 +99,13 @@ namespace Jeopardy
 
         private void bwImportCategory_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (importCategoryForm.selectedCategory.Questions.Count > 0) //only import questions if there are any
+            if (importCategoryForm.SelectedCategory.Questions.Count > 0) //only import questions if there are any
             {
                 //only imports questions to the max size of the grid and the max size of the other game grid
-                for (int i = 0; i < category.Questions.Count && i < importCategoryForm.selectedCategory.Questions.Count; i++)
+                for (int i = 0; i < category.Questions.Count && i < importCategoryForm.SelectedCategory.Questions.Count; i++)
                 {
                     //if going from multiple choice to another type, delete the choices
-                    if (category.Questions[i].Type == "mc" && importCategoryForm.selectedCategory.Questions[i].Type != "mc")
+                    if (category.Questions[i].Type == "mc" && importCategoryForm.SelectedCategory.Questions[i].Type != "mc")
                     {
                         for (int j = 0; j < 4 && j < category.Questions[i].Choices.Count; j++)
                         {
@@ -113,7 +113,7 @@ namespace Jeopardy
                         }
                     }
                     // going from other type of question to multiple choice, make the choices
-                    else if (category.Questions[i].Type != "mc" && importCategoryForm.selectedCategory.Questions[i].Type == "mc")
+                    else if (category.Questions[i].Type != "mc" && importCategoryForm.SelectedCategory.Questions[i].Type == "mc")
                     {
                         category.Questions[i].Choices = new List<Choice>(new Choice[4]);
                         for (int j = 0; j < 4 && j < category.Questions[i].Choices.Count; j++)
@@ -121,24 +121,24 @@ namespace Jeopardy
                             category.Questions[i].Choices[j] = new Choice();
                             category.Questions[i].Choices[j].QuestionId = (int)category.Questions[i].Id;
                             category.Questions[i].Choices[j].Index = j;
-                            category.Questions[i].Choices[j].Text = importCategoryForm.selectedCategory.Questions[i].Choices[j].Text;
+                            category.Questions[i].Choices[j].Text = importCategoryForm.SelectedCategory.Questions[i].Choices[j].Text;
                             category.Questions[i].Choices[j].Id = DB_Insert.InsertChoice(category.Questions[i].Choices[j]);
                         }
                     }
                     //if both are multiple choice, just do a simple update
-                    else if (category.Questions[i].Type == "mc" && importCategoryForm.selectedCategory.Questions[i].Type == "mc")
+                    else if (category.Questions[i].Type == "mc" && importCategoryForm.SelectedCategory.Questions[i].Type == "mc")
                     {
                         for (int j = 0; j < 4; j++)
                         {
-                            category.Questions[i].Choices[j].Text = importCategoryForm.selectedCategory.Questions[i].Choices[j].Text;
+                            category.Questions[i].Choices[j].Text = importCategoryForm.SelectedCategory.Questions[i].Choices[j].Text;
                             DB_Update.UpdateChoice(category.Questions[i].Choices[j]);
                         }
                     }
 
                     //set the other new properties of the importing questions. This needs to go after the previous code
-                    category.Questions[i].Type = importCategoryForm.selectedCategory.Questions[i].Type;
-                    category.Questions[i].QuestionText = importCategoryForm.selectedCategory.Questions[i].QuestionText;
-                    category.Questions[i].Answer = importCategoryForm.selectedCategory.Questions[i].Answer;
+                    category.Questions[i].Type = importCategoryForm.SelectedCategory.Questions[i].Type;
+                    category.Questions[i].QuestionText = importCategoryForm.SelectedCategory.Questions[i].QuestionText;
+                    category.Questions[i].Answer = importCategoryForm.SelectedCategory.Questions[i].Answer;
 
                     //update the question (import the question)
                     DB_Update.UpdateQuestion(category.Questions[i]);

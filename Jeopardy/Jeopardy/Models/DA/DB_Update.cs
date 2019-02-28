@@ -502,6 +502,50 @@ namespace Jeopardy
             return false;
         }
 
+        public static bool UpdateCategoryIndex(int newIndex, int? categoryId)
+        {
+            string updateStatement =
+                "UPDATE categories " +
+                "SET [Index] = @newIndex " +
+                "Where Id = @categoryId";
+
+            OleDbCommand updateCommand = new OleDbCommand(updateStatement, conn);
+            updateCommand.Parameters.AddWithValue("@newIndex", newIndex);
+            updateCommand.Parameters.AddWithValue("@categoryId", categoryId);
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int numRows = updateCommand.ExecuteNonQuery();
+
+                if (numRows > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Database exception\n\n" + ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("General exception\n\n" + ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return false;
+        }
 
         public static bool UpdateQuestionType(string newQuestionType, int? questionId)
         {

@@ -8,7 +8,8 @@ namespace Jeopardy
     public partial class frmImportCategory : Form
     {
         private List<Game> allGames;
-        public Category selectedCategory;
+
+        public Category SelectedCategory; //other form sees this
 
         public frmImportCategory()
         {
@@ -74,6 +75,7 @@ namespace Jeopardy
                     ListViewItem lvi = new ListViewItem(type);
                     lvi.SubItems.Add(q.QuestionText);
                     lvi.SubItems.Add(q.Answer);
+                    lvi.Checked = true;
 
                     lsvQuestions.Items.Add(lvi);
                 }
@@ -90,11 +92,24 @@ namespace Jeopardy
         {
             if (lstGames.SelectedIndex != -1 && lstCategories.SelectedIndex != -1)
             {
-                selectedCategory = allGames[lstGames.SelectedIndex].Categories[lstCategories.SelectedIndex];
-
-                if (!cbxQuestions.Checked) //only import the questions associated with this category if checked
+                SelectedCategory = allGames[lstGames.SelectedIndex].Categories[lstCategories.SelectedIndex];
+                
+                if (cbxQuestions.Checked) //only import the questions associated with this category if checked
                 {
-                    selectedCategory.Questions = new List<Question>(); //clear questions so that they do not get imported
+                    List<Question> selectedQuestions = new List<Question>();
+                    //only add in the ones that are checked
+                    for (int i = 0; i < lsvQuestions.Items.Count; i++)
+                    {
+                        if (lsvQuestions.Items[i].Checked) //only import a specific question if it is checked
+                        {
+                            selectedQuestions.Add(allGames[lstGames.SelectedIndex].Categories[lstCategories.SelectedIndex].Questions[i]);
+                        }
+                    }
+                    SelectedCategory.Questions = selectedQuestions;
+                }
+                else //don't return any quesions if the user only wanted the title and subtitle info
+                {
+                    SelectedCategory.Questions = new List<Question>();
                 }
 
                 DialogResult = DialogResult.OK;
@@ -104,7 +119,7 @@ namespace Jeopardy
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            selectedCategory = null;
+            SelectedCategory = null;
             DialogResult = DialogResult.Cancel;
             Close();
         }

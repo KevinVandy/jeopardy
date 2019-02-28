@@ -29,6 +29,7 @@ namespace Jeopardy
             lblWeight.Text = question.Weight.ToString();
 
             txtQuestionText.Text = question.QuestionText;
+            txtAnswer.Text = question.Answer;
 
             if (question.Type == "fb")
             {

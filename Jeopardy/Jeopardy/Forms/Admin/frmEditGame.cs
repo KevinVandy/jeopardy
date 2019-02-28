@@ -125,7 +125,7 @@ namespace Jeopardy
             {
                 game.QuestionTimeLimit = new TimeSpan(0, 3, 0); //3 minutes
             }
-            
+
             DisableAllControls(); //disable while other thread running
             bwUpdateTimeLimit.RunWorkerAsync(); //update in backgroud thread
         }
@@ -605,6 +605,36 @@ namespace Jeopardy
         }
 
         //MARK: Context Menu Item Click Event Handlers
+        private void cmsCategories_Opening(object sender, CancelEventArgs e)
+        {
+            ContextMenuStrip cms = (ContextMenuStrip)sender;
+            //detect position in button grid
+            int x = -1;
+            for (int i = 0; i < game.NumCategories && x < 0; ++i)
+            {
+                if (categoryButtons[i] == cms.SourceControl)
+                {
+                    x = i;
+                    break;
+                }
+            }
+            if(x == 0)
+            {
+                moveLeftToolStripMenuItem.Enabled = false;
+                moveRightToolStripMenuItem.Enabled = true;
+            }
+            else if(x == game.NumCategories - 1)
+            {
+                moveLeftToolStripMenuItem.Enabled = true;
+                moveRightToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                moveLeftToolStripMenuItem.Enabled = true;
+                moveRightToolStripMenuItem.Enabled = true;
+            }
+        }
+
         private void tsmiEditCategory_Click(object sender, EventArgs e) //just simulates a click of the button
         {
             DisableAllControls();
@@ -658,6 +688,61 @@ namespace Jeopardy
                 EnableAllControls();
             }
         }
+        
+        private void moveLeftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisableAllControls();
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    //detect position in button grid
+                    int x = -1;
+                    for (int i = 0; i < game.NumCategories && x < 0; ++i)
+                    {
+                        if (categoryButtons[i] == (Button)owner.SourceControl)
+                        {
+                            x = i;
+                            break;
+                        }
+                    }
+                    DB_Update.UpdateCategoryIndex(--game.Categories[x].Index, game.Categories[x].Id);
+                    DB_Update.UpdateCategoryIndex(++game.Categories[x - 1].Index, game.Categories[x - 1].Id);
+
+                    bwLoadGame.RunWorkerAsync();
+                }
+            }
+        }
+
+        private void moveRightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisableAllControls();
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    //detect position in button grid
+                    int x = -1;
+                    for (int i = 0; i < game.NumCategories && x < 0; ++i)
+                    {
+                        if (categoryButtons[i] == (Button)owner.SourceControl)
+                        {
+                            x = i;
+                            break;
+                        }
+                    }
+                    DB_Update.UpdateCategoryIndex(++game.Categories[x].Index, game.Categories[x].Id);
+                    DB_Update.UpdateCategoryIndex(--game.Categories[x + 1].Index, game.Categories[x + 1].Id);
+
+                    bwLoadGame.RunWorkerAsync();
+                }
+            }
+
+        }
 
         private void bwUpdateCategory_DoWork(object sender, DoWorkEventArgs e) //also updates questions
         {
@@ -679,6 +764,42 @@ namespace Jeopardy
                 bwLoadGame.RunWorkerAsync();
             }
             EnableAllControls();
+        }
+
+        private void cmsQuestions_Opening(object sender, CancelEventArgs e)
+        {
+            ContextMenuStrip cms = (ContextMenuStrip)sender;
+
+            //detect position in button grid
+            int x = -1;
+            int y = -1;
+            for (int i = 0; i < game.NumCategories && x < 0; ++i)
+            {
+                for (int j = 0; j < game.NumQuestionsPerCategory; ++j)
+                {
+                    if (questionButtons[i, j] == cms.SourceControl)
+                    {
+                        x = i;
+                        y = j;
+                        break;
+                    }
+                }
+            }
+            if (y == 0)
+            {
+                moveUpToolStripMenuItem.Enabled = false;
+                moveDownToolStripMenuItem.Enabled = true;
+            }
+            else if (y == game.NumQuestionsPerCategory - 1)
+            {
+                moveUpToolStripMenuItem.Enabled = true;
+                moveDownToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                moveUpToolStripMenuItem.Enabled = true;
+                moveDownToolStripMenuItem.Enabled = true;
+            }
         }
 
         private void tsmiEditQuestion_Click(object sender, EventArgs e) //just simulates a click of the button
@@ -739,6 +860,16 @@ namespace Jeopardy
             {
                 EnableAllControls();
             }
+        }
+
+        private void moveUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void moveDownToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void bwUpdateQuestion_DoWork(object sender, DoWorkEventArgs e)
@@ -940,5 +1071,7 @@ namespace Jeopardy
             exportGameToolStripMenuItem.Enabled = true;
             exitToolStripMenuItem.Enabled = true;
         }
+
+        
     }
 }
