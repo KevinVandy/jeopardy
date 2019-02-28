@@ -33,6 +33,7 @@ namespace Jeopardy
             LoadTeams();
             ModifyPanelWidths();
             ModifyPanelHeights();
+            ModifyTeamGrid();
             DrawCategories();
             DrawGameGrid();
             currentGame.GenerateDailyDouble();
@@ -65,6 +66,7 @@ namespace Jeopardy
             //every time the game is resized, modify the team panels and redraw the game grid
             ModifyPanelWidths();
             ModifyPanelHeights();
+            ModifyTeamGrid();
             DrawCategories();
             DrawGameGrid();
         }
@@ -218,6 +220,37 @@ namespace Jeopardy
             foreach (Label l in LabelList)
             {
                 pnlCategories.Controls.Add(l);
+            }
+        }
+
+        private void ModifyTeamGrid()
+        {
+            int numTeams = teams.Length;
+            int panelWidth = gbxScoreBoard.Width;
+            int questionTimeLimitSpace = pnlTeamOne.Left;
+
+            int availableWidthLeft = panelWidth - questionTimeLimitSpace;
+
+            pnlTeamOne.Left = questionTimeLimitSpace;
+            pnlTeamOne.Width = availableWidthLeft / numTeams;
+            availableWidthLeft -= pnlTeamOne.Width;
+
+            pnlTeamTwo.Left = questionTimeLimitSpace + pnlTeamOne.Width;
+            pnlTeamTwo.Width = availableWidthLeft / (numTeams - 1);
+            availableWidthLeft -= pnlTeamTwo.Width;
+
+            if (numTeams >= 3)
+            {
+                pnlTeamThree.Left = questionTimeLimitSpace + pnlTeamOne.Width + pnlTeamTwo.Width;
+                pnlTeamThree.Width = availableWidthLeft / (numTeams - 2);
+                availableWidthLeft -= pnlTeamThree.Width;
+            }
+
+            if (numTeams >= 4)
+            {
+                pnlTeamFour.Left = questionTimeLimitSpace + pnlTeamOne.Width + pnlTeamTwo.Width + pnlTeamThree.Width;
+                pnlTeamFour.Width = availableWidthLeft / (numTeams - 3);
+                availableWidthLeft -= pnlTeamFour.Width;
             }
         }
 

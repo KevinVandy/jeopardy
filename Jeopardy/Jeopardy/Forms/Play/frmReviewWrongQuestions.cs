@@ -31,13 +31,23 @@ namespace Jeopardy
                 }
             }
 
-            lblQuestionText.Text += "\n\nClick 'Review' to Review the Questions you Missed!";
+            
 
             lblIndex.Hide();
             txtCorrectAnswer.Hide();
             btnPrevious.Hide();
             btnNext.Text = "Review";
             btnRevealAnswer.Hide();
+
+            if (WrongQuestions.Count == 0)
+            {
+                btnNext.Enabled = false;
+                lblQuestionText.Text += "\n\nYou didn't miss any questions!";
+            }
+            else
+            {
+                lblQuestionText.Text += "\n\nClick 'Review' to Review the Questions you Missed!";
+            }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
