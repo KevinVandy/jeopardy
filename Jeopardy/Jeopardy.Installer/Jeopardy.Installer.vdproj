@@ -27,6 +27,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1075F86985D004609EABECD1FE4A3011"
+        "OwnerKey" = "8:_7844CD226C2C4CC6AEA0D2ECCBB432B3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_14920181D2434F1BB5AAA7BE38849370"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1B5F80B5FF6B4B07807557D8D09ACA8D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -39,19 +51,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_7B2DD9FBFB7B556873E837724C99DBFA"
-        "OwnerKey" = "8:_7844CD226C2C4CC6AEA0D2ECCBB432B3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_899C2D161AFD4E678BFD7B1144734DE9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B98ACDE2B6D9420BB507DB1DC78A0CAC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -82,7 +82,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7B2DD9FBFB7B556873E837724C99DBFA"
+        "OwnerKey" = "8:_1075F86985D004609EABECD1FE4A3011"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -231,34 +231,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1B5F80B5FF6B4B07807557D8D09ACA8D"
-            {
-            "SourcePath" = "8:..\\packages\\MSAccessDBEng2010\\AccessDatabaseEngine.exe"
-            "TargetName" = "8:AccessDatabaseEngine.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_3E07EAF2CD9E4E099F223A2641001B9F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:FALSE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7B2DD9FBFB7B556873E837724C99DBFA"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1075F86985D004609EABECD1FE4A3011"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Syroot.KnownFolders, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_7B2DD9FBFB7B556873E837724C99DBFA"
+                    "_1075F86985D004609EABECD1FE4A3011"
                     {
                     "Name" = "8:Syroot.KnownFolders.dll"
                     "Attributes" = "3:512"
@@ -282,12 +262,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_899C2D161AFD4E678BFD7B1144734DE9"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_14920181D2434F1BB5AAA7BE38849370"
             {
-            "SourcePath" = "8:..\\..\\Midterm Review.xml"
-            "TargetName" = "8:Midterm Review.xml"
+            "SourcePath" = "8:..\\Jeopardy\\JeopardyHelpFiles\\jeopardyhelp.chm"
+            "TargetName" = "8:jeopardyhelp.chm"
             "Tag" = "8:"
-            "Folder" = "8:_423F4000E5BE44ABB77F0BC282D7D50C"
+            "Folder" = "8:_3E07EAF2CD9E4E099F223A2641001B9F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -302,12 +282,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B98ACDE2B6D9420BB507DB1DC78A0CAC"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1B5F80B5FF6B4B07807557D8D09ACA8D"
             {
-            "SourcePath" = "8:..\\Jeopardy\\bin\\Debug\\JeopardyHelpFiles\\jeopardyhelp.chm"
-            "TargetName" = "8:jeopardyhelp.chm"
+            "SourcePath" = "8:..\\packages\\MSAccessDBEng2010\\AccessDatabaseEngine.exe"
+            "TargetName" = "8:AccessDatabaseEngine.exe"
             "Tag" = "8:"
             "Folder" = "8:_3E07EAF2CD9E4E099F223A2641001B9F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:FALSE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_899C2D161AFD4E678BFD7B1144734DE9"
+            {
+            "SourcePath" = "8:..\\..\\Midterm Review.xml"
+            "TargetName" = "8:Midterm Review.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_423F4000E5BE44ABB77F0BC282D7D50C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -483,7 +483,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Jeopardy 2019"
         "ProductCode" = "8:{F8C766EF-47F8-47C5-BD00-668E7321106E}"
-        "PackageCode" = "8:{31DB3C5D-2336-4D4D-8BB9-45D409FCBDA9}"
+        "PackageCode" = "8:{E3054DFA-B7B6-422B-B1AE-2A7D2F5AC47A}"
         "UpgradeCode" = "8:{08688619-09D6-4209-B828-4DD80AF5E2A4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
