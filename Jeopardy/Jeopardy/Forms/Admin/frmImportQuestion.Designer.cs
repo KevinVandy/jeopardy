@@ -47,6 +47,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblCloseWarning = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -185,7 +186,7 @@
             // saveAndExitToolStripMenuItem
             // 
             this.saveAndExitToolStripMenuItem.Name = "saveAndExitToolStripMenuItem";
-            this.saveAndExitToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.saveAndExitToolStripMenuItem.Size = new System.Drawing.Size(104, 26);
             this.saveAndExitToolStripMenuItem.Text = "Exit";
             this.saveAndExitToolStripMenuItem.Click += new System.EventHandler(this.saveAndExitToolStripMenuItem_Click);
             // 
@@ -201,22 +202,36 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // tutorialToolStripMenuItem
             // 
             this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
-            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.tutorialToolStripMenuItem.Text = "Tutorial";
             this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.tutorialToolStripMenuItem_Click);
+            // 
+            // lblCloseWarning
+            // 
+            this.lblCloseWarning.AutoSize = true;
+            this.lblCloseWarning.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCloseWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCloseWarning.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblCloseWarning.Location = new System.Drawing.Point(471, 9);
+            this.lblCloseWarning.Name = "lblCloseWarning";
+            this.lblCloseWarning.Size = new System.Drawing.Size(292, 20);
+            this.lblCloseWarning.TabIndex = 24;
+            this.lblCloseWarning.Text = "Cannot Close until games have loaded...";
+            this.lblCloseWarning.Visible = false;
             // 
             // frmImportQuestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 604);
+            this.Controls.Add(this.lblCloseWarning);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
@@ -234,6 +249,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Jeopardy - Import Question";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmImportQuestion_FormClosing);
             this.Load += new System.EventHandler(this.frmImportQuestion_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -262,5 +278,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
+        private System.Windows.Forms.Label lblCloseWarning;
     }
 }

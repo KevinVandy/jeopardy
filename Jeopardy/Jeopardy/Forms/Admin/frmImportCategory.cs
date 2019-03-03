@@ -34,6 +34,7 @@ namespace Jeopardy
             {
                 lstGames.Items.Add(g.GameName);
             }
+            lblCloseWarning.Hide();
         }
 
         //After the user selects a game in the first list box, show the categories in that game
@@ -139,6 +140,20 @@ namespace Jeopardy
         private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DB_Conn.OpenHelpFile();
+        }
+
+        private void frmImportCategory_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (bwLoadGames.IsBusy)
+            {
+                lblCloseWarning.Show();
+                e.Cancel = true;
+            }
+            else
+            {
+                lblCloseWarning.Hide();
+                e.Cancel = false;
+            }
         }
     }
 }

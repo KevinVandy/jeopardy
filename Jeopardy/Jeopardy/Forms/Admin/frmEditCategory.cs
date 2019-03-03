@@ -151,6 +151,7 @@ namespace Jeopardy
             EnableAllControls();
             btnCancel.Enabled = false; //can't cancel after import
             frmEditCategory_Load(sender, e); //reload form and new info should show
+            lblCloseWarning.Hide();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -199,6 +200,20 @@ namespace Jeopardy
             btnImport.Enabled = true;
             btnOK.Enabled = true;
             importCategoryFromOtherGameToolStripMenuItem.Enabled = true;
+        }
+
+        private void frmEditCategory_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (bwImportCategory.IsBusy)
+            {
+                lblCloseWarning.Show();
+                e.Cancel = true;
+            }
+            else
+            {
+                lblCloseWarning.Hide();
+                e.Cancel = false;
+            }
         }
     }
 }

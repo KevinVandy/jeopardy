@@ -73,6 +73,7 @@ namespace Jeopardy
         {
             DrawGrids();
             EnableAllControls();
+            lblCloseWarning.Hide();
         }
 
         //MARK: Value & Index Change Event Handlers (Mostly for stuff in the Game Info group box)
@@ -92,6 +93,17 @@ namespace Jeopardy
             {
                 game.GameName = txtGameName.Text;
                 bwUpdateGameName.RunWorkerAsync();
+            }
+
+            if(bwAddCategory.IsBusy || bwRemoveCategory.IsBusy || bwAddQuestions.IsBusy || bwRemoveQuestions.IsBusy || bwUpdateCategory.IsBusy || bwUpdateQuestion.IsBusy || bwUpdateNumCategories.IsBusy || bwUpdateNumQuestionsPerCategory.IsBusy || bwUpdateTimeLimit.IsBusy || bwDeleteChoices.IsBusy)
+            {
+                lblCloseWarning.Show();
+                e.Cancel = true;
+            }
+            else
+            {
+                lblCloseWarning.Hide();
+                e.Cancel = false;
             }
         }
 
@@ -141,6 +153,7 @@ namespace Jeopardy
         private void bwUpdateTimeLimit_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             EnableAllControls(); //re-enable once safe
+            lblCloseWarning.Hide();
         }
 
         private void nudNumCategories_ValueChanged(object sender, EventArgs e)
@@ -199,6 +212,7 @@ namespace Jeopardy
         {
             bwUpdateNumCategories.RunWorkerAsync();
             DrawGrids();
+            lblCloseWarning.Hide();
         }
 
         private void bwRemoveCategory_DoWork(object sender, DoWorkEventArgs e)
@@ -213,6 +227,7 @@ namespace Jeopardy
         {
             bwUpdateNumCategories.RunWorkerAsync();
             DrawGrids();
+            lblCloseWarning.Hide();
         }
 
         private void bwUpdateNumCategories_DoWork(object sender, DoWorkEventArgs e)
@@ -227,6 +242,7 @@ namespace Jeopardy
         {
             EnableAllControls();
             DisplayNumberQuestions();
+            lblCloseWarning.Hide();
         }
 
         private void nudNumQuestionCategory_ValueChanged(object sender, EventArgs e)
@@ -284,6 +300,7 @@ namespace Jeopardy
         {
             bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
             CreateQuestionGrid(); //only recreate the question grid, category grid can stay the same
+            lblCloseWarning.Hide();
         }
 
         private void bwRemoveQuestions_DoWork(object sender, DoWorkEventArgs e)
@@ -305,6 +322,7 @@ namespace Jeopardy
         {
             bwUpdateNumQuestionsPerCategory.RunWorkerAsync();
             CreateQuestionGrid();
+            lblCloseWarning.Hide();
         }
 
         private void bwUpdateNumQuestionsPerCategory_DoWork(object sender, DoWorkEventArgs e)
@@ -319,6 +337,7 @@ namespace Jeopardy
         {
             EnableAllControls(); //re-enable once thread safe
             DisplayNumberQuestions();
+            lblCloseWarning.Hide();
         }
 
         //MARK: Methods for Drawing the Buttons in the Group Boxes
@@ -806,6 +825,7 @@ namespace Jeopardy
                 bwLoadGame.RunWorkerAsync();
             }
             EnableAllControls();
+            lblCloseWarning.Hide();
         }
 
         private void cmsQuestions_Opening(object sender, CancelEventArgs e)
@@ -1027,6 +1047,7 @@ namespace Jeopardy
                 bwLoadGame.RunWorkerAsync();
             }
             EnableAllControls();
+            lblCloseWarning.Hide();
         }
 
         private void bwDeleteChoices_DoWork(object sender, DoWorkEventArgs e)
@@ -1044,6 +1065,7 @@ namespace Jeopardy
                 bwLoadGame.RunWorkerAsync();
             }
             EnableAllControls();
+            lblCloseWarning.Hide();
         }
 
         //MARK: Resizing the Window Event Handler stuff

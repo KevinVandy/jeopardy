@@ -66,9 +66,7 @@ namespace Jeopardy
             txtQuestionText.Focus();
             txtQuestionText.SelectAll();
         }
-
-
-
+        
         private void bwCreateChoices_DoWork(object sender, DoWorkEventArgs e)
         {
             if (question.Choices == null || question.Choices.Count == 0)
@@ -88,6 +86,7 @@ namespace Jeopardy
         {
             EnableTypeRadioButtons();
             EnableMCControls();
+            lblCloseWarning.Hide();
         }
 
         private void bwRemoveChoices_DoWork(object sender, DoWorkEventArgs e) //now only runs on form close
@@ -105,6 +104,7 @@ namespace Jeopardy
         {
             //question.Choices = new List<Choice>(); //reset to null
             //EnableTypeRadioButtons();
+            lblCloseWarning.Hide();
         }
 
         private void rdoType_CheckChanged(object sender, EventArgs e)
@@ -388,6 +388,10 @@ namespace Jeopardy
                 {
                     btnOK_Click(sender, e);
                 }
+            }
+            if (bwCreateChoices.IsBusy)
+            {
+                e.Cancel = true;
             }
         }
 
