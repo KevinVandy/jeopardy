@@ -61,6 +61,7 @@
             // 
             // btnCreateGame
             // 
+            this.btnCreateGame.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreateGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateGame.Location = new System.Drawing.Point(359, 62);
             this.btnCreateGame.Name = "btnCreateGame";
@@ -72,6 +73,7 @@
             // 
             // btnPlayGame
             // 
+            this.btnPlayGame.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlayGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlayGame.Location = new System.Drawing.Point(48, 296);
             this.btnPlayGame.Name = "btnPlayGame";
@@ -205,6 +207,7 @@
             // 
             // btnEditGame
             // 
+            this.btnEditGame.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditGame.Location = new System.Drawing.Point(359, 140);
             this.btnEditGame.Name = "btnEditGame";
@@ -216,6 +219,7 @@
             // 
             // btnDeleteGame
             // 
+            this.btnDeleteGame.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteGame.Location = new System.Drawing.Point(359, 218);
             this.btnDeleteGame.Name = "btnDeleteGame";
@@ -233,6 +237,7 @@
             // 
             // btnExportGame
             // 
+            this.btnExportGame.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportGame.Location = new System.Drawing.Point(359, 374);
             this.btnExportGame.Name = "btnExportGame";
@@ -244,6 +249,7 @@
             // 
             // btnImportGame
             // 
+            this.btnImportGame.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImportGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportGame.Location = new System.Drawing.Point(359, 296);
             this.btnImportGame.Name = "btnImportGame";

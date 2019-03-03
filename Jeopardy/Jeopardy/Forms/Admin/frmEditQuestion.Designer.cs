@@ -199,7 +199,7 @@
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(212, 51);
             this.btnOK.TabIndex = 2;
-            this.btnOK.Text = "OK";
+            this.btnOK.Text = "Save";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -450,7 +450,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(955, 709);
+            this.ClientSize = new System.Drawing.Size(955, 727);
             this.Controls.Add(this.lblCloseWarning);
             this.Controls.Add(this.lblLimitWarning);
             this.Controls.Add(this.btnImport);

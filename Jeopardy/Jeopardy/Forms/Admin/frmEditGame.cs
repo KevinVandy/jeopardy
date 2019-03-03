@@ -510,6 +510,8 @@ namespace Jeopardy
             {
                 EnableAllControls();
             }
+            DetermineQuestionStates();
+            ColorCodeButtons();
         }
 
         //MARK Methods for figuring out stats and Button Colors

@@ -127,6 +127,7 @@
             // 
             this.txtGameName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGameName.Location = new System.Drawing.Point(124, 31);
+            this.txtGameName.MaxLength = 50;
             this.txtGameName.Name = "txtGameName";
             this.txtGameName.Size = new System.Drawing.Size(188, 26);
             this.txtGameName.TabIndex = 32;
@@ -223,6 +224,7 @@
             // 
             // cboQuestionTimeLimit
             // 
+            this.cboQuestionTimeLimit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboQuestionTimeLimit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboQuestionTimeLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboQuestionTimeLimit.FormattingEnabled = true;
@@ -346,6 +348,7 @@
             // nudNumQuestionCategory
             // 
             this.nudNumQuestionCategory.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.nudNumQuestionCategory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nudNumQuestionCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudNumQuestionCategory.Location = new System.Drawing.Point(848, 29);
             this.nudNumQuestionCategory.Maximum = new decimal(new int[] {
@@ -373,6 +376,7 @@
             // nudNumCategories
             // 
             this.nudNumCategories.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.nudNumCategories.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nudNumCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudNumCategories.Location = new System.Drawing.Point(521, 29);
             this.nudNumCategories.Maximum = new decimal(new int[] {
@@ -598,7 +602,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(360, 239);
+            this.MinimumSize = new System.Drawing.Size(700, 500);
             this.Name = "frmEditGame";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

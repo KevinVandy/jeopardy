@@ -125,19 +125,18 @@ namespace Jeopardy
 
         public void DetermineState()
         {
-            if (QuestionText == "" || QuestionText == " ")
+            if (QuestionText.Trim() == "")
             {
                 State = "no question";
             }
-            else if (QuestionText.Length > 1 && (Answer == "" || Answer == " "))
+            else if (QuestionText.Length >= 1 && Answer.Trim() == "")
             {
                 State = "no answer";
             }
-            else if (QuestionText.Length > 1 && Type == "mc") //if is multiple choice
+            else if (QuestionText.Length >= 1 && Type == "mc") //if is multiple choice
             {
                 if (Choices ==  null || Choices.Count < 4 
-                 || Choices[0].Text == " " || Choices[1].Text == " " || Choices[2].Text == " " || Choices[3].Text == " "
-                 || Choices[0].Text == "" || Choices[1].Text == "" || Choices[2].Text == "" || Choices[3].Text == "")
+                 || Choices[0].Text.Trim() == "" || Choices[1].Text.Trim() == "" || Choices[2].Text.Trim() == "" || Choices[3].Text.Trim() == "")
                 {
                     State = "no choices";
                 }
