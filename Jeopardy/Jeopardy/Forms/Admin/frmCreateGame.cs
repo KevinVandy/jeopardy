@@ -179,5 +179,17 @@ namespace Jeopardy
                 left += (pnlPreview.Width / (int)nudNumCategories.Value);
             }
         }
+
+        private void frmCreateGame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (bwInsertGame.IsBusy)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                e.Cancel = false;
+            }
+        }
     }
 }

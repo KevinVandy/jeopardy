@@ -120,7 +120,7 @@
             this.pnlRadioButtons.Controls.Add(this.rdoSecondChoice);
             this.pnlRadioButtons.Controls.Add(this.rdoFirstChoice);
             this.pnlRadioButtons.Location = new System.Drawing.Point(11, 206);
-            this.pnlRadioButtons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlRadioButtons.Margin = new System.Windows.Forms.Padding(2);
             this.pnlRadioButtons.Name = "pnlRadioButtons";
             this.pnlRadioButtons.Size = new System.Drawing.Size(1029, 304);
             this.pnlRadioButtons.TabIndex = 12;
@@ -221,7 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 610);
+            this.ClientSize = new System.Drawing.Size(1047, 606);
             this.ControlBox = false;
             this.Controls.Add(this.pnlRadioButtons);
             this.Controls.Add(this.btnSubmit);
@@ -239,7 +239,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Jeopardy!";
+            this.Text = "Multiple Choice";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmMultipleChoice_Load);
             this.pnlRadioButtons.ResumeLayout(false);

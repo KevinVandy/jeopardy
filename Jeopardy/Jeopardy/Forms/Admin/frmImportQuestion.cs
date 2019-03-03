@@ -24,16 +24,31 @@ namespace Jeopardy
         //Load all of the games in the background
         private void bwLoadGames_DoWork(object sender, DoWorkEventArgs e)
         {
-            allGames = DB_Select.SelectAllGames();
+            if (allGames == null)
+            {
+                allGames = DB_Select.SelectAllGames();
+            }
         }
 
         //After all of the games have loaded, show them in the list box
         private void bwLoadGames_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            foreach (Game g in allGames)
+            if (allGames != null && allGames.Count > 0)
             {
-                lstGames.Items.Add(g.GameName);
+                foreach (Game g in allGames)
+                {
+                    lstGames.Items.Add(g.GameName);
+                }
             }
+            else
+            {
+                lstGames.Items.Add("No games");
+                lstGames.SelectedIndex = -1;
+                lstGames.Enabled = false;
+                lstCategories.Enabled = false;
+                lsvQuestions.Enabled = false;
+            }
+
             lblCloseWarning.Hide();
         }
 
@@ -43,10 +58,21 @@ namespace Jeopardy
             lstCategories.Items.Clear();
             if (lstGames.SelectedIndex != -1)
             {
-                foreach (Category c in allGames[lstGames.SelectedIndex].Categories)
+                if (allGames[lstGames.SelectedIndex].Categories != null && allGames[lstGames.SelectedIndex].Categories.Count > 0)
                 {
-                    lstCategories.Items.Add(c.Title + " - " + c.Subtitle);
+                    foreach (Category c in allGames[lstGames.SelectedIndex].Categories)
+                    {
+                        lstCategories.Items.Add(c.Title + " - " + c.Subtitle);
+                    }
                 }
+                lstCategories.Enabled = true;
+            }
+            else
+            {
+                lstCategories.Items.Add("No categories");
+                lstCategories.SelectedIndex = -1;
+                lstCategories.Enabled = false;
+                lsvQuestions.Enabled = false;
             }
             if (lstCategories.SelectedIndex > 0 && lsvQuestions.SelectedIndices.Count > 0)
             {
@@ -55,6 +81,7 @@ namespace Jeopardy
             else
             {
                 btnImport.Enabled = false;
+                lsvQuestions.Items.Clear();
             }
         }
 
@@ -64,20 +91,29 @@ namespace Jeopardy
             lsvQuestions.Items.Clear();
             if (lstCategories.SelectedIndex != -1)
             {
-                foreach (Question q in allGames[lstGames.SelectedIndex].Categories[lstCategories.SelectedIndex].Questions)
+                if (allGames[lstGames.SelectedIndex].Categories[lstCategories.SelectedIndex].Questions != null && allGames[lstGames.SelectedIndex].Categories[lstCategories.SelectedIndex].Questions.Count > 0)
                 {
-                    string type = " ";
-                    switch (q.Type)
+                    foreach (Question q in allGames[lstGames.SelectedIndex].Categories[lstCategories.SelectedIndex].Questions)
                     {
-                        case "fb": type = "Fill in the Blank"; break;
-                        case "mc": type = "Multiple Choice"; break;
-                        case "tf": type = "True / False"; break;
+                        if (q.QuestionText.Trim() != "") //only add non-blank questions
+                        {
+                            string type = " ";
+                            switch (q.Type)
+                            {
+                                case "fb": type = "Fill in the Blank"; break;
+                                case "mc": type = "Multiple Choice"; break;
+                                case "tf": type = "True / False"; break;
+                            }
+                            ListViewItem lvi = new ListViewItem(type);
+                            lvi.SubItems.Add(q.QuestionText);
+                            lvi.SubItems.Add(q.Answer);
+                            lsvQuestions.Items.Add(lvi);
+                        }
                     }
-                    ListViewItem lvi = new ListViewItem(type);
-                    lvi.SubItems.Add(q.QuestionText);
-                    lvi.SubItems.Add(q.Answer);
-
-                    lsvQuestions.Items.Add(lvi);
+                }
+                else
+                {
+                    lsvQuestions.Enabled = false;
                 }
             }
             if (lsvQuestions.SelectedIndices.Count > 0)

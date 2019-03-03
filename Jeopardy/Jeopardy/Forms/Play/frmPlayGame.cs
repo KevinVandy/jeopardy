@@ -223,9 +223,14 @@ namespace Jeopardy
             }
         }
 
-        private void ModifyTeamGrid()
+        private void ModifyTeamGrid() //adjust widths of team panels
         {
             int numTeams = teams.Length;
+            if(teams[3] == null) //just make each team block wider if more room available
+            {
+                numTeams = 3;
+            }
+
             int panelWidth = gbxScoreBoard.Width;
             int questionTimeLimitSpace = pnlTeamOne.Left;
 
@@ -299,14 +304,14 @@ namespace Jeopardy
             }
 
             //add info to buttons (associate with actual question)
-            for (int i = 0; i < currentGame.NumCategories && i < currentGame.Categories.Count; i++)
+            for (int x = 0; x < currentGame.NumCategories && x < currentGame.Categories.Count; x++)
             {
-                for (int j = 0; j < currentGame.NumQuestionsPerCategory && j < currentGame.Categories[i].Questions.Count; j++)
+                for (int y = 0; y < currentGame.NumQuestionsPerCategory && y < currentGame.Categories[x].Questions.Count; y++)
                 {
                     //If the question has already been answered, then it doesn't have a button to assign to the .Text property
-                    if (currentGame.Categories[i].Questions[j].State != "Answered")
+                    if (currentGame.Categories[x].Questions[y].State != "Answered")
                     {
-                        questionButtons[i, j].Text = currentGame.Categories[i].Questions[j].Weight.ToString();
+                        questionButtons[x, y].Text = currentGame.Categories[x].Questions[y].Weight.ToString();
                     }
                 }
             }

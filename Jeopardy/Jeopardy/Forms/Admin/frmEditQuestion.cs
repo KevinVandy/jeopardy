@@ -91,7 +91,7 @@ namespace Jeopardy
 
         private void bwRemoveChoices_DoWork(object sender, DoWorkEventArgs e) //now only runs on form close
         {
-            if (question.Choices != null && question.Choices.Count > 0)
+            if (!bwCreateChoices.IsBusy && question.Choices != null && question.Choices.Count > 0)
             {
                 foreach (Choice c in question.Choices)
                 {
