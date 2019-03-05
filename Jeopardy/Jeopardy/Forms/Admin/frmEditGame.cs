@@ -444,7 +444,7 @@ namespace Jeopardy
                     questionButtons[x, y].Left = start_y + ((x * buttonWidth) + (x * 5));
                     questionButtons[x, y].Width = buttonWidth;
                     questionButtons[x, y].Height = buttonHeight;
-                    questionButtons[x, y].Text = game.Categories[x].Questions[y].Weight.ToString() + "\n" + game.Categories[x].Questions[y].QuestionText.Trim();
+                    questionButtons[x, y].Text = game.Categories[x].Questions[y].Weight.ToString() + "   " + game.Categories[x].Questions[y].Type.ToUpper() + "\n" + game.Categories[x].Questions[y].QuestionText.Trim();
                     questionButtons[x, y].Font = new Font("Microsoft Sans Serif", 12);
                     questionButtons[x, y].Cursor = Cursors.Hand;
                     questionButtons[x, y].ContextMenuStrip = cmsQuestions;
