@@ -63,9 +63,15 @@
             this.cmsQuestions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiEditQuestion = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDeleteQuestion = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.moveUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moveDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsCategories = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiEditCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDeleteCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.moveLeftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moveRightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bwAddCategory = new System.ComponentModel.BackgroundWorker();
             this.bwRemoveCategory = new System.ComponentModel.BackgroundWorker();
             this.bwAddQuestions = new System.ComponentModel.BackgroundWorker();
@@ -77,12 +83,7 @@
             this.bwUpdateCategory = new System.ComponentModel.BackgroundWorker();
             this.bwUpdateQuestion = new System.ComponentModel.BackgroundWorker();
             this.bwDeleteChoices = new System.ComponentModel.BackgroundWorker();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.moveLeftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.moveRightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.moveUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.moveDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblCloseWarning = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.gbxGameInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumQuestionCategory)).BeginInit();
@@ -126,6 +127,7 @@
             // 
             this.txtGameName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGameName.Location = new System.Drawing.Point(124, 31);
+            this.txtGameName.MaxLength = 50;
             this.txtGameName.Name = "txtGameName";
             this.txtGameName.Size = new System.Drawing.Size(188, 26);
             this.txtGameName.TabIndex = 32;
@@ -222,6 +224,7 @@
             // 
             // cboQuestionTimeLimit
             // 
+            this.cboQuestionTimeLimit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboQuestionTimeLimit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboQuestionTimeLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboQuestionTimeLimit.FormattingEnabled = true;
@@ -345,6 +348,7 @@
             // nudNumQuestionCategory
             // 
             this.nudNumQuestionCategory.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.nudNumQuestionCategory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nudNumQuestionCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudNumQuestionCategory.Location = new System.Drawing.Point(848, 29);
             this.nudNumQuestionCategory.Maximum = new decimal(new int[] {
@@ -372,6 +376,7 @@
             // nudNumCategories
             // 
             this.nudNumCategories.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.nudNumCategories.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nudNumCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudNumCategories.Location = new System.Drawing.Point(521, 29);
             this.nudNumCategories.Maximum = new decimal(new int[] {
@@ -431,22 +436,41 @@
             this.moveUpToolStripMenuItem,
             this.moveDownToolStripMenuItem});
             this.cmsQuestions.Name = "cmsQuestions";
-            this.cmsQuestions.Size = new System.Drawing.Size(181, 136);
+            this.cmsQuestions.Size = new System.Drawing.Size(165, 114);
             this.cmsQuestions.Opening += new System.ComponentModel.CancelEventHandler(this.cmsQuestions_Opening);
             // 
             // tsmiEditQuestion
             // 
             this.tsmiEditQuestion.Name = "tsmiEditQuestion";
-            this.tsmiEditQuestion.Size = new System.Drawing.Size(124, 26);
+            this.tsmiEditQuestion.Size = new System.Drawing.Size(164, 26);
             this.tsmiEditQuestion.Text = "Edit";
             this.tsmiEditQuestion.Click += new System.EventHandler(this.tsmiEditQuestion_Click);
             // 
             // tsmiDeleteQuestion
             // 
             this.tsmiDeleteQuestion.Name = "tsmiDeleteQuestion";
-            this.tsmiDeleteQuestion.Size = new System.Drawing.Size(124, 26);
+            this.tsmiDeleteQuestion.Size = new System.Drawing.Size(164, 26);
             this.tsmiDeleteQuestion.Text = "Delete";
             this.tsmiDeleteQuestion.Click += new System.EventHandler(this.tsmiDeleteQuestion_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
+            // 
+            // moveUpToolStripMenuItem
+            // 
+            this.moveUpToolStripMenuItem.Name = "moveUpToolStripMenuItem";
+            this.moveUpToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
+            this.moveUpToolStripMenuItem.Text = "Move Up";
+            this.moveUpToolStripMenuItem.Click += new System.EventHandler(this.moveUpToolStripMenuItem_Click);
+            // 
+            // moveDownToolStripMenuItem
+            // 
+            this.moveDownToolStripMenuItem.Name = "moveDownToolStripMenuItem";
+            this.moveDownToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
+            this.moveDownToolStripMenuItem.Text = "Move Down";
+            this.moveDownToolStripMenuItem.Click += new System.EventHandler(this.moveDownToolStripMenuItem_Click);
             // 
             // cmsCategories
             // 
@@ -465,16 +489,35 @@
             // tsmiEditCategory
             // 
             this.tsmiEditCategory.Name = "tsmiEditCategory";
-            this.tsmiEditCategory.Size = new System.Drawing.Size(180, 26);
+            this.tsmiEditCategory.Size = new System.Drawing.Size(160, 26);
             this.tsmiEditCategory.Text = "Edit";
             this.tsmiEditCategory.Click += new System.EventHandler(this.tsmiEditCategory_Click);
             // 
             // tsmiDeleteCategory
             // 
             this.tsmiDeleteCategory.Name = "tsmiDeleteCategory";
-            this.tsmiDeleteCategory.Size = new System.Drawing.Size(180, 26);
+            this.tsmiDeleteCategory.Size = new System.Drawing.Size(160, 26);
             this.tsmiDeleteCategory.Text = "Delete";
             this.tsmiDeleteCategory.Click += new System.EventHandler(this.tsmiDeleteCategory_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
+            // 
+            // moveLeftToolStripMenuItem
+            // 
+            this.moveLeftToolStripMenuItem.Name = "moveLeftToolStripMenuItem";
+            this.moveLeftToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.moveLeftToolStripMenuItem.Text = "Move Left";
+            this.moveLeftToolStripMenuItem.Click += new System.EventHandler(this.moveLeftToolStripMenuItem_Click);
+            // 
+            // moveRightToolStripMenuItem
+            // 
+            this.moveRightToolStripMenuItem.Name = "moveRightToolStripMenuItem";
+            this.moveRightToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.moveRightToolStripMenuItem.Text = "Move Right";
+            this.moveRightToolStripMenuItem.Click += new System.EventHandler(this.moveRightToolStripMenuItem_Click);
             // 
             // bwAddCategory
             // 
@@ -530,49 +573,27 @@
             this.bwDeleteChoices.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwDeleteChoices_DoWork);
             this.bwDeleteChoices.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwDeleteChoices_RunWorkerCompleted);
             // 
-            // toolStripSeparator2
+            // lblCloseWarning
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(121, 6);
-            // 
-            // moveLeftToolStripMenuItem
-            // 
-            this.moveLeftToolStripMenuItem.Name = "moveLeftToolStripMenuItem";
-            this.moveLeftToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.moveLeftToolStripMenuItem.Text = "Move Left";
-            this.moveLeftToolStripMenuItem.Click += new System.EventHandler(this.moveLeftToolStripMenuItem_Click);
-            // 
-            // moveRightToolStripMenuItem
-            // 
-            this.moveRightToolStripMenuItem.Name = "moveRightToolStripMenuItem";
-            this.moveRightToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.moveRightToolStripMenuItem.Text = "Move Right";
-            this.moveRightToolStripMenuItem.Click += new System.EventHandler(this.moveRightToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
-            // 
-            // moveUpToolStripMenuItem
-            // 
-            this.moveUpToolStripMenuItem.Name = "moveUpToolStripMenuItem";
-            this.moveUpToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.moveUpToolStripMenuItem.Text = "Move Up";
-            this.moveUpToolStripMenuItem.Click += new System.EventHandler(this.moveUpToolStripMenuItem_Click);
-            // 
-            // moveDownToolStripMenuItem
-            // 
-            this.moveDownToolStripMenuItem.Name = "moveDownToolStripMenuItem";
-            this.moveDownToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.moveDownToolStripMenuItem.Text = "Move Down";
-            this.moveDownToolStripMenuItem.Click += new System.EventHandler(this.moveDownToolStripMenuItem_Click);
+            this.lblCloseWarning.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCloseWarning.AutoSize = true;
+            this.lblCloseWarning.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCloseWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCloseWarning.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblCloseWarning.Location = new System.Drawing.Point(799, 7);
+            this.lblCloseWarning.Name = "lblCloseWarning";
+            this.lblCloseWarning.Size = new System.Drawing.Size(268, 20);
+            this.lblCloseWarning.TabIndex = 39;
+            this.lblCloseWarning.Text = "Cannot Close yet. Save in progress...";
+            this.lblCloseWarning.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblCloseWarning.Visible = false;
             // 
             // frmEditGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 849);
+            this.Controls.Add(this.lblCloseWarning);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.gbxGameInfo);
             this.Controls.Add(this.gbxCategories);
@@ -581,7 +602,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(360, 239);
+            this.MinimumSize = new System.Drawing.Size(700, 500);
             this.Name = "frmEditGame";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -660,5 +681,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem moveUpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem moveDownToolStripMenuItem;
+        private System.Windows.Forms.Label lblCloseWarning;
     }
 }

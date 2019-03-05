@@ -7,18 +7,31 @@ namespace Jeopardy
     {
         //The design on this form could probably use some tidying up
         //But for what we need it works
-        private Game currentGame = new Game();
+        private Game game = new Game();
         private Team[] theTeams = new Team[4];
 
         public frmTeams(Game theGame)
         {
-            currentGame = theGame;
+            game = theGame;
             InitializeComponent();
         }
 
         private void frmTeams_Load(object sender, EventArgs e)
         {
+            btnExit.Enabled = false;
+            btnOK.Enabled = false;
+            bwLoadGame.RunWorkerAsync();
+        }
 
+        private void bwLoadGame_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            game = DB_Select.SelectGame_ByGameId(game.Id);
+        }
+
+        private void bwLoadGame_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            btnExit.Enabled = true;
+            btnOK.Enabled = true;
         }
 
         private void nudNumberOfTeams_ValueChanged(object sender, EventArgs e)
@@ -78,7 +91,7 @@ namespace Jeopardy
 
                     Hide();
 
-                    frmPlayGame playGameForm = new frmPlayGame(currentGame, theTeams);
+                    frmPlayGame playGameForm = new frmPlayGame(game, theTeams);
                     playGameForm.ShowDialog();
                 }
                 else
@@ -101,7 +114,7 @@ namespace Jeopardy
 
                     Hide();
 
-                    frmPlayGame playGameForm = new frmPlayGame(currentGame, theTeams);
+                    frmPlayGame playGameForm = new frmPlayGame(game, theTeams);
                     playGameForm.ShowDialog();
                 }
                 else
@@ -126,7 +139,7 @@ namespace Jeopardy
 
                     Hide();
 
-                    frmPlayGame playGameForm = new frmPlayGame(currentGame, theTeams);
+                    frmPlayGame playGameForm = new frmPlayGame(game, theTeams);
                     playGameForm.ShowDialog();
                 }
                 else
@@ -176,6 +189,18 @@ namespace Jeopardy
         private void txtFourthTeam_Click(object sender, EventArgs e)
         {
             txtFourthTeam.SelectAll();
+        }
+
+        private void frmTeams_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (bwLoadGame.IsBusy) //don't close while reading database to prevent memory error
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                e.Cancel = false;
+            }
         }
     }
 }

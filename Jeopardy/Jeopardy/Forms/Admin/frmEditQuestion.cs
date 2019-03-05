@@ -28,8 +28,8 @@ namespace Jeopardy
             lblCategoryTitle.Text = categoryName;
             lblWeight.Text = question.Weight.ToString();
 
-            txtQuestionText.Text = question.QuestionText;
-            txtAnswer.Text = question.Answer;
+            txtQuestionText.Text = question.QuestionText.Trim();
+            txtAnswer.Text = question.Answer.Trim();
 
             if (question.Type == "fb")
             {
@@ -66,9 +66,7 @@ namespace Jeopardy
             txtQuestionText.Focus();
             txtQuestionText.SelectAll();
         }
-
-
-
+        
         private void bwCreateChoices_DoWork(object sender, DoWorkEventArgs e)
         {
             if (question.Choices == null || question.Choices.Count == 0)
@@ -88,11 +86,12 @@ namespace Jeopardy
         {
             EnableTypeRadioButtons();
             EnableMCControls();
+            lblCloseWarning.Hide();
         }
 
         private void bwRemoveChoices_DoWork(object sender, DoWorkEventArgs e) //now only runs on form close
         {
-            if (question.Choices != null && question.Choices.Count > 0)
+            if (!bwCreateChoices.IsBusy && question.Choices != null && question.Choices.Count > 0)
             {
                 foreach (Choice c in question.Choices)
                 {
@@ -103,8 +102,11 @@ namespace Jeopardy
 
         private void bwRemoveChoices_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) //depriciated since only runs on form close
         {
-            //question.Choices = new List<Choice>(); //reset to null
-            //EnableTypeRadioButtons();
+            question.Choices = new List<Choice>(); //reset to null
+            EnableTypeRadioButtons();
+            lblCloseWarning.Hide();
+            shouldRemoveChoices = false; //because it just removed them
+            Close();
         }
 
         private void rdoType_CheckChanged(object sender, EventArgs e)
@@ -309,9 +311,13 @@ namespace Jeopardy
             DialogResult dialogResult = DialogResult.OK;
 
             //error / warning checking
-            if (txtQuestionText.Text.Length > 1 && (txtAnswer.Text == "" || txtAnswer.Text == " "))
+            if (txtQuestionText.Text.Length > 1 && txtAnswer.Text.Trim() == "")
             {
-                dialogResult = MessageBox.Show("Warning. This question does not have an answer. This question will be marked as incomplete and colored RED until you give it an answer", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                dialogResult = MessageBox.Show("You have not given this question an answer yet.\n\nThis question will appear Red until you give it an answer.", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
+            else if (rdoMultipleChoice.Checked && (txtChoiceA.Text.Trim() == "" || txtChoiceB.Text.Trim() == "" || txtChoiceC.Text.Trim() == "" || txtChoiceD.Text.Trim() == ""))
+            {
+                dialogResult = MessageBox.Show("You have not given this multiple choice question all 4 Choices yet.\n\nThis question will appear Orange until you give it 4 choices.", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
 
             if (dialogResult == DialogResult.OK)
@@ -356,18 +362,27 @@ namespace Jeopardy
 
         private void frmEditQuestion_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (shouldRemoveChoices && question.Type != "mc")
+            question.DetermineState();
+            //make sure that backround worker is not busy
+            if (bwCreateChoices.IsBusy)
             {
+                e.Cancel = true;
+                lblCloseWarning.Show();
+                
+            }
+            else if (shouldRemoveChoices && question.Type != "mc")
+            {
+                e.Cancel = true;
                 bwRemoveChoices.RunWorkerAsync();
             }
-
             //check for major unsaved changes if closing via the X button instead of ok button
-            if (rdoFillInTheBlank.Checked && question.Type != "fb")
+            else if (rdoFillInTheBlank.Checked && question.Type != "fb")
             {
                 DialogResult dialogResult = MessageBox.Show("You changed the question type to Fill in the Blank. Do you want to save changes?", "Save Changes?", MessageBoxButtons.YesNo);
                 
                 if(dialogResult == DialogResult.Yes)
                 {
+                    //e.Cancel = true;
                     btnOK_Click(sender, e);
                 }
             }
@@ -377,6 +392,7 @@ namespace Jeopardy
 
                 if (dialogResult == DialogResult.Yes)
                 {
+                    //e.Cancel = true;
                     btnOK_Click(sender, e);
                 }
             }
@@ -386,7 +402,41 @@ namespace Jeopardy
 
                 if (dialogResult == DialogResult.Yes)
                 {
+                    //e.Cancel = true;
                     btnOK_Click(sender, e);
+                }
+            }
+            else if(question.QuestionText.Trim() != txtQuestionText.Text.Trim())
+            {
+                DialogResult dialogResult = MessageBox.Show("Changes to the question are unsaved. Do you want to save changes?", "Save Changes?", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //e.Cancel = true;
+                    btnOK_Click(sender, e);
+                }
+            }
+            else if(question.Answer.Trim() != txtAnswer.Text.Trim())
+            {
+                DialogResult dialogResult = MessageBox.Show("Changes to the answer are unsaved. Do you want to save changes?", "Save Changes?", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //e.Cancel = true;
+                    btnOK_Click(sender, e);
+                }
+            }
+            else if(question.Type == "mc" && question.Choices != null && question.Choices.Count >=4)
+            {
+                if (question.Choices[0].Text.Trim() != txtChoiceA.Text.Trim() || question.Choices[1].Text.Trim() != txtChoiceB.Text.Trim() || question.Choices[2].Text.Trim() != txtChoiceC.Text.Trim() || question.Choices[3].Text.Trim() != txtChoiceD.Text.Trim())
+                {
+                    DialogResult dialogResult = MessageBox.Show("Changes to the choices are unsaved. Do you want to save changes?", "Save Changes?", MessageBoxButtons.YesNo);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        //e.Cancel = true;
+                        btnOK_Click(sender, e);
+                    }
                 }
             }
         }

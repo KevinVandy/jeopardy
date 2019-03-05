@@ -47,6 +47,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblCloseWarning = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -215,11 +216,25 @@
             this.tutorialToolStripMenuItem.Text = "Tutorial";
             this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.tutorialToolStripMenuItem_Click);
             // 
+            // lblCloseWarning
+            // 
+            this.lblCloseWarning.AutoSize = true;
+            this.lblCloseWarning.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCloseWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCloseWarning.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblCloseWarning.Location = new System.Drawing.Point(447, 9);
+            this.lblCloseWarning.Name = "lblCloseWarning";
+            this.lblCloseWarning.Size = new System.Drawing.Size(292, 20);
+            this.lblCloseWarning.TabIndex = 23;
+            this.lblCloseWarning.Text = "Cannot Close until games have loaded...";
+            this.lblCloseWarning.Visible = false;
+            // 
             // frmImportCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 590);
+            this.Controls.Add(this.lblCloseWarning);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnImport);
@@ -236,6 +251,7 @@
             this.Name = "frmImportCategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Import Category";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmImportCategory_FormClosing);
             this.Load += new System.EventHandler(this.frmImportCategory_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -264,5 +280,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
+        private System.Windows.Forms.Label lblCloseWarning;
     }
 }

@@ -52,7 +52,7 @@ namespace Jeopardy
 
         private void bwLoadGameToPlay_DoWork(object sender, DoWorkEventArgs e)
         {
-            selectedGame = DB_Select.SelectGame_ByGameId(selectedGame.Id);
+            //don't load here anymore, load in the team form to make it appear faster
         }
 
         private void bwLoadGameToPlay_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

@@ -80,7 +80,6 @@
     <Compile Include="Models\Classes\Choice.cs" />
     <Compile Include="Models\Validation\CustomExceptions.cs" />
     <Compile Include="Models\DA\DB_Delete.cs" />
-    <Compile Include="Models\DA\DB_Find.cs" />
     <Compile Include="Models\DA\DB_Update.cs" />
     <Compile Include="Forms\frmAbout.cs">
       <SubType>Form</SubType>

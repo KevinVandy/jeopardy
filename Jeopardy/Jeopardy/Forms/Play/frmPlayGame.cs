@@ -85,7 +85,7 @@ namespace Jeopardy
             bool answeredCorrectly = false;
 
             //Used later to determine if every question has been answered
-            bool gameDone = true;
+            
 
             //Used to determine if the user canceled a question form or answered.
             DialogResult formResult = DialogResult.Cancel;
@@ -143,29 +143,12 @@ namespace Jeopardy
 
                 //method to assign score to the right team
                 AssignPoints(answeredCorrectly, currentQuestion);
-
-                //method to automatically move the teams along
-                MoveToNextTeam();
-
+                
                 //If the game is done and every question has been answered
                 //Then pull up frmWrongQuestions
-                foreach (Category c in currentGame.Categories)
-                {
-                    foreach (Question q in c.Questions)
-                    {
-                        if (gameDone == false)
-                        {
-                            break;
-                        }
-                        if (q.State != "Answered")
-                        {
-                            gameDone = false;
-                        }
-                    }
-                }
-
+               
                 //If the game is done, then pull up the review form
-                if (gameDone == true)
+                if (CheckGameDone())
                 {
                     //show the frmWrongQuestions for statistics
                     frmReviewWrongQuestions frmRWQ = new frmReviewWrongQuestions(wrongQuestions, teams);
@@ -173,7 +156,26 @@ namespace Jeopardy
                     //close the form
                     Close();
                 }
+                else
+                {
+                    MoveToNextTeam(); //method to automatically move the teams along
+                }
             }
+        }
+
+        private bool CheckGameDone()
+        {
+            foreach (Category c in currentGame.Categories)
+            {
+                foreach (Question q in c.Questions)
+                {
+                    if (q.State != "Answered")
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         private void DrawCategories()
@@ -223,9 +225,14 @@ namespace Jeopardy
             }
         }
 
-        private void ModifyTeamGrid()
+        private void ModifyTeamGrid() //adjust widths of team panels
         {
             int numTeams = teams.Length;
+            if (teams[3] == null) //just make each team block wider if more room available
+            {
+                numTeams = 3;
+            }
+
             int panelWidth = gbxScoreBoard.Width;
             int questionTimeLimitSpace = pnlTeamOne.Left;
 
@@ -267,7 +274,7 @@ namespace Jeopardy
 
             int start_x = 30;
             int start_y = 30;
-            
+
             questionButtons = new Button[currentGame.NumCategories, currentGame.NumQuestionsPerCategory];
 
             //draw blank buttons
@@ -281,8 +288,8 @@ namespace Jeopardy
                         //Dynamically create each button with all the needed properties
                         Button tmpButton = new Button();
                         tmpButton.Tag = currentGame.Categories[x].Questions[y]; //send the entire question through the tag
-                        tmpButton.Top = start_x + ((y * buttonHeight) + (y * 0));
-                        tmpButton.Left = start_y + ((x * buttonWidth) + (x * 0));
+                        tmpButton.Top = start_x + ((y * buttonHeight));
+                        tmpButton.Left = start_y + ((x * buttonWidth));
                         tmpButton.Width = buttonWidth;
                         tmpButton.Height = buttonHeight;
                         tmpButton.Font = new Font("Stencil", 30);
@@ -299,14 +306,14 @@ namespace Jeopardy
             }
 
             //add info to buttons (associate with actual question)
-            for (int i = 0; i < currentGame.NumCategories && i < currentGame.Categories.Count; i++)
+            for (int x = 0; x < currentGame.NumCategories && x < currentGame.Categories.Count; x++)
             {
-                for (int j = 0; j < currentGame.NumQuestionsPerCategory && j < currentGame.Categories[i].Questions.Count; j++)
+                for (int y = 0; y < currentGame.NumQuestionsPerCategory && y < currentGame.Categories[x].Questions.Count; y++)
                 {
                     //If the question has already been answered, then it doesn't have a button to assign to the .Text property
-                    if (currentGame.Categories[i].Questions[j].State != "Answered")
+                    if (currentGame.Categories[x].Questions[y].State != "Answered")
                     {
-                        questionButtons[i, j].Text = currentGame.Categories[i].Questions[j].Weight.ToString();
+                        questionButtons[x, y].Text = currentGame.Categories[x].Questions[y].Weight.ToString();
                     }
                 }
             }
@@ -316,7 +323,6 @@ namespace Jeopardy
             {
                 pnlGameboard.Controls.Add(b);
             }
-
         }
 
         private void TmpButton_MouseEnter(object sender, EventArgs e)
@@ -496,18 +502,6 @@ namespace Jeopardy
             }
         }
 
-        private void frmPlayGame_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //Resets all the questions' statuses if the game is closed
-            foreach (Category c in currentGame.Categories)
-            {
-                foreach (Question q in c.Questions)
-                {
-                    q.State = "";
-                }
-            }
-        }
-
         private void cboQuestionTimeLimit_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Changes the time limit to whatever the user selected on the form
@@ -583,6 +577,39 @@ namespace Jeopardy
             //Assigns the team score to the value of the numeric up down on the form
             teams[3].Score = (int)nudTeamFour.Value;
             pnlGameboard.Focus();
+        }
+
+        private void frmPlayGame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!CheckGameDone())
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to quit this unfinished game?", "Confirm Quit", MessageBoxButtons.YesNoCancel);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    ResetGame();
+                    e.Cancel = false;
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                ResetGame();
+            }
+        }
+
+        private void ResetGame()
+        {
+            foreach (Category c in currentGame.Categories)
+            {
+                foreach (Question q in c.Questions)
+                {
+                    q.State = "";
+                }
+            }
         }
     }
 }

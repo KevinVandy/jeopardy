@@ -45,6 +45,7 @@
             this.lblFourthTeam = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.bwLoadGame = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfTeams)).BeginInit();
             this.pnlFirstTeam.SuspendLayout();
             this.pnlSecondTeam.SuspendLayout();
@@ -220,7 +221,7 @@
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(158, 42);
             this.btnOK.TabIndex = 1;
-            this.btnOK.Text = "OK";
+            this.btnOK.Text = "Start Game";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -235,6 +236,11 @@
             this.btnExit.Text = "Go Back";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // bwLoadGame
+            // 
+            this.bwLoadGame.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLoadGame_DoWork);
+            this.bwLoadGame.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwLoadGame_RunWorkerCompleted);
             // 
             // frmTeams
             // 
@@ -255,6 +261,7 @@
             this.Name = "frmTeams";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Team Information";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTeams_FormClosing);
             this.Load += new System.EventHandler(this.frmTeams_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfTeams)).EndInit();
             this.pnlFirstTeam.ResumeLayout(false);
@@ -288,5 +295,6 @@
         private System.Windows.Forms.Label lblFourthTeam;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnExit;
+        private System.ComponentModel.BackgroundWorker bwLoadGame;
     }
 }

@@ -108,7 +108,7 @@ namespace Jeopardy
 
         public static bool ValidateQuestionText(string questionText)
         {
-            if (questionText.Length > 0 && questionText.Length < 300)
+            if (questionText.Length > 0 && questionText.Length <= 300)
             {
                 return true;
             }
@@ -131,7 +131,7 @@ namespace Jeopardy
             //{
             //    return true;
             //}
-            if (weight > 0 && weight < 100000)
+            if (weight > 0 && weight < 100000) //daily double makes it so the weight can be in a very large range potentially
             {
                 return true;
             }
