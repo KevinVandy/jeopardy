@@ -288,8 +288,8 @@ namespace Jeopardy
                         //Dynamically create each button with all the needed properties
                         Button tmpButton = new Button();
                         tmpButton.Tag = currentGame.Categories[x].Questions[y]; //send the entire question through the tag
-                        tmpButton.Top = start_x + ((y * buttonHeight) + (y * 0));
-                        tmpButton.Left = start_y + ((x * buttonWidth) + (x * 0));
+                        tmpButton.Top = start_x + ((y * buttonHeight));
+                        tmpButton.Left = start_y + ((x * buttonWidth));
                         tmpButton.Width = buttonWidth;
                         tmpButton.Height = buttonHeight;
                         tmpButton.Font = new Font("Stencil", 30);
@@ -323,7 +323,6 @@ namespace Jeopardy
             {
                 pnlGameboard.Controls.Add(b);
             }
-
         }
 
         private void TmpButton_MouseEnter(object sender, EventArgs e)

@@ -193,7 +193,7 @@ namespace Jeopardy
 
         private void frmTeams_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (bwLoadGame.IsBusy)
+            if (bwLoadGame.IsBusy) //don't close while reading database to prevent memory error
             {
                 e.Cancel = true;
             }
