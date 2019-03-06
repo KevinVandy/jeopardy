@@ -186,7 +186,7 @@ namespace Jeopardy.UnitTests
             pass = "edit";
             question.QuestionText = "";
             //Act
-            question.DetermineState(pass);
+            question.DetermineState();
             //Assert
             Assert.AreEqual(question.State, "no question");
         }
@@ -199,7 +199,7 @@ namespace Jeopardy.UnitTests
             question.QuestionText = " ";
             var pass = "edit";
             //Act
-            question.DetermineState(pass);
+            question.DetermineState();
             //Assert
             Assert.AreEqual(question.State, "no question");
         }
@@ -213,7 +213,7 @@ namespace Jeopardy.UnitTests
             question.QuestionText = "string.length > 1";
             question.Answer = "";
             //Act
-            question.DetermineState(pass);
+            question.DetermineState();
             //Assert
             Assert.AreEqual(question.State, "no answer");
         }
@@ -227,7 +227,7 @@ namespace Jeopardy.UnitTests
             question.QuestionText = "string.length > 1";
             question.Answer = " ";
             //Act
-            question.DetermineState(pass);
+            question.DetermineState();
             //Assert
             Assert.AreEqual(question.State, "no answer");
         }
@@ -261,7 +261,7 @@ namespace Jeopardy.UnitTests
             question.Type = "not mc";
             string pass = "edit";
             //Act
-            question.DetermineState(pass);
+            question.DetermineState();
             //Assert
             Assert.AreEqual(question.State, "done");
         }
@@ -273,7 +273,7 @@ namespace Jeopardy.UnitTests
             Question question = new Question();
             string pass = "play";
             //Act
-            question.DetermineState(pass);
+            question.DetermineState();
             //Assert
             Assert.AreEqual(question.State, "pass");
         }
