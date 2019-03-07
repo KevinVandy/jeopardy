@@ -86,27 +86,7 @@ namespace Jeopardy
                 bwUpdateGameName.RunWorkerAsync();
             }
         }
-
-        private void frmEditGame_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (txtGameName.Text != game.GameName)
-            {
-                game.GameName = txtGameName.Text;
-                bwUpdateGameName.RunWorkerAsync();
-            }
-
-            if(bwAddCategory.IsBusy || bwRemoveCategory.IsBusy || bwAddQuestions.IsBusy || bwRemoveQuestions.IsBusy || bwUpdateCategory.IsBusy || bwUpdateQuestion.IsBusy || bwUpdateNumCategories.IsBusy || bwUpdateNumQuestionsPerCategory.IsBusy || bwUpdateTimeLimit.IsBusy || bwDeleteChoices.IsBusy)
-            {
-                lblCloseWarning.Show();
-                e.Cancel = true;
-            }
-            else
-            {
-                lblCloseWarning.Hide();
-                e.Cancel = false;
-            }
-        }
-
+        
         private void bwUpdateGameName_DoWork(object sender, DoWorkEventArgs e)
         {
             if (!DB_Update.UpdateGameName(game.GameName, game.Id)) //updating the database happens here
@@ -144,10 +124,7 @@ namespace Jeopardy
 
         private void bwUpdateTimeLimit_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (!DB_Update.UpdateGameQuestionTimeLimit(game.QuestionTimeLimit, game.Id))
-            {
-                MessageBox.Show("Error updating Game name");
-            }
+            DB_Update.UpdateGameQuestionTimeLimit(game.QuestionTimeLimit, game.Id);
         }
 
         private void bwUpdateTimeLimit_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -444,16 +421,24 @@ namespace Jeopardy
                     questionButtons[x, y].Left = start_y + ((x * buttonWidth) + (x * 5));
                     questionButtons[x, y].Width = buttonWidth;
                     questionButtons[x, y].Height = buttonHeight;
-                    questionButtons[x, y].Text = game.Categories[x].Questions[y].Weight.ToString() + "   " + game.Categories[x].Questions[y].Type.ToUpper() + "\n" + game.Categories[x].Questions[y].QuestionText.Trim();
                     questionButtons[x, y].Font = new Font("Microsoft Sans Serif", 12);
                     questionButtons[x, y].Cursor = Cursors.Hand;
                     questionButtons[x, y].ContextMenuStrip = cmsQuestions;
                     questionButtons[x, y].Click += QuestionButton_Click;
                     questionButtons[x, y].MouseEnter += questionButton_MouseHover;
+
+                    game.Categories[x].Questions[y].DetermineState();
+                    if (game.Categories[x].Questions[y].State == "no question")
+                    {
+                        questionButtons[x, y].Text = game.Categories[x].Questions[y].Weight.ToString();                       
+                    }
+                    else
+                    {
+                        questionButtons[x, y].Text = game.Categories[x].Questions[y].Weight.ToString() + "          " + game.Categories[x].Questions[y].Type.ToUpper() + "\n" + game.Categories[x].Questions[y].QuestionText.Trim();
+                    }
                 }
             }
-
-            DetermineQuestionStates();
+            
             ColorCodeButtons();
             DisplayNumFinishedQuestions();
             DisplayNumUnfinishedQuestions();
@@ -698,7 +683,7 @@ namespace Jeopardy
                                 break;
                             }
                         }
-                        if(x >= 0)
+                        if (x >= 0)
                         {
                             game.Categories[x].ResetCategoryToDefaults(); //deletes info, restores default values
                             currentCategory = game.Categories[x];
@@ -744,7 +729,7 @@ namespace Jeopardy
                             break;
                         }
                     }
-                    if(x >= 0)
+                    if (x >= 0)
                     {
                         DB_Update.UpdateCategoryIndex(--game.Categories[x].Index, game.Categories[x].Id);
                         DB_Update.UpdateCategoryIndex(++game.Categories[x - 1].Index, game.Categories[x - 1].Id);
@@ -785,7 +770,7 @@ namespace Jeopardy
                             break;
                         }
                     }
-                    if(x >= 0)
+                    if (x >= 0)
                     {
                         DB_Update.UpdateCategoryIndex(++game.Categories[x].Index, game.Categories[x].Id);
                         DB_Update.UpdateCategoryIndex(--game.Categories[x + 1].Index, game.Categories[x + 1].Id);
@@ -864,6 +849,15 @@ namespace Jeopardy
                 moveUpToolStripMenuItem.Enabled = true;
                 moveDownToolStripMenuItem.Enabled = true;
             }
+            
+            if(game.Categories[x].Questions[y].State == "no question")
+            {
+                tsmiDeleteQuestion.Enabled = false;
+            }
+            else
+            {
+                tsmiDeleteQuestion.Enabled = true;
+            }
         }
 
         private void tsmiEditQuestion_Click(object sender, EventArgs e) //just simulates a click of the button
@@ -911,7 +905,7 @@ namespace Jeopardy
                                 }
                             }
                         }
-                        if(x >= 0 && y >= 0)
+                        if (x >= 0 && y >= 0)
                         {
                             currentQuestion = game.Categories[x].Questions[y]; //needs to be here for the first bw to use
                             if (game.Categories[x].Questions[y].Type == "mc")
@@ -968,7 +962,7 @@ namespace Jeopardy
                             }
                         }
                     }
-                    if(x >= 0 && y >= 0)
+                    if (x >= 0 && y >= 0)
                     {
                         DB_Update.UpdateQuestionWeight(game.Categories[x].Questions[y].Weight -= 100, game.Categories[x].Questions[y].Id);
                         DB_Update.UpdateQuestionWeight(game.Categories[x].Questions[y - 1].Weight += 100, game.Categories[x].Questions[y - 1].Id);
@@ -1015,7 +1009,7 @@ namespace Jeopardy
                             }
                         }
                     }
-                    if(x >= 0 && y >= 0)
+                    if (x >= 0 && y >= 0)
                     {
                         DB_Update.UpdateQuestionWeight(game.Categories[x].Questions[y].Weight += 100, game.Categories[x].Questions[y].Id);
                         DB_Update.UpdateQuestionWeight(game.Categories[x].Questions[y + 1].Weight -= 100, game.Categories[x].Questions[y + 1].Id);
@@ -1239,6 +1233,24 @@ namespace Jeopardy
             exitToolStripMenuItem.Enabled = true;
         }
 
+        private void frmEditGame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (txtGameName.Text != game.GameName)
+            {
+                game.GameName = txtGameName.Text;
+                bwUpdateGameName.RunWorkerAsync();
+            }
 
+            if (bwAddCategory.IsBusy || bwRemoveCategory.IsBusy || bwAddQuestions.IsBusy || bwRemoveQuestions.IsBusy || bwUpdateCategory.IsBusy || bwUpdateQuestion.IsBusy || bwUpdateNumCategories.IsBusy || bwUpdateNumQuestionsPerCategory.IsBusy || bwUpdateTimeLimit.IsBusy || bwDeleteChoices.IsBusy)
+            {
+                lblCloseWarning.Show();
+                e.Cancel = true;
+            }
+            else
+            {
+                lblCloseWarning.Hide();
+                e.Cancel = false;
+            }
+        }
     }
 }
