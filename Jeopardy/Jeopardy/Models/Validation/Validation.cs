@@ -10,7 +10,7 @@ namespace Jeopardy
         //MARK: Validate Game properties
         public static bool ValidateGameName(string gameName)
         {
-            if (gameName.Length > 0 && gameName.Length < 50)
+            if (gameName.Length > 0 && gameName.Length <= 50)
             {
                 return true;
             }
@@ -60,7 +60,7 @@ namespace Jeopardy
         //MARK: Validate Category properties
         public static bool ValidateCategoryIndex(int index)
         {
-            if (index >= 0 && index <= 7)
+            if (index >= 0 && index < 8)
             {
                 return true;
             }
@@ -72,7 +72,7 @@ namespace Jeopardy
 
         public static bool ValidateCategoryTitle(string title)
         {
-            if (title.Length > 0 && title.Length < 50)
+            if (title.Length > 0 && title.Length <= 50)
             {
                 return true;
             }
@@ -84,7 +84,7 @@ namespace Jeopardy
 
         public static bool ValidateCategorySubtitle(string subtitle)
         {
-            if (subtitle.Length > 0 && subtitle.Length < 50)
+            if (subtitle.Length > 0 && subtitle.Length <= 50)
             {
                 return true;
             }
@@ -117,7 +117,7 @@ namespace Jeopardy
 
         public static bool ValidateQuestionAnswer(string answer)
         {
-            if (answer.Length > 0 && answer.Length < 100)
+            if (answer.Length > 0 && answer.Length <= 100)
             {
                 return true;
             }
@@ -141,12 +141,19 @@ namespace Jeopardy
         //MARK: Validate Choice properties
         public static bool ValidateChoiceIndex(int index)
         {
-            return true;
+            if (index >= 0 && index < 4)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static bool ValidateChoiceText(string choiceText)
         {
-            if (choiceText.Length > 0 && choiceText.Length < 100)
+            if (choiceText.Length > 0 && choiceText.Length <= 100)
             {
                 return true;
             }
@@ -156,7 +163,7 @@ namespace Jeopardy
         //MARK: Validate Team properties
         public static bool ValidateTeamName(string teamName)
         {
-            if (teamName.Length > 0 && teamName.Length < 50)
+            if (teamName.Length > 0 && teamName.Length <= 50)
             {
                 return true;
             }
