@@ -455,8 +455,7 @@ namespace Jeopardy
 
             return false;
         }
-
-
+        
         public static bool UpdateCategorySubtitle(string newSubtitle, int? categoryId)
         {
             string updateStatement =
@@ -594,8 +593,7 @@ namespace Jeopardy
 
             return false;
         }
-
-
+        
         public static bool UpdateQuestionText(string newQuestionText, int? questionId)
         {
             string updateStatement =
@@ -621,7 +619,6 @@ namespace Jeopardy
                 {
                     return true;
                 }
-
             }
             catch (OleDbException ex)
             {
@@ -640,11 +637,9 @@ namespace Jeopardy
                     conn.Close();
                 }
             }
-
             return false;
         }
-
-
+        
         public static bool UpdateQuestionAnswer(string newAnswer, int? questionId)
         {
             string updateStatement =
@@ -740,8 +735,7 @@ namespace Jeopardy
 
             return false;
         }
-
-
+        
         public static bool UpdateChoiceText(string newChoiceText, int? choiceId)
         {
             string updateStatement =
@@ -767,7 +761,6 @@ namespace Jeopardy
                 {
                     return true;
                 }
-
             }
             catch (OleDbException ex)
             {
@@ -786,10 +779,7 @@ namespace Jeopardy
                     conn.Close();
                 }
             }
-
             return false;
         }
-
-
     }
 }

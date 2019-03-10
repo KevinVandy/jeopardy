@@ -63,6 +63,7 @@
             // 
             this.txtTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitle.Location = new System.Drawing.Point(248, 71);
+            this.txtTitle.MaxLength = 50;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(395, 35);
             this.txtTitle.TabIndex = 1;
@@ -71,6 +72,7 @@
             // 
             this.txtSubtitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSubtitle.Location = new System.Drawing.Point(248, 135);
+            this.txtSubtitle.MaxLength = 50;
             this.txtSubtitle.Name = "txtSubtitle";
             this.txtSubtitle.Size = new System.Drawing.Size(395, 35);
             this.txtSubtitle.TabIndex = 3;

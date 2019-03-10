@@ -106,7 +106,6 @@
             this.txtFirstTeam.Size = new System.Drawing.Size(240, 35);
             this.txtFirstTeam.TabIndex = 0;
             this.txtFirstTeam.Text = "Team 1";
-            this.txtFirstTeam.Click += new System.EventHandler(this.txtFirstTeam_Click);
             this.txtFirstTeam.Enter += new System.EventHandler(this.txtFirstTeam_Enter);
             // 
             // lblFirstTeam
@@ -137,7 +136,6 @@
             this.txtSecondTeam.Size = new System.Drawing.Size(240, 35);
             this.txtSecondTeam.TabIndex = 0;
             this.txtSecondTeam.Text = "Team 2";
-            this.txtSecondTeam.Click += new System.EventHandler(this.txtSecondTeam_Click);
             this.txtSecondTeam.Enter += new System.EventHandler(this.txtSecondTeam_Enter);
             // 
             // lblSecondTeam
@@ -169,7 +167,6 @@
             this.txtThirdTeam.Size = new System.Drawing.Size(240, 35);
             this.txtThirdTeam.TabIndex = 0;
             this.txtThirdTeam.Text = "Team 3";
-            this.txtThirdTeam.Click += new System.EventHandler(this.txtThirdTeam_Click);
             this.txtThirdTeam.Enter += new System.EventHandler(this.txtThirdTeam_Enter);
             // 
             // lblThirdTeam
@@ -201,7 +198,6 @@
             this.txtFourthTeam.Size = new System.Drawing.Size(240, 35);
             this.txtFourthTeam.TabIndex = 0;
             this.txtFourthTeam.Text = "Team 4";
-            this.txtFourthTeam.Click += new System.EventHandler(this.txtFourthTeam_Click);
             this.txtFourthTeam.Enter += new System.EventHandler(this.txtFourthTeam_Enter);
             // 
             // lblFourthTeam
@@ -217,9 +213,9 @@
             // btnOK
             // 
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(261, 430);
+            this.btnOK.Location = new System.Drawing.Point(248, 430);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(158, 42);
+            this.btnOK.Size = new System.Drawing.Size(171, 50);
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "Start Game";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -231,7 +227,7 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(18, 430);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(158, 42);
+            this.btnExit.Size = new System.Drawing.Size(171, 50);
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Go Back";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -248,7 +244,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(441, 496);
+            this.ClientSize = new System.Drawing.Size(438, 500);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.pnlFourthTeam);

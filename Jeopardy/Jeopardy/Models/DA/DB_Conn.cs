@@ -49,7 +49,7 @@ namespace Jeopardy
             {
                 if (MessageBox.Show("The Acess Database Engine Installer 2010 was not found. Would you like to download and install it from the official Microsoft Website? \n The 32 bit install is recommended.", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    System.Diagnostics.Process.Start("https://www.microsoft.com/en-us/download/details.aspx?id=13255");
+                    Process.Start("https://www.microsoft.com/en-us/download/details.aspx?id=13255");
                 }
             }
             catch (Exception ex)
@@ -105,7 +105,7 @@ namespace Jeopardy
             }
             catch (Exception ex)
             {
-                MessageBox.Show("This feature is not working yet");
+                MessageBox.Show("The help file could not be found at " + currentdirectory.ToString() + "\n\nThis feature should only open on the installed version.");
                 Console.WriteLine(ex.ToString());
             }
         }

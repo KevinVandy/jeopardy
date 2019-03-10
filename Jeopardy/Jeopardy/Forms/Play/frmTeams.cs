@@ -171,26 +171,6 @@ namespace Jeopardy
             txtFourthTeam.SelectAll();
         }
 
-        private void txtFirstTeam_Click(object sender, EventArgs e)
-        {
-            txtFirstTeam.SelectAll();
-        }
-
-        private void txtSecondTeam_Click(object sender, EventArgs e)
-        {
-            txtSecondTeam.SelectAll();
-        }
-
-        private void txtThirdTeam_Click(object sender, EventArgs e)
-        {
-            txtThirdTeam.SelectAll();
-        }
-
-        private void txtFourthTeam_Click(object sender, EventArgs e)
-        {
-            txtFourthTeam.SelectAll();
-        }
-
         private void frmTeams_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (bwLoadGame.IsBusy) //don't close while reading database to prevent memory error

@@ -46,7 +46,7 @@ namespace Jeopardy
                 Console.WriteLine("Exception\n\n" + ex.ToString());
 
                 //tell the user to install Access Runtime
-                DialogResult dialog = MessageBox.Show("Error trying to load games. Access Database Engine needs to be installed click OK to install for this to work.\n\nClick OK to launch a troubleshooting window that has an option to install the database engine.", "Access Database Error");
+                DialogResult dialog = MessageBox.Show("Error trying to load games. Access Database Engine needs to be installed.\n\nClick OK to launch a troubleshooting window that has an option to install the database engine.", "Access Database Error");
                 Forms.Admin.frmTroubleshooter troubleshooterForm = new Forms.Admin.frmTroubleshooter();
                 troubleshooterForm.ShowDialog();
 
@@ -97,8 +97,6 @@ namespace Jeopardy
                 {
                     game.Categories = SelectCategories_ByGameId(game.Id);
                 }
-
-
             }
             catch (OleDbException ex)
             {

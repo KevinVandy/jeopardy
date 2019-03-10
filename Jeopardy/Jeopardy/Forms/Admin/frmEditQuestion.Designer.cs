@@ -207,6 +207,7 @@
             // 
             this.txtChoiceA.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChoiceA.Location = new System.Drawing.Point(84, 18);
+            this.txtChoiceA.MaxLength = 100;
             this.txtChoiceA.Multiline = true;
             this.txtChoiceA.Name = "txtChoiceA";
             this.txtChoiceA.Size = new System.Drawing.Size(296, 101);
@@ -217,6 +218,7 @@
             // 
             this.txtChoiceC.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChoiceC.Location = new System.Drawing.Point(84, 132);
+            this.txtChoiceC.MaxLength = 100;
             this.txtChoiceC.Multiline = true;
             this.txtChoiceC.Name = "txtChoiceC";
             this.txtChoiceC.Size = new System.Drawing.Size(296, 101);
@@ -227,6 +229,7 @@
             // 
             this.txtChoiceD.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChoiceD.Location = new System.Drawing.Point(468, 132);
+            this.txtChoiceD.MaxLength = 100;
             this.txtChoiceD.Multiline = true;
             this.txtChoiceD.Name = "txtChoiceD";
             this.txtChoiceD.Size = new System.Drawing.Size(296, 101);
@@ -237,6 +240,7 @@
             // 
             this.txtChoiceB.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChoiceB.Location = new System.Drawing.Point(467, 18);
+            this.txtChoiceB.MaxLength = 100;
             this.txtChoiceB.Multiline = true;
             this.txtChoiceB.Name = "txtChoiceB";
             this.txtChoiceB.Size = new System.Drawing.Size(296, 101);
@@ -324,6 +328,7 @@
             // 
             this.txtAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAnswer.Location = new System.Drawing.Point(147, 574);
+            this.txtAnswer.MaxLength = 100;
             this.txtAnswer.Name = "txtAnswer";
             this.txtAnswer.Size = new System.Drawing.Size(763, 35);
             this.txtAnswer.TabIndex = 1;

@@ -131,8 +131,5 @@ namespace Jeopardy.UnitTests
             Assert.AreEqual(category.Title, "Category 1");
         }
 
-
-
-
     }
 }

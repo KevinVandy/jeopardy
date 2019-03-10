@@ -239,6 +239,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Jeopardy Installer.docx" />
+    <None Include="Jeopardy Installer.pdf" />
+    <None Include="jeopardyhelp.chw" />
     <None Include="JeopardyHelpFiles\Index.hhk" />
     <None Include="JeopardyHelpFiles\jeopardyhelp.chm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

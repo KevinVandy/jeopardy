@@ -59,7 +59,8 @@
             // 
             this.txtUserAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserAnswer.Location = new System.Drawing.Point(267, 288);
-            this.txtUserAnswer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUserAnswer.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUserAnswer.MaxLength = 100;
             this.txtUserAnswer.Name = "txtUserAnswer";
             this.txtUserAnswer.Size = new System.Drawing.Size(654, 44);
             this.txtUserAnswer.TabIndex = 2;
@@ -80,7 +81,7 @@
             this.txtCorrectAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorrectAnswer.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtCorrectAnswer.Location = new System.Drawing.Point(267, 363);
-            this.txtCorrectAnswer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCorrectAnswer.Margin = new System.Windows.Forms.Padding(2);
             this.txtCorrectAnswer.Name = "txtCorrectAnswer";
             this.txtCorrectAnswer.ReadOnly = true;
             this.txtCorrectAnswer.Size = new System.Drawing.Size(654, 44);
@@ -90,7 +91,7 @@
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.Location = new System.Drawing.Point(677, 445);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(246, 59);
             this.btnSubmit.TabIndex = 5;
@@ -153,7 +154,7 @@
             this.btnOverwrite.Enabled = false;
             this.btnOverwrite.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOverwrite.Location = new System.Drawing.Point(32, 447);
-            this.btnOverwrite.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOverwrite.Margin = new System.Windows.Forms.Padding(2);
             this.btnOverwrite.Name = "btnOverwrite";
             this.btnOverwrite.Size = new System.Drawing.Size(246, 59);
             this.btnOverwrite.TabIndex = 15;
@@ -178,7 +179,7 @@
             this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(961, 626);
+            this.ClientSize = new System.Drawing.Size(957, 622);
             this.ControlBox = false;
             this.Controls.Add(this.lblCorrectIncorrect);
             this.Controls.Add(this.btnOverwrite);
@@ -193,7 +194,7 @@
             this.Controls.Add(this.lblAnswer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFillInTheBlank";
