@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Jeopardy.UnitTests
@@ -194,6 +195,171 @@ namespace Jeopardy.UnitTests
             game.NumQuestionsPerCategory = 9;
 
             Assert.AreEqual(game.NumQuestionsPerCategory, 6);
+        }
+
+        [TestMethod]
+        public void CheckGameOver_IsTrue()
+        {
+            Game game = new Game();
+
+            List<Question> theList = new List<Question>();
+
+            Question q1 = new Question();
+            q1.State = "Answered";
+            theList.Add(q1);
+
+            Question q2 = new Question();
+            q2.State = "Answered";
+            theList.Add(q2);
+
+            List<Category> theCatList = new List<Category>();
+
+            Category c1 = new Category(1, 1, 1, "asdf", "asdfa", theList);
+            theCatList.Add(c1);
+
+            Category c2 = new Category(1, 1, 1, "asdf", "asdfa", theList);
+            theCatList.Add(c2);
+
+            game.Categories = theCatList;
+
+            bool isDone = game.CheckGameOver();
+
+            Assert.AreEqual(isDone, true);
+        }
+
+        [TestMethod]
+        public void CheckGameOver_IsFalse()
+        {
+            Game game = new Game();
+
+            //Dummy Data
+            List<Question> theList = new List<Question>();
+
+            Question q1 = new Question();
+            q1.State = "Something else";
+            theList.Add(q1);
+
+            Question q2 = new Question();
+            q2.State = "Something else";
+            theList.Add(q2);
+
+            List<Category> theCatList = new List<Category>();
+
+            Category c1 = new Category(1, 1, 1, "asdf", "asdfa", theList);
+            theCatList.Add(c1);
+
+            Category c2 = new Category(1, 1, 1, "asdf", "asdfa", theList);
+            theCatList.Add(c2);
+
+            game.Categories = theCatList;
+
+            bool isDone = game.CheckGameOver();
+
+            Assert.AreEqual(isDone, false);
+        }
+
+        [TestMethod]
+        public void ResetStatesToNull_IsTrue()
+        {
+            Game game = new Game();
+
+            List<Question> theList = new List<Question>();
+
+            //Dummy Data
+            Question q1 = new Question();
+            q1.State = "Something else";
+            theList.Add(q1);
+
+            Question q2 = new Question();
+            q2.State = "Something else";
+            theList.Add(q2);
+
+            Question q3 = new Question();
+            q3.State = "Something else";
+            theList.Add(q3);
+
+            List<Category> theCatList = new List<Category>();
+
+            Category c1 = new Category(1, 1, 1, "asdf", "asdfa", theList);
+            theCatList.Add(c1);
+
+            Category c2 = new Category(1, 1, 1, "asdf", "asdfa", theList);
+            theCatList.Add(c2);
+
+            game.Categories = theCatList;
+
+            bool isReset = true;
+
+            game.ResetStatesToNull();
+
+            foreach (Category c in game.Categories)
+            {
+                foreach (Question q in c.Questions)
+                {
+                    if(q.State == "")
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        isReset = false;
+                    }
+                }
+            }
+
+            Assert.AreEqual(isReset, true);
+        }
+
+        [TestMethod]
+        public void ResetStatesToNull_IsFalse()
+        {
+            Game game = new Game();
+
+            List<Question> theList = new List<Question>();
+
+            //Dummy Data
+            Question q1 = new Question();
+            q1.State = "Something else";
+            theList.Add(q1);
+
+            Question q2 = new Question();
+            q2.State = "Something else";
+            theList.Add(q2);
+
+            Question q3 = new Question();
+            q3.State = "Something else";
+            theList.Add(q3);
+
+            List<Category> theCatList = new List<Category>();
+
+            Category c1 = new Category(1, 1, 1, "asdf", "asdfa", theList);
+            theCatList.Add(c1);
+
+            Category c2 = new Category(1, 1, 1, "asdf", "asdfa", theList);
+            theCatList.Add(c2);
+
+            game.Categories = theCatList;
+
+            bool isReset = true;
+
+            game.ResetStatesToNull();
+
+            foreach (Category c in game.Categories)
+            {
+                foreach (Question q in c.Questions)
+                {
+                    if (q.State != "")
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        isReset = false;
+                    }
+                }
+            }
+
+            Assert.AreEqual(isReset, false);
         }
     }
 }
