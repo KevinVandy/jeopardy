@@ -11,10 +11,11 @@ namespace Jeopardy
         private int numCategories;
         private int numQuestionsPerCategory;
         private List<Category> categories;
+        private Team[] teams;
 
         public Game() { }
 
-        public Game(int? id, string gameName, TimeSpan questionTimeLimit, int numCategories, int numQuestionsPerCategory, List<Category> categories = null)
+        public Game(int? id, string gameName, TimeSpan questionTimeLimit, int numCategories, int numQuestionsPerCategory, List<Category> categories = null, Team[] teams = null)
         {
             Id = id;
             GameName = gameName;
@@ -22,6 +23,7 @@ namespace Jeopardy
             NumCategories = numCategories;
             NumQuestionsPerCategory = numQuestionsPerCategory;
             Categories = categories;
+            Teams = teams;
         }
 
         public int? Id
@@ -100,6 +102,12 @@ namespace Jeopardy
             set => categories = value;
         }
 
+        public Team[] Teams
+        {
+            get => teams;
+            set => teams = value;
+        }
+
         //MARK: Public Methods
         public void CreateBlankGame(string gameName, int numCategories, int numQuestionsPerCat, int questionTimeLimitIndex)
         {
@@ -161,5 +169,30 @@ namespace Jeopardy
             Categories[rndCategory].Questions[rndQuestion].DailyDouble = true;
         }
 
+        public bool CheckGameOver()
+        {
+            foreach (Category c in Categories)
+            {
+                foreach (Question q in c.Questions)
+                {
+                    if (q.State != "Answered")
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public void ResetStatesToNull()
+        {
+            foreach (Category c in Categories)
+            {
+                foreach (Question q in c.Questions)
+                {
+                    q.State = "";
+                }
+            }
+        }
     }
 }

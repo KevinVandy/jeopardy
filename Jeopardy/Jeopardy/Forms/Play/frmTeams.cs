@@ -5,10 +5,7 @@ namespace Jeopardy
 {
     public partial class frmTeams : Form
     {
-        //The design on this form could probably use some tidying up
-        //But for what we need it works
         private Game game = new Game();
-        private Team[] theTeams = new Team[4];
 
         public frmTeams(Game theGame)
         {
@@ -73,81 +70,42 @@ namespace Jeopardy
             Close();
         }
 
+        //Creates teams based on the number in the numeric up down
+        //Puts the teams into an array, and then passes it to the play game form
         private void btnOK_Click(object sender, EventArgs e)
         {
+            game.Teams = new Team[4];
             int numberTeams = (int)nudNumberOfTeams.Value;
-
-            //Creates teams based on the number in the numeric up down
-            //Puts the teams into an array, and then passes it to the play game form
-            if (numberTeams == 2)
+            
+            if (numberTeams >= 1)
             {
-                if (Validation.ValidateTeamName(txtFirstTeam.Text) && Validation.ValidateTeamName(txtSecondTeam.Text))
-                {
-                    Team firstTeam = new Team(1, txtFirstTeam.Text, 0);
-                    Team secondTeam = new Team(2, txtSecondTeam.Text, 0);
-
-                    theTeams[0] = firstTeam;
-                    theTeams[1] = secondTeam;
-
-                    Hide();
-
-                    frmPlayGame playGameForm = new frmPlayGame(game, theTeams);
-                    playGameForm.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("You need to enter names for each team.", "Team Name Error");
-                }
+                game.Teams[0] = new Team(1, txtFirstTeam.Text, 0);
             }
-            else if (numberTeams == 3)
+            if (numberTeams >= 2)
             {
-                if (Validation.ValidateTeamName(txtFirstTeam.Text) && Validation.ValidateTeamName(txtSecondTeam.Text)
-                    && Validation.ValidateTeamName(txtThirdTeam.Text))
-                {
-                    Team firstTeam = new Team(1, txtFirstTeam.Text, 0);
-                    Team secondTeam = new Team(2, txtSecondTeam.Text, 0);
-                    Team thirdTeam = new Team(3, txtThirdTeam.Text, 0);
-
-                    theTeams[0] = firstTeam;
-                    theTeams[1] = secondTeam;
-                    theTeams[2] = thirdTeam;
-
-                    Hide();
-
-                    frmPlayGame playGameForm = new frmPlayGame(game, theTeams);
-                    playGameForm.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("You need to enter names for each team.", "Team Name Error");
-                }
+                game.Teams[1] = new Team(2, txtSecondTeam.Text, 0);
             }
-            else if (numberTeams >= 4)
+            if (numberTeams >= 3)
             {
-                if (Validation.ValidateTeamName(txtFirstTeam.Text) && Validation.ValidateTeamName(txtSecondTeam.Text)
-                    && Validation.ValidateTeamName(txtThirdTeam.Text) && Validation.ValidateTeamName(txtFourthTeam.Text))
-                {
-                    Team firstTeam = new Team(1, txtFirstTeam.Text, 0);
-                    Team secondTeam = new Team(2, txtSecondTeam.Text, 0);
-                    Team thirdTeam = new Team(3, txtThirdTeam.Text, 0);
-                    Team fourthTeam = new Team(4, txtFourthTeam.Text, 0);
-
-                    theTeams[0] = firstTeam;
-                    theTeams[1] = secondTeam;
-                    theTeams[2] = thirdTeam;
-                    theTeams[3] = fourthTeam;
-
-                    Hide();
-
-                    frmPlayGame playGameForm = new frmPlayGame(game, theTeams);
-                    playGameForm.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("You need to enter names for each team.", "Team Name Error");
-                }
+                game.Teams[2] = new Team(3, txtThirdTeam.Text, 0);
+            }
+            if (numberTeams >= 4)
+            {
+                game.Teams[3] = new Team(4, txtFourthTeam.Text, 0);
             }
 
+            if ((numberTeams >= 2 && Validation.ValidateTeamName(txtFirstTeam.Text) && Validation.ValidateTeamName(txtSecondTeam.Text))
+             || (numberTeams >= 3 && Validation.ValidateTeamName(txtFirstTeam.Text) && Validation.ValidateTeamName(txtSecondTeam.Text) && Validation.ValidateTeamName(txtThirdTeam.Text))
+             || (numberTeams >= 4 && Validation.ValidateTeamName(txtFirstTeam.Text) && Validation.ValidateTeamName(txtSecondTeam.Text) && Validation.ValidateTeamName(txtThirdTeam.Text) && Validation.ValidateTeamName(txtFourthTeam.Text)))
+            {
+                Hide();
+                frmPlayGame playGameForm = new frmPlayGame(game);
+                playGameForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("You need to enter names for each team.", "Team Name Error");
+            }
         }
 
         //Quality of Life stuff/methods

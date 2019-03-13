@@ -13,18 +13,16 @@ namespace Jeopardy
         private int columns = 1;
         private Button[,] questionButtons;
         private List<Label> LabelList = new List<Label>();
-        private Team[] teams = new Team[4];
-        private Game currentGame = new Game();
+        private Game game = new Game();
         private Team currentTeam = new Team();
         private List<Question> wrongQuestions = new List<Question>();
 
-        public frmPlayGame(Game theGame, Team[] theTeams)
+        public frmPlayGame(Game theGame)
         {
-            currentGame = theGame;
-            teams = theTeams;
-            rows = currentGame.NumQuestionsPerCategory;
-            columns = currentGame.NumCategories;
-            currentTeam = teams[0];
+            game = theGame;
+            rows = game.NumQuestionsPerCategory;
+            columns = game.NumCategories;
+            currentTeam = game.Teams[0];
             InitializeComponent();
         }
 
@@ -36,26 +34,26 @@ namespace Jeopardy
             ModifyTeamGrid();
             DrawCategories();
             DrawGameGrid();
-            currentGame.GenerateDailyDouble();
+            game.GenerateDailyDouble();
 
             //grabs the time limit from the game and sets it as the default on the form
-            if (currentGame.QuestionTimeLimit == new TimeSpan(0, 0, 30))
+            if (game.QuestionTimeLimit == new TimeSpan(0, 0, 30))
             {
                 cboQuestionTimeLimit.SelectedIndex = 0;
             }
-            else if (currentGame.QuestionTimeLimit == new TimeSpan(0, 1, 0))
+            else if (game.QuestionTimeLimit == new TimeSpan(0, 1, 0))
             {
                 cboQuestionTimeLimit.SelectedIndex = 1;
             }
-            else if (currentGame.QuestionTimeLimit == new TimeSpan(0, 1, 30))
+            else if (game.QuestionTimeLimit == new TimeSpan(0, 1, 30))
             {
                 cboQuestionTimeLimit.SelectedIndex = 2;
             }
-            else if (currentGame.QuestionTimeLimit == new TimeSpan(0, 2, 0))
+            else if (game.QuestionTimeLimit == new TimeSpan(0, 2, 0))
             {
                 cboQuestionTimeLimit.SelectedIndex = 3;
             }
-            else if (currentGame.QuestionTimeLimit == new TimeSpan(0, 3, 0))
+            else if (game.QuestionTimeLimit == new TimeSpan(0, 3, 0))
             {
                 cboQuestionTimeLimit.SelectedIndex = 4;
             }
@@ -103,7 +101,7 @@ namespace Jeopardy
             {
                 case "tf":
                     //call up true/false question form
-                    using (frmTrueFalse frmTFQuestion = new frmTrueFalse(currentQuestion, currentGame.QuestionTimeLimit))
+                    using (frmTrueFalse frmTFQuestion = new frmTrueFalse(currentQuestion, game.QuestionTimeLimit))
                     {
                         formResult = frmTFQuestion.ShowDialog();
 
@@ -112,14 +110,14 @@ namespace Jeopardy
                     break;
                 case "fb":
                     //call up fill in the blank question form
-                    frmFillInTheBlank frmFB = new frmFillInTheBlank(currentQuestion, currentGame.QuestionTimeLimit);
+                    frmFillInTheBlank frmFB = new frmFillInTheBlank(currentQuestion, game.QuestionTimeLimit);
                     formResult = frmFB.ShowDialog();
 
                     answeredCorrectly = frmFB.Correct;
                     break;
                 case "mc":
                     //call up multiple choice question form
-                    frmMultipleChoice frmMC = new frmMultipleChoice(currentQuestion, currentGame.QuestionTimeLimit);
+                    frmMultipleChoice frmMC = new frmMultipleChoice(currentQuestion, game.QuestionTimeLimit);
                     formResult = frmMC.ShowDialog();
 
                     answeredCorrectly = frmMC.Correct;
@@ -148,10 +146,10 @@ namespace Jeopardy
                 //Then pull up frmWrongQuestions
                
                 //If the game is done, then pull up the review form
-                if (CheckGameDone())
+                if (game.CheckGameOver())
                 {
                     //show the frmWrongQuestions for statistics
-                    frmReviewWrongQuestions frmRWQ = new frmReviewWrongQuestions(wrongQuestions, teams);
+                    frmReviewWrongQuestions frmRWQ = new frmReviewWrongQuestions(wrongQuestions, game.Teams);
                     frmRWQ.ShowDialog();
                     //close the form
                     Close();
@@ -161,21 +159,6 @@ namespace Jeopardy
                     MoveToNextTeam(); //method to automatically move the teams along
                 }
             }
-        }
-
-        private bool CheckGameDone()
-        {
-            foreach (Category c in currentGame.Categories)
-            {
-                foreach (Question q in c.Questions)
-                {
-                    if (q.State != "Answered")
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
         }
 
         private void DrawCategories()
@@ -192,7 +175,7 @@ namespace Jeopardy
             int pnlWidth = pnlCategories.Width;
             int pnlHeight = pnlCategories.Height;
 
-            int labelWidth = (pnlWidth - 60) / (currentGame.NumCategories);
+            int labelWidth = (pnlWidth - 60) / (game.NumCategories);
             int labelHeight = 80;
 
             int start_x = 10;
@@ -202,7 +185,7 @@ namespace Jeopardy
             for (int x = 0; x < 1; x++)
             {
                 //Create as many labels as there are categories
-                for (int y = 0; y < currentGame.NumCategories; y++)
+                for (int y = 0; y < game.NumCategories; y++)
                 {
                     //Dynamically create a label with all the needed properties
                     Label tmpLabel = new Label();
@@ -210,7 +193,7 @@ namespace Jeopardy
                     tmpLabel.Left = start_y + ((y * labelWidth) + (y * 5));
                     tmpLabel.Width = labelWidth;
                     tmpLabel.Height = labelHeight;
-                    tmpLabel.Text = currentGame.Categories[y].Title + '\n' + currentGame.Categories[y].Subtitle;
+                    tmpLabel.Text = game.Categories[y].Title + '\n' + game.Categories[y].Subtitle;
                     tmpLabel.TextAlign = ContentAlignment.MiddleCenter;
                     tmpLabel.Font = new Font("Arial", 18, FontStyle.Bold);
                     tmpLabel.ForeColor = Color.Yellow;
@@ -227,8 +210,8 @@ namespace Jeopardy
 
         private void ModifyTeamGrid() //adjust widths of team panels
         {
-            int numTeams = teams.Length;
-            if (teams[3] == null) //just make each team block wider if more room available
+            int numTeams = game.Teams.Length;
+            if (game.Teams[3] == null) //just make each team block wider if more room available
             {
                 numTeams = 3;
             }
@@ -269,25 +252,25 @@ namespace Jeopardy
             int gbxWidth = pnlGameboard.Width;
             int gbxHeight = pnlGameboard.Height;
 
-            int buttonWidth = (gbxWidth - 80) / currentGame.NumCategories;
-            int buttonHeight = (gbxHeight - 80) / currentGame.NumQuestionsPerCategory;
+            int buttonWidth = (gbxWidth - 80) / game.NumCategories;
+            int buttonHeight = (gbxHeight - 80) / game.NumQuestionsPerCategory;
 
             int start_x = 30;
             int start_y = 30;
 
-            questionButtons = new Button[currentGame.NumCategories, currentGame.NumQuestionsPerCategory];
+            questionButtons = new Button[game.NumCategories, game.NumQuestionsPerCategory];
 
             //draw blank buttons
-            for (int x = 0; x < currentGame.NumCategories && x < currentGame.NumCategories; x++)
+            for (int x = 0; x < game.NumCategories && x < game.NumCategories; x++)
             {
-                for (int y = 0; y < currentGame.NumQuestionsPerCategory; y++)
+                for (int y = 0; y < game.NumQuestionsPerCategory; y++)
                 {
                     //If the question has already been answered, don't make the button
-                    if (currentGame.Categories[x].Questions[y].State != "Answered")
+                    if (game.Categories[x].Questions[y].State != "Answered")
                     {
                         //Dynamically create each button with all the needed properties
                         Button tmpButton = new Button();
-                        tmpButton.Tag = currentGame.Categories[x].Questions[y]; //send the entire question through the tag
+                        tmpButton.Tag = game.Categories[x].Questions[y]; //send the entire question through the tag
                         tmpButton.Top = start_x + ((y * buttonHeight));
                         tmpButton.Left = start_y + ((x * buttonWidth));
                         tmpButton.Width = buttonWidth;
@@ -306,14 +289,14 @@ namespace Jeopardy
             }
 
             //add info to buttons (associate with actual question)
-            for (int x = 0; x < currentGame.NumCategories && x < currentGame.Categories.Count; x++)
+            for (int x = 0; x < game.NumCategories && x < game.Categories.Count; x++)
             {
-                for (int y = 0; y < currentGame.NumQuestionsPerCategory && y < currentGame.Categories[x].Questions.Count; y++)
+                for (int y = 0; y < game.NumQuestionsPerCategory && y < game.Categories[x].Questions.Count; y++)
                 {
                     //If the question has already been answered, then it doesn't have a button to assign to the .Text property
-                    if (currentGame.Categories[x].Questions[y].State != "Answered")
+                    if (game.Categories[x].Questions[y].State != "Answered")
                     {
-                        questionButtons[x, y].Text = currentGame.Categories[x].Questions[y].Weight.ToString();
+                        questionButtons[x, y].Text = game.Categories[x].Questions[y].Weight.ToString();
                     }
                 }
             }
@@ -367,44 +350,44 @@ namespace Jeopardy
         private void LoadTeams()
         {
             //If the team isn't null, then set up the team name, and make it visible
-            if (teams[0] != null)
+            if (game.Teams[0] != null)
             {
                 pnlTeamOne.BackColor = Color.LightBlue;
                 pnlTeamOne.Visible = true;
 
-                if (teams[0].TeamName != "Team 1")
+                if (game.Teams[0].TeamName != "Team 1")
                 {
-                    lblTeamOne.Text = "Team 1\n" + teams[0].TeamName;
+                    lblTeamOne.Text = "Team 1\n" + game.Teams[0].TeamName;
                 }
             }
 
-            if (teams[1] != null)
+            if (game.Teams[1] != null)
             {
                 pnlTeamTwo.Visible = true;
 
-                if (teams[1].TeamName != "Team 2")
+                if (game.Teams[1].TeamName != "Team 2")
                 {
-                    lblTeamTwo.Text = "Team 2\n" + teams[1].TeamName;
+                    lblTeamTwo.Text = "Team 2\n" + game.Teams[1].TeamName;
                 }
             }
 
-            if (teams[2] != null)
+            if (game.Teams[2] != null)
             {
                 pnlTeamThree.Visible = true;
 
-                if (teams[2].TeamName != "Team 3")
+                if (game.Teams[2].TeamName != "Team 3")
                 {
-                    lblTeamThree.Text = "Team 3\n" + teams[2].TeamName;
+                    lblTeamThree.Text = "Team 3\n" + game.Teams[2].TeamName;
                 }
             }
 
-            if (teams[3] != null)
+            if (game.Teams[3] != null)
             {
                 pnlTeamFour.Visible = true;
 
-                if (teams[3].TeamName != "Team 4")
+                if (game.Teams[3].TeamName != "Team 4")
                 {
-                    lblTeamFour.Text = "Team 4\n" + teams[3].TeamName;
+                    lblTeamFour.Text = "Team 4\n" + game.Teams[3].TeamName;
                 }
             }
         }
@@ -412,46 +395,46 @@ namespace Jeopardy
         private void MoveToNextTeam()
         {
             //We assume there will always be at least two teams, so automatically move onto team two (team[1])
-            if (currentTeam == teams[0])
+            if (currentTeam == game.Teams[0])
             {
-                currentTeam = teams[1];
+                currentTeam = game.Teams[1];
                 pnlTeamOne.BackColor = SystemColors.Control;
                 pnlTeamTwo.BackColor = Color.LightBlue;
             }
             //The rest of these else ifs make sure the next team isn't null, and if they are, go back to team one (team[0])
-            else if (currentTeam == teams[1])
+            else if (currentTeam == game.Teams[1])
             {
-                if (teams[2] != null)
+                if (game.Teams[2] != null)
                 {
-                    currentTeam = teams[2];
+                    currentTeam = game.Teams[2];
                     pnlTeamTwo.BackColor = SystemColors.Control;
                     pnlTeamThree.BackColor = Color.LightBlue;
                 }
                 else
                 {
-                    currentTeam = teams[0];
+                    currentTeam = game.Teams[0];
                     pnlTeamOne.BackColor = Color.LightBlue;
                     pnlTeamTwo.BackColor = SystemColors.Control;
                 }
             }
-            else if (currentTeam == teams[2])
+            else if (currentTeam == game.Teams[2])
             {
-                if (teams[3] != null)
+                if (game.Teams[3] != null)
                 {
-                    currentTeam = teams[3];
+                    currentTeam = game.Teams[3];
                     pnlTeamThree.BackColor = SystemColors.Control;
                     pnlTeamFour.BackColor = Color.LightBlue;
                 }
                 else
                 {
-                    currentTeam = teams[0];
+                    currentTeam = game.Teams[0];
                     pnlTeamOne.BackColor = Color.LightBlue;
                     pnlTeamThree.BackColor = SystemColors.Control;
                 }
             }
-            else if (currentTeam == teams[3])
+            else if (currentTeam == game.Teams[3])
             {
-                currentTeam = teams[0];
+                currentTeam = game.Teams[0];
                 pnlTeamOne.BackColor = Color.LightBlue;
                 pnlTeamFour.BackColor = SystemColors.Control;
             }
@@ -463,19 +446,19 @@ namespace Jeopardy
             if (answeredCorrectly == true)
             {
                 //Checks which team is the currentTeam, and gives them the points for answering it correctly
-                if (currentTeam == teams[0])
+                if (currentTeam == game.Teams[0])
                 {
                     nudTeamOne.Value += theQuestion.Weight;
                 }
-                else if (currentTeam == teams[1])
+                else if (currentTeam == game.Teams[1])
                 {
                     nudTeamTwo.Value += theQuestion.Weight;
                 }
-                else if (currentTeam == teams[2])
+                else if (currentTeam == game.Teams[2])
                 {
                     nudTeamThree.Value += theQuestion.Weight;
                 }
-                else if (currentTeam == teams[3])
+                else if (currentTeam == game.Teams[3])
                 {
                     nudTeamFour.Value += theQuestion.Weight;
                 }
@@ -483,19 +466,19 @@ namespace Jeopardy
             else if (answeredCorrectly == false)
             {
                 //Checks which team is the currentTeam, and takes away the points for answering it wrong
-                if (currentTeam == teams[0])
+                if (currentTeam == game.Teams[0])
                 {
                     nudTeamOne.Value -= theQuestion.Weight;
                 }
-                else if (currentTeam == teams[1])
+                else if (currentTeam == game.Teams[1])
                 {
                     nudTeamTwo.Value -= theQuestion.Weight;
                 }
-                else if (currentTeam == teams[2])
+                else if (currentTeam == game.Teams[2])
                 {
                     nudTeamThree.Value -= theQuestion.Weight;
                 }
-                else if (currentTeam == teams[3])
+                else if (currentTeam == game.Teams[3])
                 {
                     nudTeamFour.Value -= theQuestion.Weight;
                 }
@@ -507,23 +490,23 @@ namespace Jeopardy
             //Changes the time limit to whatever the user selected on the form
             if (cboQuestionTimeLimit.SelectedIndex == 0)
             {
-                currentGame.QuestionTimeLimit = new TimeSpan(0, 0, 30);
+                game.QuestionTimeLimit = new TimeSpan(0, 0, 30);
             }
             else if (cboQuestionTimeLimit.SelectedIndex == 1)
             {
-                currentGame.QuestionTimeLimit = new TimeSpan(0, 1, 0);
+                game.QuestionTimeLimit = new TimeSpan(0, 1, 0);
             }
             else if (cboQuestionTimeLimit.SelectedIndex == 2)
             {
-                currentGame.QuestionTimeLimit = new TimeSpan(0, 1, 30);
+                game.QuestionTimeLimit = new TimeSpan(0, 1, 30);
             }
             else if (cboQuestionTimeLimit.SelectedIndex == 3)
             {
-                currentGame.QuestionTimeLimit = new TimeSpan(0, 2, 0);
+                game.QuestionTimeLimit = new TimeSpan(0, 2, 0);
             }
             else if (cboQuestionTimeLimit.SelectedIndex == 4)
             {
-                currentGame.QuestionTimeLimit = new TimeSpan(0, 3, 0);
+                game.QuestionTimeLimit = new TimeSpan(0, 3, 0);
             }
             bwUpdateTimeLimit.RunWorkerAsync();
         }
@@ -531,7 +514,7 @@ namespace Jeopardy
         private void bwUpdateTimeLimit_DoWork(object sender, DoWorkEventArgs e) //also update in db for future games
         {
             //Updates the database whenever the user changes the question time limit
-            if (!DB_Update.UpdateGameQuestionTimeLimit(currentGame.QuestionTimeLimit, currentGame.Id))
+            if (!DB_Update.UpdateGameQuestionTimeLimit(game.QuestionTimeLimit, game.Id))
             {
                 MessageBox.Show("Error updating Game name");
             }
@@ -554,40 +537,40 @@ namespace Jeopardy
         private void nudTeamOne_ValueChanged(object sender, EventArgs e)
         {
             //Assigns the team score to the value of the numeric up down on the form
-            teams[0].Score = (int)nudTeamOne.Value;
+            game.Teams[0].Score = (int)nudTeamOne.Value;
             pnlGameboard.Focus();
         }
 
         private void nudTeamTwo_ValueChanged(object sender, EventArgs e)
         {
             //Assigns the team score to the value of the numeric up down on the form
-            teams[1].Score = (int)nudTeamTwo.Value;
+            game.Teams[1].Score = (int)nudTeamTwo.Value;
             pnlGameboard.Focus();
         }
 
         private void nudTeamThree_ValueChanged(object sender, EventArgs e)
         {
             //Assigns the team score to the value of the numeric up down on the form
-            teams[2].Score = (int)nudTeamThree.Value;
+            game.Teams[2].Score = (int)nudTeamThree.Value;
             pnlGameboard.Focus();
         }
 
         private void nudTeamFour_ValueChanged(object sender, EventArgs e)
         {
             //Assigns the team score to the value of the numeric up down on the form
-            teams[3].Score = (int)nudTeamFour.Value;
+            game.Teams[3].Score = (int)nudTeamFour.Value;
             pnlGameboard.Focus();
         }
 
         private void frmPlayGame_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!CheckGameDone())
+            if (!game.CheckGameOver())
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure you want to quit this unfinished game?", "Confirm Quit", MessageBoxButtons.YesNoCancel);
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    ResetGame();
+                    game.ResetStatesToNull();
                     e.Cancel = false;
                 }
                 else
@@ -597,18 +580,7 @@ namespace Jeopardy
             }
             else
             {
-                ResetGame();
-            }
-        }
-
-        private void ResetGame()
-        {
-            foreach (Category c in currentGame.Categories)
-            {
-                foreach (Question q in c.Questions)
-                {
-                    q.State = "";
-                }
+                game.ResetStatesToNull();
             }
         }
     }
