@@ -2,23 +2,23 @@
 {
     public class Team
     {
-        private int? id;
+        private int index;
         private string teamName;
         private int score;
 
         public Team() { }
 
-        public Team(int? id, string teamName, int score = 0)
+        public Team(int index, string teamName, int score = 0)
         {
-            Id = id;
+            Index = index;
             TeamName = teamName;
             Score = score;
         }
 
-        public int? Id
+        public int Index
         {
-            get => id;
-            set => id = value;
+            get => index;
+            set => index = value;
         }
 
         public string TeamName
@@ -52,6 +52,5 @@
                 }
             }
         }
-
     }
 }
