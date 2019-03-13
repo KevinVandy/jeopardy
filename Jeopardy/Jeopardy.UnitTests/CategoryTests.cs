@@ -71,13 +71,14 @@ namespace Jeopardy.UnitTests
         }
 
         [TestMethod]
-        public void SetCategoryTitle_SetLength202_ReturnLength202()
+        public void SetCategoryTitle_SetLength202_ReturnEmpty()
         {
             Category category = new Category();
 
-            category.Title = "Nature's first green is gold, her hardest hue to hold. Her early leaf's a flower, but only so an hour. Then leaf subsides to leaf, so Eden sank to grief. So dawn goes down to day, Nothing Gold Can Stay.";
+            string temp = "Nature's first green is gold, her hardest hue to hold. Her early leaf's a flower, but only so an hour. Then leaf subsides to leaf, so Eden sank to grief. So dawn goes down to day, Nothing Gold Can Stay.";
+            category.Title = temp;
 
-            Assert.AreEqual(category.Title, "Nature's first green is gold, her hardest hue to hold. Her early leaf's a flower, but only so an hour. Then leaf subsides to leaf, so Eden sank to grief. So dawn goes down to day, Nothing Gold Can Stay.");
+            Assert.AreEqual(category.Title, " ");
         }
 
         [TestMethod]
