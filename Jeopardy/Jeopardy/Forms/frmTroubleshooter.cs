@@ -32,7 +32,20 @@ namespace Jeopardy.Forms.Admin
             }
             else
             {
-                MessageBox.Show("The database could not be Compacted and Repaired. You will need to open up the games.accdb file in access if you want to still compact and repair. Refer to the Help manual for more instructions.", "Failure to Optimize", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult dialogResult = MessageBox.Show("The database could not be Compacted and Repaired. You will need to open up the games.accdb file in Access if you want to still compact and repair. \n\nDo you want to open the folder where the database is located so that you can open it in Access?\n\nWarning. Don't delete anything in this folder!", "Failure to Optimize", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error);
+
+                if(dialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019");
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("Could not find the folder:\n" + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Jeopardy2019");
+                        Console.Write(ex.ToString());
+                    }
+                }
             }
 
             EnableAllControls();
