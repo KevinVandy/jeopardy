@@ -13,8 +13,7 @@ namespace Jeopardy
 
         private Question question;
         private TimeSpan timeLimit;
-
-
+        
         public frmTrueFalse(Question question, TimeSpan timeLimit)
         {
             this.question = question;
@@ -131,6 +130,11 @@ namespace Jeopardy
                 System.Media.SystemSounds.Hand.Play(); //warning sound
                 lblTimer.ForeColor = Color.DarkRed;
             }
+        }
+
+        private void frmTrueFalse_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer.Stop();
         }
     }
 }

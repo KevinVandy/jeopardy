@@ -392,6 +392,11 @@ namespace Jeopardy
             }
         }
 
+        private void btnSkipTurn_Click(object sender, EventArgs e)
+        {
+            MoveToNextTeam();
+        }
+
         private void MoveToNextTeam()
         {
             //We assume there will always be at least two teams, so automatically move onto team two (team[1])
@@ -583,5 +588,7 @@ namespace Jeopardy
                 game.ResetStatesToNull();
             }
         }
+
+        
     }
 }

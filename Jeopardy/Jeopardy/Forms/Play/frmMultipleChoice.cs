@@ -202,5 +202,10 @@ namespace Jeopardy
                 lblTimer.ForeColor = Color.DarkRed;
             }
         }
+
+        private void frmMultipleChoice_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer.Stop();
+        }
     }
 }

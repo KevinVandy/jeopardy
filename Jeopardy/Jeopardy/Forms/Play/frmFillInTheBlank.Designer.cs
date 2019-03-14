@@ -179,7 +179,7 @@
             this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(957, 622);
+            this.ClientSize = new System.Drawing.Size(953, 618);
             this.ControlBox = false;
             this.Controls.Add(this.lblCorrectIncorrect);
             this.Controls.Add(this.btnOverwrite);
@@ -205,6 +205,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fill in the Blank";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmFillInTheBlank_FormClosing);
             this.Load += new System.EventHandler(this.frmFillInTheBlank_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

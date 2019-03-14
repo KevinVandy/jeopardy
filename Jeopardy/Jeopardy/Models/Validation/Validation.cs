@@ -138,6 +138,16 @@ namespace Jeopardy
             return false;
         }
 
+        public static bool ValidateQuestionState(string questionState)
+        {
+            string[] validStates = new string[] { "", "Answered", "no question", "no answer", "no choices" }; //fill in the blank, multiple choice, true/false
+            if (validStates.Contains(questionState))
+            {
+                return true;
+            }
+            return false;
+        }
+
         //MARK: Validate Choice properties
         public static bool ValidateChoiceIndex(int index)
         {

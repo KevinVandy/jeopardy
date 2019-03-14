@@ -44,6 +44,7 @@
             this.nudTeamFour = new System.Windows.Forms.NumericUpDown();
             this.lblTeamFour = new System.Windows.Forms.Label();
             this.gbxScoreBoard = new System.Windows.Forms.GroupBox();
+            this.btnSkipTurn = new System.Windows.Forms.Button();
             this.cboQuestionTimeLimit = new System.Windows.Forms.ComboBox();
             this.lblQuestionTimeLimit = new System.Windows.Forms.Label();
             this.bwUpdateTimeLimit = new System.ComponentModel.BackgroundWorker();
@@ -282,6 +283,7 @@
             // gbxScoreBoard
             // 
             this.gbxScoreBoard.BackColor = System.Drawing.SystemColors.Control;
+            this.gbxScoreBoard.Controls.Add(this.btnSkipTurn);
             this.gbxScoreBoard.Controls.Add(this.cboQuestionTimeLimit);
             this.gbxScoreBoard.Controls.Add(this.lblQuestionTimeLimit);
             this.gbxScoreBoard.Controls.Add(this.pnlTeamOne);
@@ -294,6 +296,17 @@
             this.gbxScoreBoard.TabIndex = 2;
             this.gbxScoreBoard.TabStop = false;
             // 
+            // btnSkipTurn
+            // 
+            this.btnSkipTurn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSkipTurn.Location = new System.Drawing.Point(25, 83);
+            this.btnSkipTurn.Name = "btnSkipTurn";
+            this.btnSkipTurn.Size = new System.Drawing.Size(148, 31);
+            this.btnSkipTurn.TabIndex = 38;
+            this.btnSkipTurn.Text = "Skip Turn";
+            this.btnSkipTurn.UseVisualStyleBackColor = true;
+            this.btnSkipTurn.Click += new System.EventHandler(this.btnSkipTurn_Click);
+            // 
             // cboQuestionTimeLimit
             // 
             this.cboQuestionTimeLimit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -305,7 +318,7 @@
             "90 seconds",
             "2 minutes",
             "3 minutes"});
-            this.cboQuestionTimeLimit.Location = new System.Drawing.Point(19, 51);
+            this.cboQuestionTimeLimit.Location = new System.Drawing.Point(25, 42);
             this.cboQuestionTimeLimit.Name = "cboQuestionTimeLimit";
             this.cboQuestionTimeLimit.Size = new System.Drawing.Size(148, 28);
             this.cboQuestionTimeLimit.TabIndex = 37;
@@ -315,7 +328,7 @@
             // 
             this.lblQuestionTimeLimit.AutoSize = true;
             this.lblQuestionTimeLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestionTimeLimit.Location = new System.Drawing.Point(15, 27);
+            this.lblQuestionTimeLimit.Location = new System.Drawing.Point(21, 18);
             this.lblQuestionTimeLimit.Name = "lblQuestionTimeLimit";
             this.lblQuestionTimeLimit.Size = new System.Drawing.Size(152, 20);
             this.lblQuestionTimeLimit.TabIndex = 36;
@@ -382,5 +395,6 @@
         private System.Windows.Forms.ComboBox cboQuestionTimeLimit;
         private System.Windows.Forms.Label lblQuestionTimeLimit;
         private System.ComponentModel.BackgroundWorker bwUpdateTimeLimit;
+        private System.Windows.Forms.Button btnSkipTurn;
     }
 }

@@ -147,6 +147,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "True or False";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTrueFalse_FormClosing);
             this.Load += new System.EventHandler(this.frmTrueFalse_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

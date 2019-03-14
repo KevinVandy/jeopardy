@@ -154,5 +154,10 @@ namespace Jeopardy
             }
 
         }
+
+        private void frmFillInTheBlank_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer.Stop();
+        }
     }
 }

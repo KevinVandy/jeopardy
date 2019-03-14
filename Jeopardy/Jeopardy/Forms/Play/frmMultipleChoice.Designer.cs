@@ -221,7 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1047, 606);
+            this.ClientSize = new System.Drawing.Size(1043, 602);
             this.ControlBox = false;
             this.Controls.Add(this.pnlRadioButtons);
             this.Controls.Add(this.btnSubmit);
@@ -241,6 +241,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Multiple Choice";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMultipleChoice_FormClosing);
             this.Load += new System.EventHandler(this.frmMultipleChoice_Load);
             this.pnlRadioButtons.ResumeLayout(false);
             this.pnlRadioButtons.PerformLayout();
