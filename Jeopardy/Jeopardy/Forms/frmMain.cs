@@ -19,7 +19,7 @@ namespace Jeopardy
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            lblStatus.Text = "Loading Games";
+            lblStatus.Text = "Loading Games...";
             bwLoadGames.RunWorkerAsync(); //start background thread to load games
         }
 
@@ -45,7 +45,7 @@ namespace Jeopardy
         private void btnPlayGame_Click(object sender, EventArgs e) //Play Game Button
         {
             UseWaitCursor = true;
-            lblStatus.Text = "Loading the Game";
+            lblStatus.Text = "Loading Game...";
             DisableAllControls();
             bwLoadGameToPlay.RunWorkerAsync();
         }
@@ -81,7 +81,7 @@ namespace Jeopardy
         private void btnEditGame_Click(object sender, EventArgs e) //Edit Game Button
         {
             UseWaitCursor = true;
-            lblStatus.Text = "Loading the Game";
+            lblStatus.Text = "Loading Game...";
             DisableAllControls();
             bwLoadGameToEdit.RunWorkerAsync();
         }
@@ -108,7 +108,7 @@ namespace Jeopardy
             if (dialogResult == DialogResult.Yes)
             {
                 UseWaitCursor = true;
-                lblStatus.Text = "Deleting the Game";
+                lblStatus.Text = "Deleting Game...";
                 DisableAllControls();
                 bwDeleteGame.RunWorkerAsync();
             }
@@ -128,7 +128,7 @@ namespace Jeopardy
         private void btnExportGame_Click(object sender, EventArgs e) //Export Game button
         {
             UseWaitCursor = true;
-            lblStatus.Text = "Getting Ready to Export";
+            lblStatus.Text = "Exporting...";
             DisableAllControls();
             bwLoadGameToExport.RunWorkerAsync();
         }
@@ -147,7 +147,7 @@ namespace Jeopardy
 
         private void btnImportGame_Click(object sender, EventArgs e) //Import Game button
         {
-            lblStatus.Text = "Getting Ready to Import";
+            lblStatus.Text = "Importing...";
             DisableAllControls();
             using (var fbd = new OpenFileDialog())
             {

@@ -299,7 +299,7 @@
             // btnSkipTurn
             // 
             this.btnSkipTurn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSkipTurn.Location = new System.Drawing.Point(25, 83);
+            this.btnSkipTurn.Location = new System.Drawing.Point(27, 14);
             this.btnSkipTurn.Name = "btnSkipTurn";
             this.btnSkipTurn.Size = new System.Drawing.Size(148, 31);
             this.btnSkipTurn.TabIndex = 38;
@@ -318,7 +318,7 @@
             "90 seconds",
             "2 minutes",
             "3 minutes"});
-            this.cboQuestionTimeLimit.Location = new System.Drawing.Point(25, 42);
+            this.cboQuestionTimeLimit.Location = new System.Drawing.Point(27, 81);
             this.cboQuestionTimeLimit.Name = "cboQuestionTimeLimit";
             this.cboQuestionTimeLimit.Size = new System.Drawing.Size(148, 28);
             this.cboQuestionTimeLimit.TabIndex = 37;
@@ -328,7 +328,7 @@
             // 
             this.lblQuestionTimeLimit.AutoSize = true;
             this.lblQuestionTimeLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestionTimeLimit.Location = new System.Drawing.Point(21, 18);
+            this.lblQuestionTimeLimit.Location = new System.Drawing.Point(23, 57);
             this.lblQuestionTimeLimit.Name = "lblQuestionTimeLimit";
             this.lblQuestionTimeLimit.Size = new System.Drawing.Size(152, 20);
             this.lblQuestionTimeLimit.TabIndex = 36;
