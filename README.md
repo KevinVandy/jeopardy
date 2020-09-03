@@ -12,4 +12,4 @@ Create New Games and Edit them
 
 ![Alt Text](https://i.imgur.com/d5kwKGw.png)
 
-![Alt Text](https://i.imgur.com/XfwVEKe.mp4)
+![Alt Text](https://i.imgur.com/M9FcYHr.mp4)
