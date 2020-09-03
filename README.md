@@ -6,10 +6,10 @@ Kevin Van Cott, Ryan Harpham, Tyler Sweeney, Forrest Burroughs, Brandon Paxton
 
 Play a game of Jeopardy
 
-![Alt Text](https://i.imgur.com/RkAjuoX.mp4)
+![Play Game Demo](https://media3.giphy.com/media/iJVQ6SkLC0uJxexfxe/giphy.gif)
 
 Create New Games and Edit them
 
-![Alt Text](https://i.imgur.com/d5kwKGw.png)
+![New Game Demo](https://i.imgur.com/d5kwKGw.png)
 
-![Alt Text](https://i.imgur.com/M9FcYHr.mp4)
+![Edit Game Demo](https://media2.giphy.com/media/iIvgElftGEBzqYi4kk/giphy.gif)
