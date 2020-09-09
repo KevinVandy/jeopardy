@@ -14,4 +14,4 @@ Create New Games and Edit them
 
 ![Edit Game Demo](https://media2.giphy.com/media/iIvgElftGEBzqYi4kk/giphy.gif)
 
-Want to download? You can download the latest release ![here](https://github.com/KevinVandy/jeopardy/releases)
+Want to download? You can download the latest release [here](https://github.com/KevinVandy/jeopardy/releases)
